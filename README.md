@@ -90,43 +90,6 @@ SuperCMS是一款基于Node、Express、MySQL、Vue3研发的高质量实用型C
   ```
 
 * **注:SuperCMS自带基于vue3+element-plus+js研发的后台管理界面,如果不满足你编码风格，如native等其它UI，或热衷于如react + antd + TS技术，可以自行调用接口进行二次开发**
-* **后台管理ChanAdmin源码以及接口参考 [https://gitee.com/yanyutao0402/ChanAdmin](https://gitee.com/yanyutao0402/ChanAdmin)**
-
-### 🍅️案例
-
-* 案例一   [香港日报](http://www.hongkongdaily.net/)
-* 案例二   [国际健康健美长寿论坛](http://www.internationjms.cn/)
-* 案例三   [世界大健康运动联盟](http://www.worldhealthgames.com/)
-* 案例四   [世界气功网](http://www.shijieqigong.com/)
-* 案例五   [诺德房产](https://www.nuodefangchan.com/)
-* 案例六   [蝌蚪云](https://kd-yun.top/)
-* 案例七   [昂翊信息](http://www.angyi-iot.com/)
-* 案例八   [萌狮换电](http://www.51mshd.com/)
-* 案例九   [七弈国象](https://doc.7yi.link/)
-* 案例十   [历史人物网](https://ancestries.cn/)
-* 案例十一 [同宇宙官网](http://www.zdmedia.com.cn:81/)
-* 案例十二 [HANSA中国](http://www.hansa-asia.com/)
-* 案例十三 [北京智慧城市供需对接平台](https://gongxudj.com/#/headerNav/newHome)
-* 案例十四 [精通有道IT技术团队官网](http://www.wmjtyd.net/)
-* 案例十五 [北京辉达环保科技有限公司](http://www.huidaep.com/)
-<!-- * 案例十   [超前端](https://zoye.top/) -->
-
-* 演示站1  [雅俗共赏](http://www.cqsmservices.cn/)
-
-## 👵开发文档
-
-* **官网:<https://cms.foryet.com>**
-* **官网文档 <https://cms.foryet.com/docs/index.html>**
-* **视频教程：<https://space.bilibili.com/1885628820>**
-
-## ❤️项目关注
-
-* **码云：<https://gitee.com/yanyutao0402/chanyue-cms>**
-
-## 👴项目交流
-
- 如果喜欢我们的项目，请点个 Star。
- 微信群交流请联系微信: `yanyutao2014` 🧒 👧 👱  🧔 👴,纯技术交流，广告党勿扰，谢谢合作！！！
 
 ## 许可证
 
@@ -138,10 +101,3 @@ SuperCMS是一款基于Node、Express、MySQL、Vue3研发的高质量实用型C
 * 不当使用本项目中的代码或资源而导致的任何直接或间接损失，项目维护者及贡献者概不负责。
 * 请尊重法律和道德规范，合理合法地使用本项目的资源。
 * 任何违反上述规定的行为都将受到法律追究。
-
-## 管理后台部分截图
-
-![登录](https://pic.imgdb.cn/item/6749e83fd0e0a243d4db4f12.jpg)
-![board](https://pic.imgdb.cn/item/6749e83fd0e0a243d4db4f11.jpg)
-![category](https://pic.imgdb.cn/item/6749e83fd0e0a243d4db4f10.jpg)
-![article](https://pic.imgdb.cn/item/6749e83fd0e0a243d4db4f13.jpg)
