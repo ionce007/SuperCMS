@@ -33,10 +33,3 @@ SuperCMS-admin是SuperCMS后台管理界面源码，基于vue3、vue-router、 p
 * 5.SuperCMS后台所有操作功能
 * 6.环境配置，dev、sit、prod
 * 7.打包配置
-
-## 项目截图
-
-![登录](https://pic.imgdb.cn/item/6749e83fd0e0a243d4db4f12.jpg)
-![board](https://pic.imgdb.cn/item/6749e83fd0e0a243d4db4f11.jpg)
-![category](https://pic.imgdb.cn/item/6749e83fd0e0a243d4db4f10.jpg)
-![article](https://pic.imgdb.cn/item/6749e83fd0e0a243d4db4f13.jpg)
