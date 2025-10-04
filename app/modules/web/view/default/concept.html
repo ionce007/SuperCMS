@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"content="{{site.description}}">
+    <meta name="keywords" content="{{site.keywords}}"/>
+    <meta property="og:title" content="{{site.title}}" />
+    <meta property="og:description" content="{{site.description}}" />
+    <title>{{site.title}}-基于大数据的股票交易策略</title>
+    {{include './common/meta.html'}}
+    <link rel="stylesheet" href="{{static_url}}/css/flatpickr.min.css" />
+    <link rel="stylesheet" href="{{static_url}}/css/stock.css?v=123" />
+    
+<body class="bg-f8f8f8">
+    <!-- 头部 -->
+    {{include './common/header.html'}}
+    
+    <!-- banner -->
+    <section class="banner flex justify-center">
+        <h3 class="chanyue text-c">缠说・股经</h3>
+        <p class="f-20 text-c mt-20">基于大数据的股票交易策略</p>
+    </section>
+
+    <!--<section class="main center flex justify-between flex-wrap pd-30 ">-->
+        <div class="tab-container">
+            <!-- 页签导航 -->
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="tab1">新增概念时间表</button>
+                <button class="tab-btn" data-tab="tab2">成份股动态</button>
+            </div>
+        
+            <!-- 页签内容 -->
+            <div class="tab-content">
+                <!-- 第一个页签 -->
+                <div id="tab1" class="tab-pane active">
+                    <div class="data-concept-list">
+                        <!--<sapn class="hotstock-time active" data-key="hour">1小时</sapn><sapn class="hotstock-time" data-key="day">24小时</sapn>-->
+                    </div>
+                    <div class="data-list" id="addNewConcept"></div>
+                </div>
+                <div id="tab2" class="tab-pane">
+                    <div class="concept-date">
+                        <sapn class="concept-trends-date">变动日期：</sapn>
+                        <div class="concept-trends-date date-picker">
+                            <input type="text" id="tdate" readonly>
+                            <span class="calendar-icon"></span>
+                        </div>
+                    </div>
+                    <div class="data-list concept-change" id="componentChange"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-overlay" id="modalOverlay"></div>
+        
+        <div class="modal-dialog" id="modalDialog">
+            <div class="modal-header">
+                <h3 class="modal-title">上榜原因</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content">
+                    <h4 id="modalItemTitle"></h4>
+                    <div id="modalItemDesc"></div>
+                    <!--<div class="modal-meta">
+                        <span id="modalItemAuthor"></span>
+                        <span id="modalItemDate"></span>
+                    </div>-->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-action-btn close">关闭</button>
+                <!--<button class="modal-action-btn primary">关闭</button>-->
+            </div>
+        </div>
+    <!--</section>-->
+
+    {{include './common/footer.html'}}
+
+    <!--<div class=" ignore mb-20 mt-20 pd-20 bg-f2f2f2">
+        <h1>SuperCMS 当前页面数据：</h1>
+        <p class="mb-20">data-> {{calendar.data.date_list}} </p>
+    </div>-->
+
+
+    <!-- 移动端导航 -->
+    {{include './common/wap-nav.html'}}
+    {{include './common/js.html'}}
+    <script src="{{static_url}}/js/flatpickr.js"></script>
+    <script src="{{static_url}}/js/stock.js"></script>
+    <script src="{{static_url}}/js/md5.js"></script>
+    <!--<script src="{{static_url}}/js/thsEncrypt.2.js"></script>
+    <script src="{{static_url}}/js/thsEncrypt.1.js"></script>-->
+</body>
+    <script type="text/javascript">
+        const allowDates = eval(`{{calendar.data.date_list}}`.replaceAll("&#34;", "\""));
+        (async function () {
+            fillAddNewConcept();
+            fillConceptChange();
+        })();
+        
+        flatpickr.l10ns.zh = {
+            weekdays: {
+                shorthand: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+                longhand: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+            },
+            months: {
+                shorthand: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+                longhand: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]
+            },
+            rangeSeparator: " 至 ",
+            weekAbbreviation: "周",
+            scrollTitle: "滚动切换",
+            toggleTitle: "点击切换 12/24 小时时制"
+        };
+        var fp = flatpickr("#tdate", { 
+            dateFormat: "Y-m-d",
+            locale: 'zh',
+            allowInput: false,
+            disableMobile: true,
+            clickOpens: true,
+            onReady: function () {
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    //this._input.removeAttribute("readonly");
+                }
+            },
+            defaultDate: allowDates[allowDates.length-1],
+            //disable: function(date) { return allowDates.indexOf(date)<0; },
+            onOpen: function (selectedDates, dateStr, instance) {
+               disableNotAllowDates();
+            },
+            onMonthChange:function(selectedDates, dateStr, instance){ disableNotAllowDates(); },
+            onYearChange: function (selectedDates, dateStr, instance) { disableNotAllowDates(); },
+            onClose: function(dateObject, dateString){
+                console.log(' dateObject = ', dateObject)
+                console.log(' dateString = ', dateString)
+            },
+            onChange: function(data, date){
+                fillConceptChange(date);
+            }
+        });
+        function disableNotAllowDates(){
+            const dates = document.querySelectorAll('.flatpickr-day');
+            dates.forEach(item => {
+                const dateS = item.getAttribute('aria-label');
+                const dateArr = dateS.replace('月', ',').split(',');
+                const date = formatDate(new Date(parseInt(dateArr[2]), parseInt(dateArr[0]) - 1, parseInt(dateArr[1])), 'yyyy-MM-dd').trim();
+                if (allowDates.indexOf(date) < 0) {
+                    item.setAttribute('aria-disabled', 'true');
+                }
+            })
+        }
+        document.addEventListener('click', function(event) {
+            const flatpickrCalendar = document.querySelector('.flatpickr-calendar');
+            const dateInput = document.getElementById('tdate');
+            
+            // 检查点击是否发生在日期选择器外部
+            if (flatpickrCalendar && 
+                flatpickrCalendar.style.display !== 'none' &&
+                !flatpickrCalendar.contains(event.target) &&
+                event.target !== dateInput &&
+                !dateInput.contains(event.target)) {
+                
+                // 关闭日期选择器
+                fp.close();
+            }
+        });
+    </script>
+</html>

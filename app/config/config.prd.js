@@ -1,0 +1,53 @@
+const dotEnv = require('dotenv');
+const base = require("./config.base.js");
+const data = require("./data/index.js");
+const config = { ...base, ...data };
+
+//mysql配置
+dotEnv.config();
+config.db = [
+  {
+    client: "mysql2",
+    host: process.env.MYSQL_HOST,
+    port: process.env.MYSQL_PORT || 3306,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DB,
+    debug: false,
+  },
+];
+
+//web端口
+config.port = "81";
+
+//静态资源
+config.static = [...base.static];
+
+// jwt 配置
+config.token = {
+  KEY: "SuperCMS",
+  TIME: "1d",
+  REFRESH: false, //是否开启刷新token
+};
+
+// bcrypt 加盐
+config.secretcms = {
+  key: 10,
+};
+
+//cors
+config.cors = {
+  origin: "*", //或者['http://localhost:8080', 'http://localhost:8081']
+};
+
+//多个views
+config.views = []; //path.join(config.appRoot, `modules/web/view`)
+
+// 模板缓存 dev 环境不缓存 prod 环境缓存
+config.env = "prd";
+
+config.logger = {
+  level: "tiny",
+};
+
+module.exports = config;

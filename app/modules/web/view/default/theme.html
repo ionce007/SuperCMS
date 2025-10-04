@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"content="{{site.description}}">
+    <meta name="keywords" content="{{site.keywords}}"/>
+    <meta property="og:title" content="{{site.title}}" />
+    <meta property="og:description" content="{{site.description}}" />
+    <title>{{site.title}}-基于大数据的股票交易策略</title>
+    {{include './common/meta.html'}}
+    <link rel="stylesheet" href="{{static_url}}/css/stock.css" />
+    <script src="{{static_url}}/js/stock.js"></script>
+    
+<body class="bg-f8f8f8">
+    <!-- 头部 -->
+    {{include './common/header.html'}}
+    
+    <!-- banner -->
+    <section class="banner flex justify-center">
+        <h3 class="chanyue text-c">缠说・股经</h3>
+        <p class="f-20 text-c mt-20">基于大数据的股票交易策略</p>
+    </section>
+
+    <!--<section class="main center flex justify-between flex-wrap pd-30 ">-->
+        <div class="theme-container">
+            <h1 class="page-title timeline-title-w100">题材发掘</h1>
+            <div class="theme-pane">
+                <h3 class="timeline-title timeline-title-w100" id="tomorrowTitle">{{tomorrowFry.isToday ? '今' : '明'}}天炒什么</h3>
+                <div class="data-tomorrow-list" id="fryTomorrow">
+                    {{if tomorrowFry.data.length > 0}}
+                        {{each tomorrowFry.data}}
+                        {{if !$value.themeName}}
+                            <div class="data-item">
+                                <div class="item-content">
+                                    <div class="item-stock">
+                                        <div class="theme-title ">
+                                            <span class="theme-sortnum">{{$value.sortNum}}</span>
+                                            <span class="theme-name ellipsis">{{$value.title}}</span>
+                                        </div>
+                                        {{if $value.isHot}}
+                                        <span><img src="/web/default/img/hotTheme.png" style="width:80px;height:22px;" /></span>
+                                        {{/if}}
+                                    </div>
+                                    <p class="margin-12">{{$value.summary}}</p>
+                                </div>
+                            </div>
+                        {{else}}
+                            <div class="data-item">
+                                <div class="item-content">
+                                    <div class="item-stock">
+                                        <div class="theme-title ">
+                                            <span class="theme-sortnum">{{$value.sortNum}}</span>
+                                            <span class="theme-name">{{$value.themeName}}</span>
+                                            <span class="theme-ztnum">涨停{{$value.fex3}}</span>
+                                        </div>
+                                        {{if $value.isHot}} 
+                                        <span><img src="/web/default/img/hotTheme.png" style="width:80px;height:22px;" /></span>
+                                        {{/if}}
+                                    </div>
+                                    <p class="margin-12">{{$value.title}}</p>
+                                    <div class="item-meta inline-flex gap-5">
+                                        <div class="item-stock-container">
+                                            <div class="item-stock">
+                                                <span>最近30日涨幅</span>
+                                                <span>{{!$value.cumulateF3 ? '--' : ($value.cumulateF3.toFixed(2) + '%')}}</span>
+                                            </div>
+                                            <div class="chart-container" id="chart{{$value.eid}}">
+                                                <canvas class="data-chart" width="150" height="70" id="canvas{{$value.eid}}"></canvas>
+                                                <script>
+                                                    drawThemeKLine(document.getElementById(`canvas{{$value.eid}}`), eval(`{{ $value.kLineList }}`))
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="item-stock-container">
+                                            {{if !$value.stockList || $value.stockList.length === 0 }}
+                                            <div class="item-stock"></div>
+                                            {{else}}
+                                            <span>相关个股</span>
+                                            {{each $value.stockList}}
+                                                <div class="item-stock">
+                                                    <span class="item-stock-label">{{$value.name}}</span>
+                                                    {{if !$value.f3}}
+                                                    <span class="item-stock-label">--</span>
+                                                    {{else}}
+                                                    <span class="item-stock-label">{{$value.f3.toFixed(2)}}%</span>
+                                                    {{/if}}
+                                                    
+                                                </div>
+                                            {{/each}}
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/if}}
+                        {{/each}}
+                    {{else}}
+
+                    {{/if}}
+                </div>
+            </div>
+            <div class="theme-pane">
+                <h3 class="timeline-title">今日热点</h3>
+                <div class="data-list" id="todayChance">
+                    {{if todayChance.data && todayChance.data.length > 0 }}
+                    {{ each todayChance.data}}
+                    <div class="data-item">
+                        <div class="item-content">
+                            <div class="item-meta expect-concept-name">
+                                <h3>{{$value.themeName}}</h3>
+                                <span class="author"><span>热度：</span><span id="hotRank">{{($value.hotValue * 1.0000 / $value.hotValueUpLimit).toFixed(2)}}</span></span>
+                            </div>
+                            <p class="concept-desc">{{$value.newsTitle}}</p>
+                            <div class="item-meta">
+                                <span class="theme-trend"><span>涨跌：</span><span id="up_down">{{if !$value.f104}} {{if $value.f104 === null || $value.f104 === 0}} 0 {{else}} -- {{/if}} {{else}}{{$value.f104}}{{/if}}/{{if !$value.f106 }}{{if $value.f106 === 0 || $value.f106 === null}} 0 {{else}} -- {{/if}}{{else}}{{$value.f106}}{{/if}}/{{if !$value.f105}}{{if $value.f105 === 0 || $value.f105 === null }} 0 {{else}} -- {{/if}} {{else}}{{$value.f105}}{{/if}}</span></span>
+                                <span class="theme-trend"><span>涨跌停：</span><span id="updown_limit">{{if !$value.fex3}}{{if $value.fex3 === 0 || $value.fex3 === null }} 0 {{else}} -- {{/if}} {{else}}{{$value.fex3}}{{/if}}/{{if !$value.fex4}}{{if $value.fex4 === 0 || $value.fex4 === null }} 0 {{else}} -- {{/if}}{{else}}{{$value.fex4}}{{/if}}</span></span>
+                                <span class="theme-trend"><span>净注入：</span><span id="fundIn">{{if !$value.fex5}} -- {{else}} {{($value.fex5/100000000).toFixed(2)}}亿{{/if}}</span></span>
+                            </div>
+                            {{ if !$value.stock || $value.stock.length === 0}}
+                            <div class="item-meta"></div>
+                            {{else}}
+                            <div class="item-meta">
+                                {{each $value.stock}}
+                                    <span class="hotstock-today"><span>{{$value.name}}</span><span id="stock" class="ml-5">{{if !$value.f3}}--{{else}}{{$value.f3.toFixed(2)}}%{{/if}}</span></span>
+                                {{/each}}
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{else}}
+
+                    {{/if}}
+                </div>
+            </div>
+            <div class="timeline-container">
+                <h3 class="timeline-title">预期题材</h3>
+                <div class="timeline" id="expectTheme">
+                    {{ if expectHot.data && expectHot.data.length > 0 }}
+                    {{each expectHot.data}}
+                    {{if expectHot.data.indexOf($value) >= 3}}
+                    <div class="timeline-item timeline-hidden-items">
+                    {{else}}
+                    <div class="timeline-item">
+                    {{/if}}
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date"><script>document.write(formatDate(new Date({{$value.date}}), "yyyy-MM-dd"))</script></div>
+                            <div class="timeline-details">
+                                <div class="timeline-meta">
+                                    <h3>{{$value.theme[0].name}}</h3>
+                                    <span id="up_down" class="ml-15 pt-2">{{if !$value.theme[0].f3}}  {{else}}{{$value.theme[0].f3.toFixed(2)}}%{{/if}}</span>
+                                </div>
+                                <p>{{$value.summary}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <button class="toggle-timeline">展开全部 ▼</button>
+                    {{else}}
+
+                    {{/if}}
+
+                    <!-- 时间轴项1 -->
+                    <!--<div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2025-07-03</div>
+                            <div class="timeline-details">
+                                <div class="timeline-meta">
+                                    <h3>折叠屏</h3><span id="up_down" class="ml-15 pt-2">1.08%</span>
+                                </div>
+                                <p>荣耀将于7月2日发布最新一代AI折叠旗舰荣耀MagicV5。荣耀将于7月2日发布最新一代AI折叠旗舰荣耀MagicV5。荣耀将于7月2日发布最新一代AI折叠旗舰荣耀MagicV5。</p>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="theme-pane">
+                <h3 class="timeline-title">题材热榜</h3>
+                <div class="data-list" id="themeList">
+                    
+                    <!--<div class="data-item">
+                        <div class="item-content">
+                            <div class="item-meta">
+                                <span class="m-5">题材</span>
+                                <div class="concept-info">
+                                    <h3>兵装重组</h3>
+                                    <span class="concept-upnum">3家涨停</span>
+                                    <span class="author">涨幅：<span class="red ml-0 pl-0">8.91%</span></span>
+                                    <span class="author">热度：<span class="ml-0 pl-0">8911</span></span>
+                                </div>
+                                <span class="m-5">领涨个股</span>
+                                <div class="concept-info">
+                                    <h3>长城军工</h3>
+                                    <span class="author">涨幅：<span class="red ml-0 pl-0">8.91%</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-overlay" id="modalOverlay"></div>
+        
+        <div class="modal-dialog" id="modalDialog">
+            <div class="modal-header">
+                <h3 class="modal-title">上榜原因</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content">
+                    <h4 id="modalItemTitle"></h4>
+                    <div id="modalItemDesc"></div>
+                    <!--<div class="modal-meta">
+                        <span id="modalItemAuthor"></span>
+                        <span id="modalItemDate"></span>
+                    </div>-->
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button class="modal-action-btn close">关闭</button>
+            </div>-->
+        </div>
+    <!--</section>-->
+
+    {{include './common/footer.html'}}
+
+    <!-- 移动端导航 -->
+    {{include './common/wap-nav.html'}}
+    <!--<div class=" ignore mb-20 mt-20 pd-20 bg-f2f2f2">
+        <p class="mb-20">todayChance-> {{todayChance}} </p>
+    </div>-->
+    {{include './common/js.html'}}
+    
+</body>
+    <script>
+        
+        //fillTomorrowFry();
+        //fillTodayChance();
+        //fillExpectTheme();
+
+        fillThemeList()
+        clickToggleButton();
+        //showModalDialog();
+    </script>
+</html>

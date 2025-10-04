@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"content="{{site.description}}">
+    <meta name="keywords" content="{{site.keywords}}"/>
+    <meta property="og:title" content="{{site.title}}" />
+    <meta property="og:description" content="{{site.description}}" />
+    <title>{{site.title}}-基于大数据的股票交易策略</title>
+    {{include './common/meta.html'}}
+    <link rel="stylesheet" href="{{static_url}}/css/flatpickr.min.css" />
+    <link rel="stylesheet" href="{{static_url}}/css/font-awesome.all.min.css" />
+    <link rel="stylesheet" href="{{static_url}}/css/stock.css" />
+    <script src="{{static_url}}/js/stock.js"></script>
+<body class="bg-f8f8f8" id="app">
+    <!-- 头部 -->
+    {{include './common/header.html'}}
+    
+    <!-- banner -->
+    <section class="banner flex justify-center">
+        <h3 class="chanyue text-c">缠说・股经</h3>
+        <p class="f-20 text-c mt-20">基于大数据的股票交易策略</p>
+    </section>
+
+    <!--<section class="main center flex justify-between flex-wrap pd-30" id="app">-->
+        <div class="limit-tab-container">
+            <h1 class="page-title timeline-title-w100">涨停追踪</h1>
+            <!-- 页签导航 -->
+            <div class="tabpane use-for-sticky">
+                <div class="concept-date text-align-center">
+                    <button class="btn limit-trade-date fl-ml-5 pt-5" @click="getQueryTradeDate('PREV')" id="btnPrev">< 上一日 </button>
+                    <div class="limit-trade-date date-picker">
+                        <input type="text" id="tdate" readonly>
+                        <span class="calendar-icon"></span>
+                    </div>
+                    <button class="btn limit-trade-date fr-mr-5 pt-5" @click="getQueryTradeDate('NEXT')" id="btnNext"> 下一日 > </button>
+                </div>
+
+                <div class="tabs-header">
+                    <div class="tabs-scroll-wrapper">
+                        <!-- 左箭头 -->
+                        <div class="nav-arrow left hidden" id="arrow-left"><i class="fas fa-chevron-left"></i></div>
+                        <!-- 页签滚动容器 -->
+                        <div class="tabs-scroll-container">
+                            <div class="tabs" id="tabs">
+                                <div class="tab tab-tag ml-0 active" data-tab="tab1" data-src="limitSumary">涨停全览</div>
+                                <div class="tab tab-tag" data-tab="tab2" data-src="marketEmotion">市场情绪</div>
+                                <div class="tab tab-tag" data-tab="tab3" data-src="strongBlock">强势板块</div>
+                                <div class="tab tab-tag" data-tab="tab4" data-src="limitCause">涨停揭秘</div>
+                                <div class="tab tab-tag" data-tab="tab5" data-src="limitStraight">连板天梯</div>
+                                <div class="tab tab-tag" data-tab="tab6" data-src="limitMutli">多板个股</div>
+                            </div>
+                        </div>
+                        <!-- 右箭头 -->
+                        <div class="nav-arrow right" id="arrow-right"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 页签内容 -->
+            <div class="tab-content" id="mainTabContent">
+                <!-- 第一个页签：  涨停全览-->
+                <div id="tab1" class="tab-pane tab-data-container active">
+                    <div class="limit-data-list" id="upLimitSummary">
+                        <div class="limit-money-efffect pt-20">
+                            <div class="limit-data-item no-border">
+                                <div class="item-content mt-15 mh-60 pd-10-5 flex-fdr">
+                                    <div class="theme-title ">
+                                        <span class="theme-name">赚钱效应</span>
+                                    </div>
+                                    <div class="effect-span"><img src="/web/default/img/strong.png" style="width:40px;height:40px;" class="effect-img"></div>
+                                </div>
+                                <div class="pl-5 pb-20 ft-16">建议仓位为 <span class="position-suggestion"></span></div>
+                            </div>
+                            <div class="limit-data-item no-border">
+                                <div class=""><canvas width="120" height="120" class="dashboard-1" id="moneyEffect"></canvas></div>
+                            </div>
+                        </div>
+                        <div class="limit-data-item no-border" style="display:block">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="theme-pane">
+                        <h3 class="timeline-title">涨停龙头</h3>
+                        <div class="limitupdown-data-list" id="limitUpLeaderStock"></div>
+                    </div>
+
+                    <div class="theme-pane">
+                        <h3 class="timeline-title">涨停监测</h3>
+                        <div class="limit-tab-container">
+                            <div class="tabpane ml-1 mr-1">
+                                <div class="tabs-header">
+                                    <div class="tabs-scroll-wrapper">
+                                        <!-- 左箭头 -->
+                                        <div class="nav-arrow left left-15 hidden" id="monitor-arrow-left">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </div>
+                                        <!-- 页签滚动容器 -->
+                                        <div class="tabs-scroll-container">
+                                            <div class="tabs" id="monitor-tabs">
+                                                <div class="tab-monitor tab-tag pt-5 pb-5 ml-0 active" data-tab="monitortab1" data-src="auction">竞价涨停</div>
+                                                <div class="tab-monitor tab-tag pt-5 pb-5" data-tab="monitortab2" data-src="limitnatural">涨停池</div>
+                                                <div class="tab-monitor tab-tag" data-tab="monitortab3" data-src="limitsoon">即将涨停</div>
+                                                <div class="tab-monitor tab-tag pt-5 pb-5" data-tab="monitortab4" data-src="limitdays">连板池</div>
+                                                <div class="tab-monitor tab-tag" data-tab="monitortab5" data-src="touchlimit">炸板池</div>
+                                                <div class="tab-monitor tab-tag" data-tab="monitortab6" data-src="prelimit">昨日涨停</div>
+                                                <div class="tab-monitor tab-tag pt-5 pb-5" data-tab="monitortab7" data-src="declinelimited">跌停池</div>
+                                                <div class="tab-monitor tab-tag pt-5 pb-5" data-tab="monitortab8" data-src="touchlimitdown">曾跌停</div>
+                                            </div>
+                                        </div>
+                                
+                                        <!-- 右箭头 -->
+                                        <div class="nav-arrow right right-15" id="monitor-arrow-right">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content ml-1 mr-1" id="limitContent">
+                                <div id="monitortab1" class="tab-pane-monitor tab-data-container active">
+                                    <div class="table-container" id="auctionList"></div>
+                                </div>
+                                <div id="monitortab2" class="tab-pane-monitor tab-data-container">
+                                    <div class="table-container" id="limitnaturalList"></div>
+                                </div>
+                                <div id="monitortab3" class="tab-pane-monitor tab-data-container">
+                                    <div class="table-container" id="limitsoonList"></div>
+                                </div>
+                                <div id="monitortab4" class="tab-pane-monitor tab-data-container">
+                                    <div class="table-container" id="limitdaysList"></div>
+                                </div>
+                                <div id="monitortab5" class="tab-pane-monitor tab-data-container">
+                                    <div class="table-container" id="touchlimitList"></div>
+                                </div>
+                                <div id="monitortab6" class="tab-pane-monitor tab-data-container">
+                                    <div class="table-container" id="prelimitList"></div>
+                                </div>
+                                <div id="monitortab7" class="tab-pane-monitor tab-data-container">
+                                    <div class="table-container" id="declinelimitedList"></div>
+                                </div>
+                                <div id="monitortab8" class="tab-pane-monitor tab-data-container">
+                                    <div class="table-container" id="touchlimitdownList"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-pane">
+                        <h3 class="timeline-title">涨停伏击</h3>
+                        <div class="limit-tab-container">
+                            <div class="tabpane ml-10 mr-10">
+                                <div class="limit-tab-nav" id="quality-tabs">
+                                    <button class="tab-btn-quality tab-tag active" data-tab="qualitytab1" data-src="quality">优质基因</button>
+                                    <button class="tab-btn-quality tab-tag" data-tab="qualitytab2" data-src="limitsprint">涨停冲刺</button>
+                                    <button class="tab-btn-quality tab-tag" data-tab="qualitytab3" data-src="limitregulars">涨停常客</button>
+                                </div>
+                            </div>
+                            <div class="tab-content ml-1 mr-1" id="qualityContent">
+                                <div id="qualitytab1" class="tab-pane-quality tab-data-container active">
+                                    <div class="table-container" id="qualityList"></div>
+                                </div>
+                                <div id="qualitytab2" class="tab-pane-quality tab-data-container">
+                                    <div class="table-container" id="limitsprintList"></div>
+                                </div>
+                                <div id="qualitytab3" class="tab-pane-quality">
+                                    <div class="table-container" id="limitregularsList"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二个页签： 市场情绪-->
+                <div id="tab2" class="tab-pane tab-data-container">
+                    <div class="theme-pane">
+                        <h3 class="timeline-title market-emotion">市场情绪</h3>
+                        <div class="limit-tab-container">
+                            <div class="nodata">暂无数据</div>
+                            <div class="limit-chart-container" id="emotionChartContainer">
+                                <canvas id="emotionChart" width="600" height="400"></canvas>
+                                <div class="controls">
+                                    <div class="data-control">
+                                        <div class="slider-container">
+                                            <input type="range" min="10" max="100" value="30" class="slider" id="dataRange">
+                                            <div class="data-info">
+                                                <span>数据量: 10%</span>
+                                                <span id="currentData">30 / 100 个交易日</span>
+                                                <span>数据量: 100%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="legend">
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #4CAF50;"></div>
+                                        <span>涨停数量</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #F44336;"></div>
+                                        <span>跌停数量</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #2196F3;"></div>
+                                        <span>连板家数</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #FF9800;"></div>
+                                        <span>最高板数</span>
+                                    </div>
+                                </div>
+                                <div class="tooltip" id="dataTooltip">
+                                    <div class="tooltip-header">交易日信息</div>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-item">
+                                            <span>日期:</span>
+                                            <span id="tooltipDate">2023-01-01</span>
+                                        </div>
+                                        <div class="tooltip-item">
+                                            <span>涨停数量:</span>
+                                            <span id="tooltipUpLimit" style="color: #4CAF50;">0</span>
+                                        </div>
+                                        <div class="tooltip-item">
+                                            <span>跌停数量:</span>
+                                            <span id="tooltipDownLimit" style="color: #F44336;">0</span>
+                                        </div>
+                                        <div class="tooltip-item">
+                                            <span>连板家数:</span>
+                                            <span id="tooltipContinuation" style="color: #2196F3;">0</span>
+                                        </div>
+                                        <div class="tooltip-item">
+                                            <span>最高板数:</span>
+                                            <span id="tooltipHighest" style="color: #FF9800;">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="theme-pane">
+                        <h3 class="timeline-title limit-trend">涨跌停走势<span>{{ currDate }}</span></h3>
+                        <div class="limit-tab-container">
+                    
+                        </div>
+                    </div>
+                    <div class="theme-pane">
+                        <h3 class="timeline-title prelimit-action">“昨日涨停”板块今日表现</h3>
+                        <div class="limit-tab-container">
+                    
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- 第三个页签： 强势板块 -->
+                <div id="tab3" class="tab-pane tab-data-container">
+                    <div class="data-list" id="strongBlock">CCCCCCCCC</div>
+                </div>
+
+                <!-- 第四个页签： 涨停揭秘 -->
+                <div id="tab4" class="tab-pane tab-data-container">
+                    <div class="data-list" id="strongBlock">DDDDDDDD</div>
+                </div>
+
+                <!-- 第五个页签： 连板天梯 -->
+                <div id="tab5" class="tab-pane tab-data-container">
+                    <div class="data-list" id="strongBlock">DDDDDDDD</div>
+                </div>
+
+                <!-- 第六个页签： 多板个股 -->
+                <div id="tab6" class="tab-pane tab-data-container">
+                    <div class="data-list" id="multiLimit">EEEEEEEEE</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-overlay" id="modalOverlay"></div>
+        
+        <div class="modal-dialog" id="modalDialog">
+            <div class="modal-header">
+                <h3 class="modal-title">上榜原因</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content">
+                    <h4 id="modalItemTitle"></h4>
+                    <div id="modalItemDesc"></div>
+                </div>
+            </div>
+            <div class="modal-footer noshow"><button class="modal-action-btn close">关闭</button></div>
+        </div>
+    <!--</section>-->
+
+    {{include './common/footer.html'}}
+    <!-- 移动端导航 -->
+    {{include './common/wap-nav.html'}}
+    <div class="ignore mb-20 mt-20 pd-20 bg-f2f2f2">
+        <!--<p class="mb-20">MoneyEffect-> {{MoneyEffect}} </p>-->
+    </div>
+    {{include './common/js.html'}}
+    <script src="{{static_url}}/js/flatpickr.js"></script>
+    <script src="{{static_url}}/js/vue.global.prod.js"></script>
+    <script src="{{static_url}}/js/tailwindcss.so.js"></script>
+    <script src="{{static_url}}/js/chart.js"></script>
+    <!--<script src="https://3.swiper.com.cn/dist/js/swiper.min.js"></script>-->
+</body>
+    <script type="text/javascript">
+        var swiper = null;
+        const app = Vue.createApp({
+            data() {
+                return {
+                    calendar: null,
+                    allowDates: JSON.parse(decodeHtmlEntities(`{{ allTradeDate }}`)),
+                    tradeDate: '',
+                    currDate: '',
+                    moneyMakingEffect: JSON.parse(decodeHtmlEntities(`{{ MoneyEffect }}`)),
+                    limitUpLeaderData: JSON.parse(decodeHtmlEntities(`{{ limitUpLeader }}`)),
+                    auctionLimitUpData: JSON.parse(decodeHtmlEntities(`{{ auctionLimitUp }}`)),
+                    highQualityData: JSON.parse(decodeHtmlEntities(`{{ hightQualityLimitUp }}`)),
+                    marketEmotionData: null,
+                    limitTrendData : null,
+                    prelimitActionData: null,
+                }
+            },
+            setup(){
+            },
+            created() {
+                if(this.allowDates){
+                    this.tradeDate = this.allowDates[0];
+                    this.currDate = this.tradeDate;
+                }
+                this.initPage();
+            },
+            updated(){
+                this.setPrevNextButtonDisableState();
+            },
+            watch: {
+                moneyMakingEffect: {
+                    handler(newVal) {
+                        if(newVal) this.renderMoneyMakingeffect();
+                        else {}
+                    },
+                    immediate: true
+                },
+                limitUpLeaderData: {
+                    handler(newVal) {
+                        if (newVal) this.renderLimitUpLeader();
+                        else { }
+                    },
+                    immediate: true
+                },
+                /*auctionLimitUpData: {
+                    handler(newVal) {
+                        if (newVal) {}//this.renderAuctionLimitUp();
+                        else { }
+                    },
+                    immediate: true
+                },
+                highQualityData:{
+                    handler(newVal) {
+                        if (newVal) {}//this.renderHighQualityStock();
+                        else { }
+                    },
+                    immediate: true
+                },*/
+                currDate:{
+                    async handler(newVal){
+                        if(!newVal) return;
+                        this.setPrevNextButtonDisableState(newVal);
+                        /*this.moneyMakingEffect = await this.getMoneyMakingEffect();
+                        this.limitUpLeaderData = await this.getLimitUpLeaderData();
+                        let tabEl = document.querySelectorAll('#monitor-tabs > .active')[0];
+                        await this.fillData(tabEl);
+                        tabEl = document.querySelectorAll('#quality-tabs > .active')[0];
+                        await this.fillData(tabEl);*/
+                        await this.renderTabData();
+                    },
+                    immediate: true
+                },
+            },
+            computed: {
+                getCurrDate() { 
+                    console.log('computed --> this.allowDates = ', this.allowDates)
+                    return this.currDate;
+                }
+            },
+            methods: {
+                async initPage(){
+                    const data = await this.getCalendar();
+                    this.allowDates = data.result.data.map(item => { return item.DATE.substring(0, 10); })
+                    this.tradeDate = this.allowDates[0];
+                    this.initCancenlar();
+                    this.monitorTabClick();
+                },
+                async getCalendar() {
+                    const url = `/api/d/limitCalendar`
+                    const res = await fetch(url, { method: "GET", headers: { 'Content-Type': 'application/json' } });
+                    const data = await res.json();
+                    return data;
+                },
+                setPrevNextButtonDisableState(date){
+                    document.querySelectorAll('button.limit-trade-date').forEach(item => item.classList.remove('disabled'));
+                    if (!date || date === this.tradeDate) {
+                        document.getElementById('btnNext').classList.add('disabled')
+                    }
+                    if (date === this.allowDates[this.allowDates.length - 1]) {
+                        document.getElementById('btnPrev').classList.add('disabled')
+                    }
+                },
+                initCancenlar() {
+                    let that = this;
+                    this.calendar = flatpickr("#tdate", {
+                        dateFormat: "Y-m-d",
+                        locale: 'zh',
+                        allowInput: false,
+                        disableMobile: true,
+                        clickOpens: true,
+                        onReady: function () {
+                            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                                //this._input.removeAttribute("readonly");
+                            }
+                        },
+                        defaultDate: that.allowDates[0],
+                        //disable: function(date) { return allowDates.indexOf(date)<0; },
+                        onOpen: function (selectedDates, dateStr, instance) {
+                            document.getElementById('tdate').readonly = true;
+                            //console.log('onOpen --> this.allowDates = ', _allowDates[0])
+                            disableNotAllowDates(that.allowDates);
+                        },
+                        onMonthChange: function (selectedDates, dateStr, instance) { disableNotAllowDates(that.allowDates); },
+                        onYearChange: function (selectedDates, dateStr, instance) { disableNotAllowDates(that.allowDates); },
+                        onClose: function (dateObject, dateString) {
+                            //console.log(' dateObject = ', dateObject)
+                            //console.log(' dateString = ', dateString)
+                        },
+                        onChange: function (data, date) {
+                            that.currDate = date;
+                            console.log('that.currDate = ', that.currDate)
+                            /*let index = that.allowDates.indexOf(date);
+                            that.nextDate = (index === 0 ? '' : that.allowDates[index - 1]);
+                            that.prevDate = (index === that.allowDates.length - 1 ? '' : that.allowDates[index + 1]);*/
+                        }
+                    });
+                },
+                monitorTabClick(){
+                    document.querySelectorAll('.tab-tag').forEach(tab => {
+                        const that = this;
+                        tab.addEventListener('click', function(event){
+                            if (event.target.classList.contains('active')) return;
+                             that.fillData(event.target);
+                        });
+                    })
+                },
+                async fillData(tabEl) {
+                    if (!tabEl) return;
+                    const reportName = tabEl.getAttribute('data-src').toLowerCase();
+                    if (!reportName || reportName === '') return;
+                    //await this.renderTabData();
+                    
+                    switch(reportName){
+                        case 'limitsumary':
+                        case 'marketemotion':
+                        case 'strongblock':
+                        case 'limitcause':
+                        case 'limitstraight':
+                        case 'limitmutli':
+                            await this.renderTabData(reportName);
+                            break;
+                        default:
+                            const url = `/api/d/report/${reportName}/${this.currDate}`;
+                            const res = await fetch(url, { method: "GET", headers: { 'Content-Type': 'application/json' } });
+                            const data = await res.json();
+                            renderLimitReport(reportName, data);
+                            break;
+                    }
+                    
+                    let queryEls = `#${tabEl.parentElement.id} > .tab-tag`;
+                    document.querySelectorAll(queryEls).forEach(tab => { tab.classList.remove('active') });
+                    tabEl.classList.add('active');
+                    const tabId = tabEl.getAttribute('data-tab');
+                    queryEls = `#${document.getElementById(tabId).parentElement.id} > .tab-data-container`;
+                    document.querySelectorAll(queryEls).forEach(pane => pane.classList.remove('active'));
+                    document.getElementById(tabId).classList.add('active');
+                },
+                renderMoneyMakingeffect(){
+                    if(!document.querySelector('.swiper-wrapper')) return;
+                    const html = renderMoneyMakingeffectHtml(this.moneyMakingEffect);
+                    document.querySelector('.swiper-wrapper').innerHTML = html;
+                    if(swiper) swiper.destroy();
+                    swiper = new Swiper('.swiper-container', {
+                        pagination: { el: '.swiper-pagination', clickable: true },
+                        slidesPerView: 3,
+                        //spaceBetween: 30,
+                        paginationClickable: true,
+                        centeredSlides: false,
+                        spaceBetween: 0
+                    });
+                },
+                renderLimitUpLeader() {
+                    if(!document.getElementById('limitUpLeaderStock')) return;
+                    const html = renderLimitUpLeaderHtml(this.limitUpLeaderData);
+                    document.getElementById('limitUpLeaderStock').innerHTML = html;
+                },
+                renderAuctionLimitUp() {
+                    renderLimitReport('auction', this.auctionLimitUpData);
+                },
+                renderHighQualityStock(){
+                    renderLimitReport('quality', this.highQualityData);
+                },
+                async getMoneyMakingEffect(){
+                    const url = `/api/d/report/effect/${this.currDate}`;
+                    const res = await fetch(url, { method: "GET", headers: { 'Content-Type': 'application/json' } });
+                    const data = await res.json();
+                    return data;
+                },
+                async getLimitUpLeaderData(){
+                    const url = `/api/d/report/limitleader/${this.currDate}`;
+                    const res = await fetch(url, { method: "GET", headers: { 'Content-Type': 'application/json' } });
+                    const data = await res.json();
+                    return data;
+                },
+                async getMarketEmotionData(){
+                    const url = `/api/d/report/marketemotion/${this.currDate}`;
+                    const res = await fetch(url, { method: "GET", headers: { 'Content-Type': 'application/json' } });
+                    const data = await res.json();
+                    return data;
+                },
+                async getLimitTrendData(){
+                    const url = `/api/d/report/limittrend/${this.currDate}`;
+                    const res = await fetch(url, { method: "GET", headers: { 'Content-Type': 'application/json' } });
+                    const data = await res.json();
+                    return data;
+                },
+                async getPrelimitActionData(){
+                    const url = `/api/d/report/prelimitaction/${this.currDate}`;
+                    const res = await fetch(url, { method: "GET", headers: { 'Content-Type': 'application/json' } });
+                    const data = await res.json();
+                    return data;
+                },
+                async getQueryTradeDate(prev_next){
+                    if(!this.allowDates || this.allowDates.length === 0){
+                        const url = `/api/d/limitCalendar`
+                        const res = await fetch(url, { method: "GET", headers: { 'Content-Type': 'application/json' } });
+                        const data = await res.json();
+                        this.allowDates = data.result.data.map(item => { return item.DATE.substring(0, 10); })
+                    }
+                    this.tradeDate = this.allowDates[0];
+                    let newDate = !this.currDate ? this.tradeDate : this.currDate;
+                    const currDateIndex = this.allowDates.indexOf(newDate);
+                    if(prev_next === 'PREV'){
+                        if(currDateIndex < this.allowDates.length - 1) { 
+                            newDate = this.allowDates[currDateIndex + 1];
+                            this.calendar.setDate(new Date(newDate));
+                            this.currDate = newDate;
+                        }
+                    }
+                    if (prev_next === 'NEXT') {
+                        if (currDateIndex > 0) {
+                            newDate = this.allowDates[currDateIndex - 1];
+                            this.calendar.setDate(new Date(newDate));
+                            this.currDate = newDate;
+                        }
+                    }
+                },
+                async renderTabData(tabName){
+                    /*const tabEl = document.querySelector('#tabs > .active');
+                    if(!tabEl) return;
+                    const tabName = tabEl.getAttribute('data-src').toLowerCase();
+                    if(!tabName || tabName === '') return;*/
+                    switch(tabName){
+                        case 'limitsumary':
+                            this.limitUpLeaderData = await this.getLimitUpLeaderData();
+                            this.moneyMakingEffect = await this.getMoneyMakingEffect();
+                            const activeMonitorEl = document.querySelector('#monitor-tabs > .active');
+                            await this.fillData(activeMonitorEl)
+                            const activeQualityEl = document.querySelector('#quality-tabs > .active');
+                            await this.fillData(activeQualityEl);
+                            break;
+                        case 'marketemotion':
+                            this.marketEmotionData = await this.getMarketEmotionData();
+                            if(!this.marketEmotionData || !this.marketEmotionData.result || !this.marketEmotionData.result.data || this.marketEmotionData.result.data.length === 0){
+                                //document.querySelector('.limit-chart-container').style.display = 'none';
+                                //document.querySelector('.limit-tab-container .nodata').style.display = 'block';
+                                return;
+                            }
+                            const chart = new StockChart('emotionChart');
+                            let chartData = [];
+                            this.marketEmotionData.result.data.forEach(item => {
+                                chartData.push({
+                                    date: item.TRADE_DATE.substring(0, 10), upLimit: item.UPLIMIT_NUM,
+                                    downLimit: item.DOWNLIMIT_NUM, continuation: item.COUNTINUS_STOCK_NUM,
+                                    highest: item.MAX_CONTINUS_UPLIMITS
+                                });
+                            });
+                            chart.setData(chartData);
+                            break;
+                        case 'strongblock':
+                            break;
+                        case 'limitcause':
+                            break;
+                        case 'limitstraight':
+                            break;
+                        case 'limitmutli':
+                            break;
+                    }
+                },
+            },
+            mounted(){
+                if(this.moneyMakingEffect) this.renderMoneyMakingeffect();
+                if(this.limitUpLeaderData) this.renderLimitUpLeader();
+                if(this.auctionLimitUpData) this.renderAuctionLimitUp();
+                if(this.highQualityData) this.renderHighQualityStock();
+
+                console.log('created --> this.currDate = ', this.currDate)
+                this.setPrevNextButtonDisableState(this.currDate);
+                //this.getCalendar();
+            },
+            unmounted(){
+
+            }
+        });
+        /*app.engine('html', {
+            helpers: {
+                getCurrDate: function () { return new Date().toLocaleDateString(); }
+            }
+        });*/
+        app.mount("#app");
+        
+        function decodeHtmlEntities(html) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            return doc.documentElement.textContent;
+        }
+        function disableNotAllowDates(allowDates) {
+            //if(!allowDates || allowDates.length === 0 ) return false;
+            const dates = document.querySelectorAll('.flatpickr-day');
+            dates.forEach(item => {
+                const dateS = item.getAttribute('aria-label');
+                const dateArr = dateS.replace('月', ',').split(',');
+                const date = formatDate(new Date(parseInt(dateArr[2]), parseInt(dateArr[0]) - 1, parseInt(dateArr[1])), 'yyyy-MM-dd').trim();
+                if (allowDates.indexOf(date) < 0) { item.setAttribute('aria-disabled', 'true');}
+            })
+        }
+
+        flatpickr.l10ns.zh = {
+            weekdays: {
+                shorthand: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+                longhand: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+            },
+            months: {
+                shorthand: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+                longhand: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]
+            },
+            rangeSeparator: " 至 ",
+            weekAbbreviation: "周",
+            scrollTitle: "滚动切换",
+            toggleTitle: "点击切换 12/24 小时时制"
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function scrollTabs(tabs, arrowLeft, arrowRight, tabPanes){
+                    // 每次滚动的距离
+                    const scrollAmount = 200;
+
+                    // 更新箭头状态
+                    function updateArrowState() {
+                        const scrollLeft = tabs.scrollLeft;
+                        const maxScrollLeft = tabs.scrollWidth - tabs.clientWidth;
+
+                        // 向左箭头状态
+                        if (scrollLeft <= 10) arrowLeft.classList.add('hidden');
+                        else arrowLeft.classList.remove('hidden');
+
+                        // 向右箭头状态
+                        if (scrollLeft >= maxScrollLeft - 10) arrowRight.classList.add('hidden');
+                        else arrowRight.classList.remove('hidden');
+                    }
+
+                    // 初始更新箭头状态
+                    updateArrowState();
+
+                    // 向右滚动
+                    arrowRight.addEventListener('click', function () {
+                        if (!this.classList.contains('hidden')) {
+                            tabs.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                            // 滚动完成后更新箭头状态
+                            setTimeout(updateArrowState, 300);
+                        }
+                    });
+
+                    // 向左滚动
+                    arrowLeft.addEventListener('click', function () {
+                        if (!this.classList.contains('hidden')) {
+                            tabs.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                            // 滚动完成后更新箭头状态
+                            setTimeout(updateArrowState, 300);
+                        }
+                    });
+
+                    // 监听滚动事件更新箭头状态
+                    tabs.addEventListener('scroll', updateArrowState);
+                    // 添加调整窗口大小时更新状态
+                    window.addEventListener('resize', updateArrowState);
+                }
+                
+            let tabs = document.getElementById('tabs');
+            let arrowLeft = document.getElementById('arrow-left');
+            let arrowRight = document.getElementById('arrow-right');
+            let tabPanes = document.querySelectorAll('.tab-pane');
+            scrollTabs(tabs, arrowLeft, arrowRight, tabPanes);
+
+            tabs = document.getElementById('monitor-tabs');
+            arrowLeft = document.getElementById('monitor-arrow-left');
+            arrowRight = document.getElementById('monitor-arrow-right');
+            tabPanes = document.querySelectorAll('.tab-pane-monitor');
+            scrollTabs(tabs, arrowLeft, arrowRight, tabPanes);
+        });
+        document.querySelector('.ico-open').addEventListener('click', function () {
+            document.querySelector('.m-mask').classList.remove("none")
+        })
+        document.querySelector('.m-mask').addEventListener('click', function () {
+            this.classList.add("none")
+        })
+    </script>
+</html>

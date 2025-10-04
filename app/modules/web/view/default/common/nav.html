@@ -1,0 +1,52 @@
+{{if nav.length>0}}
+<nav class="nav">
+    <ul class="flex flex-wrap mt-5" id="mainNavbar">
+        {{each nav}}
+            {{if $value.status == 0}}
+                {{if $value.pinyin == 'home'}}
+                    <li class="nav-item"><a class="navbar-item" href="/" title="首页" tag="{{$value.tag}}">首页</a></li>
+                {{else}}
+                    <li class="nav-item">
+                        {{if $value.type==0}}
+                        <a class="navbar-item" href="{{$value.path}}/index.html" title="{{$value.name}}" tag="{{$value.tag}}">{{$value.name}}</a>
+                        {{else}}
+                        <a class="navbar-item" href="{{$value.path}}/page.html" title="{{$value.name}}" tag="{{$value.tag}}">{{$value.name}}
+                        </a>
+                        {{/if}}
+                        {{if $value.children && $value.children.length>0}}
+                        <ul class="sub-nav">
+                            {{each $value.children}}
+                                {{if $value.status == 0}}
+                                <li class="sub-nav-item">
+                                    {{if $value.type==0}}
+                                    <a class="navbar-item" href="{{$value.path}}/index.html" title="{{$value.name}}" tag="{{$value.tag}}">{{$value.name}}
+                                    </a>
+                                    {{else}}
+                                    <a class="navbar-item" href="{{$value.path}}/page.html" title="{{$value.name}}" tag="{{$value.tag}}">{{$value.name}}
+                                    </a>
+                                    {{/if}}
+                                </li>
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </li>
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    </ul>
+</nav>
+{{/if}}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const $navbarBurgers = document.querySelectorAll('a.navbar-item');
+        const menuUrl = window.location.pathname.split('/');
+        let tag = menuUrl[1];
+        if (!tag) tag = $navbarBurgers[0].attributes['tag'].value;
+        $navbarBurgers.forEach(el => { el.classList.remove('active'); });
+        if(document.querySelectorAll("a.navbar-item[tag='" + tag + "']").length > 0)
+            document.querySelectorAll("a.navbar-item[tag='" + tag + "']")[0].classList.add('active');
+        else
+            document.querySelectorAll("a.navbar-item")[0].classList.add('active');
+    });
+</script>
