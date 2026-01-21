@@ -1,5 +1,4 @@
-﻿
-const Chanjs = require("chanjs");
+﻿const Chanjs = require("chanjs");
 const chan = new Chanjs();
 //global.voiceData = getVoiceData();
 
