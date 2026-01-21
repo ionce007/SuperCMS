@@ -4,8 +4,8 @@
         {{@ frag['PowerBy']}}
     </div>
 </footer>
-<div class="wxico"><img src="/web/default/img/wxico.png" /></div>
-
+<div class="wxico pulse"><img src="/web/default/img/wxico.png" /></div>
+<input type="hidden" value="{{ frag['weixinerweima']}}" id="hdWxico"/>
 <span class="backtop none">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -16,4 +16,141 @@
 <script>
     const curYear = new Date().getFullYear();
     document.getElementById('currYear').innerHTML = curYear;
+    const wxQrcode = document.getElementById('hdWxico').value ;
+    console.log('wxQrcode = ', wxQrcode)
+    document.addEventListener('DOMContentLoaded', function() {
+        function injectAllStyles() {
+            const style = document.createElement('style');
+            style.textContent = `
+                .dialog-container {position: fixed;width:350px;background-color: white;border-radius: 12px;box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);z-index: 999;opacity: 0;transform: translateY(20px);transition: opacity 0.3s ease, transform 0.3s ease;pointer-events: none;right: 60px;top: 250px;}
+                .dialog-container.show {opacity: 1;transform: translateY(0);pointer-events: auto;}
+                .dialog-header {padding: 20px;background: linear-gradient(135deg, #e1dbc3, #d92e29);border-radius: 12px 12px 0 0;color: #372626;display: flex;justify-content: space-between;align-items: center;max-height:25px;}
+                .dialog-header h3 {font-size: 16px;font-weight: 600;}
+                .close-btn {background: none;border: none;color: white;font-size: 24px;cursor: pointer;width: 30px;height: 30px;display: flex;justify-content: right;align-items: flex-end;border-radius: 50%;transition: background-color 0.2s;}
+                .dialog-content {padding: 20px;max-height: 400px;overflow-y: auto;}
+                .dialog-content p {margin-bottom: 15px;line-height: 1.7;color: #555;text-align:center;}
+                @media (max-width: 768px) {
+                    .dialog-container {width: 300px;max-width: 90vw;}
+                }
+                @media (max-width: 480px) {
+                    .dialog-container {width: 280px;}
+                }
+                @keyframes pulse {0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }}
+                .pulse {animation: pulse 1.5s infinite;}
+            `;
+            document.head.appendChild(style);
+        }
+        // 注入所有CSS样式
+        injectAllStyles();
+        const floatingButton = document.querySelector('div.wxico');
+        // 对话框是否显示的状态
+        let isDialogVisible = false;
+        let dialog = null;
+        // 创建对话框函数
+        function createDialog() {
+            // 如果对话框已经存在，直接返回
+            if (dialog) return dialog;
+            // 创建对话框容器
+            dialog = document.createElement('div');
+            dialog.className = 'dialog-container show';
+            dialog.id = 'dynamicDialog';
+            // 创建对话框内容
+            const dialogHTML = `
+                <div class="dialog-header">
+                    <h3>扫码加好友</h3>
+                    <button class="close-btn" id="closeDialog">&times;</button>
+                </div>
+                <div class="dialog-content">
+                    <p>${wxQrcode}</p>
+                </div>
+            `;
+            dialog.innerHTML = dialogHTML;
+            // 将对话框添加到body中
+            document.body.appendChild(dialog);
+            // 获取对话框中的元素
+            const closeDialogBtn = dialog.querySelector('#closeDialog');
+            // 点击关闭按钮时隐藏对话框
+            closeDialogBtn.addEventListener('click', hideDialog);
+            return dialog;
+        }
+        
+        // 点击悬浮按钮时显示/隐藏对话框
+        floatingButton.addEventListener('click', function(e) {
+            e.stopPropagation(); // 阻止事件冒泡
+            
+            if (!isDialogVisible) showDialog();
+            else hideDialog();
+        });
+        
+        // 点击对话框外部时隐藏对话框
+        document.addEventListener('click', function(e) {
+            if (isDialogVisible && dialog && !dialog.contains(e.target) && e.target !== floatingButton) {
+                hideDialog();
+            }
+        });
+
+        // 显示对话框
+        function showDialog() {
+            // 如果对话框不存在，先创建它
+            if (!dialog) dialog = createDialog();
+            
+            // 计算对话框位置
+            positionDialog();
+            
+            // 显示对话框
+            dialog.classList.add('show');
+            floatingButton.classList.add('active');
+            isDialogVisible = true;
+            const container = document.getElementById('dynamicDialog');
+            imageProxy.convertContainerImages(container);
+            // 移除脉冲动画
+            floatingButton.classList.remove('pulse');
+
+            // 监听窗口大小变化，重新定位对话框
+            window.addEventListener('resize', positionDialog);
+        }
+        
+        // 隐藏对话框
+        function hideDialog() {
+            if (dialog) dialog.classList.remove('show');
+            floatingButton.classList.remove('active');
+            floatingButton.classList.add('pulse');
+            isDialogVisible = false;
+            
+            // 移除窗口大小变化监听
+            window.removeEventListener('resize', positionDialog);
+        }
+
+        // 定位对话框函数 - 简化版本
+        function positionDialog() {
+            if (!isDialogVisible || !dialog)  return;
+            // 获取按钮和对话框的尺寸
+            const buttonRect = floatingButton.getBoundingClientRect();
+            const dialogRect = dialog.getBoundingClientRect();
+            
+            // 默认将对话框放在按钮左侧
+            let dialogLeft = buttonRect.left - dialogRect.width - 10;
+            let dialogTop = buttonRect.top;
+            
+            // 如果左侧空间不足，放在按钮右侧
+            if (dialogLeft < 10) dialogLeft = buttonRect.right + 10;
+            
+            // 如果右侧空间不足，放在按钮左侧
+            if (dialogLeft + dialogRect.width > window.innerWidth - 10) {
+                dialogLeft = buttonRect.left - dialogRect.width - 10;
+            }
+            
+            // 如果上方空间不足，向下移动
+            if (dialogTop < 10) dialogTop = 10;
+            
+            // 如果下方空间不足，向上移动
+            if (dialogTop + dialogRect.height > window.innerHeight - 10) {
+                dialogTop = window.innerHeight - dialogRect.height - 10;
+            }
+            
+            // 应用位置
+            dialog.style.left = dialogLeft + 'px';
+            dialog.style.top = dialogTop + 'px';
+        }
+    });
 </script>

@@ -6,11 +6,11 @@ const config = {};
 config.appRoot = APP_PATH;
 config.appName = "SuperCMS";
 config.port = "81";
-config.version = "v3.0.14";
-config.versionTime = "2025-02-11";
+config.version = "v26.01.20";
+config.versionTime = "2026-01-20";
 config.authorEmail = "ionce@163.com";
-config.authorWechat = "ioncehuang";
-config.JSON_LIMIT = "1024kb";
+config.authorWechat = "-ionce";
+config.JSON_LIMIT = "10240kb";
 
 config.static = [
   {

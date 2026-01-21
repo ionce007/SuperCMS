@@ -1,5 +1,5 @@
 {
-  "name": "SuperCMS",
+  "name": "supercms",
   "version": "3.0.14",
   "description": "SuperCMS是一款基于Node、Express、MySQL、Vue3研发的高质量实用型CMS系统。",
   "main": "app.js",
@@ -7,7 +7,9 @@
     "dev": "nodemon app.js",
     "clear": "node timer.js",
     "prd": "pm2 start pm2.json",
-    "admin:dev": "cd admin && npm run dev"
+    "admin:dev": "cd admin && npm run dev",
+    "build:win": "cd admin && npm run deploy:win",
+    "build:lnx": "cd admin && npm run deploy:lnx"
   },
   "keywords": [
     "\"cms\""

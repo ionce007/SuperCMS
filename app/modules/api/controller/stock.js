@@ -249,13 +249,23 @@ class StockController {
             let period = req.query.pd || req.body.pd || req.params.pd;
             if (!period) period = "detail";
             let po = req.query.po || req.body.po || req.params.po;
-            if (!po) po = 1;
+            if (!po) po = 'fundin';
             let pn = req.query.pn || req.body.pn || req.params.pn;
             if (!pn) pn = 1;
             let pz = req.query.pz || req.body.pz || req.params.pz;
-            if (!pz) pz = 100;
-            const fid = req.query.fid || req.body.fid || req.params.fid;
-            const data = await stock.getBlockFund(bt, period, po, pn, pz, fid);
+            if (!pz) pz = 10;
+            //const fid = req.query.fid || req.body.fid || req.params.fid;
+            const data = await stock.getBlockFund(bt, period, po, pn, pz);
+            res.json(data);
+        }
+        catch (error) {
+            next(error);
+        }
+    }
+    async getRecentBlockFund(req, res, next){
+        try{
+            let bc = req.query.bc || req.body.bc || req.params.bc;
+            const data = await stock.getRecentBlockFund(bc);
             res.json(data);
         }
         catch (error) {
@@ -497,9 +507,11 @@ class StockController {
             }
             else{
                 const date = req.query.date || req.params.date;
+                const blockCode = req.query.bc || req.params.bc;
                 const pn = req.query.pn || 1;
                 const ps = req.query.ps;
-                const data = await stock.report(reportName, date, pn, ps);
+                console.log(`date = ${date}   blockCode = ${blockCode}   pn = ${pn}   ps = ${ps}`);
+                const data = await stock.report(reportName, date, pn, ps, blockCode);
                 res.json(data);
             }
         } catch (error) {
@@ -515,6 +527,98 @@ class StockController {
             next(error);
         }
     }
+    async tdxReport(req, res, next){
+        try{
+            const name = req.query.name || req.params.name || req.body.name;
+            const sname = req.query.sname || req.params.sname || req.body.sname;
+            let params = {};
+            const headerParams = req.header('X-Params');
+            if(!headerParams) params = {};
+            else params = JSON.parse(headerParams);
+            params = {name, sname, ...params};
+            const data = await stock.tdxReport(params);
+            res.json(data);
+        } catch (error) {
+            next(error);
+        }
+    }
+    async tdxSearchStock(req, res, next){
+        try{
+            const searchText = req.query.name || req.params.name || req.body.name;
+            const data = await stock.tdxSearchStock(searchText);
+            res.json(data);
+        } catch (error) {
+            next(error);
+        }
+    }
+    async tdxSearchStock(req, res, next){
+        try{
+            const searchText = req.query.name || req.params.name || req.body.name;
+            const data = await stock.tdxSearchStock(searchText);
+            res.json(data);
+        } catch (error) {
+            next(error);
+        }
+    }
+    async dfcfValuation(req, res, next){
+        try{
+            const name = req.query.name || req.params.name || req.body.name;
+            const sortField = req.query.st || '';  // 排序字段
+            const sortKind = req.query.sr || -1;   // 排序规则 1：降序  -1 升序
+            const pageIndex = req.query.pn || 1;
+            const pageSize = req.query.ps;
+            const params = { name, sortField, sortKind, pageIndex, pageSize };
+            const data = await stock.dfcfValuation(params);
+            res.json(data);
+        } catch (error) {
+            next(error);
+        }
+    }
+    async dfcfLoadingup(req, res, next){
+        try{
+            const name = req.query.name || req.params.name || req.body.name;
+            const sortField = req.query.st || '';  // 排序字段
+            const sortKind = req.query.sr || -1;   // 排序规则 1：降序  -1 升序
+            const pageIndex = req.query.pn || 1;
+            const pageSize = req.query.ps;
+            const params = { name, sortField, sortKind, pageIndex, pageSize };
+            const data = await stock.dfcfLoadingup(params);
+            res.json(data);
+        } catch (error) {
+            next(error);
+        }
+    }
+    async dfcfRiskList(req, res, next){
+        try{
+            const name = req.query.name || req.params.name || req.body.name;
+            const pageIndex = req.query.pn || 1;
+            const pageSize = req.query.ps;
+            const sortField = req.query.st || '';  // 排序字段
+            const sortKind = req.query.sr || '';   // 排序规则 1：降序  -1 升序
+            const params = { name, sortField, sortKind, pageIndex, pageSize };
+            const data = await stock.dfcfRiskList(params);
+            res.json(data);
+        } catch (error) {
+            next(error);
+        }
+    }
+    async dfcfRiskReports(req, res, next){
+        try{
+            const data = await stock.dfcfRiskReports();
+            res.json(data);
+        } catch (error) {
+            next(error);
+        }
+    }
+    /*async updateVoiceData(req, res, next){  //dfcfLoadingup
+        try{
+            const postData = req.body;
+            const data = await stock.updateVoiceData(postData);
+            res.json(data);
+        } catch (error) {
+            next(error);
+        }
+    }*/
 }
 
 module.exports = StockController;

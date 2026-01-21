@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"content="{{site.description}}">
+    <meta name="keywords" content="{{site.keywords}}"/>
+    <meta property="og:title" content="{{site.title}}" />
+    <meta property="og:description" content="{{site.description}}" />
+    <title>{{site.title}}-基于大数据的股票交易策略</title>
+    {{include './common/meta.html'}}
+    <link rel="stylesheet" href="{{static_url}}/css/flatpickr.min.css" />
+    <link rel="stylesheet" href="{{static_url}}/css/font-awesome.all.min.css" />
+    <link rel="stylesheet" href="{{static_url}}/css/stock.css" />
+    <script src="{{static_url}}/js/stock.js"></script>
+    <style>
+        #tblGGTZPJ > tr > td, #headGGTZPJ > tr > th,#tblHYTZPJ > tr > td, #headHYTZPJ > tr > th, 
+        #tblDPZFJ > tr > td, #tblDPZFJ > tr > th, #tblDPJZC > tr > td, #tblDPJZC > tr > th,
+        #tblGGXGG > tr > td, #tblGGXGG > tr > th, #tblDPFXJ > tr > td, #tblDPFXJ > tr > th{border:1px solid #ccc;text-align: center;font-size:14px;}
+        table.report-table {border-collapse: collapse;width: 100%;table-layout: fixed;min-width: 800px;}
+        tr.th-border > th{font-size:14px;}
+        .report-table > th, .report-table > td {padding: 12px;text-align: center;border: 1px solid #e1e8ed;background: white;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+        .left-align {text-align: left !important;white-space:nowrap;}
+        .right-align {text-align: right !important;}
+        .ellipsis-cell {white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;  }
+        table.report-table > thead {position: sticky;top: 0;z-index: 10;background-color: #ccc;}
+        .a-ggtzpj,.stock-detail{cursor: pointer;color: rgba(0,0,255,0.6);}
+        .stock-ggycmx{padding:10px 20px;margin-top: -20px;font-size: 16px;font-weight: 600;color: rgba(255, 20, 250, 0.5);}
+        .stock-ggycmx span{padding:0px 20px 0 0px}
+        .fixed-col{position: sticky;z-index:2;background: #f8f9fa;}
+    </style>
+<body class="bg-f8f8f8" id="app">
+    <!-- 头部 -->
+    {{include './common/header.html'}}
+    
+    <!-- banner -->
+    <!--<section class="banner flex justify-center">
+        <h3 class="chanyue text-c">缠说・股经</h3>
+        <p class="f-20 text-c mt-20">基于大数据的股票交易策略</p>
+    </section>-->
+
+    <!--<section class="main center flex justify-between flex-wrap pd-30" id="app">-->
+        <div class="limit-tab-container">
+            <h1 class="page-title timeline-title-w100">价值分析</h1>
+            <!-- 页签导航 -->
+            <div class="tabpane use-for-sticky">
+                <div class="tabs-header">
+                    <div class="tabs-scroll-wrapper">
+                        <!-- 左箭头 -->
+                        <div class="nav-arrow left hidden" id="arrow-left"><i class="fas fa-chevron-left"></i></div>
+                        <!-- 页签滚动容器 -->
+                        <div class="tabs-scroll-container">
+                            <div class="tabs" id="tabs">
+                                <div class="tab tab-tag ml-0 active" data-tab="tab1" data-tag="ggtzpj" data-src="ggtzpj">个股投资评级</div>
+                                <div class="tab tab-tag" data-tab="tab2" data-tag="hytzpj" data-src="hytzpj">行业投资评级</div>
+                                <div class="tab tab-tag" data-tab="tab3" data-tag="jztj" data-src="dpzfj">跌破增发价</div>
+                                <div class="tab tab-tag" data-tab="tab4" data-tag="jztj" data-src="dpjzc">跌破净资产</div>
+                                <div class="tab tab-tag" data-tab="tab5" data-tag="jztj" data-src="ggxgg">高股息个股</div>
+                                <div class="tab tab-tag" data-tab="tab6" data-tag="jztj" data-src="dpfxj">跌破发行价</div>
+                            </div>
+                        </div>
+                        <!-- 右箭头 -->
+                        <div class="nav-arrow right" id="arrow-right"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 页签内容 -->
+            <div class="tab-content" id="mainTabContent">
+                <!-- 第一个页签：  个股投资评级-->
+                <div id="tab1" class="tab-pane tab-data-container active">
+                    <div class="stock-ggycmx nodisplay"><span style="padding-right:50px;" id="retMain"><i class="fa fa-arrow-circle-left" style="margin-right:5px;"></i>返回</span><span id="ggycmxTitle">中国人民解放军</span></div>
+                    <div class="filter-container comparison">
+                        <div class="comparison-item opt-pjlb"></div>
+                        <div class="comparison-item opt-pjbh"></div>
+                        <div class="comparison-item opt-bgrq"></div>
+                        <div class="comparison-item opt-stock">
+                            <!--<div class="option-label">个股查询</div>
+                            <div class="custom-select"><input class='text-input' placeholder="输入代码、拼音或简称" id='stock' /></div>-->
+                        </div>
+                    </div>
+                    <div class="tab-content ml-1 mr-1 mt-10 pt-10">
+                        <div class="table-container" id="ggtzpjList">
+                            <table class="report-table">
+                                <colgroup id="ggtxpjCol">
+                                    <col style="width:100px;"><col style="width:140px;"><col style="width:60px;"><col style="width:60px;">
+                                    <col style="width:60px;"><col style="width:100px;"><col style="width:120px;">
+                                    <col style="width:70px;"><col style="width:70px;"><col style="width:70px;">
+                                    <col style="width:200px;"><col style="width:100px;"><col style="width:100px;">
+                                </colgroup>
+                                <thead id="headGGTZPJ">
+                                    <tr class="th-border"><th rowspan="2">报告日期</th><th rowspan="2">证券简称(代码)</th><th rowspan="2">评级</th><th rowspan="2">评级<br>变化</th><th rowspan="2">目标价</th><th rowspan="2">EPS<br>实际值(元)</th><th rowspan="2">T年度</th><th colspan="3">EPS预测</th><th rowspan="2">评级原因</th><th rowspan="2">评级机构</th><th rowspan="2">详情</th></tr>
+                                    <tr class="th-border"><th>T年</th><th>T+1年</th><th>T+2年</th></tr>
+                                </thead>
+                                <tbody id="tblGGTZPJ"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二个页签： 行业投资评级-->
+                <div id="tab2" class="tab-pane tab-data-container">
+                    <div class="filter-container comparison">
+                        <div class="comparison-item opt-hyname"></div>
+                        <div class="comparison-item opt-hypjlb"></div>
+                        <div class="comparison-item opt-hypjbh"></div>
+                    </div>
+                    <div class="tab-content ml-1 mr-1 mt-10 pt-10">
+                        <div class="table-container">
+                            <table class="report-table">
+                                <colgroup id="hytzpjCol">
+                                    <col style="width:90px;"><col style="width:100px;"><col style="width:80px;">
+                                    <col style="width:80px;"><col style="width:100px;"><col style="width:140px;"><col style="width:100px;">
+                                </colgroup>
+                                <thead id="headHYTZPJ">
+                                    <tr class="th-border"><th>报告日期</th><th>行业</th><th>评级</th><th>评级变化</th><th>评级机构</th><th>分析师</th><th>评级内容</th></tr>
+                                </thead>
+                                <tbody id="tblHYTZPJ"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- 第三个页签： 跌破增发价 -->
+                <div id="tab3" class="tab-pane tab-data-container">
+                    <div class="tab-content ml-1 mr-1 mt-10 pt-10">
+                        <div class="table-container">
+                            <table class="report-table">
+                                <colgroup id="dpzfjCol">
+                                    <col style="width:90px;"><col style="width:100px;"><col style="width:180px;"><col style="width:100px;">
+                                    <col style="width:80px;"><col style="width:100px;"><col style="width:140px;"><col style="width:100px;">
+                                </colgroup>
+                                <thead id="headDPZFJ">
+                                    <tr class="th-border"><th>股票代码</th><th>股票简称</th><th>所属行业</th><th>最新收盘价</th><th>发行价(元)</th><th>跌破程度</th><th>后复权股份(元)</th><th>增发日期</th></tr>
+                                </thead>
+                                <tbody id="tblDPZFJ"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第四个页签： 跌破净资产 -->
+                <div id="tab4" class="tab-pane tab-data-container">
+                    <div class="tab-content ml-1 mr-1 mt-10 pt-10">
+                        <div class="table-container">
+                            <table class="report-table">
+                                <colgroup id="dpjzcCol">
+                                    <col style="width:90px;"><col style="width:100px;"><col style="width:180px;"><col style="width:100px;">
+                                    <col style="width:80px;"><col style="width:100px;">
+                                </colgroup>
+                                <thead id="headDPJZC">
+                                    <tr class="th-border"><th>股票代码</th><th>股票简称</th><th>所属行业</th><th>最新收盘价</th><th>每股净资产(元)</th><th>跌破程度</th></tr>
+                                </thead>
+                                <tbody id="tblDPJZC"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第五个页签： 高股息个股 -->
+                <div id="tab5" class="tab-pane tab-data-container">
+                    <div class="tab-content ml-1 mr-1 mt-10 pt-10">
+                        <div class="table-container">
+                            <table class="report-table">
+                                <colgroup id="ggxggCol">
+                                    <col style="width:90px;"><col style="width:100px;"><col style="width:180px;"><col style="width:100px;">
+                                    <col style="width:80px;"><col style="width:100px;">
+                                </colgroup>
+                                <thead id="headGGXGG">
+                                    <tr class="th-border"><th>股票代码</th><th>股票简称</th><th>所属行业</th><th>最新收盘价</th><th>每股股利(元)</th><th>股息率</th></tr>
+                                </thead>
+                                <tbody id="tblGGXGG"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第六个页签： 跌破发行价 -->
+                <div id="tab6" class="tab-pane tab-data-container">
+                    <div class="tab-content ml-1 mr-1 mt-10 pt-10">
+                        <div class="table-container">
+                            <table class="report-table">
+                                <colgroup id="dpfxjCol">
+                                    <col style="width:90px;"><col style="width:100px;"><col style="width:180px;"><col style="width:100px;">
+                                    <col style="width:80px;"><col style="width:100px;"><col style="width:140px;"><col style="width:100px;">
+                                </colgroup>
+                                <thead id="headDPFXJ">
+                                    <tr class="th-border"><th>股票代码</th><th>股票简称</th><th>所属行业</th><th>最新收盘价</th><th>发行价(元)</th><th>跌破程度</th><th>后复权股份(元)</th><th>上市日期</th></tr>
+                                </thead>
+                                <tbody id="tblDPFXJ"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-overlay" id="modalOverlay"></div>
+        
+        <div class="modal-dialog" id="modalDialog">
+            <div class="modal-header">
+                <h3 class="modal-title">上榜原因</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content">
+                    <h4 id="modalItemTitle"></h4>
+                    <div id="modalItemDesc"></div>
+                </div>
+            </div>
+            <div class="modal-footer"><button class="modal-action-btn close">关闭</button></div>
+        </div>
+    <!--</section>-->
+
+    {{include './common/footer.html'}}
+    <!-- 移动端导航 -->
+    {{include './common/wap-nav.html'}}
+    <!--<div class="ignore mb-20 mt-20 pd-20 bg-f2f2f2">
+        <p class="mb-20">fundamentData-> {{fundamentData}} </p>
+    </div>-->
+    {{include './common/js.html'}}
+    <script src="{{static_url}}/js/smartSelect.js"></script>
+    <script src="{{static_url}}/js/dialog.js"></script>
+    <script type="text/javascript">
+        const tdxHYData = JSON.parse(decodeHtmlEntities(`{{ HYData }}`));
+        const ggtzpjData = JSON.parse(decodeHtmlEntities(`{{ fundamentData }}`));
+        
+        let pageIndex = 1;
+        const pageSize = 50;
+        let isLoading = false;
+        let hasMore = false;
+        let totalPages = 1;
+        let lastScrollLeft = 0;
+        let lastScrollTop = 0;
+
+        //PJLB: 评级类别，-1-全部，5-买入，4-增持，3-中性，2-减持，1-卖出，0-未知
+        const pjlbData = [ { id: '-1', name: '全部'}, { id: '5',name: '买入' }, { id: '4',name: '增持' }, { id: '3',name: '中性' }, { id: '2',name: '减持' }, { id: '1',name: '卖出' }, { id: '0',name: '未知' } ]
+        //PJBH:评级变化，-1-全部，H-调高，K-维持，L-调低，M-首次，F-未知
+        const pjbhData = [ { id: '-1', name: '全部变化'}, { id: 'H', name: '调高'}, { id: 'K', name: '维持'}, { id: 'L', name: '调低'}, { id: 'M', name: '首次'}, { id: 'F', name: '未知'} ]
+        //BGRQ:报告日期，7-一周内，30-一月内，180-半年内，365-一个内
+        const bgrqData = [ { id: '7', name: '一周内'}, { id: '30', name: '一月内'}, { id: '180', name: '半年内'}, { id: '365', name: '一年内'} ];
+
+        const optPJLB = SmartSelect('.opt-pjlb', {
+            data: pjlbData,
+            displayField: 'name',
+            valueField: 'id',
+            placeholder: '选择评级类别...',
+            searchable: false,
+            searchInPlaceholder: true,
+            viewMode: 'list',
+            clearable: false,
+            onSelect: function(item) {
+                pageIndex = 1;
+                refreshGGTZPJTable();
+            }
+        });
+        const optPJBH = SmartSelect('.opt-pjbh', {
+            data: pjbhData,
+            displayField: 'name',
+            valueField: 'id',
+            placeholder: '选择评级变化...',
+            searchable: false,
+            searchInPlaceholder: true,
+            viewMode: 'list',
+            clearable: false,
+            onSelect: function(item) {
+                pageIndex = 1;
+                refreshGGTZPJTable();
+            }
+        });
+        
+        const optStock = SmartSelect('.opt-stock', {
+            url: location.origin + '/api/x/searchstock',
+            remoteSearch: true,
+            remoteSearchParam: 'name',
+            displayField: 'name',
+            valueField: 'code',
+            placeholder: '输入代码、拼音或简称...',
+            searchable: true,
+            searchInPlaceholder: true,
+            viewMode: 'table',
+            columns: [
+                { field: 'code', title: '代码' },
+                { field: 'name', title: '名称' },
+                //{ field: 'type', title: '类型' },
+            ],
+            clearable: true,
+            onSelect: function(item) {
+                pageIndex = 1;
+                refreshGGTZPJTable();
+            },
+            onSearch:function(text){
+            }
+        });
+        const optBGQJ = SmartSelect('.opt-bgrq', {
+            data: bgrqData,
+            displayField: 'name',
+            valueField: 'id',
+            placeholder: '选择报告期间...',
+            searchable: false,
+            searchInPlaceholder: true,
+            viewMode: 'list',
+            clearable: false,
+            onSelect: function(item) {
+                pageIndex = 1;
+                refreshGGTZPJTable();
+            }
+        });
+        optBGQJ.setValue(30);
+        const noHYData = !tdxHYData || !tdxHYData.ResultSets || tdxHYData.ResultSets.length <= 0 || !tdxHYData.ResultSets[0].Content || tdxHYData.ResultSets[0].Content.length <= 0
+        const hyData = noHYData ? null : tdxHYData.ResultSets[0].Content.map(item => { return { id: item[1], name: item[0] } })
+        const optHYName = SmartSelect('.opt-hyname', {
+            data: [ {id: "-1", name: '全部'}, ...hyData ],
+            displayField: 'name',
+            valueField: 'id',
+            placeholder: '选择行业...',
+            searchable: true,
+            clearable: true,
+            searchInPlaceholder: true,
+            viewMode: 'list',
+            onSelect: function(item) {
+                pageIndex = 1;
+                refreshHYTZPJTable();
+            }
+        });
+        const optHYPJLB = SmartSelect('.opt-hypjlb', {
+            data: pjlbData,
+            displayField: 'name',
+            valueField: 'id',
+            placeholder: '选择评级类别...',
+            searchable: false,
+            searchInPlaceholder: true,
+            viewMode: 'list',
+            clearable: false,
+            onSelect: function(item) {
+                pageIndex = 1;
+                refreshHYTZPJTable();
+            }
+        });
+        const optHYPJBH = SmartSelect('.opt-hypjbh', {
+            data: pjbhData,
+            displayField: 'name',
+            valueField: 'id',
+            placeholder: '选择评级变化...',
+            searchable: false,
+            searchInPlaceholder: true,
+            viewMode: 'list',
+            clearable: false,
+            onSelect: function(item) {
+                pageIndex = 1;
+                refreshHYTZPJTable();
+            }
+        });
+        async function refreshHYTZPJTable(){
+            let error = '';
+            const dialog = StatusDialog.showLoading('正在加载数据...');
+            try{
+                isLoading = true;
+                const pjlb = !optHYPJLB.getValue() ? '-1' : optHYPJLB.getValue();
+                const pjbh = !optHYPJBH.getValue() ? '-1' : optHYPJBH.getValue();
+                const gpdm = !optHYName.getValue() ? '' : optHYName.getValue();
+                const bgrq = '30'
+                const params = { pjlb, pjbh, bgrq, gpdm, hint: '1', pageIndex, pageSize };
+                const url = `/api/x/xreport/hytzpj`;
+                const response = await fetch(url, {
+                    headers: { "X-Params": JSON.stringify(params) },
+                    method: "GET"
+                });
+                const data = await response.json();
+                renderHYTZPJTable(data);
+            }
+            catch(err){
+                console.log(err);
+                error = err.message;
+            }
+            finally{
+                setTimeout(() => {
+                    isLoading = false;
+                    //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                    dialog.hide();
+                }, error ? 1500 : 500)
+            }
+        }
+        function renderHYTZPJTable(data){
+            let html = '';
+            const nodata = !data || !data.ResultSets || data.ResultSets.length === 0 || !data.ResultSets[0] || !data.ResultSets[0].Content || data.ResultSets[0].Content.length === 0;
+            if(pageIndex === 1 && nodata){
+                html = `<tr><td colspan='7' style='text-align:center;padding:30px'>暂无数据！</td></tr>`;
+                document.getElementById('tblHYTZPJ').innerHTML = html;
+                hasMore = false;
+                return;
+            }
+            const totalRows = data.ResultSets.length >= 2 ? data.ResultSets[2].Content[0][0] : data.ResultSets[0].Count;
+            totalPages = parseInt(totalRows / pageSize) + (totalRows % pageSize > 0 ? 1: 0);
+            hasMore = totalPages > 1 && pageIndex < totalPages;
+            for(var item of data.ResultSets[0].Content){
+                html += `<tr><td>${item[10]}</td>
+                    <td class='fixed-col left-align' style='left:100px;'>${item[7]}</td>
+                    <td>${item[8]}</td><td>${item[9]}</td>
+                    <td class='left-align'>${item[3]}</td>
+                    <td class='left-align'>${FXS(item[4],item[5],item[6])}</td>
+                    <td><a class='a-ggtzpj' data-tag='hyzd' data-src='idreq' data-key='${item[2]}' title=''>点击查看</a></td></tr>`
+            }
+            if(pageIndex > 1) document.getElementById('tblHYTZPJ').innerHTML += html;
+            else document.getElementById('tblHYTZPJ').innerHTML = html;
+            showModalDialog();
+        }
+        const FXS = (name1, name2, name3) => {
+            return `${name1}${!name2 || name2 === '无' ? '' : ',' + name2}${!name3 || name3 === '无' ? '' : ',' + name3}`
+        }
+        async function refreshGGTZPJTable(){
+            let error = '';
+            const dialog = StatusDialog.showLoading('正在加载数据...');
+            try{
+                isLoading = true;
+                if(pageIndex > totalPages) { hasMore = false; return;}
+                const pjlb = !optPJLB.getValue() ? '-1' : optPJLB.getValue();
+                const pjbh = !optPJBH.getValue() ? '-1' : optPJBH.getValue();
+                const bgrq = !optBGQJ.getValue() ? '-1' : optBGQJ.getValue();
+                const gpdm = !optStock.getValue() ? '' : optStock.getValue();
+                const params = { pjlb, pjbh, bgrq, gpdm, hint: '1', pageIndex, pageSize };
+                const url = `/api/x/xreport/ggtzpj`;
+                const response = await fetch(url, {
+                    headers: { "X-Params": JSON.stringify(params) },
+                    method: "GET"
+                });
+                const data = await response.json();
+                renderGGTZPJTable(data);
+            }
+            catch(err){
+                console.log(err);
+                error = err.message
+            }
+            finally{
+                setTimeout(() => {
+                    isLoading = false;
+                    //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                    dialog.hide();
+                }, error ? 1500 : 500)
+            }
+        }
+        function renderGGTZPJTable(data){
+            //tblGGTZPJ
+            let html = '';
+            const nodata = !data || !data.ResultSets || data.ResultSets.length === 0 || !data.ResultSets[0] || !data.ResultSets[0].Content || data.ResultSets[0].Content.length === 0;
+            if(pageIndex === 1 && nodata){
+                html = `<tr><td colspan='13' style='text-align:center;padding:30px'>暂无数据！</td></tr>`;
+                document.getElementById('tblGGTZPJ').innerHTML = html;
+                hasMore = false;
+                return;
+            }
+            const totalRows = data.ResultSets.length >= 2 ? data.ResultSets[2].Content[0][0] : data.ResultSets[0].Count;
+            totalPages = parseInt(totalRows / pageSize) + (totalRows % pageSize > 0 ? 1: 0);
+            hasMore = totalPages > 1 && pageIndex < totalPages;
+            for(var item of data.ResultSets[0].Content){
+                html += `<tr><td>${formatDate4(item[3])}</td>
+                    <td class='fixed-col' style='left:100px;'>${item[2]}(${item[1]})</td>
+                    <td>${item[4]}</td><td>${item[5]}</td>
+                    <td class='right-align'>${!item[6]?'--':item[6]}</td>
+                    <td class='right-align'>${EPS(item[7],item[14])}</td>
+                    <td>${item[14]}</td>
+                    <td class='right-align'>${item[8] ? item[8] : '--'}</td>
+                    <td class='right-align'>${item[9] ? item[9] : '--'}</td>
+                    <td class='right-align'>${item[10] ? item[10] : '--'}</td>
+                    <td class='left-align ellipsis-cell'><a class='a-ggtzpj' data-tag='pjzd' data-src='idreq' data-key='${item[12]}' title='${item[11]}'>${item[11]}</a></td>
+                    <td>${item[13]}</td><td><a data-key='${item[1]}' class='stock-detail' data-key='${item[1]}'>点击获取</a></td></tr>`
+            }
+            if(pageIndex > 1) document.getElementById('tblGGTZPJ').innerHTML += html;
+            else document.getElementById('tblGGTZPJ').innerHTML = html;
+            showModalDialog();
+            listenStockDetail();
+        }
+        async function refreshDPZFJTable(){
+            let error = '';
+            const dialog = StatusDialog.showLoading('正在加载数据...');
+            try{
+                isLoading = true;
+                const dmpx = 'dpzfj'
+                const params = { dmpx, hint: '1', pageIndex, pageSize };
+                const url = `/api/x/xreport/jztj/dpzfj`;
+                const response = await fetch(url, {
+                    headers: { "X-Params": JSON.stringify(params) },
+                    method: "GET"
+                });
+                const data = await response.json();
+                renderDPZFJTable(data);
+            }
+            catch(err){
+                console.log(err);
+                error = err.message;
+            }
+            finally{
+                setTimeout(() => {
+                    isLoading = false;
+                    //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                    dialog.hide();
+                }, error ? 1500 : 500)
+            }
+        }
+        function renderDPZFJTable(data){
+            let html = '';
+            const nodata = !data || !data.ResultSets || data.ResultSets.length === 0 || !data.ResultSets[0] || !data.ResultSets[0].Content || data.ResultSets[0].Content.length === 0;
+            if(pageIndex === 1 && nodata){
+                html = `<tr><td colspan='8' style='text-align:center;padding:30px'>暂无数据！</td></tr>`;
+                document.getElementById('tblDPZFJ').innerHTML = html;
+                hasMore = false;
+                return;
+            }
+            const totalRows = data.ResultSets.length >= 2 ? data.ResultSets[2].Content[0][0] : data.ResultSets[0].Count;
+            totalPages = parseInt(totalRows / pageSize) + (totalRows % pageSize > 0 ? 1: 0);
+            hasMore = totalPages > 1 && pageIndex < totalPages;
+            for(var item of data.ResultSets[0].Content){
+                html += `<tr><td>${item[0]}</td>
+                    <td class='fixed-col' style='left:90px;'>${item[1]}</td><td class='left-align'>${item[3]}</td>
+                    <td class='right-align'>${item[4].toFixed(2)}</td>
+                    <td class='right-align'>${item[5].toFixed(2)}</td>
+                    <td>${item[6].toFixed(2) + '%'}</td>
+                    <td class='right-align'>${item[7].toFixed(2)}</td>
+                    <td class='right-align'>${formatDate4(item[8])}</td></tr>`
+            }
+            if(pageIndex > 1) document.getElementById('tblDPZFJ').innerHTML += html;
+            else document.getElementById('tblDPZFJ').innerHTML = html;
+        }
+        async function refreshDPJZCTable(){
+            let error = '';
+            const dialog = StatusDialog.showLoading('正在加载数据...');
+            try{
+                isLoading = true;
+                const dmpx = 'dpjzc'
+                const params = { dmpx, hint: '1', pageIndex, pageSize };
+                const url = `/api/x/xreport/jztj/dpjzc`;
+                const response = await fetch(url, {
+                    headers: { "X-Params": JSON.stringify(params) },
+                    method: "GET"
+                });
+                const data = await response.json();
+                renderDPJZCTable(data);
+            }
+            catch(err){
+                console.log(err);
+                error = err.message;
+            }
+            finally{
+                setTimeout(() => {
+                    isLoading = false;
+                    //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                    dialog.hide();
+                }, error ? 1500 : 500)
+            }
+        }
+        function renderDPJZCTable(data){
+            let html = '';
+            const nodata = !data || !data.ResultSets || data.ResultSets.length === 0 || !data.ResultSets[0] || !data.ResultSets[0].Content || data.ResultSets[0].Content.length === 0;
+            if(pageIndex === 1 && nodata){
+                html = `<tr><td colspan='6' style='text-align:center;padding:30px'>暂无数据！</td></tr>`;
+                document.getElementById('tblDPJZC').innerHTML = html;
+                hasMore = false;
+                return;
+            }
+            const totalRows = data.ResultSets.length >= 2 ? data.ResultSets[2].Content[0][0] : data.ResultSets[0].Count;
+            totalPages = parseInt(totalRows / pageSize) + (totalRows % pageSize > 0 ? 1: 0);
+            hasMore = totalPages > 1 && pageIndex < totalPages;
+            for(var item of data.ResultSets[0].Content){
+                html += `<tr><td>${item[0]}</td>
+                    <td class='fixed-col' style='left:90px;'>${item[1]}</td><td class='left-align'>${item[3]}</td>
+                    <td class='right-align'>${item[4].toFixed(2)}</td>
+                    <td class='right-align'>${item[5].toFixed(2)}</td>
+                    <td>${item[6].toFixed(2) + '%'}</td></tr>`
+            }
+            if(pageIndex > 1) document.getElementById('tblDPJZC').innerHTML += html;
+            else document.getElementById('tblDPJZC').innerHTML = html;
+        }
+        async function refreshGGXGGTable(){
+            let error = '';
+            const dialog = StatusDialog.showLoading('正在加载数据...');
+            try{
+                isLoading = true;
+                const dmpx = 'ggxgg'
+                const params = { dmpx, hint: '1', pageIndex, pageSize };
+                const url = `/api/x/xreport/jztj/ggxgg`;
+                const response = await fetch(url, {
+                    headers: { "X-Params": JSON.stringify(params) },
+                    method: "GET"
+                });
+                const data = await response.json();
+                renderGGXGGTable(data);
+            }
+            catch(err){
+                console.log(err);
+                error = err.message;
+            }
+            finally{
+                setTimeout(() => {
+                    isLoading = false;
+                    //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                    dialog.hide();
+                }, error ? 1500 : 500)
+            }
+        }
+        function renderGGXGGTable(data){
+            let html = '';
+            const nodata = !data || !data.ResultSets || data.ResultSets.length === 0 || !data.ResultSets[0] || !data.ResultSets[0].Content || data.ResultSets[0].Content.length === 0;
+            if(pageIndex === 1 && nodata){
+                html = `<tr><td colspan='6' style='text-align:center;padding:30px'>暂无数据！</td></tr>`;
+                document.getElementById('tblGGXGG').innerHTML = html;
+                hasMore = false;
+                return;
+            }
+            const totalRows = data.ResultSets.length >= 2 ? data.ResultSets[2].Content[0][0] : data.ResultSets[0].Count;
+            totalPages = parseInt(totalRows / pageSize) + (totalRows % pageSize > 0 ? 1: 0);
+            hasMore = totalPages > 1 && pageIndex < totalPages;
+            for(var item of data.ResultSets[0].Content){
+                html += `<tr><td>${item[0]}</td>
+                    <td class='fixed-col' style='left:90px;'>${item[1]}</td><td class='left-align'>${item[3]}</td>
+                    <td class='right-align'>${item[4].toFixed(2)}</td>
+                    <td class='right-align'>${item[5].toFixed(2)}</td>
+                    <td>${item[6].toFixed(2) + '%'}</td></tr>`
+            }
+            if(pageIndex > 1) document.getElementById('tblGGXGG').innerHTML += html;
+            else document.getElementById('tblGGXGG').innerHTML = html;
+        }
+        async function refreshDPFXJTable(){
+            let error = '';
+            const dialog = StatusDialog.showLoading('正在加载数据...');
+            try{
+                isLoading = true;
+                const dmpx = 'dpfxj'
+                const params = { dmpx, hint: '1', pageIndex, pageSize };
+                const url = `/api/x/xreport/jztj/dpfxj`;
+                const response = await fetch(url, {
+                    headers: { "X-Params": JSON.stringify(params) },
+                    method: "GET"
+                });
+                const data = await response.json();
+                renderDPFXJTable(data);
+            }
+            catch(err){
+                console.log(err);
+                error = err.message
+            }
+            finally{
+                setTimeout(() => {
+                    isLoading = false;
+                    //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                    dialog.hide();
+                }, error ? 1500 : 500)
+            }
+        }
+        function renderDPFXJTable(data){
+            let html = '';
+            const nodata = !data || !data.ResultSets || data.ResultSets.length === 0 || !data.ResultSets[0] || !data.ResultSets[0].Content || data.ResultSets[0].Content.length === 0;
+            if(pageIndex === 1 && nodata){
+                html = `<tr><td colspan='8' style='text-align:center;padding:30px'>暂无数据！</td></tr>`;
+                document.getElementById('tblDPFXJ').innerHTML = html;
+                hasMore = false;
+                return;
+            }
+            const totalRows = data.ResultSets.length >= 2 ? data.ResultSets[2].Content[0][0] : data.ResultSets[0].Count;
+            totalPages = parseInt(totalRows / pageSize) + (totalRows % pageSize > 0 ? 1: 0);
+            hasMore = totalPages > 1 && pageIndex < totalPages;
+            for(var item of data.ResultSets[0].Content){
+                html += `<tr><td>${item[0]}</td>
+                    <td class='fixed-col' style='left:90px;'>${item[1]}</td><td class='left-align'>${item[3]}</td>
+                    <td class='right-align'>${item[4].toFixed(2)}</td>
+                    <td class='right-align'>${item[5].toFixed(2)}</td>
+                    <td>${item[6].toFixed(2) + '%'}</td>
+                    <td class='right-align'>${item[7].toFixed(2)}</td>
+                    <td class='right-align'>${formatDate4(item[8])}</td></tr>`
+            }
+            if(pageIndex > 1) document.getElementById('tblDPFXJ').innerHTML += html;
+            else document.getElementById('tblDPFXJ').innerHTML = html;
+        }
+        
+        function handleScroll(container){
+            if (isLoading || !hasMore) return;
+            // 计算是否滚动到底部
+            const scrollTop = container.scrollTop;
+            const scrollHeight = container.scrollHeight;
+            const clientHeight = container.clientHeight;
+            //if (scrollHeight - scrollTop - clientHeight > 50) return; // 距离底部小于等于50px时触发加载
+            if (scrollHeight - scrollTop - clientHeight < 50){
+                const reportName = document.getElementById('tabs').querySelector('.tab.active').getAttribute('data-src');
+                pageIndex++;
+                renderData(reportName);
+            }
+        }
+        function renderData(report){
+            if(report === 'ggtzpj') refreshGGTZPJTable();
+            else if(report ==='hytzpj') refreshHYTZPJTable();
+            else if(report === 'dpzfj') refreshDPZFJTable();
+            else if(report === 'dpjzc') refreshDPJZCTable();
+            else if(report === 'ggxgg') refreshGGXGGTable();
+            else if(report === 'dpfxj') refreshDPFXJTable();
+        }
+        const EPS = (v,y) => { return `${v}(${parseInt(y)-1})`};
+        const formatDate4 = str => {
+            if(typeof str !== 'string') str = str.toString();
+            return `${str.slice(0,4)}-${str.slice(4,6)}-${str.slice(6,8)}`;
+        }
+        function scrollTabs(tabs, arrowLeft, arrowRight, tabPanes) {
+            // 每次滚动的距离
+            const scrollAmount = 200;
+            // 更新箭头状态
+            function updateArrowState() {
+                const scrollLeft = tabs.scrollLeft;
+                const maxScrollLeft = tabs.scrollWidth - tabs.clientWidth;
+                // 向左箭头状态
+                if (scrollLeft <= 10) arrowLeft.classList.add('hidden');
+                else arrowLeft.classList.remove('hidden');
+                // 向右箭头状态
+                if (scrollLeft >= maxScrollLeft - 10) arrowRight.classList.add('hidden');
+                else arrowRight.classList.remove('hidden');
+            }
+            // 初始更新箭头状态
+            updateArrowState();
+            // 向右滚动
+            arrowRight.addEventListener('click', function () {
+                if (!this.classList.contains('hidden')) {
+                    tabs.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    // 滚动完成后更新箭头状态
+                    setTimeout(updateArrowState, 300);
+                }
+            });
+            // 向左滚动
+            arrowLeft.addEventListener('click', function () {
+                if (!this.classList.contains('hidden')) {
+                    tabs.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    // 滚动完成后更新箭头状态
+                    setTimeout(updateArrowState, 300);
+                }
+            });
+            // 监听滚动事件更新箭头状态
+            tabs.addEventListener('scroll', updateArrowState);
+            // 添加调整窗口大小时更新状态
+            window.addEventListener('resize', updateArrowState);
+        }
+        function listenStockDetail(){
+            document.querySelectorAll('a.stock-detail').forEach(item => {
+                item.addEventListener('click', async function () {
+                    let error = '';
+                    const dialog = StatusDialog.showLoading('正在加载数据...');
+                    try{
+                        isLoading = true;
+                        pageIndex = 1;
+                        const gpdm = this.getAttribute('data-key');
+                        const pjlb = '-1';
+                        const pjbh = '-1';
+                        const bgrq = '-1';
+                        const params = { pjlb, pjbh, bgrq, gpdm, hint: '1', pageIndex, pageSize };
+                        const url = `/api/x/xreport/ggtzpj`;
+                        const response = await fetch(url, {
+                            headers: { "X-Params": JSON.stringify(params) },
+                            method: "GET"
+                        });
+                        const data = await response.json();
+                        renderGGTZPJTable(data);
+                        const text = this.parentElement.parentElement.childNodes[2].innerText;
+                        document.querySelector('.stock-ggycmx').classList.remove('nodisplay');
+                        document.getElementById('ggycmxTitle').innerHTML = `『${text}』盈利预测明细`
+                        document.querySelector('.filter-container').classList.add('nodisplay');
+                    }
+                    catch(err){
+                        console.log(err);
+                        error = err.message;
+                    }
+                    finally{
+                        setTimeout(() => {
+                            isLoading = false;
+                            //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                            dialog.hide();
+                        }, error ? 1500 : 500)
+                    }
+                });
+            })
+        }
+        document.getElementById('retMain').addEventListener('click', async function(){
+            let error = '';
+            const dialog = StatusDialog.showLoading('正在加载数据...');
+            try{
+                isLoading = true;
+                pageIndex = 1;
+                const gpdm = "";
+                const pjlb = '-1';
+                const pjbh = '-1';
+                const bgrq = '30';
+                const params = { pjlb, pjbh, bgrq, gpdm, hint: '1', pageIndex, pageSize };
+                const url = `/api/x/xreport/ggtzpj`;
+                const response = await fetch(url, {
+                    headers: { "X-Params": JSON.stringify(params) },
+                    method: "GET"
+                });
+                const data = await response.json();
+                renderGGTZPJTable(data);
+                const text = this.parentElement.parentElement.childNodes[2].innerText;
+                document.querySelector('.stock-ggycmx').classList.remove('nodisplay');
+                document.getElementById('ggycmxTitle').innerHTML = `『${text}』盈利预测明细`
+                document.querySelector('.filter-container').classList.add('nodisplay');
+            }
+            catch(err){
+                console.log(err);
+                error = err.message;
+            }
+            finally{
+                setTimeout(() => {
+                    isLoading = false;
+                    //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                    dialog.hide();
+                }, error ? 1500 : 500)
+            }
+            document.querySelector('.stock-ggycmx').classList.add('nodisplay');
+            document.querySelector('.filter-container').classList.remove('nodisplay');
+        })
+        document.addEventListener('DOMContentLoaded', function () {
+            renderGGTZPJTable(ggtzpjData);
+            let tabs = document.getElementById('tabs');
+            let arrowLeft = document.getElementById('arrow-left');
+            let arrowRight = document.getElementById('arrow-right');
+            let tabPanes = document.querySelectorAll('.tab-pane');
+            scrollTabs(tabs, arrowLeft, arrowRight, tabPanes);
+            document.querySelectorAll('.tab-tag').forEach(tab => {
+                tab.addEventListener('click', async function(event){
+                    if (event.target.classList.contains('active')) return;
+                    lastScrollLeft = 0; lastScrollTop = 0;
+                    const tabEl = event.target;
+                    let queryEls = `#${tabEl.parentElement.id} > .tab-tag`;
+                    document.querySelectorAll(queryEls).forEach(tab => { tab.classList.remove('active') });
+                    tabEl.classList.add('active');
+                    const tabId = tabEl.getAttribute('data-tab');
+                    queryEls = `#${document.getElementById(tabId).parentElement.id} > .tab-data-container`;
+                    document.querySelectorAll(queryEls).forEach(pane => pane.classList.remove('active'));
+                    document.getElementById(tabId).classList.add('active');
+
+                    const dataSrc = event.target.getAttribute('data-src');
+                    pageIndex = 1;
+                    renderData(dataSrc);
+                });
+            })
+            let scrollTimeout;
+            document.querySelectorAll('.table-container').forEach(tableContainer => {
+                tableContainer.addEventListener('scroll', (event) => {
+                    if(pageIndex === 1) { lastScrollLeft = 0; lastScrollTop = 0; }
+                    const threshold = 15;
+                    const deltaX = event.target.scrollLeft - lastScrollLeft;
+                    const deltaY = event.target.scrollTop - lastScrollTop;
+                    if (Math.abs(deltaX) > Math.abs(deltaY)) return; // 水平滚动，不更新数据
+                    if(scrollTimeout) clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => { handleScroll(event.target); }, 100);
+                });
+            })
+        });
+        document.querySelector('.ico-open').addEventListener('click', function () {
+            document.querySelector('.m-mask').classList.remove("none")
+        })
+        document.querySelector('.m-mask').addEventListener('click', function () {
+            this.classList.add("none")
+        })
+    </script>
+</body>
+</html>

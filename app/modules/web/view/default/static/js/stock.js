@@ -70,14 +70,6 @@ async function fillTHSData(timeType) {
             console.error('Error:', error);
             showNodataOrError('系统出错，请稍后再试......', "tab1");
         });
-    /*
-    const res = await fetch(apiUrl)
-    const data = await res.json();
-    const list = data.data.stock_list;
-    const dataList = document.getElementById('thsHotStock');
-    const html = list.map( (item) => {return renderTHSTemplate(item) } ).join('');
-    dataList.innerHTML = html;
-    */
 }
 async function fillCLSData() {
     let apiUrl = '/api/c/hotstock'
@@ -199,7 +191,7 @@ function showDFCFTag(tag) {
     if (!tag || tag.length === 0) return "";
     let tagHtml = "";
     tag.forEach(item => {
-        if (item.labelType === 1) tagHtml += `<span class="popularity-tag ml-35">${item.labelName}</span>`
+        if (item.labelType === 1) tagHtml += `<span class="popularity-tag ml-5">${item.labelName}</span>`
         else tagHtml += `<span class="concept-tag ml-3">${item.labelName}</span>`
     })
     return tagHtml;
@@ -349,7 +341,7 @@ function fillTomorrowFry() {
         .catch(e => { console.log('error：', e.message) });
 }
 function renderTomorrowFryTemplate(item) {
-    if (!item.themeName) 
+    if (!item.themeName)
         return `<div class="data-item">
                 <div class="item-content">
                     <div class="item-stock">
@@ -362,7 +354,7 @@ function renderTomorrowFryTemplate(item) {
                     <p class="margin-12">${item.summary}</p>
                 </div>
             </div>`;
-    else 
+    else
         return `<div class="data-item">
                 <div class="item-content">
                     <div class="item-stock">
@@ -391,7 +383,7 @@ function renderTomorrowFryTemplate(item) {
                 </div>
             </div>`
 }
-function showHotImage(item){
+function showHotImage(item) {
     if (item.isHot) return `<span><img src="/web/default/img/hotTheme.png" style="width:80px;height:22px;"/></span>`
     else return "";
 }
@@ -421,7 +413,7 @@ function fillTodayChance() {
         })
         .catch(e => { console.log('error：', e.message) });
 }
-function renderTodayChanceTemplate(item){
+function renderTodayChanceTemplate(item) {
     return `                    <div class="data-item">
                         <div class="item-content">
                             <div class="item-meta expect-concept-name">
@@ -432,13 +424,13 @@ function renderTodayChanceTemplate(item){
                             <div class="item-meta">
                                 <span class="theme-trend"><span>涨跌：</span><span id="up_down">${item.f104}/${item.f106}/${item.f105}</span></span>
                                 <span class="theme-trend"><span>涨跌停：</span><span id="updown_limit">${item.fex3}/${item.fex4}</span></span>
-                                <span class="theme-trend"><span>净注入：</span><span id="fundIn">${(item.fex5/100000000).toFixed(2)}亿</span></span>
+                                <span class="theme-trend"><span>净流入：</span><span id="fundIn">${(item.fex5 / 100000000).toFixed(2)}亿</span></span>
                             </div>
                             ${renderTodayChanceStock(item.stock)}
                         </div>
                     </div>`
 }
-function renderTodayChanceStock(stocks){
+function renderTodayChanceStock(stocks) {
     if (!stocks || stocks.length === 0) return `<div class="item-meta"></div>`;
     var html = `<div class="item-meta">`;
     stocks.forEach(item => {
@@ -447,7 +439,7 @@ function renderTodayChanceStock(stocks){
     html += `</div>`
     return html;
 }
-function fillExpectTheme(){
+function fillExpectTheme() {
     const apiUrl = `/api/d/expectHot`
     fetch(apiUrl, { method: "GET", headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
@@ -463,7 +455,7 @@ function fillExpectTheme(){
         })
         .catch(e => { console.log('error：', e.message) });
 }
-function renderExpectThemeTemplate(item, index){
+function renderExpectThemeTemplate(item, index) {
     return `                    <div class="timeline-item ${index >= 3 ? "timeline-hidden-items" : ""}">
                             <div class="timeline-point"></div>
                             <div class="timeline-content">
@@ -477,7 +469,7 @@ function renderExpectThemeTemplate(item, index){
                             </div>
                         </div>`;
 }
-function fillThemeList(){
+function fillThemeList() {
     const apiUrl = `/api/d/themeList`
     fetch(apiUrl, { method: "GET", headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
@@ -491,13 +483,13 @@ function fillThemeList(){
         })
         .catch(e => { console.log('error：', e.message) });
 }
-function renderThemeListTemplate(item){
+function renderThemeListTemplate(item) {
     return `                    <div class="data-item">
                         <div class="item-content p-5">
                             <div class="item-meta">
                                 <div class="concept-info space-between">
                                     <span class="m-5">题材</span>
-                                    ${item.label ? '<span class="theme-label">' + item.label + '</span>' : ""}
+                                    ${item.label ? '<span class="theme-label ft-12 pt-3">' + item.label + '</span>' : ""}
                                 </div>
                                 <div class="concept-info theme-detail-show">
                                     <h3 data-key="${item.themeCode}" title="${item.themeName}" hotValue="${item.hotValue}" hotValueUpLimit="${item.hotValueUpLimit}" class="show-theme-detail">${item.themeName}</h3>
@@ -507,9 +499,9 @@ function renderThemeListTemplate(item){
                                 <p class="theme-summary" title="“${item.themeName}”简介">${item.baseInfo.introduction}</p>
                                 <div class="concept-info">
                                     <!--<span class="concept-upnum">${item.fex3}涨停</span>-->
-                                    <span class="theme-statistics">涨跌统计：<span class="red">${!item.statistics.f104 ? (item.statistics.f104 === 0 ? '0' : '--') : item.statistics.f104}</span><span>/${!item.statistics.f106 ? (item.statistics.f106 ===0 ? '0' : '--') : item.statistics.f106}/</span><span class="green">${!item.statistics.f105 ? (item.statistics.f105 === 0 ? '0' : '--') : item.statistics.f105}</span></span>
+                                    <span class="theme-statistics">涨跌统计：<span class="red">${!item.statistics.f104 ? (item.statistics.f104 === 0 ? '0' : '--') : item.statistics.f104}</span><span>/${!item.statistics.f106 ? (item.statistics.f106 === 0 ? '0' : '--') : item.statistics.f106}/</span><span class="green">${!item.statistics.f105 ? (item.statistics.f105 === 0 ? '0' : '--') : item.statistics.f105}</span></span>
                                     <span class="theme-statistics">涨跌停：<span class="red">${!item.statistics.fex3 ? (item.statistics.fex3 === 0 ? '0' : '--') : item.statistics.fex3}</span><span>/</span><span class="green">${!item.statistics.fex4 ? (item.statistics.fex4 === 0 ? '0' : '--') : item.statistics.fex4}</span></span>
-                                    <span class="theme-statistics">净流入：<span class="${ item.statistics.fex5 && item.statistics.fex5 >= 0 ? 'red' : 'green'}">${!item.statistics.fex5 ? (item.statistics.fex5 === 0 ? '0' : '--') : (item.statistics.fex5 / 100000000).toFixed(2)}</span><span>亿</span></span>
+                                    <span class="theme-statistics">净流入：<span class="${item.statistics.fex5 && item.statistics.fex5 >= 0 ? 'red' : 'green'}">${!item.statistics.fex5 ? (item.statistics.fex5 === 0 ? '0' : '--') : (item.statistics.fex5 / 100000000).toFixed(2)}</span><span>亿</span></span>
                                 </div>
                                 <div class="concept-info space-between">
                                     <span class="m-5 up-stock">领涨个股</span>
@@ -524,7 +516,7 @@ function renderThemeListTemplate(item){
                         </div>
                     </div>`;
 }
-function renderThemeDetailTemplate(data, hotValue, hotValueUpLimit){
+function renderThemeDetailTemplate(data, hotValue, hotValueUpLimit) {
     let html = "";//`<div class="theme-pane">`
     html += `<div class="data-item flex-row space-between no-border">`
     html += `<span class="">涨幅：${!data.statistic.f3 ? '--' : (data.statistic.f3.toFixed(2) + '%')}</span>`
@@ -538,7 +530,7 @@ function renderThemeDetailTemplate(data, hotValue, hotValueUpLimit){
     html += `<span class="theme-statistics">净流入：<span class="${data.statistic.fex5 && data.statistic.fex5 >= 0 ? 'red' : 'green'}">${!data.statistic.fex5 ? '--' : (data.statistic.fex5 / 100000000).toFixed(2)}</span><span>亿</span></span>`
     html += `</div>`
     let stock_list_html = "";
-    if (data.stockTable && data.stockTable.length > 0 && data.stockTable[0].keywordList && data.stockTable[0].keywordList.length > 0 && data.stockTable[0].keywordList[0].introduction){
+    if (data.stockTable && data.stockTable.length > 0 && data.stockTable[0].keywordList && data.stockTable[0].keywordList.length > 0 && data.stockTable[0].keywordList[0].introduction) {
         stock_list_html += `<div class="data-list theme-stock-list mt-15">`;
         data.stockTable.forEach(item => {
             stock_list_html += `<div class="data-item">
@@ -554,7 +546,7 @@ function renderThemeDetailTemplate(data, hotValue, hotValueUpLimit){
                 <p class="theme-introduction">${item.keywordList[0].introduction}</p>
                 </div></div></div>`
         })
-        
+
     } else {
         stock_list_html += `<div class="data-item no-border grid-header">`;
         stock_list_html += `<span class="theme-statistics">股票名称</span>`
@@ -596,22 +588,22 @@ const EFFECT_FIELDS = [
     { order: 8, field: 'CJDT_NUM', name: '触及跌停', perChar: '' },
     { order: 9, field: 'DT_FBL', name: '跌停封板率', perChar: '%' },
 ]
-function renderMoneyMakingeffectHtml(data){
+function renderMoneyMakingeffectHtml(data) {
     if (!data) return '';
     if (!document.getElementById('moneyEffect')) return;
     document.querySelector('.effect-img').src = getEffectImg(data.currData[0].MONEYMAKING_EFFECT)
     document.querySelector('.position-suggestion').textContent = data.currData[0].POSITION_SUGGESTION + '%';
     drawDashboard(document.getElementById('moneyEffect'), data.currData[0].MONEYMAKING_EFFECT);
-    let fields = EFFECT_FIELDS.sort((a,b) => a.order - b.order);
+    let fields = EFFECT_FIELDS.sort((a, b) => a.order - b.order);
     let html = '';
     fields.forEach(item => {
         html += `                                        <div class="swiper-slide">
                                         <div class="effect-item">
                                             <span class="fs-14">${item.name}</span>
                                             <div class="effect-item-data">
-                                                <span class="effect-item-label">${ item.field === 'LIMIT_PER_YES' ? data.currData[0][item.field].toFixed(2) : data.currData[0][item.field] }${item.perChar}</span>
+                                                <span class="effect-item-label">${item.field === 'LIMIT_PER_YES' ? data.currData[0][item.field].toFixed(2) : data.currData[0][item.field]}${item.perChar}</span>
                                                 <span class="effect-item-label">/</span>
-                                                <span class="effect-item-label">${ item.field === 'LIMIT_PER_YES' ? data.prevData[0][item.field].toFixed(2) : data.prevData[0][item.field] }${item.perChar}</span>
+                                                <span class="effect-item-label">${item.field === 'LIMIT_PER_YES' ? data.prevData[0][item.field].toFixed(2) : data.prevData[0][item.field]}${item.perChar}</span>
                                             </div>
                                             <div class="effect-item-data effect-data-title">
                                                 <span class="effect-item-label effect-title">今日</span>
@@ -623,11 +615,11 @@ function renderMoneyMakingeffectHtml(data){
     })
     return html;
 }
-function getEffectImg(value){
+function getEffectImg(value) {
     return value <= 45 ? "/web/default/img/weak.png" : (value >= 65 ? "/web/default/img/strong.png" : "/web/default/img/medium.png")
 }
 function renderLimitUpLeaderHtml(data) {
-    if(!data || !data.result || !data.result.data || data.result.data.length === 0) return `<div class='nodata-container'>暂无数据</div>`
+    if (!data || !data.result || !data.result.data || data.result.data.length === 0) return `<div class='nodata-container'>暂无数据</div>`
     let html = '';
     data.result.data.forEach(item => {
         html += `                            <div class="data-item">
@@ -648,10 +640,10 @@ function renderLimitUpLeaderHtml(data) {
     });
     return html;
 }
-function renderAuctionLimitUpHtml(data){
-    if(!data || data.length === 0) return `<div class='no-auction-data'>未查询到相关数据</div>`;
+function renderAuctionLimitUpHtml(data) {
+    if (!data || data.length === 0) return `<div class='no-auction-data'>未查询到相关数据</div>`;
     const fields = [
-        { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称', mapField: "f14"},
+        { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称', mapField: "f14" },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价', mapField: "f2" },
         { order: 3, name: 'YIELD', cnName: '涨幅', mapField: "f3" },
         { order: 4, name: 'MISMATCH_LIMIT_AMOUNT', cnName: '涨停委买额', mapField: "f614" },
@@ -662,7 +654,7 @@ function renderAuctionLimitUpHtml(data){
         { order: 9, name: 'MISMATCH_AMOUNT', cnName: '未匹配额', mapField: "f618" },
         { order: 10, name: 'MISMATCH_TURNOVERRATE', cnName: '竞价换手', mapField: "f620" },
         { order: 11, name: 'BOARD_NAME', cnName: '所属行业', mapField: "f100" }
-    ].sort((a,b)=>a.order - b.order);
+    ].sort((a, b) => a.order - b.order);
 
     let headerHtml = renderHeaders(fields);
     let dataHtml = renderAuctionDataRow(data, fields);;
@@ -683,11 +675,11 @@ function renderAuctionDataRow(data, fields) {
             let itemData = item[field.mapField] || item[field.name]
             const zf = item[fields[2].name] || item[fields[2].mapField]
             const isRZ = parseInt(item["IS_MARGININFO"]) || parseInt(item["f13"]);
-            if (index === 0) html += `<td>${itemData}<p class="stock-code">${item["SECURITY_CODE"] || item["f12"]}${ isRZ ? "<span class='margin-info'>融</span>" : ""}</p></td>`;
+            if (index === 0) html += `<td>${itemData}<p class="stock-code">${item["SECURITY_CODE"] || item["f12"]}${isRZ ? "<span class='margin-info'>融</span>" : ""}</p></td>`;
             else if (index === 1) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${itemData}</td>`;
             else if (index === 2 || index === 4) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${formatNumberAdvanced(itemData, 2)}%</td>`;
-            else if (index === 9) html += `<td>${formatNumberAdvanced(itemData, 2) }%</td>`;
-            else if(index === 3 || (index >=5 && index <= 8)) {
+            else if (index === 9) html += `<td>${formatNumberAdvanced(itemData, 2)}%</td>`;
+            else if (index === 3 || (index >= 5 && index <= 8)) {
                 let numStr = formatNumberAdvanced(itemData, 2);
                 html += `<td>${numStr}</td>`;
             }
@@ -697,7 +689,7 @@ function renderAuctionDataRow(data, fields) {
     })
     return `<tbody>${html}</tbody>`;
 }
-function renderHighQualityHtml(data){
+function renderHighQualityHtml(data) {
     if (!data || data.length === 0) return `<div class='no-auction-data'>未查询到相关数据</div>`;
     const fields = [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称' },
@@ -722,15 +714,15 @@ function renderHighQualityDataRow(data, fields) {
         html += `<tr>`;
         fields.forEach((field, index) => {
             const order = field.order;
-            let itemData =  order === 5 ? item.UNUSUAL_SITUATION || item[field.name] : (item[field.name] ? item[field.name] : '--');
+            let itemData = order === 5 ? item.UNUSUAL_SITUATION || item[field.name] : (item[field.name] ? item[field.name] : '--');
             const zf = item[fields[2].name];
             const isRZ = parseInt(item["IS_MARGININFO"]);
             if (order === 1) html += `<td>${itemData}<p class="stock-code">${item["SECURITY_CODE"] || item["f12"]}${isRZ ? "<span class='margin-info'>融</span>" : ""}</p></td>`;
             else if (order === 2) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${itemData}</td>`;
-            else if (order === 3 ) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${formatNumberAdvanced(itemData, 2)}%</td>`;
+            else if (order === 3) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${formatNumberAdvanced(itemData, 2)}%</td>`;
             else if (order === 4) html += `<td>${formatNumberAdvanced(itemData, 2)}</td>`;
-            else if (order === 6 || order === 7) html += `<td>${formatNumberAdvanced(itemData, 2) + (!isNaN(formatNumberAdvanced(itemData, 2)) ? '%' : '' )}</td>`;
-            else if (order === 9 || order === 10 ) {
+            else if (order === 6 || order === 7) html += `<td>${formatNumberAdvanced(itemData, 2) + (!isNaN(formatNumberAdvanced(itemData, 2)) ? '%' : '')}</td>`;
+            else if (order === 9 || order === 10) {
                 let numStr = formatNumberAdvanced(itemData, 2);
                 html += `<td>${numStr}</td>`;
             }
@@ -741,7 +733,7 @@ function renderHighQualityDataRow(data, fields) {
     return `<tbody>${html}</tbody>`;
 }
 const TABLE_HEADERS = {
-    auction:[
+    auction: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称', mapField: "f14" },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价', mapField: "f2" },
         { order: 3, name: 'YIELD', cnName: '涨幅', mapField: "f3" },
@@ -754,7 +746,7 @@ const TABLE_HEADERS = {
         { order: 10, name: 'MISMATCH_TURNOVERRATE', cnName: '竞价换手', mapField: "f620" },
         { order: 11, name: 'BOARD_NAME', cnName: '所属行业', mapField: "f100" }
     ],
-    limitnatural:[
+    limitnatural: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价' },
         { order: 3, name: 'YIELD', cnName: '涨幅' },
@@ -769,7 +761,7 @@ const TABLE_HEADERS = {
         { order: 12, name: 'NET_INFLOW', cnName: '主力净流入' },
         { order: 13, name: 'ZTJY', cnName: '涨停基因' },
     ],
-    limitsoon:[
+    limitsoon: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称', mapField: 'f14' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价', mapField: 'f2' },
         { order: 3, name: 'YIELD', cnName: '涨幅', mapField: 'f3' },
@@ -777,11 +769,11 @@ const TABLE_HEADERS = {
         { order: 5, name: 'BOARD_NAME', cnName: '所属行业', mapField: 'f100' },
         { order: 6, name: 'SPRINT_LIMIT_DATE', cnName: '冲板时间', mapField: 'aboutzdttime' },
         { order: 7, name: 'TURNOVERRATE', cnName: '换手率', mapField: 'f8' },
-        { order: 9, name: 'NET_INFLOW', cnName: '主力净注入', mapField: 'f62' },
+        { order: 9, name: 'NET_INFLOW', cnName: '主力净流入', mapField: 'f62' },
         { order: 10, name: 'DEAL_AMOUNT', cnName: '成交金额', mapField: 'f6' },
         { order: 11, name: 'FREE_MARKET_VALUE', cnName: '流通市值', mapField: 'f21' }
     ],
-    limitdays:[
+    limitdays: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价' },
         { order: 3, name: 'YIELD', cnName: '涨幅' },
@@ -791,21 +783,21 @@ const TABLE_HEADERS = {
         { order: 7, name: 'LIMITUP_AMOUNT', cnName: '封单金额' },
         { order: 8, name: 'TURNOVERRATE', cnName: '换手率' },
         { order: 9, name: 'BOARD_NAME', cnName: '所属行业' },
-        { order: 10, name: 'NET_INFLOW', cnName: '主力净注入' },
+        { order: 10, name: 'NET_INFLOW', cnName: '主力净流入' },
         { order: 11, name: 'ZTJY', cnName: '涨停基因' },
     ],
-    touchlimit:[
+    touchlimit: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价' },
         { order: 3, name: 'YIELD', cnName: '涨幅' },
         { order: 4, name: 'TURNOVERRATE', cnName: '换手率' },
         { order: 5, name: 'OPEN_LIMITUP_TIME', cnName: '开板时间' },
         { order: 6, name: 'OPEN_LIMITUP_NUM', cnName: '开板次数' },
-        { order: 7, name: 'NET_INFLOW', cnName: '主力净注入' },
+        { order: 7, name: 'NET_INFLOW', cnName: '主力净流入' },
         { order: 8, name: 'BOARD_NAME', cnName: '所属行业' },
         { order: 9, name: 'ZTJY', cnName: '涨停基因' },
     ],
-    prelimit:[
+    prelimit: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称', mapField: 'f14' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价', mapField: 'f2' },
         { order: 3, name: 'YIELD', cnName: '涨幅', mapField: 'f3' },
@@ -813,11 +805,11 @@ const TABLE_HEADERS = {
         { order: 5, name: 'CLOSE_LIMITUP_TIME', cnName: '昨日封板时间', mapField: 'CLOSE_LIMITUP_TIME' },
         { order: 6, name: 'LIMIT_VOLUME', cnName: '昨封成比', mapField: 'LIMIT_VOLUME' },
         { order: 7, name: 'TURNOVERRATE', cnName: '换手率', mapField: 'f8' },
-        { order: 8, name: 'NET_INFLOW', cnName: '主力净注入', mapField: 'f62' },
+        { order: 8, name: 'NET_INFLOW', cnName: '主力净流入', mapField: 'f62' },
         { order: 9, name: 'DEAL_AMOUNT', cnName: '成交金额', mapField: 'f6' },
         { order: 10, name: 'FREE_MARKET_VALUE', cnName: '流通市值', mapField: 'f21' }
     ],
-    declinelimited:[
+    declinelimited: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价' },
         { order: 3, name: 'YIELD', cnName: '涨幅' },
@@ -826,12 +818,12 @@ const TABLE_HEADERS = {
         { order: 6, name: 'OPEN_TIMES', cnName: '开板次数' },
         { order: 7, name: 'SEALING_RATE_YEAR', cnName: '近一年封板率' },
         { order: 8, name: 'BOARD_NAME', cnName: '所属行业' },
-        { order: 9, name: 'NET_INFLOW', cnName: '主力净注入' },
+        { order: 9, name: 'NET_INFLOW', cnName: '主力净流入' },
         { order: 10, name: 'DEAL_AMOUNT', cnName: '成交金额' },
         { order: 11, name: 'FREE_MARKET_VALUE', cnName: '流通市值' },
         { order: 12, name: 'ZTJY', cnName: '涨停基因' },
     ],
-    touchlimitdown:[
+    touchlimitdown: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称', mapField: 'f14' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价', mapField: 'f2' },
         { order: 3, name: 'YIELD', cnName: '涨幅', mapField: 'f3' },
@@ -843,7 +835,7 @@ const TABLE_HEADERS = {
         { order: 9, name: 'DEAL_AMOUNT', cnName: '成交金额', mapField: 'f6' },
         { order: 10, name: 'FREE_MARKET_VALUE', cnName: '流通市值', mapField: 'f21' }
     ],
-    quality:[
+    quality: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价' },
         { order: 3, name: 'YIELD', cnName: '涨幅' },
@@ -855,7 +847,7 @@ const TABLE_HEADERS = {
         { order: 9, name: 'DEAL_AMOUNT', cnName: '成交金额' },
         { order: 10, name: 'FREE_MARKET_VALUE', cnName: '流通市值' }
     ],
-    limitsprint:[
+    limitsprint: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价' },
         { order: 3, name: 'YIELD', cnName: '涨幅' },
@@ -868,7 +860,7 @@ const TABLE_HEADERS = {
         { order: 10, name: 'DEAL_AMOUNT', cnName: '成交金额' },
         { order: 11, name: 'FREE_MARKET_VALUE', cnName: '流通市值' }
     ],
-    limitregulars:[
+    limitregulars: [
         { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称' },
         { order: 2, name: 'NEWEST_PRICE', cnName: '最新价' },
         { order: 3, name: 'YIELD', cnName: '涨幅' },
@@ -882,15 +874,125 @@ const TABLE_HEADERS = {
         { order: 11, name: 'ZTJY', cnName: '涨停基因' },
         { order: 12, name: 'DEAL_AMOUNT', cnName: '成交金额' },
         { order: 13, name: 'FREE_MARKET_VALUE', cnName: '流通市值' }
+    ],
+    limitmutli:[
+        { order: 1, name: 'SECURITY_NAME_ABBR', cnName: '个股名称' },
+        { order: 2, name: 'NEWEST_PRICE', cnName: '最新价' },
+        { order: 3, name: 'YIELD', cnName: '涨幅' },
+        { order: 4, name: 'BOARD_NAME', cnName: '所属行业' },
+        { order: 5, name: 'NDAYS_NLIMITE', cnName: '几天几板' },
+        { order: 6, name: 'TURNOVERRATE', cnName: '换手率' },
+        { order: 7, name: 'NET_INFLOW', cnName: '主力净流入' },
+        { order: 8, name: 'ZTJY', cnName: '涨停基因' },
     ]
 }
-function renderLimitReport(report, sourceData){
+function drawMarketEmotionChart(chartData){
+    if(!chartData || !chartData.result || !chartData.result.data || chartData.result.data.length === 0){
+        document.getElementById('emotionChartContainer').innerHTML = '暂无数据！'
+    }
+    // 涨停情绪图
+    const emotionChart = new EmotionChart('emotionChartContainer', chartData.result.data.sort((a,b)=>new Date(a.TRADE_DATE)-new Date(b.TRADE_DATE)));
+}
+function drawLimitupTrends(data, isTradeDate){
+    let nodata = false;
+    if(isTradeDate) nodata = !data || !data.data || !data.data.trends || data.data.trends.length === 0;
+    else nodata = !data || !data.result || !data.result.data || data.result.data.length === 0
+    if(nodata){
+        document.getElementById('limitChartContainer').innerHTML = '暂无数据！'
+        return;
+    }
+    let chartData = [];
+    if(isTradeDate) {
+        data.data.trends.forEach(item => {
+            const dataArr = item.split(',');
+            chartData.push({
+                TRADE_TIME: dataArr[0].substring(11),
+                LIMIT_UP_NUM: parseInt(dataArr[1]),
+                LIMIT_DOWN_NUM: parseInt(dataArr[2]),
+                TOUCH_LIMITUP_NUM: parseInt(dataArr[3]),
+                TOUCH_LIMITDOWN_NUM: parseInt(dataArr[4])
+            })
+        })
+    }
+    else{
+        data.result.data.forEach(item => {
+            chartData.push({
+                TRADE_TIME: item.TRADE_TIME.substring(0,2) + ':' + item.TRADE_TIME.substring(2),
+                LIMIT_UP_NUM: item.LIMIT_UP_NUM,
+                LIMIT_DOWN_NUM: item.LIMIT_DOWN_NUM,
+                TOUCH_LIMITUP_NUM: item.TOUCH_LIMITUP_NUM,
+                TOUCH_LIMITDOWN_NUM: item.TOUCH_LIMITDOWN_NUM
+            })
+        })
+    }
+    const limitChart = new LimitTrendChart('limitChartContainer', chartData);
+}
+function drawPrelimitActionChart(data, isTradeDate){
+    let nodata = false;
+    if(isTradeDate){
+        nodata = !data || !data.trends || data.trends.length === 0 
+            || !data.extData || !data.extData.trends || data.extData.trends.length === 0;
+    }
+    else{
+        nodata = !data || !data.result || !data.result.prelimit || !data.result.szzs 
+            || !data.result.prelimit.results || data.result.prelimit.results.length === 0
+            || !data.result.szzs.results || data.result.szzs.results.length === 0
+    }
+    if(nodata){
+        document.getElementById('prelimitBlkChartContainer').innerHTML = '暂无数据！'
+        return;
+    }
+    let chartData = [];
+    if(isTradeDate){
+        data.trends.forEach(item => {
+            const szzs = 100 * (Number(item.split(',')[1]) - data.preClose) / data.preClose 
+            const preLimitItem = data.extData.trends.find(x => x.split(',')[0] === item.split(',')[0]);
+            const prelimit = !preLimitItem ? 0 : 100 * ( ( Number(preLimitItem.split(',')[1]) - data.extData.preClose) / data.extData.preClose);
+            chartData.push({time: item.split(',')[0].substring(11), szzs: szzs.toFixed(2), prelimit: prelimit.toFixed(2) });
+        })
+    }
+    else {
+        data.result.szzs.results.forEach(item => {
+            const time = (item.date + '').substring(6,8) + ':' + (item.date + '').substring(8)
+            const szzs = 100 * ( item.price - data.result.szzs.prePrice ) / data.result.szzs.prePrice
+            const preLimitItem = data.result.prelimit.results.find(x => x.date === item.date);
+            const prelimit = !preLimitItem ? 0 : 100 * ( ( preLimitItem.price - data.result.prelimit.prePrice) / data.result.prelimit.prePrice);
+            chartData.push({time: time, szzs: szzs.toFixed(2), prelimit: prelimit.toFixed(2) });
+        })
+    }
+    new preLimitBlockActionChart('prelimitBlkChartContainer', chartData);
+}
+function drawLiftLockupFundsChart(report, data){
+    const chartData = data.result.data.filter(x=>x.PERIOD === '本月' || x.PERIOD === '下月');
+    const liftChart = new liftLockupChart(`${report}List`, chartData);
+    if(data && data.result && data.result.statics) {
+        const thisWeek = data.result.statics.find(x=>x.PERIOD === '本周');
+        const nextWeek = data.result.statics.find(x=>x.PERIOD === '下周');
+        const thisMonth = data.result.statics.find(x=>x.PERIOD === '本月');
+        const nextMonth = data.result.statics.find(x=>x.PERIOD === '下月');
+        const staticsEl = document.createElement('div');
+        staticsEl.className = 'lift-lockup-statics'; 
+        staticsEl.innerHTML =  `
+            <table class='lift-lockup-table' id='liftTable'>
+                <thead><tr><th></th><th>解禁市值(亿元)</th><th>环比增加</th></tr></thead>
+                <tbody>
+                    <tr><td>本周</td><td>${thisWeek?.LIFT_TOTAL_MARKETCAP?(thisWeek.LIFT_TOTAL_MARKETCAP/100000000).toFixed(2):'--'}</td><td>${thisWeek?.QOQ_GROWTHRATE?(thisWeek.QOQ_GROWTHRATE.toFixed(2)+'%'):'--'}</td></tr>
+                    <tr><td>下周</td><td>${nextWeek?.LIFT_TOTAL_MARKETCAP?(nextWeek.LIFT_TOTAL_MARKETCAP/100000000).toFixed(2):'--'}</td><td>${nextWeek?.QOQ_GROWTHRATE?(nextWeek.QOQ_GROWTHRATE.toFixed(2)+'%'):'--'}</td></tr>
+                    <tr><td>本月</td><td>${thisMonth?.LIFT_TOTAL_MARKETCAP?(thisMonth.LIFT_TOTAL_MARKETCAP/100000000).toFixed(2):'--'}</td><td>${thisMonth?.QOQ_GROWTHRATE?(thisMonth.QOQ_GROWTHRATE.toFixed(2)+'%'):'--'}</td></tr>
+                    <tr><td>下月</td><td>${nextMonth?.LIFT_TOTAL_MARKETCAP?(nextMonth.LIFT_TOTAL_MARKETCAP/100000000).toFixed(2):'--'}</td><td>${nextMonth?.QOQ_GROWTHRATE?(nextMonth.QOQ_GROWTHRATE.toFixed(2)+'%'):'--'}</td></tr>
+                </tbody>
+            </table>`
+        document.getElementById(`${report}List`).append(staticsEl);
+    }
+}
+
+function renderLimitReport(report, sourceData) {
     let html = emptyDataHtml(sourceData);
     const dataContainer = document.getElementById(`${report}List`);
-    if(html) { dataContainer.innerHTML = html; return; }
+    if (html) { dataContainer.innerHTML = html; return; }
 
     let data;
-    if (report === 'limitsoon' || report === 'auction'){
+    if (report === 'limitsoon' || report === 'auction') {
         if (sourceData.hasOwnProperty("extData")) {
             sourceData.extData.forEach(item => {
                 const parentData = sourceData.data.filter(a => a.code === item.f12);
@@ -901,22 +1003,54 @@ function renderLimitReport(report, sourceData){
         }
         else data = sourceData.result.data;
     }
-    else if (report === 'touchlimitdown'){
+    else if (report === 'touchlimitdown') {
         if (sourceData.hasOwnProperty("extData")) {
             sourceData.extData.forEach((item, index) => {
                 const extItems = sourceData.data.filter(x => x.code === item.f12);
                 sourceData.extData[index] = { ...item, ...extItems[0] }
             })
-            data = sourceData.extData.sort((a, b) => new Date(formatDate(new Date(),'yyyy-MM-dd ') + b.lastdttime) - new Date(formatDate(new Date(), 'yyyy-MM-dd ') + a.lastdttime));
+            data = sourceData.extData.sort((a, b) => new Date(formatDate(new Date(), 'yyyy-MM-dd ') + b.lastdttime) - new Date(formatDate(new Date(), 'yyyy-MM-dd ') + a.lastdttime));
         }
         else data = sourceData.result.data;
+    }
+    else if(report === 'marginbalance'){
+        const marginChart = new marginBalanceChart(`${report}List`, sourceData.result.data);
+        return;
+    }
+    else if(report === 'toptrader'){
+        const topTraderChart = new topTraderRankingChart(`${report}List`, sourceData.result.data);
+        return;
+    }
+    else if(report === 'liftlockup'){
+        const chartData = sourceData.result.data.filter(x=>x.PERIOD === '本月' || x.PERIOD === '下月');
+        const liftChart = new liftLockupChart(`${report}List`, chartData);
+        if(sourceData && sourceData.result && sourceData.result.statics) {
+            const thisWeek = sourceData.result.statics.find(x=>x.PERIOD === '本周');
+            const nextWeek = sourceData.result.statics.find(x=>x.PERIOD === '下周');
+            const thisMonth = sourceData.result.statics.find(x=>x.PERIOD === '本月');
+            const nextMonth = sourceData.result.statics.find(x=>x.PERIOD === '下月');
+            const staticsEl = document.createElement('div');
+            staticsEl.className = 'lift-lockup-statics'; 
+            staticsEl.innerHTML =  `
+                    <table class='lift-lockup-table' id='liftTable'>
+                        <thead><tr><th></th><th>解禁市值(亿元)</th><th>环比增加</th></tr></thead>
+                        <tbody>
+                            <tr><td>本周</td><td>${thisWeek?.LIFT_TOTAL_MARKETCAP?(thisWeek.LIFT_TOTAL_MARKETCAP/100000000).toFixed(2):'--'}</td><td>${thisWeek?.QOQ_GROWTHRATE?(thisWeek.QOQ_GROWTHRATE.toFixed(2)+'%'):'--'}</td></tr>
+                            <tr><td>下周</td><td>${nextWeek?.LIFT_TOTAL_MARKETCAP?(nextWeek.LIFT_TOTAL_MARKETCAP/100000000).toFixed(2):'--'}</td><td>${nextWeek?.QOQ_GROWTHRATE?(nextWeek.QOQ_GROWTHRATE.toFixed(2)+'%'):'--'}</td></tr>
+                            <tr><td>本月</td><td>${thisMonth?.LIFT_TOTAL_MARKETCAP?(thisMonth.LIFT_TOTAL_MARKETCAP/100000000).toFixed(2):'--'}</td><td>${thisMonth?.QOQ_GROWTHRATE?(thisMonth.QOQ_GROWTHRATE.toFixed(2)+'%'):'--'}</td></tr>
+                            <tr><td>下月</td><td>${nextMonth?.LIFT_TOTAL_MARKETCAP?(nextMonth.LIFT_TOTAL_MARKETCAP/100000000).toFixed(2):'--'}</td><td>${nextMonth?.QOQ_GROWTHRATE?(nextMonth.QOQ_GROWTHRATE.toFixed(2)+'%'):'--'}</td></tr>
+                        </tbody>
+                    </table>`
+            document.getElementById(`${report}List`).append(staticsEl);
+        }
+        return;
     }
     else data = sourceData.result.data;
 
     const headers = TABLE_HEADERS[report].sort((a, b) => a.order - b.order)
     const headerHtml = renderHeaders(headers);
     let dataHtml = ''
-    switch(report){
+    switch (report) {
         case 'auction':
             dataHtml = renderAuctionDataRow(data, headers);
             break;
@@ -950,12 +1084,33 @@ function renderLimitReport(report, sourceData){
         case 'limitregulars':
             dataHtml = renderLimitRegularsDataRow(data, headers);
             break;
+        case 'limitmutli':
+            dataHtml = renderLimitMutliDataRow(data, headers);
+            break;
     }
     html = `<table class="report-table">${headerHtml}${dataHtml}</table>`;
     dataContainer.innerHTML = html;
     showModalDialog();
 }
-function renderLimitRegularsDataRow(data, fields){
+function renderLimitMutliDataRow(data, fields){
+    let html = "";
+    data.forEach((item, dataIndex) => {
+        html += `<tr>`;
+        fields.forEach((field, index) => {
+            let itemData = item[field.name];
+            const order = field.order;
+            const zf = item[fields[2].name];
+            if (order === 1) html += `<td>${itemData}<p class="stock-code">${item["SECURITY_CODE"]}</p></td>`;
+            else if(order === 3 || order === 2 || order === 6)  html += `<td class="${zf >= 0 ? 'red' : 'green'}">${formatNumberAdvanced(itemData, 2) + (!isNaN(formatNumberAdvanced(itemData, 2)) ? '%' : '')}</td>`;
+            else if(order === 7) html += `<td>${formatNumberAdvanced(itemData, 2)}</td>`;
+            else if(order === 8) html += `<td>${formatNumberAdvanced(itemData, 2) + (!isNaN(formatNumberAdvanced(itemData, 2)) ? '' : '')}</td>`;
+            else html += `<td>${!itemData ? '--' : itemData}</td>`;
+        });
+        html += `</tr>`
+    });
+    return `<tbody>${html}</tbody>`;
+}
+function renderLimitRegularsDataRow(data, fields) {
     let html = "";
     data.forEach((item, dataIndex) => {
         html += `<tr>`;
@@ -974,7 +1129,7 @@ function renderLimitRegularsDataRow(data, fields){
     })
     return `<tbody>${html}</tbody>`;
 }
-function renderLimitSprintDataRow(data, fields){
+function renderLimitSprintDataRow(data, fields) {
     let html = "";
     data.forEach((item, dataIndex) => {
         html += `<tr>`;
@@ -993,7 +1148,7 @@ function renderLimitSprintDataRow(data, fields){
     })
     return `<tbody>${html}</tbody>`;
 }
-function renderTouchLimitDownDataRow(data, fields){
+function renderTouchLimitDownDataRow(data, fields) {
     let html = "";
     data.forEach((item, dataIndex) => {
         html += `<tr>`;
@@ -1013,7 +1168,7 @@ function renderTouchLimitDownDataRow(data, fields){
     })
     return `<tbody>${html}</tbody>`;
 }
-function renderDeclineLimitedDataRow(sourceData, fields){
+function renderDeclineLimitedDataRow(sourceData, fields) {
     let html = "";
     const data = sourceData.sort((a, b) => b.ZTJY - a.ZTJY);
     data.forEach((item, dataIndex) => {
@@ -1023,20 +1178,20 @@ function renderDeclineLimitedDataRow(sourceData, fields){
             const order = field.order;
             const zf = item[fields[2].name];
             const isRZ = parseInt(item["IS_MARGININFO"]);
-            if (order === 1) html += `<td>${itemData}<p class="stock-code">${item["SECURITY_CODE"] }${isRZ ? "<span class='margin-info'>融</span>" : ""}</p></td>`;
+            if (order === 1) html += `<td>${itemData}<p class="stock-code">${item["SECURITY_CODE"]}${isRZ ? "<span class='margin-info'>融</span>" : ""}</p></td>`;
             else if (order === 2) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${itemData}</td>`;
             else if (order === 3 || order === 4 || order === 7) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${formatNumberAdvanced(itemData, 2) + (!isNaN(formatNumberAdvanced(itemData, 2)) ? '%' : '')}</td>`;
             else if (order === 6) html += `<td>${!itemData ? (itemData === 0 ? 0 : '--') : itemData}</td>`;
-            else if (order >= 9 && order <= 11 ) html += `<td>${formatNumberAdvanced(itemData, 2)}</td>`;
+            else if (order >= 9 && order <= 11) html += `<td>${formatNumberAdvanced(itemData, 2)}</td>`;
             else html += `<td>${!itemData ? '--' : itemData}</td>`;
         })
         html += `</tr>`
     })
     return `<tbody>${html}</tbody>`;
 }
-function renderPreLimitDataRow(sourceData, fields){
+function renderPreLimitDataRow(sourceData, fields) {
     let html = "";
-    const data = sourceData.sort((a,b) => b.f3 - a.f3);
+    const data = sourceData.sort((a, b) => b.f3 - a.f3);
     data.forEach((item, dataIndex) => {
         html += `<tr>`;
         fields.forEach((field, index) => {
@@ -1055,7 +1210,7 @@ function renderPreLimitDataRow(sourceData, fields){
     })
     return `<tbody>${html}</tbody>`;
 }
-function renderTouchLimitDataRow(data, fields){
+function renderTouchLimitDataRow(data, fields) {
     let html = "";
     data.forEach((item, dataIndex) => {
         html += `<tr>`;
@@ -1074,7 +1229,7 @@ function renderTouchLimitDataRow(data, fields){
     })
     return `<tbody>${html}</tbody>`;
 }
-function renderLimitDaysDataRow(sourcedata, fields){
+function renderLimitDaysDataRow(sourcedata, fields) {
     let html = "";
     const data = sourcedata.sort((a, b) => b.HLIMITEDAYS - a.HLIMITEDAYS);
     data.forEach((item, dataIndex) => {
@@ -1094,11 +1249,11 @@ function renderLimitDaysDataRow(sourcedata, fields){
     })
     return `<tbody>${html}</tbody>`;
 }
-function toTimeString(timeStr){
-    timeStr = timeStr.padStart(6,'0');
+function toTimeString(timeStr) {
+    timeStr = timeStr.padStart(6, '0');
     return timeStr.substring(0, 2).padStart(2, '0') + ':' + timeStr.substring(3, 2).padStart(2, '0') + ':' + timeStr.substring(5).padStart(2, '0');
 }
-function emptyDataHtml(data){
+function emptyDataHtml(data) {
     let html = '';
     if (!data) {
         html = `<div class='no-auction-data'>暂无数据</div>`;
@@ -1115,7 +1270,7 @@ function emptyDataHtml(data){
     }
     return html;
 }
-function renderLimitNaturalDataRow(data, fields){
+function renderLimitNaturalDataRow(data, fields) {
     let html = "";
     data.forEach((item, dataIndex) => {
         html += `<tr>`;
@@ -1126,10 +1281,10 @@ function renderLimitNaturalDataRow(data, fields){
             const isRZ = parseInt(item["IS_MARGININFO"]);
             if (order === 1) html += `<td>${itemData}<p class="stock-code">${item["SECURITY_CODE"] || item["f12"]}${isRZ ? "<span class='margin-info'>融</span>" : ""}</p></td>`;
             else if (order === 2) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${itemData}</td>`;
-            else if (order === 3 || order === 11) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${formatNumberAdvanced(itemData, 2) + (!isNaN(formatNumberAdvanced(itemData, 2)) ? '%' : '') }</td>`;
+            else if (order === 3 || order === 11) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${formatNumberAdvanced(itemData, 2) + (!isNaN(formatNumberAdvanced(itemData, 2)) ? '%' : '')}</td>`;
             else if (order === 4 || order === 6 || order === 12) html += `<td>${formatNumberAdvanced(itemData, 2)}</td>`;
             else if (order === 8) {
-                if (itemData.LIMIT_REASON){
+                if (itemData.LIMIT_REASON) {
                     const iTag = `<i class='icon-limit-resean' title="“${item[fields[0].name]}”涨停原因" subtitle="${itemData.LIMIT_REASON}" data-content="${itemData.LIMIT_CONTENT}"></i>`
                     html += `<td class="td-limit-resean">${!itemData ? '' : (iTag + itemData.LIMIT_REASON)}</td>`;//+ "<span class='calendar-icon'></span>"
                 }
@@ -1141,7 +1296,7 @@ function renderLimitNaturalDataRow(data, fields){
     })
     return `<tbody>${html}</tbody>`;
 }
-function renderLimitSoonDataRow(data, fields){
+function renderLimitSoonDataRow(data, fields) {
     let html = "";
 
     data.forEach((item, dataIndex) => {
@@ -1153,7 +1308,7 @@ function renderLimitSoonDataRow(data, fields){
             const isRZ = parseInt(item["IS_MARGININFO"] || item["f13"]);
             if (order === 1) html += `<td>${itemData}<p class="stock-code">${item["SECURITY_CODE"] || item["f12"]}${isRZ ? "<span class='margin-info'>融</span>" : ""}</p></td>`;
             else if (order === 2) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${itemData}</td>`;
-            else if (order === 3 || order === 4 || order === 7 ) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${formatNumberAdvanced(itemData, 2) + (!isNaN(formatNumberAdvanced(itemData, 2)) ? '%' : '')}</td>`;
+            else if (order === 3 || order === 4 || order === 7) html += `<td class="${zf >= 0 ? 'red' : 'green'}">${formatNumberAdvanced(itemData, 2) + (!isNaN(formatNumberAdvanced(itemData, 2)) ? '%' : '')}</td>`;
             else if (order === 9 || order === 10 || order === 11) html += `<td>${formatNumberAdvanced(itemData, 2)}</td>`;
             else html += `<td>${!itemData ? '--' : itemData}</td>`;
         })
@@ -1161,9 +1316,213 @@ function renderLimitSoonDataRow(data, fields){
     })
     return `<tbody>${html}</tbody>`;
 }
+function renderLimitCauseBlockData(sourceData){
+    let html = '<div class="tab-monitor ml-0 tab-font limit-cause-list active" data-tab="limitCauseList" data-src="">全部</div>';
+    document.getElementById('limitCause-tabs').innerHTML = html;
+    let itemCount = 0;
+    for(const item of sourceData.result.data){
+        html = `<div class="tab-monitor ml-0 tab-font limit-cause-list" data-tab="limitCauseList" data-src="${item.BOARD_CODE}">${item.BOARD_NAME}</div>`
+        document.getElementById('limitCause-tabs').innerHTML += html;
+        itemCount++;
+        if(itemCount >= sourceData.result.data.length && sourceData.result.data.length >= 3) {
+            document.getElementById('limitCause-arrow-right').classList.remove('hidden');
+        }
+    }
+}
+
+function renderLimitCauseData(sourceData, pageNumber){
+    let isLoading = true;
+    if(!sourceData || !sourceData.result || !sourceData.result.data || !sourceData.result.data.length === 0) {
+        document.getElementById('nodataCause').classList.remove('nodisplay');
+        document.getElementById('limitCauseList').classList.remove('nodisplay');
+        document.getElementById('limitCauseList').classList.add('nodisplay');
+        isLoading = false;
+        return isLoading;
+    }
+    let html = '';
+    if(pageNumber === 1) document.getElementById('limitCauseList').innerHTML = '';
+    let itemCount = 0;
+    for(const item of sourceData.result.data){
+        const ztjy = sourceData.result.ztjy.find(x => x.SECURITY_CODE === item.SECURITY_CODE);
+        const CLOSE = item.CLOSE || ztjy.CLOSE;
+        const CHANGE_RATE = item.CHANGE_RATE || ztjy.CHANGE_RATE;
+        html = `                            <div class="sector-item">
+                            <div class="sector-header">
+                                <div class="sector-name ft-16"><span>${item.SECURITY_NAME_ABBR}</span><p class="secu-info-label">${item.SECURITY_CODE}<span class="sec-nlimitup ${item.NLIMITUP ? '' : 'nodisplay'}">${item.NLIMITUP ? item.NLIMITUP : ''}</span></p></div>
+                                <div class="stat-value ft-12"><span class="c-red">${CLOSE}</span><p class="secu-info-label">最新价</p></div>
+                                <div class="stat-value ft-12"><span class="c-red">${CHANGE_RATE.toFixed(2)}%</span><p class="secu-info-label">涨幅</p></div>
+                                <div class="stat-value ft-12 font-w-n"><span>${item.CZT_LIMITUP_TIME}</span><p class="secu-info-label">首次封板</p></div>
+                                <div class="stat-value ft-12 font-w-n"><span>${item.LAST_LIMITUP_TIME}</span><p class="secu-info-label">最后封板</p></div>
+                            </div>
+                            <div class="security-limit-cause">
+                                <div class="cause-title">
+                                    <div class="cause-title-label pr-5">涨停原因</div>
+                                    <div class="cause-title-summary">${item.LIMIT_REASON}</div>
+                                </div>
+                                <div class="cause-content">${item.LIMIT_CONTENT}</div>
+                                <div class="cause-content-show"><a title='“${item.SECURITY_NAME_ABBR}(${item.SECURITY_CODE})”涨停分析' data-content='${item.LIMIT_CONTENT}' subtitle='${item.LIMIT_REASON}'>查看</a></div>
+                            </div>
+                            <div class="security-limit-ztjy">
+                                <div class="ztjy-title">
+                                    <div class="ztjy-title-label pr-5">涨停统计</div>
+                                    <div class="ztjy-title-summary">基于近一年的数据统计</div>
+                                    <!--<div class="ztjy-histroy"><a>历史统计 ></a></div>-->
+                                </div>
+                                <div class="ztjy-content">
+                                    <div class="ztjy-item">
+                                        <span class="ztjy-item-label">涨跌停天数</span>
+                                        <span class="ztjy-item-value">${ztjy.LIMIT_DAYS} / ${ztjy.LIMITDOWN_DAYS}</span>
+                                    </div>
+                                    <div class="ztjy-item">
+                                        <span class="ztjy-item-label">溢价5%天数</span>
+                                        <span class="ztjy-item-value">${ztjy.YJ_DAYS || ztjy.YJ_DAYS === 0 ? ztjy.YJ_DAYS : '--'}</span>
+                                    </div>
+                                </div>
+                                <div class="ztjy-content">
+                                    <div class="ztjy-item">
+                                        <span class="ztjy-item-label">涨停成功率</span>
+                                        <span class="ztjy-item-value">${ztjy.LIMITUP_SUCESSRATE || ztjy.LIMITUP_SUCESSRATE === 0 ? ztjy.LIMITUP_SUCESSRATE.toFixed(2) : '--'}%</span>
+                                    </div>
+                                    <div class="ztjy-item">
+                                        <span class="ztjy-item-label">次日红盘率</span>
+                                        <span class="ztjy-item-value">${ztjy.NEXT_HP_RATE || ztjy.NEXT_HP_RATE === 0 ? ztjy.NEXT_HP_RATE.toFixed(2) : '--'}%</span>
+                                    </div>
+                                </div>
+                                <div class="ztjy-content">
+                                    <div class="ztjy-item">
+                                        <span class="ztjy-item-label">首板封板率</span>
+                                        <span class="ztjy-item-value">${ztjy.FIRST_LIMIT_RATE || ztjy.FIRST_LIMIT_RATE === 0 ? ztjy.FIRST_LIMIT_RATE.toFixed(2) : '--'}%</span>
+                                    </div>
+                                    <div class="ztjy-item">
+                                        <span class="ztjy-item-label">连续封板率</span>
+                                        <span class="ztjy-item-value">${ztjy.HLIMITE_RATE  || ztjy.HLIMITE_RATE === 0 ? ztjy.HLIMITE_RATE.toFixed(2) : '--'}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
+        document.getElementById('limitCauseList').innerHTML += html;
+        itemCount++;
+        if(itemCount >= sourceData.result.data.length) return isLoading = false;
+    }
+    document.getElementById('nodataCause').classList.add('nodisplay');
+    document.getElementById('limitCauseList').classList.remove('nodisplay');
+}
+
+function renderContinueLimitData(sourceData, isRealtime){
+    let nodata = false;
+    if(isRealtime) nodata = !sourceData || !sourceData.data || sourceData.data.length === 0;
+    else nodata = !sourceData || !sourceData.result || !sourceData.result.data || !sourceData.result.data.length === 0;
+    if(nodata){
+        document.getElementById('nodataLadder').classList.remove('nodisplay');
+        document.getElementById('continuousLimitList').classList.add('nodisplay');
+        return;
+    }
+    let data = null;
+    let groupData = {};
+    if(!isRealtime){
+        const mapData = sourceData.result.data.map(x=>({SECURITY_CODE:x.SECURITY_CODE,SECURITY_NAME_ABBR:x.SECURITY_NAME_ABBR,CHANGE_RATE:x.CHANGE_RATE,TRADE_DATE:x.TRADE_DATE,PRE_CONTINUS_UPLIMITS:x.PRE_CONTINUS_UPLIMITS,IS_DOWNLIMIT:x.IS_DOWNLIMIT}))
+        groupData = groupByField(mapData,'PRE_CONTINUS_UPLIMITS');
+        for(const key of Object.keys(groupData)){
+            groupData[key].succData = groupData[key].filter(x=>x.IS_DOWNLIMIT === 1);
+            groupData[key].failData = groupData[key].filter(x=>x.IS_DOWNLIMIT === 0);
+        }
+        groupData["0"] = {};
+        groupData["0"].succData = sourceData.result.firstLimit;
+    }
+    else{
+        for(const key of Object.keys(sourceData.data)){
+            const success = sourceData.data[key].success.map(item => {
+                const [SECURITY_CODE, MARKET_CODE, SECURITY_NAME_ABBR, TRADE_DATE, CHANGE_RATE] = item.split(',');
+                return { SECURITY_CODE, MARKET_CODE, SECURITY_NAME_ABBR, TRADE_DATE, CHANGE_RATE };
+            });
+            const fail = sourceData.data[key].fail.map(item => {
+                const [SECURITY_CODE, MARKET_CODE, SECURITY_NAME_ABBR, TRADE_DATE, CHANGE_RATE] = item.split(',');
+                return { SECURITY_CODE, MARKET_CODE, SECURITY_NAME_ABBR, TRADE_DATE, CHANGE_RATE };
+            });
+            groupData[key] = {};
+            groupData[key].succData = success;
+            groupData[key].failData = fail;
+        }
+    }
+    const keys = Object.keys(groupData).sort((a, b) => {return parseInt(b) - parseInt(a)});
+    document.getElementById('continuousLimitList').innerHTML = '';
+    for(const key of keys){
+        if(parseInt(key) !== 0) {
+            const successRate = ((groupData[key].succData.length * 1.0000 / (groupData[key].succData.length + groupData[key].failData.length))*100).toFixed(2);
+            const html = `                                    <div class="contilimit-card-header">
+                                        <h2>${key}进${parseInt(key)+1}<span class="ft-12 pl-5 font-w-n">(昨日${key}板 → 今日${parseInt(key)+1}板)</span></h2>
+                                        <div class="rate">晋级率 ${successRate}%</div>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="contilimit-stat-table">
+                                            <div class="table-column">
+                                                <h3>晋级成功 (${groupData[key].succData.length})</h3>
+                                                ${promotedStockList(groupData[key].succData, true)}
+                                            </div>
+                                            <div class="table-column">
+                                                <h3>晋级失败 (${groupData[key].failData.length})</h3>
+                                                ${promotedStockList(groupData[key].failData, false)}
+                                            </div>
+                                        </div>
+                                    </div>`
+            document.getElementById('continuousLimitList').innerHTML += html;
+        }
+        else{
+            const html = `<div class="contilimit-card-header"><h2>今日首板(${groupData[key].succData.length})</h2></div><div class="card-content">${firstLimitUpStockList(groupData[key].succData)}</div>`
+             document.getElementById('continuousLimitList').innerHTML += html;
+        }
+    }
+    document.getElementById('nodataLadder').classList.add('nodisplay');
+    document.getElementById('continuousLimitList').classList.remove('nodisplay');
+}
+function firstLimitUpStockList(data){
+    let html = `<div class="empty">当日无涨停的股票</div>`
+    if(data && data.length > 0){
+        let itemHtml = ''
+        for(const item of data){
+            itemHtml += `<div class="limit-ladder-item">${item.SECURITY_NAME_ABBR}<span class="ft-12 pl-5">(${item.SECURITY_CODE})</span></div>`
+        }
+        html = `<div class="limit-ladder-stock">${itemHtml}</div>`
+    }
+    return html;
+}
+function promotedStockList(data, isSuccess = true){
+    let html = `<div class="empty">无晋级${isSuccess ? '成功' : '失败'}的股票</div>`
+    if(data && data.length > 0) {
+        let itemHtml = ''
+        for(const item of data) {
+            itemHtml += `<li class="stock-item success"><span class="stock-name">${item.SECURITY_NAME_ABBR}<span class='ft-12'>(${item.SECURITY_CODE})</span></span><span class="stock-change">${Number(item.CHANGE_RATE).toFixed(2)}%</span></li>`
+        }
+        html = `<ul class="staticts-stock-list">${itemHtml}</ul>`
+    }
+    return html;
+}
+function renderLimitLadderData(sourceData){
+    if(!sourceData || !sourceData.result || !sourceData.result.data || !sourceData.result.data.length === 0) {
+        document.getElementById('nodataLadder').classList.remove('nodisplay');
+        document.getElementById('limitladderList').classList.add('nodisplay');
+        return;
+    }
+    const groupData = groupByField(sourceData.result.data, 'N_CLASS');
+    const keys = Object.keys(groupData).sort((a, b) => {return parseInt(b) - parseInt(a)});
+    let trHtml = ''
+    for(const key of keys){
+        let tdHtml = ``
+        groupData[key].forEach(td => {
+            tdHtml += `<div class="limit-ladder-item">${td.SECURITY_NAME_ABBR}</div>`
+        })
+        tdHtml = `<div class="limit-ladder-stock">${tdHtml}</td>`;
+        trHtml += `<tr><td>${key}板</td><td>${tdHtml}</td></tr>`
+    }
+    const html = `<table class="limit-ladder-table"><tbody>${trHtml}</tbody></table>`
+    document.getElementById('limitladderList').innerHTML = html;
+    document.getElementById('nodataLadder').classList.remove('nodisplay');
+    document.getElementById('nodataLadder').classList.add('nodisplay');
+    document.getElementById('limitladderList').classList.remove('nodisplay');
+}
 function formatNumberAdvanced(num, decimalPlaces = 2) {
-    if (!num) return num !== 0 ? '--' : (0/100).toFixed(decimalPlaces);
-    if(isNaN(num)) return num;
+    if (!num) return num !== 0 ? '--' : (0 / 100).toFixed(decimalPlaces);
+    if (isNaN(num)) return num;
     if (Math.abs(num) >= 100000000) {
         return (num / 100000000).toFixed(decimalPlaces) + '亿';
     } else if (Math.abs(num) >= 10000) {
@@ -1172,14 +1531,14 @@ function formatNumberAdvanced(num, decimalPlaces = 2) {
         return num.toFixed(decimalPlaces);
     }
 }
-function _renderHeaders(headers){
+function _renderHeaders(headers) {
     let html = "";
     headers.forEach((item, index) => {
         html += `<div class="div-cell div-header ${index === 0 ? 'div-row-header' : ''}">${item}</div>`;
     })
     return `<div class="div-row">${html}</div>`;
 }
-function _renderDataRow(data, fields){
+function _renderDataRow(data, fields) {
     let html = "";
     data.forEach((item) => {
         html += `<div class="div-row">`;
@@ -1190,7 +1549,302 @@ function _renderDataRow(data, fields){
     })
     return html;
 }
-function renameJsonArrayFieldName(data, fieldsMap){
+const FUND_HEADERS = [
+    {
+        report: 'fundflows', 
+        name: '资金流向',
+        header: [
+            {order: 1, field: 'SECURITY_NAME_ABBR', name: '股票/代码', sort: 0, type: 'str'}, 
+            {order: 2, field: 'MAIN_NETINFLOW', name: '主力净流入', sort: 1, type: 'amt_rg'},
+            {order: 3, field: 'CHANGE_RATE', name: '涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 4, field: 'MAIN_NETINFLOW_3D', name: '3日净流入', sort: 0, type: 'amt_rg'},
+            {order: 5, field: 'CHANGE_RATE_3DAY', name: '3日涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 6, field: 'MAIN_NETINFLOW_5D', name: '3日净流入', sort: 0, type: 'amt_rg'},
+            {order: 7, field: 'CHANGE_RATE_5DAY', name: '5日涨跌幅', sort: 0, type: 'per_rg'},
+        ]
+    },
+    {
+        report: 'toptraderrank',
+        name: '龙虎榜单',
+        header: [
+            {order: 1, field: 'SECURITY_NAME_ABBR', name: '股票/代码', sort: 0, type: 'str'}, 
+            {order: 2, field: 'ORG_NETBUY_AMT', name: '机构净买入额', sort: 1, type: 'amt_rg'},
+            {order: 3, field: 'CHANGE_RATE', name: '当日涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 4, field: 'TOTAL_BUYER_ORGTIMES', name: '买方机构数', sort: 0, type: 'int'},
+            {order: 5, field: 'TOTAL_SELLER_ORGTIMES', name: '卖方机构数', sort: 0, type: 'int'},
+            {order: 6, field: 'TOTAL_ORG_BUYAMT', name: '机构买入总额', sort: 0, type: 'amt_rg'},
+            {order: 7, field: 'TOTAL_ORG_SELLAMT', name: '机构卖出总额', sort: 0, type: 'amt_rg'},
+        ]
+    },
+    {
+        report: 'margintrading',
+        name: '融资融券',
+        header: [
+            {order: 1, field: 'SECURITY_NAME_ABBR', name: '股票/代码', sort: 0, type: 'str'}, 
+            {order: 2, field: 'FIN_NETBUY_AMT', name: '融资净买入额', sort: 1, type: 'amt_rg'},
+            {order: 3, field: 'CHANGE_RATE', name: '当日涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 4, field: 'FIN_TVAL_RATIO', name: '占成交额比', sort: 0, type: 'per'},
+            {order: 5, field: 'MARGIN_BALANCE', name: '两融余额', sort: 0, type: 'amt'},
+            {order: 6, field: 'MARGIN_BALANCE_RATIO', name: '占流通市值比', sort: 0, type: 'per'},
+            {order: 7, field: 'FIN_BALANCE', name: '融资余额', sort: 0, type: 'amt'},
+            {order: 8, field: 'FIN_BALANCE_RATIO', name: '占流通市值比', sort: 0, type: 'per'},
+            {order: 9, field: 'LOAN_BALANCE', name: '融券余额', sort: 0, type: 'amt'},
+            {order: 10, field: 'LOAN_BALANCE', name: '占流通市值比', sort: 0, type: 'per'},
+        ]
+    },
+    {
+        report: 'northbound',
+        name: '北向资金',
+        header: [
+            {order: 1, field: 'SECURITY_NAME_ABBR', name: '股票/代码', sort: 0, type: 'str'}, 
+            {order: 2, field: 'ADD_MARKET_CAP', name: '北向净买入', sort: 1, type: 'amt_rg'},
+            {order: 3, field: 'CHANGE_RATE', name: '当日涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 4, field: 'ADD_MARKET_CAP5', name: '近5日净买入', sort: 0, type: 'amt_rg'},
+            {order: 5, field: 'CHANGE_5DAYS', name: '近5日涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 6, field: 'ADD_MARKET_CAP20', name: '近20日净买入', sort: 0, type: 'amt_rg'},
+            {order: 7, field: 'CHANGE_20DAYS', name: '近20日涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 8, field: 'ADD_MARKET_CAP60', name: '近60日净买入', sort: 0, type: 'amt_rg'},
+            {order: 9, field: 'CHANGE_60DAYS', name: '近60日涨跌幅', sort: 0, type: 'per_rg'},
+        ]
+    },
+    {
+        report: 'pof',
+        name: '公募基金',
+        header: [
+            {order: 1, field: 'SECURITY_NAME_ABBR', name: '股票/代码', sort: 0, type: 'str'}, 
+            {order: 2, field: 'HOLDCHA_VALUE', name: '持股市值变动', sort: 1, type: 'amt_rg'},
+            {order: 3, field: 'HOLDCHA_NUM', name: '持股数量变动', sort: 0, type: 'amt_rg'},
+            {order: 4, field: 'QCHANGE_RATE', name: '季度涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 5, field: 'HOULD_NUM', name: '持股基金家数', sort: 0, type: 'int'},
+            {order: 6, field: 'TOTAL_SHARES', name: '持股总数', sort: 0, type: 'amt'},
+            {order: 7, field: 'HOLD_VALUE', name: '持股市值', sort: 0, type: 'amt'},
+            {order: 8, field: 'HOLDCHA_RATIO', name: '持股变动比例', sort: 0, type: 'per_rg'},
+        ]
+    },
+    {
+        report: 'qfii',
+        name: '境外机构',
+        header: [
+            {order: 1, field: 'SECURITY_NAME_ABBR', name: '股票/代码', sort: 0, type: 'str'}, 
+            {order: 2, field: 'HOLDCHA_VALUE', name: '持股市值变动', sort: 1, type: 'amt_rg'},
+            {order: 3, field: 'HOLDCHA_NUM', name: '持股数量变动', sort: 0, type: 'amt_rg'},
+            {order: 4, field: 'QCHANGE_RATE', name: '季度涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 5, field: 'HOULD_NUM', name: '持股QFII家数', sort: 0, type: 'int'},
+            {order: 6, field: 'TOTAL_SHARES', name: '持股总数', sort: 0, type: 'amt'},
+            {order: 7, field: 'HOLD_VALUE', name: '持股市值', sort: 0, type: 'amt'},
+            {order: 8, field: 'HOLDCHA_RATIO', name: '持股变动比例', sort: 0, type: 'per_rg'},
+        ]
+    },
+    {
+        report: 'ssf',
+        name: '社保基金',
+        header: [
+            {order: 1, field: 'SECURITY_NAME_ABBR', name: '股票/代码', sort: 0, type: 'str'}, 
+            {order: 2, field: 'HOLDCHA_VALUE', name: '持股市值变动', sort: 1, type: 'amt_rg'},
+            {order: 3, field: 'HOLDCHA_NUM', name: '持股数量变动', sort: 0, type: 'amt_rg'},
+            {order: 4, field: 'QCHANGE_RATE', name: '季度涨跌幅', sort: 0, type: 'per_rg'},
+            {order: 5, field: 'HOULD_NUM', name: '持股社保家数', sort: 0, type: 'int'},
+            {order: 6, field: 'TOTAL_SHARES', name: '持股总数', sort: 0, type: 'amt'},
+            {order: 7, field: 'HOLD_VALUE', name: '持股市值', sort: 0, type: 'amt'},
+            {order: 8, field: 'HOLDCHA_RATIO', name: '持股变动比例', sort: 0, type: 'per_rg'},
+        ]
+    },
+]
+
+const RISK_HEADERS = [
+    { report: 'netprofit_newest', name: '净利润风险(最新)', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'DEDUCT_NETPROFIT', name: '扣非净利润', sort: '1,-1', sortCols: 'DEDUCT_NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'REPORT_DATE', name: '报告期', sort: -1, sortCols: 'REPORT_DATE,SECUCODE', type: 'date' },
+        { order: 6, column: 'OPERATE_INCOME', name: '报告期<br>营业收入', sort: -1, sortCols: 'OPERATE_INCOME,SECUCODE', type: 'amt_rg' },
+        { order: 7, column: 'NETPROFIT', name: '报告期<br>净利润', sort: -1, sortCols: 'NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 8, column: 'TOTAL_PROFIT', name: '报告期<br>利润总额', sort: -1, sortCols: 'TOTAL_PROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 9, column: 'NET_ASSETS', name: '报告期<br>净资产', sort: -1, sortCols: 'NET_ASSETS,SECUCODE', type: 'amt_rg' },
+        { order: 10, column: 'PRE_NET_ASSETS', name: '上一期<br>净资产', sort: -1, sortCols: 'PRE_NET_ASSETS,SECUCODE', type: 'amt_rg' },
+    ]},
+    { report: 'netprofit_year', name: '净利润风险(年报)', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'DEDUCT_NETPROFIT', name: '扣非净利润', sort: '1,-1', sortCols: 'DEDUCT_NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'REPORT_DATE', name: '报告期', sort: -1, sortCols: 'REPORT_DATE,SECUCODE', type: 'date' },
+        { order: 6, column: 'OPERATE_INCOME', name: '报告期<br>营业收入', sort: -1, sortCols: 'OPERATE_INCOME,SECUCODE', type: 'amt_rg' },
+        { order: 7, column: 'NETPROFIT', name: '报告期<br>净利润', sort: -1, sortCols: 'NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 8, column: 'TOTAL_PROFIT', name: '报告期<br>利润总额', sort: -1, sortCols: 'TOTAL_PROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 9, column: 'NET_ASSETS', name: '报告期<br>净资产', sort: -1, sortCols: 'NET_ASSETS,SECUCODE', type: 'amt_rg' },
+        { order: 10, column: 'PRE_NET_ASSETS', name: '上一期<br>净资产', sort: -1, sortCols: 'PRE_NET_ASSETS,SECUCODE', type: 'amt_rg' },
+    ]},
+    { report: 'netassets_newest', name: '净利润风险(最新)', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'NET_ASSETS', name: '报告期<br>净资产', sort: -1, sortCols: 'NET_ASSETS,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'PRE_NET_ASSETS', name: '上一期<br>净资产', sort: -1, sortCols: 'PRE_NET_ASSETS,SECUCODE', type: 'amt_rg' },
+        { order: 6, column: 'DEDUCT_NETPROFIT', name: '扣非净利润', sort: '1,-1', sortCols: 'DEDUCT_NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 7, column: 'REPORT_DATE', name: '报告期', sort: -1, sortCols: 'REPORT_DATE,SECUCODE', type: 'date' },
+        { order: 8, column: 'OPERATE_INCOME', name: '报告期<br>营业收入', sort: -1, sortCols: 'OPERATE_INCOME,SECUCODE', type: 'amt_rg' },
+        { order: 9, column: 'NETPROFIT', name: '报告期<br>净利润', sort: -1, sortCols: 'NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 10, column: 'TOTAL_PROFIT', name: '报告期<br>利润总额', sort: -1, sortCols: 'TOTAL_PROFIT,SECUCODE', type: 'amt_rg' },
+    ]},
+    { report: 'netassets_year', name: '净利润风险(年报)', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'NET_ASSETS', name: '报告期<br>净资产', sort: -1, sortCols: 'NET_ASSETS,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'PRE_NET_ASSETS', name: '上一期<br>净资产', sort: -1, sortCols: 'PRE_NET_ASSETS,SECUCODE', type: 'amt_rg' },
+        { order: 6, column: 'DEDUCT_NETPROFIT', name: '扣非净利润', sort: '1,-1', sortCols: 'DEDUCT_NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 7, column: 'REPORT_DATE', name: '报告期', sort: -1, sortCols: 'REPORT_DATE,SECUCODE', type: 'date' },
+        { order: 8, column: 'OPERATE_INCOME', name: '报告期<br>营业收入', sort: -1, sortCols: 'OPERATE_INCOME,SECUCODE', type: 'amt_rg' },
+        { order: 9, column: 'NETPROFIT', name: '报告期<br>净利润', sort: -1, sortCols: 'NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 10, column: 'TOTAL_PROFIT', name: '报告期<br>利润总额', sort: -1, sortCols: 'TOTAL_PROFIT,SECUCODE', type: 'amt_rg' },
+    ]},
+    { report: 'audit', name: '审计报告风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'OSOPINION_TYPE', name: '审计意见', sort: -1, sortCols: 'OSOPINION_TYPE,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'REPORT_DATE', name: '报告期', sort: '1,-1', sortCols: 'REPORT_DATE,SECUCODE', type: 'date' },
+        { order: 6, column: 'ACCOUNTFIRM_NAME', name: '审计机构', sort: 0, sortCols: '', type: 'str' },
+        { order: 7, column: 'PRE_NET_ASSETS', name: '上一期<br>净资产', sort: -1, sortCols: 'PRE_NET_ASSETS,SECUCODE', type: 'amt_rg' },
+        { order: 8, column: 'DEDUCT_NETPROFIT', name: '扣非净利润', sort: -1, sortCols: 'DEDUCT_NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 9, column: 'OPERATE_INCOME', name: '报告期<br>营业收入', sort: -1, sortCols: 'OPERATE_INCOME,SECUCODE', type: 'amt_rg' },
+        { order: 10, column: 'NETPROFIT', name: '报告期<br>净利润', sort: -1, sortCols: 'NETPROFIT,SECUCODE', type: 'amt_rg' },
+        { order: 11, column: 'TOTAL_PROFIT', name: '报告期<br>利润总额', sort: -1, sortCols: 'TOTAL_PROFIT,SECUCODE', type: 'amt_rg' },
+    ]},
+    { report: 'disclosure', name: '信息披露或规范运作风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'VIOLATE_NOTICE_DATE', name: '违规公告日期', sort: '-1,1', sortCols: 'VIOLATE_NOTICE_DATE,SECUCODE', type: 'date' },
+        { order: 5, column: 'VIOLATE_TYPE', name: '违规类型', sort: 0, sortCols: '', type: 'str' },
+        { order: 6, column: 'SOLVE_ORG', name: '处理单位', sort: 0, sortCols: '', type: 'str' },
+    ]},
+    { report: 'reorganization', name: '破产重整风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'VIOLATE_NOTICE_DATE', name: '重整计划披露日', sort: '-1,1', sortCols: 'PLAN_PUBLISH_DATE,SECUCODE', type: 'date' },
+        { order: 5, column: 'RECOMBI_PROCESS', name: '重整进度', sort: 0, sortCols: '', type: 'str' },
+    ]},
+    { report: 'tunneling', name: '资金占用风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'NONBUSINESS_FO_BALANCE', name: '非经营性占用资金', sort: '-1,1', sortCols: 'NONBUSINESS_FO_BALANCE,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'HOLDER_NAME', name: '控股股东及其附属企业', sort: 0, sortCols: '', type: 'str' },
+        { order: 6, column: 'NONBUSINESS_RATIO', name: '占用资金占净资产比', sort: -1, sortCols: 'NONBUSINESS_RATIO,SECUCODE', type: 'per_rg' },
+    ]},
+    { report: 'pricerisk', name: '价格风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'DAYS', name: '连续低于门槛值交易日天数', sort: '-1,1', sortCols: 'DAYS,SECUCODE', type: 'int' },
+        { order: 5, column: 'AVERAGE_20DAY', name: '近20个交易日平均收盘价', sort: -1, sortCols: 'AVERAGE_20DAY,SECUCODE', type: 'amt' },
+    ]},
+    { report: 'valuedecline', name: '市值风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'DAYS', name: '连续低于门槛值交易日天数', sort: '-1,1', sortCols: 'DAYS,SECUCODE', type: 'int' },
+        { order: 5, column: 'AVERAGE_20DAY', name: '近20个交易日平均总市值', sort: -1, sortCols: 'AVERAGE_20DAY,SECUCODE', type: 'amt_rg' },
+    ]},
+    { report: 'liquidity', name: '股东人数风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'HOLD_NUM', name: '股东人数', sort: '-1,1', sortCols: 'HOLD_NUM,SECUCODE', type: 'int' },
+        { order: 5, column: 'END_DATE', name: '截止日期', sort: -1, sortCols: 'END_DATE,SECUCODE', type: 'date' },
+    ]},
+    { report: 'tradingvolume', name: '成交量风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'VOLUME', name: '最新成交量', sort: '-1,1', sortCols: 'VOLUME,SECUCODE', type: 'int' },
+        { order: 5, column: 'AVERAGE_20DAY', name: '近20个交易日平均成交量', sort: -1, sortCols: 'AVERAGE_20DAY,SECUCODE', type: 'int' },
+    ]},
+    { report: 'belowbookvalue', name: '长期破净', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'BVPS', name: '最新年报<br>每股净资产', sort: '-1,1', sortCols: 'BVPS,SECUCODE', type: 'amt' },
+        { order: 5, column: 'BELONG_INDUSTRY', name: '所属行业', sort: 0, sortCols: '', type: 'str' },
+    ]},
+    { report: 'plunge', name: '大幅下跌', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'BVPS', name: '最新年报<br>每股净资产', sort: '-1,1', sortCols: 'BVPS,SECUCODE', type: 'amt' },
+        { order: 5, column: 'BELONG_INDUSTRY', name: '所属行业', sort: 0, sortCols: '', type: 'str' },
+        { order: 6, column: 'INDEX_NAME', name: '所属指数', sort: 0, sortCols: '', type: 'str' },
+    ]},
+    { report: 'losingstreak', name: '短期连续下跌', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'BVPS', name: '最新年报<br>每股净资产', sort: '-1,1', sortCols: 'BVPS,SECUCODE', type: 'amt' },
+        { order: 5, column: 'BELONG_INDUSTRY', name: '所属行业', sort: 0, sortCols: '', type: 'str' },
+        { order: 6, column: 'INDEX_NAME', name: '所属指数', sort: 0, sortCols: '', type: 'str' },
+    ]},
+    { report: 'guarantees', name: '对外担保风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'COLLA_BALANCE', name: '对外担保余额', sort: '-1,1', sortCols: 'COLLA_BALANCE,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'COLLA_BALANCE_RATIO', name: '担保余额占净资产比', sort: -1, sortCols: '', type: 'per' },
+    ]},
+    { report: 'internalaudit', name: '内部审计风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'IN_CONTROL_AUDIT', name: '内控审计意见', sort: '1,-1', sortCols: 'IN_CONTROL_AUDIT,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'REPORT_DATE', name: '报告期', sort: -1, sortCols: 'REPORT_DATE,SECUCODE', type: 'date' },
+        { order: 6, column: 'IN_CONTROL_ACCFIRM', name: '审计机构', sort: 0, sortCols: '', type: 'str' },
+    ]},
+    { report: 'dividend', name: '分红不足风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'DIVIDEND_3YEAR', name: '近3年累计现金分红金额', sort: '1,-1', sortCols: 'DIVIDEND_3YEAR,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'DIV_NET_RATIO', name: '近3年分红占年均净利润比', sort: -1, sortCols: 'DIV_NET_RATIO,SECUCODE', type: 'per' },
+    ]},
+    { report: 'misappropriation', name: '资金占用风险', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'NONBUSINESS_FO_BALANCE', name: '非经营性占用资金', sort: '1,-1', sortCols: 'NONBUSINESS_FO_BALANCE,SECUCODE', type: 'amt_rg' },
+        { order: 5, column: 'HOLDER_NAME', name: '控股股东及其附属企业', sort: 0, sortCols: '', type: 'per' },
+    ]},
+    { report: 'exiting', name: '即将退市整理', header: [
+        { order: 1, column: 'SECURITY_NAME_ABBR', name: '股票名称', sort: 0, sortCols: '', type: 'str' },
+        { order: 2, column: 'PRICE', name: '最新价', sort: 0, sortCols: '', type: 'amt' },
+        { order: 3, column: 'CHANGE_RATE', name: '涨跌幅', sort: 0, sortCols: '', type: 'per' },
+        { order: 4, column: 'CHANGE_DATE', name: '预计进入退市整理日', sort: '1,-1', sortCols: 'CHANGE_DATE,SECUCODE', type: 'date' },
+        { order: 5, column: 'NOTICE_DATE', name: '公告日期', sort: 0, sortCols: '', type: 'date' },
+    ]},
+]
+ function showLoadingIndicator() {
+    // 移除可能存在的旧指示器
+    hideLoadingIndicator();
+    
+    const loader = document.createElement('tr');
+    loader.id = 'loadingRow';
+    loader.className = 'loading-row';
+    const reportName = document.querySelector('.tab.active').getAttribute('data-src');
+    loader.innerHTML = `<div class='loading-container'>
+        <div class="loading-spinner"></div> 正在加载数据...
+    </div>`;
+    document.querySelector(`body`).appendChild(loader);
+}
+function hideLoadingIndicator() {
+    const loader = document.getElementById('loadingRow');
+    if (loader) {
+        loader.remove();
+    }
+}
+
+function renameJsonArrayFieldName(data, fieldsMap) {
     return data.map(item => {
         const newItem = {};
 
@@ -1201,6 +1855,11 @@ function renameJsonArrayFieldName(data, fieldsMap){
         return newItem;
     });
 }
+const groupByField = (data, field) => data.reduce((acc, item) => ({
+  ...acc, 
+  [item[field]]: [...(acc[item[field]] || []), item]
+}), {});
+
 function showModalDialog() {
     const modalOverlay = document.getElementById('modalOverlay');
     const modalDialog = document.getElementById('modalDialog');
@@ -1221,7 +1880,7 @@ function showModalDialog() {
             document.getElementById('modalItemTitle').textContent = subtitle;// title;
             document.getElementById('modalItemDesc').innerHTML = desc;
             openModal();
-         })
+        })
     })
 
     dataItems.forEach(item => {
@@ -1283,7 +1942,7 @@ function showModalDialog() {
     })
 
     allStock.forEach(item => {
-        item.addEventListener('click',async function(){
+        item.addEventListener('click', async function () {
             const code = this.getAttribute('data-key');
             const title = this.getAttribute('title');
             const url = `/api/d/themeStatistics/${code}`
@@ -1298,6 +1957,47 @@ function showModalDialog() {
         })
     })
 
+
+    /*document.querySelectorAll('.cause-content-show > a').forEach(item => {
+        item.addEventListener('click',async function(){
+
+        })
+    })*/
+    document.querySelectorAll('.cause-content-show > a').forEach(item => {
+        item.addEventListener('click', async function () {
+            const title = this.getAttribute('title')
+            const desc = this.getAttribute("data-content").replaceAll('\\n', '<br>');
+            const subtitle = this.getAttribute("subtitle");
+            document.querySelector('.modal-title').textContent = title;//`“${name}”上榜原因`;
+            document.getElementById('modalItemTitle').textContent = subtitle;// title;
+            document.getElementById('modalItemDesc').innerHTML = desc;
+            openModal();
+        })
+    })
+
+    document.querySelectorAll('.a-ggtzpj').forEach(item => {
+        item.addEventListener('click', async function () {
+            const reportName = this.getAttribute('data-src');
+            const key = this.getAttribute('data-key');
+            const tag = this.getAttribute('data-tag');
+            const url = `/api/x/xreport/idreq`;
+            const params = {tag: tag, key: key };
+            const response = await fetch(url, {
+                headers: { "X-Params": JSON.stringify(params) },
+                method: "GET"
+            });
+            const data = await response.json();
+            const title = data.ResultSets[0].Content[0][0];
+            const content = data.ResultSets[0].Content[0][1];
+            const date = data.ResultSets[0].Content[0][2]
+            document.querySelector('.modal-title').textContent = title;//`“${name}”上榜原因`;
+            document.getElementById('modalItemTitle').textContent = date;// title;
+            document.getElementById('modalItemDesc').innerHTML = content;
+            openModal();
+        });
+        
+        //renderGGTZPJTable(data);
+    })
     function openModal() {
         modalOverlay.classList.add('show');
         modalDialog.classList.add('show');
@@ -1307,13 +2007,13 @@ function showModalDialog() {
     function closeModal() {
         modalOverlay.classList.remove('show');
         modalDialog.classList.remove('show');
-        document.body.style.overflow = 'auto';
-        document.documentElement.style.overflow = 'auto';
+        document.body.style.overflow = '';//'auto';
+        document.documentElement.style.overflow = '';// 'auto';
     }
 
     modalOverlay.addEventListener('click', closeModal);
     modalClose.addEventListener('click', closeModal);
-    if(btnClose) btnClose.addEventListener('click', closeModal);
+    if (btnClose) btnClose.addEventListener('click', closeModal);
 
     // 阻止对话框内容点击事件冒泡
     modalDialog.addEventListener('click', function (e) {
@@ -1427,35 +2127,35 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById(tabId).classList.add('active');
         });
     });
-/*
-    const monitorTabBtns = document.querySelectorAll('.tab-monitor');
-    const monitorTabPanes = document.querySelectorAll('.tab-pane-monitor');
-
-    monitorTabBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-            monitorTabBtns.forEach(b => b.classList.remove('active'));
-            monitorTabPanes.forEach(pane => pane.classList.remove('active'));
-
-            this.classList.add('active');
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
+    /*
+        const monitorTabBtns = document.querySelectorAll('.tab-monitor');
+        const monitorTabPanes = document.querySelectorAll('.tab-pane-monitor');
+    
+        monitorTabBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                monitorTabBtns.forEach(b => b.classList.remove('active'));
+                monitorTabPanes.forEach(pane => pane.classList.remove('active'));
+    
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
         });
-    });
-
-    const qualityTabBtns = document.querySelectorAll('.tab-btn-quality');
-    const qualityTabPanes = document.querySelectorAll('.tab-pane-quality');
-
-    qualityTabBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-            qualityTabBtns.forEach(b => b.classList.remove('active'));
-            qualityTabPanes.forEach(pane => pane.classList.remove('active'));
-
-            this.classList.add('active');
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
+    
+        const qualityTabBtns = document.querySelectorAll('.tab-btn-quality');
+        const qualityTabPanes = document.querySelectorAll('.tab-pane-quality');
+    
+        qualityTabBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                qualityTabBtns.forEach(b => b.classList.remove('active'));
+                qualityTabPanes.forEach(pane => pane.classList.remove('active'));
+    
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
         });
-    });
-*/
+    */
     const timeType = document.querySelectorAll('.hotstock-time');
     timeType.forEach(item => {
         item.addEventListener('click', function () {
@@ -1475,7 +2175,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-function clickToggleButton(){
+function clickToggleButton() {
     document.querySelector('.toggle-timeline').addEventListener('click', function () {
         const timeline = document.querySelector('.timeline');
         timeline.classList.toggle('show-all-timeline-item');
@@ -1489,6 +2189,19 @@ function clickToggleButton(){
         }
     });
 }
+            // 检查是否滚动到底部
+function isScrolledToBottom() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;                
+    // 当距离底部小于100px时触发加载
+    return scrollTop + windowHeight >= documentHeight - 100;
+}
+function decodeHtmlEntities(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    return doc.documentElement.textContent;
+}
 /*
 function canvasDraw(){
     const canvasEls = document.querySelectorAll('.data-chart');
@@ -1498,7 +2211,7 @@ function canvasDraw(){
     })
 }
 */
-function drawThemeKLine(canvas, data){
+function drawThemeKLine(canvas, data) {
     // 获取Canvas元素和容器
     const container = canvas.parentElement;   //document.querySelector('.chart-container');
     let ctx = canvas.getContext('2d');
@@ -1604,7 +2317,7 @@ function drawThemeKLine(canvas, data){
             ctx.fillStyle = '#666';
             ctx.font = '12px Arial';
             ctx.textAlign = 'right';
-            ctx.fillText( (value ? value.toFixed(1) : 0), margin.left - 10, y + 4);
+            ctx.fillText((value ? value.toFixed(1) : 0), margin.left - 10, y + 4);
         }
 
         // 垂直网格线
@@ -1713,7 +2426,7 @@ function drawThemeKLine(canvas, data){
 
 }
 
-function drawDashboard(canvas, currentValue){
+function drawDashboard(canvas, currentValue) {
     // 获取DOM元素
     //const canvas = document.getElementById('gaugeCanvas');
     const container = canvas.parentElement.parentElement;
@@ -1760,12 +2473,14 @@ function drawDashboard(canvas, currentValue){
     // 调整Canvas尺寸
     function resizeCanvas() {
         // 获取设备像素比
-        const dpr = 1;//window.devicePixelRatio || 1;
-
+        const dpr = 1;// window.devicePixelRatio || 1;
         // 获取容器实际尺寸
         const rect = container.getBoundingClientRect();
-        const width = Math.min(rect.width, rect.height);
-        const height = Math.min(rect.width, rect.height);
+        let _width = 130, _height = 130;
+        if(window.innerWidth <= 768) { _width = 90; _height = 90;}
+        else if(window.innerWidth > 768 && window.innerWidth <= 992) { _width = 120; _height = 120;}
+        const width = _width;//Math.max(_width, Math.min(rect.width, rect.height));
+        const height = _height;//Math.max(_height, Math.min(rect.width, rect.height));
 
         // 设置Canvas实际像素尺寸
         canvas.width = width * dpr;
@@ -1780,7 +2495,7 @@ function drawDashboard(canvas, currentValue){
 
         // 重新绘制图表
         drawGauge();
-    }    
+    }
 
     // 绘制仪表盘
     function drawGauge() {
@@ -2071,4 +2786,6 @@ function drawDashboard(canvas, currentValue){
 
     drawGauge();
 }
+
+
 //sk-368c2e1e1e734f28926f67d834251e90  DeepSeek API Key

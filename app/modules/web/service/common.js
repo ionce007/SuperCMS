@@ -951,6 +951,81 @@ class CommonService {
       throw err;
     }
   }
+  async getConceptFund(){
+    try{
+      const stock = new StockService()
+      const data = await stock.getBlockFund('concept', null, 'fundin', 1, 'top10');
+      return data;
+    }
+    catch(err){
+      console.error(err);
+      throw err;
+    }
+  }
+  async getFundamentalData(){
+    try{
+      const stock = new StockService()
+      const params = { name: 'ggtzpj', sname: '', Params: ["-1","-1","30","","1","1","40"] };
+      const data = await stock.tdxReport(params);
+      return data;
+    }
+    catch(err){
+      console.error(err);
+      throw err;
+    }
+  }
+  async getTdxHYData(){
+    try{
+      const stock = new StockService()
+      const params = { name: 'cache', sname: '', Params: [] };
+      const data = await stock.tdxReport(params);
+      return data;
+    }
+    catch(err){
+      console.error(err);
+      throw err;
+    }
+  }
+  async getStockTTMData(){
+    try{
+      const stock = new StockService()
+      const params = { name: 'stockttm' }
+      const data = await stock.dfcfValuation(params);
+      return data;
+    }
+    catch(err){
+      console.error(err);
+      throw err;
+    }
+  }
+  async getFundFlows(){
+    try{
+      const stock = new StockService()
+      const name = 'fundflows';
+      const sortField = '';  // 排序字段
+      const sortKind = -1;   // 排序规则 1：降序  -1 升序
+      const pageIndex = 1;
+      const pageSize = 30;
+      const params = { name, sortField, sortKind, pageIndex, pageSize };
+      const data = await stock.dfcfLoadingup(params);
+      return data;
+    }
+    catch(err){
+      console.error(err);
+      throw err;
+    }
+  }
+    async getRiskReport(){
+    try{
+      const stock = new StockService()
+      const data = await stock.dfcfRiskReports();
+      return data;
+    }
+    catch(err){
+      console.error(err);
+      throw err;
+    }
+  }
 }
 
 module.exports = CommonService;

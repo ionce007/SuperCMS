@@ -1,4 +1,5 @@
 const init = require("./middleware/init.js");
+const { validateImageUrl, validateImageFormat } = require('./middleware/image-validation');
 const adapter = require("./middleware/adapter.js");
 const safe = require("express-safe");
 module.exports = (opt) => {
@@ -10,10 +11,18 @@ module.exports = (opt) => {
     app,
   } = opt;
 
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+
   router.use(adapter());
   router.use(safe());
   router.use(init(app));
 
+    router.get("/img/proxy", validateImageUrl, validateImageFormat(), controller.home.imgProxy);
   // 首页模板
   router.get("/", controller.home.index);
 
@@ -95,6 +104,26 @@ module.exports = (opt) => {
   router.get(
     ["/datus/uplimit.html"],
     controller.home.uplimit
+  );
+  router.get(
+    ["/datus/heatmap.html"],
+    controller.home.heatmap
+  );
+  router.get(
+    ["/datus/fundamental.html"],
+    controller.home.fundamental
+  );
+  router.get(
+    ["/datus/valuation.html"],
+    controller.home.valuation
+  );
+  router.get(
+    ["/datus/loadingup.html"],
+    controller.home.loadingup
+  );
+  router.get(
+    ["/datus/risklist.html"],
+    controller.home.risklist
   );
   //使用路由
   app.use(router);

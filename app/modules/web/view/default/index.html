@@ -69,6 +69,7 @@
                 </section>
                 <section class="flex flex-wrap justify-between gap-10">
                     {{each article.list}}
+                    {{if $value.category.path !== '/datus' }}
                     <div class="w-460 bg-fff pd-20">
                         <h3 class="m-title f-16 flex justify-between border-dashed mb-10">{{$value.category.name}}<span
                                 class="more"><a href="{{$value.category.path}}/index.html">更多</a></span></h3>
@@ -106,6 +107,7 @@
                         </p>
                         {{/if}}
                     </div>
+                    {{/if}}
                     {{/each}}
                 </section>
                 {{if imgs.length>0}}

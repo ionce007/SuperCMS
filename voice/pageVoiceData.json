@@ -1,0 +1,3920 @@
+[
+    {
+        "unitId": "01-01",
+        "grade": "一年级英语 上册",
+        "unit": "unit01",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530883&amp;idx=1&amp;sn=78348341c47dcf8ae2bcc6f8ea6e8ba6&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一上U1 P2 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODM1"
+            },
+            {
+                "name": "一上U1 P3 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODM0"
+            },
+            {
+                "name": "一上U1 P4 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODMz"
+            },
+            {
+                "name": "一上U1 P5 一起尝试",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODM2"
+            },
+            {
+                "name": "一上U1 P6 一起做",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODM3"
+            },
+            {
+                "name": "一上U1 P7 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODM4"
+            },
+            {
+                "name": "一上U1 P8 ANDY",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODM5"
+            }
+        ]
+    },
+    {
+        "unitId": "01-02",
+        "grade": "一年级英语 上册",
+        "unit": "unit02",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530883&amp;idx=2&amp;sn=435cc0ceb206dfa6996ee12a910afef0&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一上U2 P10 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQy"
+            },
+            {
+                "name": "一上U2 P11 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQx"
+            },
+            {
+                "name": "一上U2 P12 一起行动",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQw"
+            },
+            {
+                "name": "一上U2 P13 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQz"
+            },
+            {
+                "name": "一上U2 P14 一起做",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQ0"
+            },
+            {
+                "name": "一上U2 P15 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQ1"
+            },
+            {
+                "name": "一上U2 P16 ANDY",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQ2"
+            },
+            {
+                "name": "一上U2 P54 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQ3"
+            }
+        ]
+    },
+    {
+        "unitId": "01-03",
+        "grade": "一年级英语 上册",
+        "unit": "unit03",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530883&amp;idx=3&amp;sn=a191fae2439556abfa5a08f539800675&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一上U3 P18 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODUw"
+            },
+            {
+                "name": "一上U3 P19 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQ5"
+            },
+            {
+                "name": "一上U3 P20 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODQ4"
+            },
+            {
+                "name": "一上U3 P21 一起尝试",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODUx"
+            },
+            {
+                "name": "一上U3 P22 一起做",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODUy"
+            },
+            {
+                "name": "一上U3 P23 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODUz"
+            },
+            {
+                "name": "一上U3 P24 Andy",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODU0"
+            },
+            {
+                "name": "一上 P25 Revision 1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODU1"
+            },
+            {
+                "name": "一上U3 P54 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODU2"
+            }
+        ]
+    },
+    {
+        "unitId": "01-04",
+        "grade": "一年级英语 上册",
+        "unit": "unit04",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530883&amp;idx=4&amp;sn=e7150f965f1313cd7eefbd4a996a37e4&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一上U4 P27 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODU3"
+            },
+            {
+                "name": "一上U4 P28 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODU5"
+            },
+            {
+                "name": "一上U4 P29 一起行动",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODU4"
+            },
+            {
+                "name": "一上U4 P30 一起尝试",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODYw"
+            },
+            {
+                "name": "一上U4 P31 一起做",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODYx"
+            },
+            {
+                "name": "一上U4 P32 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODYy"
+            },
+            {
+                "name": "一上U4 P33 Andy",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODYz"
+            },
+            {
+                "name": "一上U4 P54 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODY0"
+            }
+        ]
+    },
+    {
+        "unitId": "01-05",
+        "grade": "一年级英语 上册",
+        "unit": "unit05",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530883&amp;idx=5&amp;sn=ad7ddeedf7c608723afe9bbc96422ae8&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一上U5 P35 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODY1"
+            },
+            {
+                "name": "一上U5 P36 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODY2"
+            },
+            {
+                "name": "一上U5 P37 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODY3"
+            },
+            {
+                "name": "一上U5 P38 一起尝试",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODY4"
+            },
+            {
+                "name": "一上U5 P39 一起做",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODY5"
+            },
+            {
+                "name": "一上U5 P40 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODcw"
+            },
+            {
+                "name": "一上U5 P41 Andy",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODcx"
+            },
+            {
+                "name": "一上U5 P54 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODcy"
+            }
+        ]
+    },
+    {
+        "unitId": "01-06",
+        "grade": "一年级英语 上册",
+        "unit": "unit06",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530883&amp;idx=6&amp;sn=4f1193d2a05ea8fcf88d19acf25ebb3b&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一上U6 P43 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODc0"
+            },
+            {
+                "name": "一上U6 P44 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODcz"
+            },
+            {
+                "name": "一上U6 P45 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODc1"
+            },
+            {
+                "name": "一上U6 P46 一起尝试",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODc2"
+            },
+            {
+                "name": "一上U6 P47 一起做",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODc3"
+            },
+            {
+                "name": "一上U6 P48-P49 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODc4"
+            },
+            {
+                "name": "一上U6 P50 Andy",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODc5"
+            },
+            {
+                "name": "一上 P51 Revision 2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODgw"
+            },
+            {
+                "name": "一上 P52-P53 English names",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODgx"
+            },
+            {
+                "name": "一上U6 P54 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwODgy"
+            }
+        ]
+    },
+    {
+        "unitId": "02-01",
+        "grade": "一年级英语 下册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484134&amp;idx=1&amp;sn=9cad8aacfa8343d0bd7912cf6bf4fc3a&amp;chksm=f901ee1dce76670b849f025ec9740f09b6fb34186410e452e949a68f78dd8299f9bd6434b5ab&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一下 U1-P2听和唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MDk3"
+            },
+            {
+                "name": "一下 U1-P3听说并表演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MDk4"
+            },
+            {
+                "name": "一下 U1-P4看图",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MDk5"
+            },
+            {
+                "name": "一下 U1-P7看听并表演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTAw"
+            },
+            {
+                "name": "一下 U1-P8 用英语了解",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTAx"
+            }
+        ]
+    },
+    {
+        "unitId": "02-02",
+        "grade": "一年级英语 下册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484713&amp;idx=1&amp;sn=6742176beea9365524ceeeb9696cc010&amp;chksm=f901e9d2ce7660c497a6f0d7b720db209c69df5a03e51e6d52153d76101f50d52562599818e6&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一下 U2-P10听和唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njc5"
+            },
+            {
+                "name": "一下 U2-P11听说并表演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njgw"
+            },
+            {
+                "name": "一下 U2-P12 推测",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njgx"
+            },
+            {
+                "name": "一下 U2-P13 说明差异",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njgy"
+            },
+            {
+                "name": "一下 U2-P15看听并表演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njgz"
+            },
+            {
+                "name": "一下 U2-P16用英语了解",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njg0"
+            }
+        ]
+    },
+    {
+        "unitId": "02-03",
+        "grade": "一年级英语 下册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484904&amp;idx=1&amp;sn=ff349be1fd2fbd0961c05f00550d532a&amp;chksm=f901e913ce766005abe54ef2170c4d499acbef79cd922cd0a00cc98d02519332e06e5259b47c&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一下 U3-P18听和唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODYz"
+            },
+            {
+                "name": "一下 U3-P19听和做",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODY0"
+            },
+            {
+                "name": "一下 U3-P20 听和说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODY1"
+            },
+            {
+                "name": "一下 U3-P21 看和说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODY2"
+            },
+            {
+                "name": "一下 U3-P23 看听并表演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODY3"
+            },
+            {
+                "name": "U3-P24 用英语了解",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODY4"
+            }
+        ]
+    },
+    {
+        "unitId": "02-04",
+        "grade": "一年级英语 下册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485232&amp;idx=1&amp;sn=85c39019ed011fa41516e6209ddce074&amp;chksm=f901ebcbce7662dd5bea92c8e00864ac03f600f03fb6b5250692a81c98ea927cd3167c4b7e3f&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一下 U4-p27 听和唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MTk3"
+            },
+            {
+                "name": "一下 U4-P28 听和说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MTk4"
+            },
+            {
+                "name": "一下 U4-p29 玩游戏",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MTk5"
+            },
+            {
+                "name": "一下 U4-p29 玩游戏",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjAw"
+            },
+            {
+                "name": "一下 U4-P30 听和读",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjAx"
+            },
+            {
+                "name": "一下 U4-P32看听并表演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjAy"
+            },
+            {
+                "name": "一下 U4-p33用英语了解",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjAz"
+            }
+        ]
+    },
+    {
+        "unitId": "02-05",
+        "grade": "一年级英语 下册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485553&amp;idx=1&amp;sn=cd08872ac5f03bf7ae26238b68bea242&amp;chksm=f901e48ace766d9cdcf4f814d7370973776c9e30ce833bfa9d6d354ab9877e2198fd921073fe&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一下 U5-P35听和唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTE0"
+            },
+            {
+                "name": "一下 U5-P36听说并表演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTE1"
+            },
+            {
+                "name": "一下 U5-P37听和做",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTE2"
+            },
+            {
+                "name": "一下 U5-p38推测",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTE3"
+            },
+            {
+                "name": "一下 U5-P40 看听并表演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTE4"
+            },
+            {
+                "name": "一下 U5-p41 用英语了解",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTE5"
+            }
+        ]
+    },
+    {
+        "unitId": "02-06",
+        "grade": "一年级英语 下册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485588&amp;idx=1&amp;sn=35c25c7a012534c29cd47d4fef9582b5&amp;chksm=f901e46fce766d7937ced8ee8c70ac6f1f960797b9811ad69e5764a8d221cc52e15ee3e1379b&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "一下 U6-P43听和唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTU0"
+            },
+            {
+                "name": "一下 U6-p44 听和说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTU1"
+            },
+            {
+                "name": "一下 U6-P45 选择和说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTU2"
+            },
+            {
+                "name": "一下 U6-P46 问和答",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTU3"
+            },
+            {
+                "name": "一下 U6-P48 看听并表演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTU4"
+            },
+            {
+                "name": "一下 U6-P49 用英语了解",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTU5"
+            }
+        ]
+    },
+    {
+        "unitId": "03-01",
+        "grade": "二年级英语 上册",
+        "unit": "unit01",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247531065&amp;idx=1&amp;sn=f326ef2ff6475f84f379dfc23192e494&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二上U1 P2 一起学",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDE5"
+            },
+            {
+                "name": "二上U1 P3 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDIw"
+            },
+            {
+                "name": "二上U1 P4 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDIx"
+            },
+            {
+                "name": "二上U1 P5 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDIy"
+            },
+            {
+                "name": "二上U1 P6 一起说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDIz"
+            },
+            {
+                "name": "二上U1 P7 project",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDI0"
+            },
+            {
+                "name": "二上U1 P8-P9 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDI1"
+            },
+            {
+                "name": "二上U1 P10-P11 看字读音时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDI2"
+            },
+            {
+                "name": "二上U1 P12 Bobby",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDI3"
+            }
+        ]
+    },
+    {
+        "unitId": "03-02",
+        "grade": "二年级英语 上册",
+        "unit": "unit02",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247531065&amp;idx=2&amp;sn=ee3f2a290a95424ba9b0431435fe49b8&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二上U2 P14 一起学",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDI4"
+            },
+            {
+                "name": "二上U2 P15 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDI5"
+            },
+            {
+                "name": "二上U2 P16 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDMw"
+            },
+            {
+                "name": "二上U2 P17 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDMx"
+            },
+            {
+                "name": "二上U2 P18 一起说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDMy"
+            },
+            {
+                "name": "二上U2 P19 Project",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDMz"
+            },
+            {
+                "name": "二上U2 P20-P21 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDM0"
+            },
+            {
+                "name": "二上U2 P22-P23 看字读音时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDM1"
+            },
+            {
+                "name": "二上U2 P24 Bobby",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDM2"
+            }
+        ]
+    },
+    {
+        "unitId": "03-03",
+        "grade": "二年级英语 上册",
+        "unit": "unit03",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247531065&amp;idx=3&amp;sn=c485554231f4a3e81843ade6af7c0893&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二上U3 P26 一起学",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDM3"
+            },
+            {
+                "name": "二上U3 P27 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDM5"
+            },
+            {
+                "name": "二上U3 P28 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDM4"
+            },
+            {
+                "name": "二上U3 P29 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQw"
+            },
+            {
+                "name": "二上U3 P30 一起说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQy"
+            },
+            {
+                "name": "二上U3 P31 Project",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQx"
+            },
+            {
+                "name": "二上U3 P32-P33 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQz"
+            },
+            {
+                "name": "二上U3 P34-P35 看字读音时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQ0"
+            },
+            {
+                "name": "二上U3 P36 Bobby",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQ1"
+            }
+        ]
+    },
+    {
+        "unitId": "03-04",
+        "grade": "二年级英语 上册",
+        "unit": "unit04",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247531065&amp;idx=4&amp;sn=2b51abf030fd6eadee3dd618bbf35383&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二上U4 P38 一起学",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQ3"
+            },
+            {
+                "name": "二上U4 P39 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQ4"
+            },
+            {
+                "name": "二上U4 P40 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQ2"
+            },
+            {
+                "name": "二上U4 P41 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDQ5"
+            },
+            {
+                "name": "二上U4 P42 一起说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDUx"
+            },
+            {
+                "name": "二上U4 P43 Project",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDUw"
+            },
+            {
+                "name": "二上U4 P44-P45 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDUy"
+            },
+            {
+                "name": "二上U4 P46-P47 看字读音时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDUz"
+            },
+            {
+                "name": "二上U4 P48 Bobby",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDU0"
+            }
+        ]
+    },
+    {
+        "unitId": "03-05",
+        "grade": "二年级英语 上册",
+        "unit": "unit05",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247531065&amp;idx=5&amp;sn=4dfeff62c88afda0385a08ab9193be86&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二上U5 P50 一起学",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDU3"
+            },
+            {
+                "name": "二上U5 P51 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDU1"
+            },
+            {
+                "name": "二上U5 P52 一起唱",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDU2"
+            },
+            {
+                "name": "二上U5 P53 一起玩",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDU4"
+            },
+            {
+                "name": "二上U5 P54 一起说",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDU5"
+            },
+            {
+                "name": "二上U5 P55 Project",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDYw"
+            },
+            {
+                "name": "二上U5 P56-P57 故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDYx"
+            },
+            {
+                "name": "二上U5 P58-P64 看字读音时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDYy"
+            },
+            {
+                "name": "二上U5 P65 Bobby",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDYz"
+            },
+            {
+                "name": "二上 P66 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMxMDY0"
+            }
+        ]
+    },
+    {
+        "unitId": "03-06",
+        "grade": "二年级英语 上册",
+        "unit": "",
+        "url": ""
+    },
+    {
+        "unitId": "04-01",
+        "grade": "二年级英语 下册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484134&amp;idx=2&amp;sn=36fa0c8fccc13a883270f6e443277968&amp;chksm=f901ee1dce76670b9d95157782d46114d058d46af38f0722f7d7af8b0a7e6177d6037f03fd61&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二下 U1-P2 look listen and say",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTAy"
+            },
+            {
+                "name": "二下 U1-P3 LISTEN sing and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTAz"
+            },
+            {
+                "name": "二下 U1-P4 choose,say and guess",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTA0"
+            },
+            {
+                "name": "二下 U1-P5 LISTEN say and point",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTA1"
+            },
+            {
+                "name": "二下 U1-P6 LOOK listen and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTA2"
+            },
+            {
+                "name": "二下 U1-P7 IN GROUPS,tell and ma",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTA3"
+            },
+            {
+                "name": "二下 U1-P8-P9 look and listen",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTA4"
+            },
+            {
+                "name": "二下 U1-P10 I KNOW these in engl",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTA5"
+            }
+        ]
+    },
+    {
+        "unitId": "04-02",
+        "grade": "二年级英语 下册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484713&amp;idx=2&amp;sn=c3f7f3b562576a5743862ebecc9ad54c&amp;chksm=f901e9d2ce7660c4a185ea472f44dfb2a476ebecf440bbb8b77cc17e5730eb1ceee3eba8c035&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二下 U2-P12 Look,listen and say",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njg1"
+            },
+            {
+                "name": "二下 U2-P13 act and guess",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njg2"
+            },
+            {
+                "name": "二下 U2-P14 listen,sing and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njg3"
+            },
+            {
+                "name": "二下 U2-P15 listen,say and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njg4"
+            },
+            {
+                "name": "二下 U2-P16 look listen and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njg5"
+            },
+            {
+                "name": "二下 U2-P17",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njkw"
+            },
+            {
+                "name": "二下 U2-P18-P19 look and listen",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njkx"
+            },
+            {
+                "name": "二下 U2-P20 i know these in english",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njky"
+            }
+        ]
+    },
+    {
+        "unitId": "04-03",
+        "grade": "二年级英语 下册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484904&amp;idx=2&amp;sn=90eb64bfcbdd5e9c80e402c4067596c7&amp;chksm=f901e913ce766005c1eed571b7ee7d01065fda99a80587a6e4e66ca0f786ee7cebcbb82ab80c&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二下 U3-P22-P23 look,listen and say",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODY5"
+            },
+            {
+                "name": "二下 U3-P24 listen,sing and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODcw"
+            },
+            {
+                "name": "二下 U3-P25 LISTEN,say and act.",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODcx"
+            },
+            {
+                "name": "二下 U3-P26 look listen and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODcy"
+            },
+            {
+                "name": "二下 U3-P27 stick and match",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODcz"
+            },
+            {
+                "name": "二下 U3-P28-P29 look and listen",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODc0"
+            },
+            {
+                "name": "二下 U3-P30 I KNOW these in engl",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODc1"
+            }
+        ]
+    },
+    {
+        "unitId": "04-04",
+        "grade": "二年级英语 下册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485232&amp;idx=2&amp;sn=ca252301b0e8b12485be8c31d7b709de&amp;chksm=f901ebcbce7662ddeb0aa619cbec3694d96fcb4ec8fb8db817beef827410ecdb287eef5236ef&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二下 U4-P34 look,listen and say",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjA0"
+            },
+            {
+                "name": "二下 U4-P35 listen,say and point",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjA1"
+            },
+            {
+                "name": "二下 U4-P36 look and say",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjA2"
+            },
+            {
+                "name": "二下 U4-P37 LISTEN,singand act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjA3"
+            },
+            {
+                "name": "二下 U4-P38 LOOK,listen and say",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjA4"
+            },
+            {
+                "name": "二下 U4-P39 MARK",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjA5"
+            },
+            {
+                "name": "二下 U4-P40-P41 LOOK and listen",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjEw"
+            },
+            {
+                "name": "二下 U4-P42 I KNOW these in engl",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjEx"
+            }
+        ]
+    },
+    {
+        "unitId": "04-05",
+        "grade": "二年级英语 下册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485553&amp;idx=2&amp;sn=0376811a1d564594a2f3f5736dc17651&amp;chksm=f901e48ace766d9ce50d57692ee68b1ceac2e1df7e297bb5d8eb0435112cf1e24793d4577d5f&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二下 U5-P44 look,listen and say",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTIw"
+            },
+            {
+                "name": "二下 U5-P45 listen and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTIx"
+            },
+            {
+                "name": "二下 U5-P46 LISTEN sing and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTIy"
+            },
+            {
+                "name": "二下 U5-P47 listen say and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTIz"
+            },
+            {
+                "name": "二下 U5-P48 look listen and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTI0"
+            },
+            {
+                "name": "二下 U5-P49 LISTEN to the",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTI1"
+            },
+            {
+                "name": "二下 U5-P50-P51 look and listen",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTI2"
+            },
+            {
+                "name": "二下 U5-P52 I KNOW these in engli",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTI3"
+            }
+        ]
+    },
+    {
+        "unitId": "04-06",
+        "grade": "二年级英语 下册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485588&amp;idx=2&amp;sn=a8d831cfc93bebb216e2bc289a289847&amp;chksm=f901e46fce766d79e17f0ddad54a2d6d7c9eb4b81d1f8f3310ff7117c893d0dc230b413ef844&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "二下 U6-P54 LOOK listen and say",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTYw"
+            },
+            {
+                "name": "二下 U6-P55 LISTEN and act.",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTYx"
+            },
+            {
+                "name": "二下 U6-P56 LISTEN sing and act",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTYy"
+            },
+            {
+                "name": "二下 U6-P57 listen say and act.",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTYz"
+            },
+            {
+                "name": "二下 U6-P58 look listen and say",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTY0"
+            },
+            {
+                "name": "二下 U6-P59",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTY1"
+            },
+            {
+                "name": "二下 U6-P60-P61 LOOK and listen",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTY2"
+            },
+            {
+                "name": "二下 U6-P62 I know these in english",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTY3"
+            }
+        ]
+    },
+    {
+        "unitId": "05-01",
+        "grade": "三年级英语（新版） 上册",
+        "unit": "unit01",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530315&amp;idx=1&amp;sn=5585afc81d81f92226cda55c6eaee896&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】广州版英语三上 U1单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjc4"
+            },
+            {
+                "name": "【2025版】广州版英语三上 U1短语",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjc5"
+            },
+            {
+                "name": "U1-1 Get Started + Active Listening",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjgw"
+            },
+            {
+                "name": "U1-2 Reading Room + Portfolio",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjgx"
+            },
+            {
+                "name": "U1-3 Spotlight + Wonderland",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjgy"
+            }
+        ]
+    },
+    {
+        "unitId": "05-02",
+        "grade": "三年级英语（新版） 上册",
+        "unit": "unit02",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530315&amp;idx=2&amp;sn=9da086a8d0b9aad3aace431c9fb4b149&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】广州版英语三上 U2单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjg1"
+            },
+            {
+                "name": "【2025版】广州版英语三上 U2短语",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjg0"
+            },
+            {
+                "name": "U2-1 Get Started + Active Listening",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjgz"
+            },
+            {
+                "name": "U2-2 Reading Room + Portfolio",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjg2"
+            },
+            {
+                "name": "U2-3 Spotlight + Wonderland",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjg3"
+            }
+        ]
+    },
+    {
+        "unitId": "05-03",
+        "grade": "三年级英语（新版） 上册",
+        "unit": "unit03",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530315&amp;idx=3&amp;sn=45b822cf7bf3234ef0e963133691ff91&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】广州版英语三上 U3单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjg4"
+            },
+            {
+                "name": "【2025版】广州版英语三上 U3短语",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjg5"
+            },
+            {
+                "name": "U3-1 Get Started + Active Listening",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjkw"
+            },
+            {
+                "name": "U3-2 Reading Room + Portfolio",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjkx"
+            },
+            {
+                "name": "U3-3 Spotlight + Wonderland",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjky"
+            }
+        ]
+    },
+    {
+        "unitId": "05-04",
+        "grade": "三年级英语（新版） 上册",
+        "unit": "unit04",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530504&amp;idx=1&amp;sn=a0f0485e9e6b80c4dbe90abf29cdc885&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】广州版英语三上 U4单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNDk5"
+            },
+            {
+                "name": "【2025版】广州版英语三上 U4短语",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTAw"
+            },
+            {
+                "name": "U4-1 Get Started + Active Listening",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTAx"
+            },
+            {
+                "name": "U4-2 Reading Room + Portfolio",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTAy"
+            },
+            {
+                "name": "U4-3 Spotlight + Wonderland",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTAz"
+            }
+        ]
+    },
+    {
+        "unitId": "05-05",
+        "grade": "三年级英语（新版） 上册",
+        "unit": "unit05",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530315&amp;idx=5&amp;sn=6ab080909ab6777ebb5a362fb10d4714&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】广州版英语三上 U5单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjk3"
+            },
+            {
+                "name": "【2025版】广州版英语三上 U5短语",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjk1"
+            },
+            {
+                "name": "U5-1 Get Started + Active Listening",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjk2"
+            },
+            {
+                "name": "U5-2 Reading Room + Portfolio",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjk4"
+            },
+            {
+                "name": "U5-3 Spotlight + Wonderland",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMjk5"
+            }
+        ]
+    },
+    {
+        "unitId": "05-06",
+        "grade": "三年级英语（新版） 上册",
+        "unit": "unit06",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530315&amp;idx=6&amp;sn=b3a5a3b59f58b840d11509f3cbb45ffe&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】广州版英语三上 U6单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzAw"
+            },
+            {
+                "name": "【2025版】广州版英语三上 U6短语",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzAy"
+            },
+            {
+                "name": "U6-1 Get Started + Active Listening",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzAx"
+            },
+            {
+                "name": "U6-2 Reading Room + Portfolio",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzAz"
+            },
+            {
+                "name": "U6-3 Spotlight + Wonderland",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzA0"
+            }
+        ]
+    },
+    {
+        "unitId": "05-07",
+        "grade": "三年级英语（新版） 上册",
+        "unit": "unit07",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530315&amp;idx=7&amp;sn=ddfb708923ca3da317294ce1a9a7223e&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】广州版英语三上 U7单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzA2"
+            },
+            {
+                "name": "【2025版】广州版英语三上 U7短语",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzA1"
+            },
+            {
+                "name": "U7-1 Get Started + Active Listening",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzA3"
+            },
+            {
+                "name": "U7-2 Reading Room + Portfolio",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzA4"
+            },
+            {
+                "name": "U7-3 Spotlight + Wonderland",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzA5"
+            }
+        ]
+    },
+    {
+        "unitId": "05-08",
+        "grade": "三年级英语（新版） 上册",
+        "unit": "unit08",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530315&amp;idx=8&amp;sn=579c5f851d15af3b0dd3f176ae5c5517&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】广州版英语三上 U8单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzEy"
+            },
+            {
+                "name": "【2025版】广州版英语三上 U8短语",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzEx"
+            },
+            {
+                "name": "U8-1 Get Started + Active Listening",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzEw"
+            },
+            {
+                "name": "U8-2 Reading Room + Portfolio",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzEz"
+            },
+            {
+                "name": "U8-3 Spotlight + Wonderland",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzE0"
+            }
+        ]
+    },
+    {
+        "unitId": "06-01",
+        "grade": "三年级英语 下册",
+        "unit": "unit01",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247524926&amp;idx=1&amp;sn=526dadbd268ed92f8154a22655f97745&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "三下U1单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODQ4"
+            },
+            {
+                "name": "三下U1课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODQ5"
+            },
+            {
+                "name": "U1-P1-学习目标",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODQ3"
+            },
+            {
+                "name": "U1-P2-开始学习-任务A",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODUw"
+            },
+            {
+                "name": "U1-P3-任务B-C-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODUx"
+            },
+            {
+                "name": "U1-P4-听力练习-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODUy"
+            },
+            {
+                "name": "U1-P5-阅览室",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODUz"
+            },
+            {
+                "name": "U1-P6-7-单元检测-单元聚焦",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODU1"
+            },
+            {
+                "name": "U1-P8-歌谣+知识探索",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODU0"
+            }
+        ]
+    },
+    {
+        "unitId": "06-02",
+        "grade": "三年级英语 下册",
+        "unit": "unit02",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247524926&amp;idx=2&amp;sn=54ad2b35961d18d76f8ba6fe2f26b4a3&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "三下U2单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODU2"
+            },
+            {
+                "name": "三下U2课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODU3"
+            },
+            {
+                "name": "U2-P9-学习目标",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODU4"
+            },
+            {
+                "name": "U2-P10-开始学习-任务A-B",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODU5"
+            },
+            {
+                "name": "U2-P11-任务C-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODYw"
+            },
+            {
+                "name": "U2-P12-听力练习-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODYx"
+            },
+            {
+                "name": "U2-P13-阅览室",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODYy"
+            },
+            {
+                "name": "U2-P14-单元检测",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODYz"
+            },
+            {
+                "name": "U2-P15-单元聚焦",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODY0"
+            },
+            {
+                "name": "U2-P16-歌谣-知识探索",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODY1"
+            }
+        ]
+    },
+    {
+        "unitId": "06-03",
+        "grade": "三年级英语 下册",
+        "unit": "unit03",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247525823&amp;idx=1&amp;sn=d964fd654aa66c354bd397170f8de1e4&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "三下U3单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODEz"
+            },
+            {
+                "name": "三下U3课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODE0"
+            },
+            {
+                "name": "U3-P17-学习目标",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODE1"
+            },
+            {
+                "name": "U3-P18-开始学习-任务A-B",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODE2"
+            },
+            {
+                "name": "三下U3-P19-任务C-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODE3"
+            },
+            {
+                "name": "U3-P20-听力练习-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODE4"
+            },
+            {
+                "name": "U3-P21-阅览室",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODE5"
+            },
+            {
+                "name": "U3-P22-单元检测",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODIw"
+            },
+            {
+                "name": "U3-P23-单元聚焦",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODIx"
+            },
+            {
+                "name": "U3-P24-歌谣-知识探索",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI1ODIy"
+            }
+        ]
+    },
+    {
+        "unitId": "06-04",
+        "grade": "三年级英语 下册",
+        "unit": "unit04",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247524926&amp;idx=4&amp;sn=b49afe16e4dd5f0e1bda8725a1e18a2d&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "三下U4单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODc3"
+            },
+            {
+                "name": "三下U4课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODc4"
+            },
+            {
+                "name": "U4-P25-学习目标",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODc2"
+            },
+            {
+                "name": "U4-P26-开始学习-任务A",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODc5"
+            },
+            {
+                "name": "U4-P27-任务B-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODgx"
+            },
+            {
+                "name": "U4-P28-听力练习-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODgw"
+            },
+            {
+                "name": "U4-P29-阅览室",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODgy"
+            },
+            {
+                "name": "U4-P30-单元检测",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODgz"
+            },
+            {
+                "name": "U4-P31-单元聚焦",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODg0"
+            },
+            {
+                "name": "U4-P32-歌谣-知识探索",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODg1"
+            }
+        ]
+    },
+    {
+        "unitId": "06-05",
+        "grade": "三年级英语 下册",
+        "unit": "unit05",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247524926&amp;idx=5&amp;sn=3e1cc997dce46c5e9210550c598dd3cf&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "三下U5单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODg2"
+            },
+            {
+                "name": "三下U5课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODg3"
+            },
+            {
+                "name": "U5-P33-学习目标",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODg4"
+            },
+            {
+                "name": "U5-P34-开始学习-任务A-B",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODg5"
+            },
+            {
+                "name": "U5-P35-任务C-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODkw"
+            },
+            {
+                "name": "U5-P36-听力练习-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODkx"
+            },
+            {
+                "name": "U5-P37-阅览室",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODky"
+            },
+            {
+                "name": "U5-P38-单元检测",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODkz"
+            },
+            {
+                "name": "U5-P39-单元聚焦",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODk0"
+            },
+            {
+                "name": "U5-P40-歌谣-知识探索",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0ODk1"
+            }
+        ]
+    },
+    {
+        "unitId": "06-06",
+        "grade": "三年级英语 下册",
+        "unit": "unit06",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247527100&amp;idx=1&amp;sn=63578ea284bfdfe85e24988d6bd30f16&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "三下U6单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDkw"
+            },
+            {
+                "name": "新三下U6课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDky"
+            },
+            {
+                "name": "U6-P41-学习目标",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDkx"
+            },
+            {
+                "name": "U6-P42-开始学习-任务A",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDkz"
+            },
+            {
+                "name": "U6-P43-任务B-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDk0"
+            },
+            {
+                "name": "U6-P44-听力练习-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDk1"
+            },
+            {
+                "name": "U6-P45-阅览室",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDk2"
+            },
+            {
+                "name": "U6-P46-单元检测",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDk3"
+            },
+            {
+                "name": "U6-P47-单元聚焦",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDk4"
+            },
+            {
+                "name": "U6-P48-歌谣-知识探索",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI3MDk5"
+            }
+        ]
+    },
+    {
+        "unitId": "06-07",
+        "grade": "三年级英语 下册",
+        "unit": "unit07",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247524926&amp;idx=7&amp;sn=ee87d2c9309b6267130e89d2faac5033&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "三下U7单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTA2"
+            },
+            {
+                "name": "三下U7课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTA4"
+            },
+            {
+                "name": "U7-P49-学习目标",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTA3"
+            },
+            {
+                "name": "U7-P50-开始学习-任务A",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTA5"
+            },
+            {
+                "name": "U7-P51-任务B-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTEx"
+            },
+            {
+                "name": "U7-P52-听力练习-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTEw"
+            },
+            {
+                "name": "U7-P53-阅览室",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTEy"
+            },
+            {
+                "name": "U7-P54-单元检测",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTEz"
+            },
+            {
+                "name": "U7-P55-单元聚焦",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTE0"
+            },
+            {
+                "name": "U7-P56-歌谣-知识探索",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTE1"
+            }
+        ]
+    },
+    {
+        "unitId": "06-08",
+        "grade": "三年级英语 下册",
+        "unit": "unit08",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247524926&amp;idx=8&amp;sn=66e346e7c476fadbecfe2076fde822b1&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "三下U8单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTE2"
+            },
+            {
+                "name": "三下U8课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTE4"
+            },
+            {
+                "name": "U8-P57-学习目标",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTE3"
+            },
+            {
+                "name": "U8-P58-开始学习-任务A",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTE5"
+            },
+            {
+                "name": "U8-P59-任务B-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTIw"
+            },
+            {
+                "name": "U8-P60-听力练习-角色扮演",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTIx"
+            },
+            {
+                "name": "U8-P61-阅览室",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTIy"
+            },
+            {
+                "name": "U8-P62-单元检测",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTIz"
+            },
+            {
+                "name": "U8-P63-单元聚焦",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTI0"
+            },
+            {
+                "name": "U8-P64-歌谣-知识探索",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTI0OTI1"
+            }
+        ]
+    },
+    {
+        "unitId": "07-01",
+        "grade": "四年级英语（新版） 上册",
+        "unit": "unit01",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247608923&amp;idx=1&amp;sn=d46192704b0c1b006dab383230604630&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "广州版英语新四上 U1单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4ODkz"
+            },
+            {
+                "name": "广州版英语新四上 U1短语",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4ODkx"
+            },
+            {
+                "name": "广州版英语新四上 U1 Get Started",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4ODky"
+            },
+            {
+                "name": "广州版英语新四上 U1 Close Reading",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4ODk0"
+            }
+        ]
+    },
+    {
+        "unitId": "07-02",
+        "grade": "四年级英语（新版） 上册",
+        "unit": "unit02",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247608923&amp;idx=2&amp;sn=1730d252560e6b89c5fadc9e8943a933&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "广州版英语新四上 U2单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4ODk3"
+            },
+            {
+                "name": "广州版英语新四上 U2短语",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4ODk1"
+            },
+            {
+                "name": "广州版英语新四上 U2 Get Started",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4ODk2"
+            },
+            {
+                "name": "广州版英语新四上 U2 Close Reading",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4ODk4"
+            }
+        ]
+    },
+    {
+        "unitId": "07-03",
+        "grade": "四年级英语（新版） 上册",
+        "unit": "unit03",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247608923&amp;idx=3&amp;sn=67477c2bd6be0d24b0902ebb034d2c13&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "广州版英语新四上 U3单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTAx"
+            },
+            {
+                "name": "广州版英语新四上 U3短语",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4ODk5"
+            },
+            {
+                "name": "广州版英语新四上 U3 Get Started",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTAw"
+            },
+            {
+                "name": "广州版英语新四上 U3 Close Reading",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTAy"
+            }
+        ]
+    },
+    {
+        "unitId": "07-04",
+        "grade": "四年级英语（新版） 上册",
+        "unit": "unit04",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247608923&amp;idx=4&amp;sn=bacf9f852aaca0399e5c941fc34a6877&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "广州版英语新四上 U4单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTA1"
+            },
+            {
+                "name": "广州版英语新四上 U4短语",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTA0"
+            },
+            {
+                "name": "广州版英语新四上 U4 Get Started",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTAz"
+            },
+            {
+                "name": "广州版英语新四上 U4 Close Reading",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTA2"
+            }
+        ]
+    },
+    {
+        "unitId": "07-05",
+        "grade": "四年级英语（新版） 上册",
+        "unit": "unit05",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247608923&amp;idx=5&amp;sn=f7146388c4dcd33f9e3e641ebbebfae0&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "广州版英语新四上 U5单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTA3"
+            },
+            {
+                "name": "广州版英语新四上 U5短语",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTA4"
+            },
+            {
+                "name": "广州版英语新四上 U5 Get Started",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTA5"
+            },
+            {
+                "name": "广州版英语新四上 U5 Close Reading",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTEw"
+            }
+        ]
+    },
+    {
+        "unitId": "07-06",
+        "grade": "四年级英语（新版） 上册",
+        "unit": "unit06",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247608923&amp;idx=6&amp;sn=7fcdb6e54492248cea64e9d018898c79&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "广州版英语新四上 U6单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTEy"
+            },
+            {
+                "name": "广州版英语新四上 U6短语",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTEz"
+            },
+            {
+                "name": "广州版英语新四上 U6 Get Started",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTEx"
+            },
+            {
+                "name": "广州版英语新四上 U6 Close Reading",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTE0"
+            }
+        ]
+    },
+    {
+        "unitId": "07-07",
+        "grade": "四年级英语（新版） 上册",
+        "unit": "unit07",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247608923&amp;idx=7&amp;sn=e58ef7b47093264ec0e76643663c3ec7&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "广州版英语新四上 U7单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTE2"
+            },
+            {
+                "name": "广州版英语新四上 U7短语",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTE1"
+            },
+            {
+                "name": "广州版英语新四上 U7 Get Started",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTE3"
+            },
+            {
+                "name": "广州版英语新四上 U7 Close Reading",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTE4"
+            }
+        ]
+    },
+    {
+        "unitId": "07-08",
+        "grade": "四年级英语（新版） 上册",
+        "unit": "unit08",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247608923&amp;idx=8&amp;sn=97fae3bbeb8b4e078e27282e9ba4f3c6&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "广州版英语新四上 U8单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTIx"
+            },
+            {
+                "name": "广州版英语新四上 U8短语",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTIw"
+            },
+            {
+                "name": "广州版英语新四上 U8 Get Started",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTE5"
+            },
+            {
+                "name": "广州版英语新四上 U8 Close Reading",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjA4OTIy"
+            }
+        ]
+    },
+    {
+        "unitId": "08-01",
+        "grade": "四年级英语 下册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484134&amp;idx=4&amp;sn=3b7c33b8d64ee4aedd8ab9abd0471247&amp;chksm=f901ee1dce76670b7417e913fbe1fd756431a34eb3f3c8bf11119c9bf7416049551927923fb5&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U1-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTE1"
+            },
+            {
+                "name": "四年级下U1-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTE2"
+            },
+            {
+                "name": "四年级下U1-P4练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTE3"
+            },
+            {
+                "name": "四年级下U1-P6歌曲",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTE4"
+            },
+            {
+                "name": "四年级下U1-P7发音（1-2）",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTE5"
+            }
+        ]
+    },
+    {
+        "unitId": "08-02",
+        "grade": "四年级英语 下册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484713&amp;idx=4&amp;sn=142753a9f126ff2c9d88cccc2c0622c1&amp;chksm=f901e9d2ce7660c436f1b498b85457361f80dac93c4b07dfc157ef6d4ddba8d30077831b87b6&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U2-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njk3"
+            },
+            {
+                "name": "四年级下U2-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njk4"
+            },
+            {
+                "name": "四年级下U2-P10练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0Njk5"
+            },
+            {
+                "name": "四年级下U2-P12故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzAw"
+            }
+        ]
+    },
+    {
+        "unitId": "08-03",
+        "grade": "四年级英语 下册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484904&amp;idx=4&amp;sn=f6587889d115ecec8bbb8516918b09dc&amp;chksm=f901e913ce7660059f5da94b70abd55edfe262d143869133afa1895b1df97ea49da5e63b67bd&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U3-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODgy"
+            },
+            {
+                "name": "四年级下U3-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODgz"
+            },
+            {
+                "name": "四年级下U3-P16练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODg0"
+            },
+            {
+                "name": "四年级下U3-P18歌曲",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODg1"
+            },
+            {
+                "name": "四年级下U3-P19发音（1-3）",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODg2"
+            },
+            {
+                "name": "四年级下U3-P19发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODg3"
+            },
+            {
+                "name": "四年级下U3-P19发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODg4"
+            },
+            {
+                "name": "四年级下U3-P19发音3",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODg5"
+            }
+        ]
+    },
+    {
+        "unitId": "08-04",
+        "grade": "四年级英语 下册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485232&amp;idx=4&amp;sn=e3201f4eac692d6c7039fc6a85d32668&amp;chksm=f901ebcbce7662dd48be3a7d33545419ec10877605a4db5af7fdffb1314274af3f350ea3ca1b&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U4-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjE2"
+            },
+            {
+                "name": "四年级下U4-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjE3"
+            },
+            {
+                "name": "四年级下U4-P22练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjE4"
+            },
+            {
+                "name": "四年级下U4-P24故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjE5"
+            }
+        ]
+    },
+    {
+        "unitId": "08-05",
+        "grade": "四年级英语 下册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485553&amp;idx=4&amp;sn=a57900ee0a3a8653abce50d5e3d96a7b&amp;chksm=f901e48ace766d9cfa6f8d928dee23ec9cc81eeaeea14b0f221a09dc25c7d3e3961ab4bfd31e&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U5-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTMy"
+            },
+            {
+                "name": "四年级下U5-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTMz"
+            },
+            {
+                "name": "四年级下U5-P22歌曲",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTM0"
+            },
+            {
+                "name": "四年级下U5-P28练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTM1"
+            },
+            {
+                "name": "四年级下U5-P31发音（1-2）",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTM2"
+            },
+            {
+                "name": "四年级下U5-P31发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTM3"
+            },
+            {
+                "name": "四年级下U5-P31发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTM4"
+            }
+        ]
+    },
+    {
+        "unitId": "08-06",
+        "grade": "四年级英语 下册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485588&amp;idx=4&amp;sn=bc36b28430b7ed5a0a3b9d5307b27a6d&amp;chksm=f901e46fce766d798fb8cc234368c7356a5c3d3065131816abf1261d925ac4fcf78c1d36f573&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U6-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTcy"
+            },
+            {
+                "name": "四年级下U6-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTcz"
+            },
+            {
+                "name": "四年级下U6-P34练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTc0"
+            },
+            {
+                "name": "四年级下U6-P36故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTc1"
+            }
+        ]
+    },
+    {
+        "unitId": "08-07",
+        "grade": "四年级英语 下册",
+        "unit": "unit07",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485620&amp;idx=2&amp;sn=d34bdbd6abdb9aa0241267c49f23e526&amp;chksm=f901e44fce766d595a5d08affdb97038fcf041cd3424185042f094ba7ca8f1de591b0630d6c9&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U7-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTk1"
+            },
+            {
+                "name": "四年级下U7-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTk2"
+            },
+            {
+                "name": "四年级下U7-P40练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTk3"
+            },
+            {
+                "name": "四年级下U7-P42歌曲",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTk4"
+            },
+            {
+                "name": "四年级下U7-P43发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTk5"
+            },
+            {
+                "name": "四年级下U7-P43发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjAw"
+            },
+            {
+                "name": "四年级下U7-P43发音3",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjAx"
+            }
+        ]
+    },
+    {
+        "unitId": "08-08",
+        "grade": "四年级英语 下册",
+        "unit": "unit08",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485812&amp;idx=2&amp;sn=04d840c402c800b118c854e5a6b233c5&amp;chksm=f901e58fce766c9962d0b5ccb1ac25237dff6d7170a468704b4b06edeb051bc4dff13eaed095&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U8-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzgw"
+            },
+            {
+                "name": "四年级下U8-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzgx"
+            },
+            {
+                "name": "四年级下U8-P46练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzgy"
+            },
+            {
+                "name": "四年级下U8-P48故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzgz"
+            }
+        ]
+    },
+    {
+        "unitId": "08-09",
+        "grade": "四年级英语 下册",
+        "unit": "unit09",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485812&amp;idx=6&amp;sn=e7860e26b997e8ea4e3712871cc1b8a0&amp;chksm=f901e58fce766c990ac2ce91ab397c67f4db73763c93ecc19f652273b6aeb9350bf71b2f8ecd&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U9-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzk3"
+            },
+            {
+                "name": "四年级下U9-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzk4"
+            },
+            {
+                "name": "四年级下U9-P52练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzk5"
+            },
+            {
+                "name": "四年级下U9-P54歌曲",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODAw"
+            },
+            {
+                "name": "四年级下U9-P55发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODAx"
+            },
+            {
+                "name": "四年级下U9-P55发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODAy"
+            }
+        ]
+    },
+    {
+        "unitId": "08-10",
+        "grade": "四年级英语 下册",
+        "unit": "unit10",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247486139&amp;idx=2&amp;sn=7b17ca5859db920868c25e4fa41d0e5f&amp;chksm=f901e640ce766f5635595e6dd78527c4ec960912ee945b107ebaeaf31c8510fa1f36091cdccd&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U10-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTEx"
+            },
+            {
+                "name": "四年级下U10-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTEy"
+            },
+            {
+                "name": "四年级下U10-P58练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTEz"
+            },
+            {
+                "name": "四年级下U10-P60故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTE0"
+            }
+        ]
+    },
+    {
+        "unitId": "08-11",
+        "grade": "四年级英语 下册",
+        "unit": "unit11",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247486139&amp;idx=6&amp;sn=c9160e2fab30137e0b043690014598cd&amp;chksm=f901e640ce766f56fe6acd5f55de09b4d50fe90b27328a99a509119d68774ecdc1b711c62f84&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U11-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTI4"
+            },
+            {
+                "name": "四年级下U11-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTI5"
+            },
+            {
+                "name": "四年级下U11-P64练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTMw"
+            },
+            {
+                "name": "四年级下U11-P66歌曲",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTMx"
+            },
+            {
+                "name": "四年级下U11-P67发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTMy"
+            },
+            {
+                "name": "四年级下U11-P67发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTMz"
+            }
+        ]
+    },
+    {
+        "unitId": "08-12",
+        "grade": "四年级英语 下册",
+        "unit": "unit12",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247486277&amp;idx=2&amp;sn=aebf2894891e39ad98e32c6ad47a708b&amp;chksm=f901e7bece766ea8258d7e6730c9ba60be541465bdf25ba35037eee121ac7acaa1a17249513f&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "四年级下U12-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MjY5"
+            },
+            {
+                "name": "四年级下U12-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2Mjcw"
+            },
+            {
+                "name": "四年级下U12-P70练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2Mjcx"
+            },
+            {
+                "name": "四年级下U12-P72故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2Mjcy"
+            }
+        ]
+    },
+    {
+        "unitId": "09-01",
+        "grade": "五年级英语 上册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247587173&amp;idx=3&amp;sn=0fec8195e13821b5b231af4ea6114c44&amp;chksm=e8ace9b9dfdb60af37c137025dab711654bf4bea6fc1bc54909c10f76ac6f9c770914dd1cd5c&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U1-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3MTY0"
+            },
+            {
+                "name": "五年级上U1-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3MTYy"
+            },
+            {
+                "name": "03五年级上U1-P4练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3MTYz"
+            },
+            {
+                "name": "04五年级上U1-P6发音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3MTY1"
+            }
+        ]
+    },
+    {
+        "unitId": "09-02",
+        "grade": "五年级英语 上册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247587466&amp;idx=3&amp;sn=6ca90cc813d0eeba5c2268417195febf&amp;chksm=e8acea56dfdb6340c1417e439862f88cfb1d268ff073ac752fb7e4248018e38e4944f74dd04f&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U2-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3NDU2"
+            },
+            {
+                "name": "五年级上U2-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3NDU0"
+            },
+            {
+                "name": "07五年级上U2-P10练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3NDU1"
+            },
+            {
+                "name": "08五年级上U2-P12故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3NDU3"
+            }
+        ]
+    },
+    {
+        "unitId": "09-03",
+        "grade": "五年级英语 上册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247587950&amp;idx=3&amp;sn=41acafc80e701a45d502112ee4509152&amp;chksm=e8ace4b2dfdb6da43c84fd71cc3c2e8d855ff4dcdc0b5f6ae9200906a10b856b55f956231a22&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U3-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3OTM5"
+            },
+            {
+                "name": "五年级上U3-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3OTQx"
+            },
+            {
+                "name": "11五年级上U3-P16练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3OTQw"
+            },
+            {
+                "name": "12五年级上U3-P18发音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3OTQy"
+            }
+        ]
+    },
+    {
+        "unitId": "09-04",
+        "grade": "五年级英语 上册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247588741&amp;idx=3&amp;sn=d3151b1cec0fd6b21ab1d10871a002fd&amp;chksm=e8ace759dfdb6e4fe60b37d12d5e5491838f43cc4f17dd03fece897d1274854e6e519e72091d&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U4-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4NzMx"
+            },
+            {
+                "name": "五年级上U4-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4NzI5"
+            },
+            {
+                "name": "15五年级上U4-P22练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4NzMw"
+            },
+            {
+                "name": "16五年级上U4-P24故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4NzMy"
+            }
+        ]
+    },
+    {
+        "unitId": "09-05",
+        "grade": "五年级英语 上册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247588997&amp;idx=3&amp;sn=a178f0fd23d618d3c123a70561943ff4&amp;chksm=e8ace059dfdb694ff086d545e4e190857651a65a7af8b5ad6dfe84cbf1deb28c50d24c20adc3&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U5-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4OTg3"
+            },
+            {
+                "name": "五年级上U5-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4OTg2"
+            },
+            {
+                "name": "19五年级上U5-P28练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4OTg4"
+            },
+            {
+                "name": "20五年级上U5-P30发音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4OTg5"
+            }
+        ]
+    },
+    {
+        "unitId": "09-06",
+        "grade": "五年级英语 上册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247589069&amp;idx=3&amp;sn=95100b100afd563abbf5b81823705986&amp;chksm=e8ace011dfdb6907b48053eff3d33ec324c4533afcd5b94a597bc8aab4689651a2786a095715&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U6-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDU4"
+            },
+            {
+                "name": "五年级上U6-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDU5"
+            },
+            {
+                "name": "23五年级上U6-P34练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDU3"
+            },
+            {
+                "name": "24五年级上U6-P36故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDYw"
+            }
+        ]
+    },
+    {
+        "unitId": "09-07",
+        "grade": "五年级英语 上册",
+        "unit": "unit07",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247589091&amp;idx=3&amp;sn=83c8b23b4a200ec5a1caa7ec37f90076&amp;chksm=e8ace03fdfdb692927458efc6ebfec02230b89ea14d05cfff7436b20a2024588d59e470095a4&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U7-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDgx"
+            },
+            {
+                "name": "五年级上U7-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDgy"
+            },
+            {
+                "name": "27五年级上U7-P40练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDgw"
+            },
+            {
+                "name": "28五年级上U7-P43发音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDgz"
+            }
+        ]
+    },
+    {
+        "unitId": "09-08",
+        "grade": "五年级英语 上册",
+        "unit": "unit08",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247595073&amp;idx=1&amp;sn=84c816c5841dfe14bf2c0b1d19043a1f&amp;chksm=e8ac089ddfdb818bfa73feb296704d0b720ee9d6237f7072c859ed33097b9e9bcdd81ef22d68&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U8-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDY3"
+            },
+            {
+                "name": "五年级上U8-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDY2"
+            },
+            {
+                "name": "31五年级上U8-P46练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDY1"
+            },
+            {
+                "name": "32五年级上U8-P48故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDY4"
+            }
+        ]
+    },
+    {
+        "unitId": "09-09",
+        "grade": "五年级英语 上册",
+        "unit": "unit09",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247589143&amp;idx=2&amp;sn=4bd79c51ffee096f1cc4613956c90800&amp;chksm=e8ace1cbdfdb68dd73a99446b3ae956ab0259c700c17f856608798e360bf4a3c29fc90b2f1d3&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U9-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MTM2"
+            },
+            {
+                "name": "五年级上U9-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MTM4"
+            },
+            {
+                "name": "35五年级上U9-P52练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MTM3"
+            },
+            {
+                "name": "36五年级上U9-P55发音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MTM5"
+            }
+        ]
+    },
+    {
+        "unitId": "09-10",
+        "grade": "五年级英语 上册",
+        "unit": "unit10",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247595073&amp;idx=2&amp;sn=e7a4bcc26fdc98886efbb43401260538&amp;chksm=e8ac089ddfdb818bdda44411e9e84324fc03e193802830165c1fc933e73abfbb526aa296b192&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U10-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDcw"
+            },
+            {
+                "name": "五年级上U10-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDY5"
+            },
+            {
+                "name": "39五年级上U10-P58练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDcx"
+            },
+            {
+                "name": "40五年级上U10-P60故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDcy"
+            }
+        ]
+    },
+    {
+        "unitId": "09-11",
+        "grade": "五年级英语 上册",
+        "unit": "unit11",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247589523&amp;idx=2&amp;sn=0d4d3e1bcb23ccf94a91af33b59bce0a&amp;chksm=e8ace24fdfdb6b590108100d49f57d1f934f63c0e6a0d06a4289de78186b6722727da2193ce3&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U11-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTE3"
+            },
+            {
+                "name": "五年级上U11-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTE4"
+            },
+            {
+                "name": "43五年级上U11-P64练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTE2"
+            },
+            {
+                "name": "44五年级上U11-P67发音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTE5"
+            }
+        ]
+    },
+    {
+        "unitId": "09-12",
+        "grade": "五年级英语 上册",
+        "unit": "unit12",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247589553&amp;idx=2&amp;sn=c28f2d2b829e09bec54d0131e61b67fa&amp;chksm=e8ace26ddfdb6b7bf7b1f6e320387b06df6ed3f6c997b879a8b4d717e799e30edd97b93dc0ad&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级上U12-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTQ2"
+            },
+            {
+                "name": "五年级上U12-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTQ4"
+            },
+            {
+                "name": "47五年级上U12-P70练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTQ3"
+            },
+            {
+                "name": "48五年级上U12-P72故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTQ5"
+            }
+        ]
+    },
+    {
+        "unitId": "10-01",
+        "grade": "五年级英语 下册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484134&amp;idx=5&amp;sn=d138f4be69fdb5111aec05f2b8cb12b6&amp;chksm=f901ee1dce76670b2b76ea6f8a1882760e062f5d423e6a2cf2bb8d19e36a1d555e6baf3e97c8&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U1-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTIw"
+            },
+            {
+                "name": "五年级下U1-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTIx"
+            },
+            {
+                "name": "五年级下U1-P4练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTIy"
+            },
+            {
+                "name": "五年级下U1-P7发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTIz"
+            },
+            {
+                "name": "五年级下U1-P7发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTI0"
+            }
+        ]
+    },
+    {
+        "unitId": "10-02",
+        "grade": "五年级英语 下册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484713&amp;idx=5&amp;sn=005393ba183bcc936d65c3322370887a&amp;chksm=f901e9d2ce7660c46c001c0925c619386acfadaa0296b8ade20602f99d51efaf02a40332729b&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U2-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzAx"
+            },
+            {
+                "name": "五年级下U2-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzAy"
+            },
+            {
+                "name": "五年级下U2-P10练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzAz"
+            },
+            {
+                "name": "五年级下U2-P12故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzA0"
+            }
+        ]
+    },
+    {
+        "unitId": "10-03",
+        "grade": "五年级英语 下册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484904&amp;idx=5&amp;sn=90865d5be988bda2cb49d93f7ae72b64&amp;chksm=f901e913ce766005208ece4234b91f28f81bc8a6f1f8f31e60762ed72857c667c3501cc929c5&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U3-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODkw"
+            },
+            {
+                "name": "五年级下U3-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODkx"
+            },
+            {
+                "name": "五年级下U3-P16练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODky"
+            },
+            {
+                "name": "五年级下U3-P19发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODkz"
+            },
+            {
+                "name": "五年级下U3-P19发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODk0"
+            }
+        ]
+    },
+    {
+        "unitId": "10-04",
+        "grade": "五年级英语 下册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485232&amp;idx=5&amp;sn=3fd2b4f76afe6dc295f30b88a1a132b0&amp;chksm=f901ebcbce7662dd2e1fefce4a917e7fef0484a703606041761425f9843233efec85444d8356&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U4-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjIw"
+            },
+            {
+                "name": "五年级下U4-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjIx"
+            },
+            {
+                "name": "五年级下U4-P22练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjIy"
+            },
+            {
+                "name": "五年级下U4-P24故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjIz"
+            }
+        ]
+    },
+    {
+        "unitId": "10-05",
+        "grade": "五年级英语 下册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485553&amp;idx=5&amp;sn=962b9eab493b4a329af2c01520278e6e&amp;chksm=f901e48ace766d9c9c8e983756fd54df42471b786e638829e32adb9679501745f7019cf73e9c&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U5-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTM5"
+            },
+            {
+                "name": "五年级下U5-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTQw"
+            },
+            {
+                "name": "五年级下U5-P28练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTQx"
+            },
+            {
+                "name": "五年级下U5-P30发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTQy"
+            },
+            {
+                "name": "五年级下U5-P30发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTQz"
+            }
+        ]
+    },
+    {
+        "unitId": "10-06",
+        "grade": "五年级英语 下册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485588&amp;idx=5&amp;sn=05e7943acadc767fcb66044973f48e51&amp;chksm=f901e46fce766d794030515248cf86078b7c7837a27b7b95fe0c435341394431d52e7b1683d0&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U6-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTc2"
+            },
+            {
+                "name": "五年级下U6-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTc3"
+            },
+            {
+                "name": "五年级下U6-P34练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTc4"
+            },
+            {
+                "name": "五年级下U6-P36故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTc5"
+            }
+        ]
+    },
+    {
+        "unitId": "10-07",
+        "grade": "五年级英语 下册",
+        "unit": "unit07",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485620&amp;idx=3&amp;sn=005c7d2bb6bb89d7664c2d4b2859c7cb&amp;chksm=f901e44fce766d59a69030e4158d34e96e01833cafb763b773dc65b84ddbdb498f6ec28e6d58&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U7-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjAy"
+            },
+            {
+                "name": "五年级下U7-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjAz"
+            },
+            {
+                "name": "五年级下U7-P40练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjA0"
+            },
+            {
+                "name": "五年级下U7-P43发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjA1"
+            },
+            {
+                "name": "五年级下U7-P43发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjA2"
+            }
+        ]
+    },
+    {
+        "unitId": "10-08",
+        "grade": "五年级英语 下册",
+        "unit": "unit08",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485812&amp;idx=3&amp;sn=9e19054704a7a1c69b996632a6d9e28b&amp;chksm=f901e58fce766c9919ef6cda0846c063c48ce4ec99cdd5e3082dcecfd946b0de25644dcb4267&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U8-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzg0"
+            },
+            {
+                "name": "五年级下U8-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzg1"
+            },
+            {
+                "name": "五年级下U8-P46练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzg2"
+            },
+            {
+                "name": "五年级下U8-P48故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzg3"
+            }
+        ]
+    },
+    {
+        "unitId": "10-09",
+        "grade": "五年级英语 下册",
+        "unit": "unit09",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485812&amp;idx=7&amp;sn=249dc01fbd5fc5f0004522c82e484ead&amp;chksm=f901e58fce766c994150f179264ffc1d8b47753d94e269f33652dcaa98ad2bec25eee1d9aad9&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U9-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODAz"
+            },
+            {
+                "name": "五年级下U9-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODA0"
+            },
+            {
+                "name": "五年级下U9-P52练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODA1"
+            },
+            {
+                "name": "五年级下U9-P55发音1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODA2"
+            },
+            {
+                "name": "五年级下U9-P55发音2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODA3"
+            }
+        ]
+    },
+    {
+        "unitId": "10-10",
+        "grade": "五年级英语 下册",
+        "unit": "unit10",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247486139&amp;idx=3&amp;sn=17d036044d5949bd875d330f44fe9107&amp;chksm=f901e640ce766f56df6db4f2821fbaba5b40478b5af642dda7bdfeea63f5db2c9a346b8e6e98&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U10-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTE1"
+            },
+            {
+                "name": "五年级下U10-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTE2"
+            },
+            {
+                "name": "五年级下U10-P58练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTE3"
+            },
+            {
+                "name": "五年级下U10-P60故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTE4"
+            }
+        ]
+    },
+    {
+        "unitId": "10-11",
+        "grade": "五年级英语 下册",
+        "unit": "unit11",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247486139&amp;idx=7&amp;sn=48401be706448693ebb8e5193f38af39&amp;chksm=f901e640ce766f568b0afce7c5abc2a502326146459cf2d4e2ae752566701ea379f9dc415086&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U11-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTM0"
+            },
+            {
+                "name": "五年级下U11-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTM1"
+            },
+            {
+                "name": "五年级下U11-P64练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTM2"
+            },
+            {
+                "name": "五年级下U11-P67故事时间1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTM3"
+            },
+            {
+                "name": "五年级下U11-P67故事时间2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTM4"
+            }
+        ]
+    },
+    {
+        "unitId": "10-12",
+        "grade": "五年级英语 下册",
+        "unit": "unit12",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247486277&amp;idx=3&amp;sn=b4985ae5e2b6eb77ff911b455f5a28ae&amp;chksm=f901e7bece766ea81c967695ec3c639445ec4944f32911eb0864ed52d779effcc1befd1285fe&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "五年级下U12-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2Mjcz"
+            },
+            {
+                "name": "五年级下U12-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2Mjc0"
+            },
+            {
+                "name": "五年级下U12-P70练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2Mjc1"
+            },
+            {
+                "name": "五年级下U12-P72故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2Mjc2"
+            }
+        ]
+    },
+    {
+        "unitId": "11-01",
+        "grade": "六年级英语 上册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247587173&amp;idx=4&amp;sn=7eb3ae7baef1e080fbcc66ccf697b9cb&amp;chksm=e8ace9b9dfdb60af08279e5c9536212434cc367cba31acd47bcfc5404afdb9ff128d3b09fbdc&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U1-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3MTY2"
+            },
+            {
+                "name": "六年级上U1-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3MTY3"
+            },
+            {
+                "name": "03六年级上U1-P4练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3MTY4"
+            }
+        ]
+    },
+    {
+        "unitId": "11-02",
+        "grade": "六年级英语 上册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247587466&amp;idx=4&amp;sn=8370f2d1ff99994c12d6fea5395baa03&amp;chksm=e8acea56dfdb63402f75cb9dbe93fd4f9ed1216ca90559a00fec5d05c364003eb2b51660bd7c&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U2-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3NDU4"
+            },
+            {
+                "name": "六年级上U2-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3NDYw"
+            },
+            {
+                "name": "06六年级上U2-P10练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3NDU5"
+            },
+            {
+                "name": "07六年级上U2-P12故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3NDYx"
+            }
+        ]
+    },
+    {
+        "unitId": "11-03",
+        "grade": "六年级英语 上册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247587950&amp;idx=4&amp;sn=b5c83130cdf2b6cde1d47689016a2ffd&amp;chksm=e8ace4b2dfdb6da461e15342323653b73d72dfda0d6a12c516749fbac023595a60abcb80f994&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U3-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3OTQ1"
+            },
+            {
+                "name": "六年级上U3-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3OTQz"
+            },
+            {
+                "name": "10六年级上U3-P16练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg3OTQ0"
+            }
+        ]
+    },
+    {
+        "unitId": "11-04",
+        "grade": "六年级英语 上册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247588741&amp;idx=4&amp;sn=5f428b9eeaeb8b390f251b43be43488d&amp;chksm=e8ace759dfdb6e4f63605c3bed6eca405535276a05d8d3e7a0c55c4940237631bc175a99ce7d&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U4-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4NzMz"
+            },
+            {
+                "name": "六年级上U4-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4NzM1"
+            },
+            {
+                "name": "13六年级上U4-P22练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4NzM0"
+            },
+            {
+                "name": "14六年级上U4-P24故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4NzM2"
+            }
+        ]
+    },
+    {
+        "unitId": "11-05",
+        "grade": "六年级英语 上册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247588997&amp;idx=4&amp;sn=1c1b428a96d6b41d5cfc9abbb7a050dc&amp;chksm=e8ace059dfdb694fb747dd765928efd911643773f6454b320a299af83e81aed787021afb3e9e&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U5-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4OTkw"
+            },
+            {
+                "name": "六年级上U5-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4OTkx"
+            },
+            {
+                "name": "17六年级上U5-P28练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg4OTky"
+            }
+        ]
+    },
+    {
+        "unitId": "11-06",
+        "grade": "六年级英语 上册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247589069&amp;idx=4&amp;sn=7eef059a2a5a3b6d206e2bc979fab151&amp;chksm=e8ace011dfdb690711b6929a997b17cb4f9a6b2457b1f033a18d6ffef66964f9d1de06409e39&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U6-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDYy"
+            },
+            {
+                "name": "六年级上U6-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDYz"
+            },
+            {
+                "name": "20六年级上U6-P34练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDYx"
+            },
+            {
+                "name": "21六年级上U6-P36故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDY0"
+            }
+        ]
+    },
+    {
+        "unitId": "11-07",
+        "grade": "六年级英语 上册",
+        "unit": "unit07",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247589091&amp;idx=4&amp;sn=1eaf26a2879fe35e758e8516ba2b8d4f&amp;chksm=e8ace03fdfdb69298fe0ccbb736461f7ec41b80c4fd9fe2e0feed792dce737e4f99c81bc8e58&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U7-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDg0"
+            },
+            {
+                "name": "六年级上U7-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDg2"
+            },
+            {
+                "name": "24六年级上U7-P40练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5MDg1"
+            }
+        ]
+    },
+    {
+        "unitId": "11-08",
+        "grade": "六年级英语 上册",
+        "unit": "unit08",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247595088&amp;idx=1&amp;sn=af16b02ddb8f8a72705d41c597c2525a&amp;chksm=e8ac088cdfdb819a25d3454d2e6712e26d35e97b5cfbda4e081ab72172203c40b4422109731d&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U8-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDc1"
+            },
+            {
+                "name": "六年级上U8-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDc0"
+            },
+            {
+                "name": "27六年级上U8-P46练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDc2"
+            },
+            {
+                "name": "28六年级上U8-P48故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDc3"
+            }
+        ]
+    },
+    {
+        "unitId": "11-09",
+        "grade": "六年级英语 上册",
+        "unit": "unit09",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247595088&amp;idx=2&amp;sn=e6e704f5f51a2cca2fc6f80f36f88a33&amp;chksm=e8ac088cdfdb819a240992530e7d9bd5feea0643857af8be9f10989f06ff97c10354b0571770&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U9-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDc4"
+            },
+            {
+                "name": "六年级上U9-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDc5"
+            },
+            {
+                "name": "31六年级上U9-P52练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDgw"
+            }
+        ]
+    },
+    {
+        "unitId": "11-10",
+        "grade": "六年级英语 上册",
+        "unit": "unit10",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247595088&amp;idx=3&amp;sn=d4cb7b5cb891e15a32f13b5426e6e653&amp;chksm=e8ac088cdfdb819a643bb655f868ffb8601d9fedfcda5f291d74c691c32f10aec5a574c39f3c&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U10-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDgx"
+            },
+            {
+                "name": "六年级上U10-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDgy"
+            },
+            {
+                "name": "34六年级上U10-P58练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDgz"
+            },
+            {
+                "name": "35六年级上U10-P60故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDg0"
+            }
+        ]
+    },
+    {
+        "unitId": "11-11",
+        "grade": "六年级英语 上册",
+        "unit": "unit11",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247589523&amp;idx=3&amp;sn=7c66aa74c146add52e5ac523a50b1ea9&amp;chksm=e8ace24fdfdb6b59d45e8bdab3d21b57a5d5c33fad0ab5874dffbaac2be32d86625887f00077&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U11-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTIw"
+            },
+            {
+                "name": "六年级上U11-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTIx"
+            },
+            {
+                "name": "38六年级上U11-P64练习",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTg5NTIy"
+            }
+        ]
+    },
+    {
+        "unitId": "11-12",
+        "grade": "六年级英语 上册",
+        "unit": "unit12",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247595088&amp;idx=4&amp;sn=74ad19c1387c5b0c9a74c6542d7484b3&amp;chksm=e8ac088cdfdb819adcb6650ec88e21d4fee0ab3833feb3a5d0a7bab06902cc206f70d69a95e5&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级上U12-单词",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDg1"
+            },
+            {
+                "name": "六年级上U12-课文",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDg3"
+            },
+            {
+                "name": "41六年级上U12-P72故事时间",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NTk1MDg2"
+            }
+        ]
+    },
+    {
+        "unitId": "12-01",
+        "grade": "六年级英语 下册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484134&amp;idx=6&amp;sn=be7de853349c028e5d363a4333f962d4&amp;chksm=f901ee1dce76670b43fc2a0ba49e6f5f2d49fe6740bc81db5da0fb918ba468c5d2d2a60e8993&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U1-单词2.0",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTI1"
+            },
+            {
+                "name": "六年级下U1-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTI2"
+            },
+            {
+                "name": "六年级下U1-P4练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTI3"
+            },
+            {
+                "name": "六年级下U1-P7语言焦点1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTI4"
+            },
+            {
+                "name": "六年级下U1-P7语言焦点2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTI5"
+            }
+        ]
+    },
+    {
+        "unitId": "12-02",
+        "grade": "六年级英语 下册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484713&amp;idx=6&amp;sn=762ac7159803a04589ed3688206211cd&amp;chksm=f901e9d2ce7660c4dd87a0932b8f64888cc4687e23dcc2aec617f464eefccc613c877cfd6674&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U2-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzA1"
+            },
+            {
+                "name": "六年级下U2-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzA2"
+            },
+            {
+                "name": "六年级下U2-P10练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzA3"
+            },
+            {
+                "name": "六年级下U2-P12故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzA4"
+            }
+        ]
+    },
+    {
+        "unitId": "12-03",
+        "grade": "六年级英语 下册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484904&amp;idx=6&amp;sn=e3fc28e69b5a3157ec5ee170eaa45cfc&amp;chksm=f901e913ce7660054c5548ed5a10df0c5717fc0140dd88075b4cee8dcf814242af9433cc7c98&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U3-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODk1"
+            },
+            {
+                "name": "六年级下U3-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODk2"
+            },
+            {
+                "name": "六年级下U3-P16练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODk3"
+            },
+            {
+                "name": "六年级下U3-P19语言焦点1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODk4"
+            },
+            {
+                "name": "六年级下U3-P19语言焦点2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0ODk5"
+            }
+        ]
+    },
+    {
+        "unitId": "12-04",
+        "grade": "六年级英语 下册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485232&amp;idx=6&amp;sn=3cacf807a2f73d0b411380c7ed8935c5&amp;chksm=f901ebcbce7662dd036224c7f8dad9bf32a0639aede23d85820f5c8aa5829fcdaeb0eb286c4a&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U4-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjI0"
+            },
+            {
+                "name": "六年级下U4-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjI1"
+            },
+            {
+                "name": "六年级下U4-P22练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjI2"
+            },
+            {
+                "name": "六年级下U4-P24故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjI3"
+            }
+        ]
+    },
+    {
+        "unitId": "12-05",
+        "grade": "六年级英语 下册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485553&amp;idx=6&amp;sn=9cab2e6bb707ce1ce66ed2faf5817e45&amp;chksm=f901e48ace766d9ca694f5a2ea8d38d81be0d0efd8551d0d5339bf94911dcfd162a3521f4f78&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U5-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTQ0"
+            },
+            {
+                "name": "六年级下U5-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTQ1"
+            },
+            {
+                "name": "六年级下U5-P28练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTQ2"
+            },
+            {
+                "name": "六年级下U5-P30语言焦点1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTQ3"
+            },
+            {
+                "name": "六年级下U5-P30语言焦点2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTQ4"
+            }
+        ]
+    },
+    {
+        "unitId": "12-06",
+        "grade": "六年级英语 下册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485588&amp;idx=6&amp;sn=03666b8ccb1ec36acc14eff62983b51b&amp;chksm=f901e46fce766d79ab23f43fcbddff7df4a22b61b51d088442686896073a81b666cf20b819ab&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U6-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTgw"
+            },
+            {
+                "name": "六年级下U6-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTgx"
+            },
+            {
+                "name": "六年级下U6-P34练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTgy"
+            },
+            {
+                "name": "六年级下U6-P36故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTgz"
+            }
+        ]
+    },
+    {
+        "unitId": "12-07",
+        "grade": "六年级英语 下册",
+        "unit": "unit07",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485620&amp;idx=4&amp;sn=1563e6076edf5463cb1a64efc10e4956&amp;chksm=f901e44fce766d59aeb2fc37e3b04d49597ca2a3fff240def10a4faa903a769742010baa5e6f&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U7-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjA3"
+            },
+            {
+                "name": "六年级下U7-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjA4"
+            },
+            {
+                "name": "六年级下U7-P40练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjA5"
+            },
+            {
+                "name": "六年级下U7-P43语言焦点1",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjEw"
+            },
+            {
+                "name": "六年级下U7-P43语言焦点2",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjEx"
+            }
+        ]
+    },
+    {
+        "unitId": "12-08",
+        "grade": "六年级英语 下册",
+        "unit": "unit08",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485812&amp;idx=4&amp;sn=d0e7fe3236e83ee371a50e32d188051f&amp;chksm=f901e58fce766c991a795752477bfae6c72751cbf96e038aacb2b6958a36e831e5c0e148bbc0&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U8-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzg4"
+            },
+            {
+                "name": "六年级下U8-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzg5"
+            },
+            {
+                "name": "六年级下U8-P48故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1Nzkw"
+            }
+        ]
+    },
+    {
+        "unitId": "12-09",
+        "grade": "六年级英语 下册",
+        "unit": "unit09",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485812&amp;idx=8&amp;sn=009d81247003ec65f5feabec2b540dd3&amp;chksm=f901e58fce766c993cbb7ee8cd0bd5e3401ed01075fdaf2f8a6b5a353fd7716617577f3a5db1&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U9-单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODA4"
+            },
+            {
+                "name": "六年级下U9-课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODA5"
+            },
+            {
+                "name": "六年级下U9-P52练习",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODEw"
+            },
+            {
+                "name": "六年级下U9-P55语言焦点",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1ODEx"
+            }
+        ]
+    },
+    {
+        "unitId": "12-10",
+        "grade": "六年级英语 下册",
+        "unit": "unit10",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247486139&amp;idx=4&amp;sn=1b07d225c0201e08a6230a614f65a7d6&amp;chksm=f901e640ce766f56d2041ba38959f5ad857ca49b70ce5fbea53eaa49c4426636a6ae7cffee78&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "六年级下U10 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTE5"
+            },
+            {
+                "name": "六年级下U10 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTIw"
+            },
+            {
+                "name": "六年级下U10-P60故事时间",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg2MTIx"
+            }
+        ]
+    },
+    {
+        "unitId": "12-11",
+        "grade": "六年级英语 下册",
+        "unit": "",
+        "url": ""
+    },
+    {
+        "unitId": "12-12",
+        "grade": "六年级英语 下册",
+        "unit": "",
+        "url": ""
+    },
+    {
+        "unitId": "13-01",
+        "grade": "七年级英语 上册",
+        "unit": "unit01",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530570&amp;idx=1&amp;sn=f133f7c58b36783aab8441a7600b4958&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】七上 U1单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTY1"
+            },
+            {
+                "name": "【2025版】七上 U1课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTY0"
+            }
+        ]
+    },
+    {
+        "unitId": "13-02",
+        "grade": "七年级英语 上册",
+        "unit": "unit02",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530570&amp;idx=2&amp;sn=f96357322dcca66b7b70794dd5acfa44&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】七上 U2单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTY2"
+            },
+            {
+                "name": "【2025版】七上 U2课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTY3"
+            }
+        ]
+    },
+    {
+        "unitId": "13-03",
+        "grade": "七年级英语 上册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247518491&amp;idx=3&amp;sn=48ebebfa6714ba9743911cb5a99a7fa4&amp;chksm=f90265e0ce75ecf678b7c8d067c8b187e4954b3bdc05aaecd9064194a5026a31c1d7ad3dfea4&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七年级上册 U3单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDc5"
+            },
+            {
+                "name": "七年级上册 U3课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDgw"
+            }
+        ]
+    },
+    {
+        "unitId": "13-04",
+        "grade": "七年级英语 上册",
+        "unit": "unit04",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530570&amp;idx=3&amp;sn=7837ae0bcc28a3d20481398c48feeba2&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "【2025版】七上 U4单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTY4"
+            },
+            {
+                "name": "【2025版】七上 U4课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwNTY5"
+            }
+        ]
+    },
+    {
+        "unitId": "13-05",
+        "grade": "七年级英语 上册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247518491&amp;idx=5&amp;sn=81f41382e3e65559100e2f69162c19c6&amp;chksm=f90265e0ce75ecf67bfb82874c59a532cb6ec42a2359a7c197d0dc21a28554512be4d88a469a&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七年级上册 U5单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDg0"
+            },
+            {
+                "name": "七年级上册 U5课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDgz"
+            }
+        ]
+    },
+    {
+        "unitId": "13-06",
+        "grade": "七年级英语 上册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247518491&amp;idx=6&amp;sn=2fdbc0059b4059d8a4fa5fb1f7373038&amp;chksm=f90265e0ce75ecf6b9538757666f6e257613f3c831cfcc4c1b9cb18d6c559495f3f5698e7b50&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七年级上册 U6单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDg1"
+            },
+            {
+                "name": "七年级上册 U6课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDg2"
+            }
+        ]
+    },
+    {
+        "unitId": "13-07",
+        "grade": "七年级英语 上册",
+        "unit": "unit07",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247518491&amp;idx=7&amp;sn=515ba887422a30b05054c8ee3387beca&amp;chksm=f90265e0ce75ecf652abac24fc34bdafe3918d51e653f2c482d9a401c7e199b1924f56bfbf02&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七年级上册 U7单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDg4"
+            },
+            {
+                "name": "七年级上册 U7课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDg3"
+            }
+        ]
+    },
+    {
+        "unitId": "13-08",
+        "grade": "七年级英语 上册",
+        "unit": "unit08",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247518491&amp;idx=8&amp;sn=5760c4c852aa73b4d4c89d75fdf4ee9a&amp;chksm=f90265e0ce75ecf689835e30061b4810dd446fc3b9e6d6d05bcaf8c0233636d2078522405889&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七年级上册 U8单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDkw"
+            },
+            {
+                "name": "七年级上册 U8课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTE4NDg5"
+            }
+        ]
+    },
+    {
+        "unitId": "14-01",
+        "grade": "七年级英语 下册",
+        "unit": "unit01",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247600640&amp;idx=1&amp;sn=71c4e6d89c69e8fb80a913737f450175&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七下U1单词录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjI0"
+            },
+            {
+                "name": "七下U1课文录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjI1"
+            }
+        ]
+    },
+    {
+        "unitId": "14-02",
+        "grade": "七年级英语 下册",
+        "unit": "unit02",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247600640&amp;idx=2&amp;sn=5eb02a08a7744f50f53e364c3334596b&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七下U2单词录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjI2"
+            },
+            {
+                "name": "七下U2课文录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjI3"
+            }
+        ]
+    },
+    {
+        "unitId": "14-03",
+        "grade": "七年级英语 下册",
+        "unit": "unit03",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247600640&amp;idx=3&amp;sn=4ba2b73a1e9bf9e36f86a7b064b2e3ed&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七下U3单词录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjI5"
+            },
+            {
+                "name": "七下U3课文录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjI4"
+            }
+        ]
+    },
+    {
+        "unitId": "14-04",
+        "grade": "七年级英语 下册",
+        "unit": "unit04",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247600640&amp;idx=4&amp;sn=7694e947709fa2a5ef74beb901030468&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七下U4单词录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjMx"
+            },
+            {
+                "name": "七下U4课文录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjMw"
+            }
+        ]
+    },
+    {
+        "unitId": "14-05",
+        "grade": "七年级英语 下册",
+        "unit": "unit05",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247600640&amp;idx=5&amp;sn=53cf07c0bd75a394f73973fe77cb30ca&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七下U5单词录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjMy"
+            },
+            {
+                "name": "七下U5课文录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjMz"
+            }
+        ]
+    },
+    {
+        "unitId": "14-06",
+        "grade": "七年级英语 下册",
+        "unit": "unit06",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247600640&amp;idx=6&amp;sn=9c7082752f99c3ea143229a8bf100321&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七下U6单词录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjM0"
+            },
+            {
+                "name": "七下U6课文录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjM1"
+            }
+        ]
+    },
+    {
+        "unitId": "14-07",
+        "grade": "七年级英语 下册",
+        "unit": "unit07",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247600640&amp;idx=7&amp;sn=26da7cfa0891eab27dec56c3406dd1ff&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七下U7单词录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjM2"
+            },
+            {
+                "name": "七下U7课文录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjM3"
+            }
+        ]
+    },
+    {
+        "unitId": "14-08",
+        "grade": "七年级英语 下册",
+        "unit": "unit08",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMDcxNDgwMw==&amp;mid=2247600640&amp;idx=8&amp;sn=e95deb5581ce1feeb6acdd45b6d9648e&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "七下U8单词录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjM4"
+            },
+            {
+                "name": "七下U8课文录音",
+                "voiceId": "MzIzMDcxNDgwM18yMjQ3NjAwNjM5"
+            }
+        ]
+    },
+    {
+        "unitId": "15-01",
+        "grade": "八年级英语（新版） 上册",
+        "unit": "unit01",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530377&amp;idx=1&amp;sn=5754a3e88a0d0084956190344ca63e33&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "新八上U1单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzYx"
+            },
+            {
+                "name": "新八上U1课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzYy"
+            }
+        ]
+    },
+    {
+        "unitId": "15-02",
+        "grade": "八年级英语（新版） 上册",
+        "unit": "unit02",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530377&amp;idx=2&amp;sn=789c894ab2afb8b1689e5fe7ed5bab01&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "新八上U2单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzY0"
+            },
+            {
+                "name": "新八上U2课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzYz"
+            }
+        ]
+    },
+    {
+        "unitId": "15-03",
+        "grade": "八年级英语（新版） 上册",
+        "unit": "unit03",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530377&amp;idx=3&amp;sn=a0ab1b9c531a492b3eac322e3d794222&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "新八上U3单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzY1"
+            },
+            {
+                "name": "新八上U3课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzY2"
+            }
+        ]
+    },
+    {
+        "unitId": "15-04",
+        "grade": "八年级英语（新版） 上册",
+        "unit": "unit04",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530377&amp;idx=4&amp;sn=96d7183a8b6aed03773569013e168666&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "新八上U4单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzY3"
+            },
+            {
+                "name": "新八上U4课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzY4"
+            }
+        ]
+    },
+    {
+        "unitId": "15-05",
+        "grade": "八年级英语（新版） 上册",
+        "unit": "unit05",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530377&amp;idx=5&amp;sn=8f58c1d2046862d37274e7b52efd50e6&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "新八上U5单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzcw"
+            },
+            {
+                "name": "新八上U5课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzY5"
+            }
+        ]
+    },
+    {
+        "unitId": "15-06",
+        "grade": "八年级英语（新版） 上册",
+        "unit": "unit06",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530377&amp;idx=6&amp;sn=6c49fad2e02e0c0fa474feac89841d9b&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "新八上U6单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzcx"
+            },
+            {
+                "name": "新八上U6课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzcy"
+            }
+        ]
+    },
+    {
+        "unitId": "15-07",
+        "grade": "八年级英语（新版） 上册",
+        "unit": "unit07",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530377&amp;idx=7&amp;sn=3054cd8b09ca8189b69f0f8af4fab5bb&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "新八上U7单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzcz"
+            },
+            {
+                "name": "新八上U7课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzc0"
+            }
+        ]
+    },
+    {
+        "unitId": "15-08",
+        "grade": "八年级英语（新版） 上册",
+        "unit": "unit08",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247530377&amp;idx=8&amp;sn=b8c144c229bbcce4c3f122bd9ae49f53&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "新八上U8单词录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzc1"
+            },
+            {
+                "name": "新八上U8课文录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NTMwMzc2"
+            }
+        ]
+    },
+    {
+        "unitId": "16-01",
+        "grade": "八年级英语 下册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484134&amp;idx=8&amp;sn=8534814f649180160ffb6aed50bd095f&amp;chksm=f901ee1dce76670bbf50cf07dadbf79e2811e35f9be230e95bc054152960a96febe276a264da&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "八下U1 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTMy"
+            },
+            {
+                "name": "八下 U1 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0MTMz"
+            }
+        ]
+    },
+    {
+        "unitId": "16-02",
+        "grade": "八年级英语 下册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484713&amp;idx=8&amp;sn=c0527e9d498ef4e59ebd93eb01bcf58d&amp;chksm=f901e9d2ce7660c41472ce8aba9319e2a385b63399d712288e8849ef44df1038998455b4c9ce&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "八下 Unit 2 Words",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzEx"
+            },
+            {
+                "name": "八下  U2 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0NzEy"
+            }
+        ]
+    },
+    {
+        "unitId": "16-03",
+        "grade": "八年级英语 下册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247484904&amp;idx=8&amp;sn=5883f8a7a95c6fc8326a18bf63a9fc65&amp;chksm=f901e913ce766005f5deb8150f577f8a0705ef55f4a5dae698a91984403cd248f77e4d31dc57&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "八下 Unit 3 Words",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0OTAy"
+            },
+            {
+                "name": "八下 Unit 3 录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg0OTAz"
+            }
+        ]
+    },
+    {
+        "unitId": "16-04",
+        "grade": "八年级英语 下册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485232&amp;idx=8&amp;sn=c6e53720e47eb57a3e597594fc24a782&amp;chksm=f901ebcbce7662dd16ba9e6493cb7bb07db1d758d559ca09b3111be34512057f12a5cfd40eb3&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "八下 Unit 4 Words",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjMw"
+            },
+            {
+                "name": "八下 Unit 4 录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1MjMx"
+            }
+        ]
+    },
+    {
+        "unitId": "16-05",
+        "grade": "八年级英语 下册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485553&amp;idx=8&amp;sn=6b25bc3717ef789dc132845efdf68cbe&amp;chksm=f901e48ace766d9ce37ffc3da25b83fd10714f36fa9c5b5d2e07528cb9549e67ecb8865e43ad&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "八下 Unit 5 Words",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTUx"
+            },
+            {
+                "name": "八下 Unit 5 录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTUy"
+            }
+        ]
+    },
+    {
+        "unitId": "16-06",
+        "grade": "八年级英语 下册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485588&amp;idx=8&amp;sn=9eda08dea276e0650ba411198d44a1ad&amp;chksm=f901e46fce766d7992f0d3754790a98735341317a65133fa8c66aa7c00f5a081c50efdf1813f&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "八下 Unit 6 Words",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTg2"
+            },
+            {
+                "name": "八下 Unit 6 录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NTg3"
+            }
+        ]
+    },
+    {
+        "unitId": "16-07",
+        "grade": "八年级英语 下册",
+        "unit": "unit07",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485620&amp;idx=6&amp;sn=ee9781d05f31befb45dbc6389f3f4803&amp;chksm=f901e44fce766d59c9e2d3b370d83d57e6a1d8a59bdbcc79ac2fb4578882eb017114f7dc77b4&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "八下 Unit 7 Words",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjE0"
+            },
+            {
+                "name": "八下 U7 录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjE1"
+            }
+        ]
+    },
+    {
+        "unitId": "16-08",
+        "grade": "八年级英语 下册",
+        "unit": "unit08",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247485620&amp;idx=8&amp;sn=3a863a0b7542dbba00c11be0032d964d&amp;chksm=f901e44fce766d59b0f78c1547bcedb7aadea8302c3ff04c7b880b1ab610f8f95398345fd597&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "八下 Unit 8 Words",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjE4"
+            },
+            {
+                "name": "八下 U8 录音",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg1NjE5"
+            }
+        ]
+    },
+    {
+        "unitId": "17-01",
+        "grade": "九年级英语 上册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487901&amp;idx=1&amp;sn=e1aae715c56911841aa5315bdf5635dd&amp;chksm=f901fd66ce7674704809e4c6dbd7057157fa9fe833d10525d362ab4ac46df695285f91c4015e&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九上 Unit 1 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODg1"
+            },
+            {
+                "name": "九上 Unit 1 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODg2"
+            }
+        ]
+    },
+    {
+        "unitId": "17-02",
+        "grade": "九年级英语 上册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487901&amp;idx=2&amp;sn=87af70c8146901de3e52b6afb97ba272&amp;chksm=f901fd66ce767470f4ac0244476743bbfceeba5bbffa5da54b06d406a053dbf7874c762037ac&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九上 Unit 2 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODg3"
+            },
+            {
+                "name": "九上 Unit 2 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODg4"
+            }
+        ]
+    },
+    {
+        "unitId": "17-03",
+        "grade": "九年级英语 上册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487901&amp;idx=3&amp;sn=d7b54dc964a14c8ac379f823b662dafd&amp;chksm=f901fd66ce7674708a2ed474f0ec2c3f677ed6017810bff2adf3231be51307fce4903d4fa68b&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九上 Unit 3 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODg5"
+            },
+            {
+                "name": "九上 Unit 3 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODkw"
+            }
+        ]
+    },
+    {
+        "unitId": "17-04",
+        "grade": "九年级英语 上册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487901&amp;idx=4&amp;sn=c0982133262f57d90d74cee2db1e2c42&amp;chksm=f901fd66ce76747027309b321842db0934d283e80dd35b9ff2e879dede8c9d8f8dfe3bd5f265&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九上 Unit 4 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODkx"
+            },
+            {
+                "name": "九上 Unit 4 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODky"
+            }
+        ]
+    },
+    {
+        "unitId": "17-05",
+        "grade": "九年级英语 上册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487901&amp;idx=5&amp;sn=e69787580c7afe8ffae1681e2dbd614e&amp;chksm=f901fd66ce7674703415dc4eed42efca43b8945adbd10554459cbad9235f992d7c427e1eec5d&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九上 Unit 5 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODkz"
+            },
+            {
+                "name": "九上 Unit 5 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODk0"
+            }
+        ]
+    },
+    {
+        "unitId": "17-06",
+        "grade": "九年级英语 上册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487901&amp;idx=6&amp;sn=ec34c0b84cc5c311055f18b1558a15a8&amp;chksm=f901fd66ce7674708d67d002ed3c50e4f5f764b22f94e5be282d2d40cc9437a61d6dc0b76364&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九上 Unit 6 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODk1"
+            },
+            {
+                "name": "九上 Unit 6 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODk2"
+            }
+        ]
+    },
+    {
+        "unitId": "17-07",
+        "grade": "九年级英语 上册",
+        "unit": "unit07",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487901&amp;idx=7&amp;sn=877135e9471e8f6d24bd26a0e8f1e4d9&amp;chksm=f901fd66ce76747087a738cd0b1048fe9548ccde36b5d86345e3e84780c178db16298fcdfb46&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九上 Unit 7 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODk3"
+            },
+            {
+                "name": "九上 Unit 7 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODk4"
+            }
+        ]
+    },
+    {
+        "unitId": "17-08",
+        "grade": "九年级英语 上册",
+        "unit": "unit08",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487901&amp;idx=8&amp;sn=b20695551f1c957c619a6086014d614e&amp;chksm=f901fd66ce7674706a72efcd6bdf6d2a79ce0d7600e09cb5dc5ed4fc16ca71a9d32edbfe7f8f&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九上 Unit 8 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3ODk5"
+            },
+            {
+                "name": "九上 Unit 8 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTAw"
+            }
+        ]
+    },
+    {
+        "unitId": "18-01",
+        "grade": "九年级英语 下册",
+        "unit": "unit01",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487926&amp;idx=1&amp;sn=6862028054732a4e041ab62bd5c723de&amp;chksm=f901fd4dce76745b27b884633e055c7c1fd25ebbcfcde3cce9364c04261fbcf6e219757442f0&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九下U1 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTE0"
+            },
+            {
+                "name": "九下U1 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTE1"
+            }
+        ]
+    },
+    {
+        "unitId": "18-02",
+        "grade": "九年级英语 下册",
+        "unit": "unit02",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487926&amp;idx=2&amp;sn=afa3eb5969dea1fa07f797c0534325e2&amp;chksm=f901fd4dce76745be2ccadf21020a46b719477638d182f8a63811f1aa73f613971c01980f08d&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九下U2 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTE2"
+            },
+            {
+                "name": "九下U2 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTE3"
+            }
+        ]
+    },
+    {
+        "unitId": "18-03",
+        "grade": "九年级英语 下册",
+        "unit": "unit03",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487926&amp;idx=3&amp;sn=d6419cc8a39005e12c811f82805f693b&amp;chksm=f901fd4dce76745b25bd0f8b360f2c8ed1dabe92e146017156b2cff77b8d129451431184797b&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九下U3 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTE4"
+            },
+            {
+                "name": "九下U3 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTE5"
+            }
+        ]
+    },
+    {
+        "unitId": "18-04",
+        "grade": "九年级英语 下册",
+        "unit": "unit04",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487926&amp;idx=4&amp;sn=f84fc17358673147caa4dc43f87d17fd&amp;chksm=f901fd4dce76745b51253692604cd93204e60dcc5bbc361fe94d78d6c2b60cfa8b4fdd4bbbd1&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九下U4 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTIw"
+            },
+            {
+                "name": "九下U4 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTIx"
+            }
+        ]
+    },
+    {
+        "unitId": "18-05",
+        "grade": "九年级英语 下册",
+        "unit": "unit05",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487926&amp;idx=5&amp;sn=d0b3ba380d36322e3c275297bf4d6fbc&amp;chksm=f901fd4dce76745bdb8d6967311cdaed41bb8ece7135394ef4084d6ec397f8fd6b0cac60263f&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九下U5 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTIy"
+            },
+            {
+                "name": "九下U5 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTIz"
+            }
+        ]
+    },
+    {
+        "unitId": "18-06",
+        "grade": "九年级英语 下册",
+        "unit": "unit06",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUxMDU5MDM1Ng==&amp;mid=2247487926&amp;idx=6&amp;sn=8e74e33b7fa4a52b75c6b11f32f00aef&amp;chksm=f901fd4dce76745bcc500d3efe3071f13568f775e4aab8b061cf1f674864b82d262619ca6739&amp;scene=21#wechat_redirect",
+        "voice": [
+            {
+                "name": "九下U6 单词",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTI0"
+            },
+            {
+                "name": "九下U6 课文",
+                "voiceId": "MzUxMDU5MDM1Nl8yMjQ3NDg3OTI1"
+            }
+        ]
+    },
+    {
+        "unitId": "18-07",
+        "grade": "九年级英语 下册",
+        "unit": "",
+        "url": ""
+    },
+    {
+        "unitId": "18-08",
+        "grade": "九年级英语 下册",
+        "unit": "",
+        "url": ""
+    }
+]

@@ -165,6 +165,26 @@ exports.limitParams = (req) => {
   const { template } = req.app.locals;
   return { template };
 };
+exports.heatmapParams = (req) => {
+  const { template } = req.app.locals;
+  return { template };
+};
+exports.fundamentalParams = (req) => {
+  const { template } = req.app.locals;
+  return { template };
+};
+exports.valuationParams = (req) => {
+  const { template } = req.app.locals;
+  return { template };
+};
+exports.loadingupParams = (req) => {
+  const { template } = req.app.locals;
+  return { template };
+};
+exports.risklistParams = (req) => {
+  const { template } = req.app.locals;
+  return { template };
+};
 exports.hotstockDataParse = ({ data, current }) => {
   //分页
   //let { count = 1 } = data.hotstock;

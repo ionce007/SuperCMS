@@ -57,6 +57,34 @@ const config = {
         method: "hightQualityLimitUp",
         //params: { pn: 1, ps: 15 }
       }
+    },
+    heatMap:{
+      conceptBlock:{
+        method: 'getConceptFund'
+      }
+    },
+    Fundamental:{
+      fundamentData: {
+        method: 'getFundamentalData'
+      },
+      HYData: {
+        method: 'getTdxHYData'
+      }
+    },
+    Valuation:{
+      stockTTMData: {
+        method: 'getStockTTMData'
+      }
+    },
+    Loadingup:{
+      FundFlows: {
+        method: 'getFundFlows'
+      }
+    },
+    RiskList:{
+      Reports: {
+        method: 'getRiskReport'
+      }
     }
   }
 };

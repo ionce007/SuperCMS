@@ -860,7 +860,7 @@ a.logo-title{font-family: cursive;}
 @media only screen and (max-width:992px) {
     .m-card {
         width: 45%;
-        margin: 5px;
+        margin: 5px auto;
     }
 }
 /* pdf.html */
@@ -925,7 +925,7 @@ iframe {
         /*box-shadow: none;
         margin: 10px;*/
         width:100%;
-        margin:5px;
+        margin:5px auto;
         padding:10px;
         /*border-radius: none;*/
     }
@@ -972,7 +972,7 @@ iframe {
         display: flex;
         justify-content: flex-end;
         background-color: rgba(0, 0, 0, 0.3);
-        z-index: 11;
+        z-index: 1001;
         touch-action: none;
         transition: display 0.5s;
         /* backdrop-filter: blur(8px); */
@@ -1100,12 +1100,13 @@ iframe {
 /* 微信图标，联系作者 */
 .wxico {
     position: fixed;
-    top: 153px;
+    top: 250px;
     right: 15px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    box-shadow: 2px 2px 2px #ddd;
+    /*box-shadow: 2px 2px 2px #ddd;*/
+    border:1px solid #ccc;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1118,6 +1119,17 @@ iframe {
 .wxico > img{
     width:30px;
     height:30px;
+    margin-top:4px;
+    margin-left:2px;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
 }
 .backtop.none {
     display: none;

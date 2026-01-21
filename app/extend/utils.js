@@ -404,4 +404,34 @@ exports.randomStr = (len) => {
 exports.stringToHex = (str) => {
   return Buffer.from(str).toString('hex'); // 直接转换为16进制串
 }
+/**
+ * 判断字符串类型
+ * @param {string} str - 待判断的字符串
+ * @returns {string} - 返回类型：纯数字、纯小写字母、纯大写字母、纯字母、纯汉字、非纯类型
+ */
+exports.judgeStrType = (str) => {
+  // 先判断是否为字符串类型（避免非字符串参数干扰）
+  if (typeof str !== 'string') return -1;
+  if(str.trim() === '') return 1;
+  const isPureNumber = /^\d+?$/.test(str);
+  // 纯数字（支持整数、小数、正负号）
+  const isNumber = /^[+-]?\d+(\.\d+)?$/.test(str);
+  // 纯小写字母
+  const isLowerLetter = /^[a-z]+$/.test(str);
+  // 纯大写字母
+  const isUpperLetter = /^[A-Z]+$/.test(str);
+  // 纯字母（大小写混合）
+  const isLetter = /^[a-zA-Z]+$/.test(str);
+  // 纯汉字
+  const isChinese = /^[\u4e00-\u9fa5]+$/.test(str);
+
+  if(isPureNumber) return 1;
+  else if (isNumber) return 2;
+  else if (isLowerLetter) return 3;
+  else if (isUpperLetter) return 3;
+  else if (isLetter) return 3;
+  else if (isChinese) return 2;
+  else return -2;
+}
+
 exports.bcrypt = bcrypt

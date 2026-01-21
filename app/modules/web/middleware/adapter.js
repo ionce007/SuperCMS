@@ -10,9 +10,7 @@ module.exports = () => {
           console.error(`错误请求路径: ${req.url}`);
           return res
             .status(403)   
-            .send(
-              `错误请求路径: ${req.url}`
-            );
+            .send(`错误请求路径: ${req.url}`);
         }
       }
       

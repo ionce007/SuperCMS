@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"content="{{site.description}}">
+    <meta name="keywords" content="{{site.keywords}}"/>
+    <meta property="og:title" content="{{site.title}}" />
+    <meta property="og:description" content="{{site.description}}" />
+    <title>{{site.title}}-基于大数据的股票交易策略</title>
+    {{include './common/meta.html'}}
+    <link rel="stylesheet" href="{{static_url}}/css/flatpickr.min.css" />
+    <link rel="stylesheet" href="{{static_url}}/css/font-awesome.all.min.css" />
+    <link rel="stylesheet" href="{{static_url}}/css/stock.css" />
+    <!--<script src="{{static_url}}/js/chart.js"></script>
+    <script src="{{static_url}}/js/stockChart.js"></script>-->
+    <script src="{{static_url}}/js/stock.js"></script>
+    <style>
+        table.report-table > thead > tr > th:not(:first-child){cursor:pointer;}
+    </style>
+</head>
+<body class="bg-f8f8f8" id="app">
+    {{include './common/header.html'}}
+    <div class="limit-tab-container">
+        <h1 class="page-title timeline-title-w100">风险榜</h1>
+        <!-- 页签导航 -->
+        <div class="tabpane use-for-sticky" style="overflow:visible">
+            <div class="tabs-header">
+                <div class="comparison-item opt-report"></div>
+            </div>
+        </div>
+        <div class="tab-content" id="mainTabContent" style="min-height:300px;">
+            <!--<div id="tab1" class="tab-pane tab-data-container active">
+                <span class="last-date"><p>收盘总市值低于门槛值</p><p>沪深主板：连续多个交易日收盘总市值小于3亿（起始日期在2024.10.30之前）或连续多个交易日收盘总市值小于5亿（起始日期在2024.10.30之后）；科创板、创业板：连续多个交易日收盘总市值小于3亿</p></span>
+                <div class="table-container mt-10">
+                    <table class="report-table">
+                        <thead id="fundflowsHead"></thead>
+                        <tbody id="fundflowsBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab2" class="tab-pane tab-data-container">
+                <span class="last-date"></span>
+                <div class="table-container">
+                    <table class="report-table">
+                        <thead id="toptraderrankHead"></thead>
+                        <tbody id="toptraderrankBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab3" class="tab-pane tab-data-container">
+                <span class="last-date"></span>
+                <div class="table-container">
+                    <table class="report-table">
+                        <thead id="margintradingHead"></thead>
+                        <tbody id="margintradingBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab4" class="tab-pane tab-data-container">
+                <span class="last-date"></span>
+                <div class="table-container">
+                    <table class="report-table">
+                        <thead id="northboundHead"></thead>
+                        <tbody id="northboundBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab5" class="tab-pane tab-data-container">
+                <span class="last-date"></span>
+                <div class="table-container">
+                    <table class="report-table">
+                        <thead id="pofHead"></thead>
+                        <tbody id="pofBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab6" class="tab-pane tab-data-container">
+                <span class="last-date"></span>
+                <div class="table-container">
+                    <table class="report-table">
+                        <thead id="qfiiHead"></thead>
+                        <tbody id="qfiiBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab7" class="tab-pane tab-data-container">
+                <span class="last-date"></span>
+                <div class="table-container">
+                    <table class="report-table">
+                        <thead id="ssfHead"></thead>
+                        <tbody id="ssfBody"></tbody>
+                    </table>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+    {{include './common/footer.html'}}
+    <!-- 移动端导航 -->
+    {{include './common/wap-nav.html'}}
+    <div class="ignore mb-20 mt-20 pd-20 bg-f2f2f2">
+        <!--<p class="mb-20">Reports-> {{Reports}} </p>-->
+    </div>
+    {{include './common/js.html'}}
+    <script src="{{static_url}}/js/flatpickr.js"></script>
+    <!--<script src="{{static_url}}/js/vue.global.prod.js"></script>-->
+    <script src="{{static_url}}/js/tailwindcss.so.js"></script>
+    <script src="{{static_url}}/js/smartselect.js"></script>
+    <script src="{{static_url}}/js/dialog.js"></script>
+</body>
+<script>
+    let isLoading = false;
+    let pageIndex = 1;
+    let hasMore = false;
+    let totalPages = 1;
+    let lastScrollLeft = 0;
+    let lastScrollTop = 0;
+    let sortField = '';
+    let sortType = '';
+    let reportName = 'netprofit_newest'
+
+    const menuData = JSON.parse(decodeHtmlEntities(`{{ Reports }}`));
+   
+    function loadMenu(){
+        const cardSelect = SmartSelect('.opt-report', {
+            viewMode: 'card', // 启用卡片视图
+            data: menuData,
+            displayField: 'cnName',
+            valueField: 'name',
+            placeholder: '选择或搜索风险类型...',
+            searchable: true,
+            clearable: true,
+            // 自定义卡片字段映射（可选，默认已配置）
+            cardFields: {
+                titleField: 'cnName',
+                descField: 'remark',
+                categoryField: 'category'
+            },
+            showCardIcon: false,
+            onSelect: (item) => {
+                document.querySelectorAll('.tab-data-container').forEach(item => {item.classList.remove('active')});
+                document.getElementById(`${item.name}Tab`).classList.add('active');
+                reportName = item.name;
+                pageIndex = 1;
+                getSortInfo(reportName);
+                hasMore = false;
+                totalPages = 1;
+                lastScrollLeft = 0;
+                lastScrollTop = 0;
+                renderTable(reportName);
+            }
+        });
+        cardSelect.setValue(reportName);
+    }
+    function getSortInfo(report){
+        document.getElementById(`${report}Head`).querySelectorAll('th').forEach(item => {
+            if(item.className.indexOf('sort-desc') >= 0) { sortField = item.getAttribute('data-key'); sortType = '-1,1'; return; }
+            else if(item.className.indexOf('sort-asc') >= 0) { sortField = item.getAttribute('data-key'); sortType = '1,-1'; return; }
+        })
+    }
+    async function renderTable(report){
+        let error = '';
+        const dialog = StatusDialog.showLoading('正在加载数据...');
+        try{
+            isLoading = true;
+            const url = `/api/d/risk/${report}?pn=${pageIndex}&st=${sortField}&sr=${sortType}&ps=30`;
+            const response = await fetch(url);
+            const data = await response.json();
+            totalPages = !data || !data.result ? 0 : data.result.pages;
+            hasMore = totalPages > 1 && pageIndex < totalPages;
+            renderTableBody(data, report);
+            if(data && data.result && data.result.data && data.result.data.length > 0 && !hasMore) showNodata(report);
+        }
+        catch(err){
+            console.log('错误：', err);
+            error = err.message;
+        }
+        finally{
+            setTimeout(() => {
+                isLoading = false;
+                dialog.hide();
+            }, error ? 1500 : 500)
+        }
+    }
+    function showNodata(report){
+        const cols = document.getElementById(`${report}Head`).querySelectorAll('th').length;
+        const html = `<tr><td colspan='${cols}' style='text-align:center;font-style:italic;font-size:14px;font-weight:normal;'>没有更多数据了</td></th>`;
+        document.getElementById(`${report}Body`).innerHTML += html;
+    }
+    function renderTableBody(data, report){
+        if(!data || !data.result || !data.result.data || data.result.data.length === 0) {
+            hasMore = false;
+            totalPages = 0;
+            renderNodataTable(report);
+            return;
+        }
+        totalPages = data.result.pages;
+        hasMore = totalPages > 1 && pageIndex < totalPages;
+        let html = '';
+        const fields = RISK_HEADERS.find(x => x.report.toLowerCase() === report.toLowerCase()).header.sort((a,b)=>{return a.order-b.order});
+        for(var item of data.result.data){
+            html += '<tr>';
+            for(var field of fields){
+                if(field.order === 1) html += `<td>${item[field.column]}<p class='stock-code'>${item.SECURITY_CODE}</p></td>`
+                else {
+                    const value = item[field.column];
+                    if(field.column === 'PRICE' || field.column === 'CHANGE_RATE'){
+                        const rate = item['CHANGE_RATE'];
+                        html += `<td class='${rate >= 0 ? 'red' : 'green'}'>${field.column==='PRICE'?(isNaN(value)?value:convertAmount(value)):(isNaN(value)?value:(value.toFixed(2)+'%'))}</td>`;
+                    }
+                    else{
+                        if(field.type === 'amt') html += `<td>${convertAmount(item[field.column])}</td>`;
+                        else if(field.type === 'amt_rg') html += `<td class='${!hasValue(value) || value===0 ? '':(value>0 ? 'red' : 'green')}'>${convertAmount(value)}</td>`;
+                        else if(field.type === 'per') html += `<td>${!hasValue(value) ? '--' : ( isNaN(value) ? value :( value.toFixed(2)+'%'))}</td>`;
+                        else if(field.type === 'per_rg') html += `<td class=${!hasValue(value) || value === 0 ?'':(value > 0 ?'red' : 'green')}>${!hasValue(value) ? '--' : (value.toFixed(2)+'%')}</td>`;
+                        else if(field.type === 'int') html += `<td>${!hasValue(value)?'--':value}</td>`;
+                        else if(field.type === 'date') html += `<td>${!hasValue(value)?'--': formatDate(value,'yyyy-MM-dd')}</td>`;
+                        else html += `<td>${!hasValue(value)?'--':value}</td>`;
+                    }
+                }
+            }
+            html += '</tr>';
+        }
+        const tbody = document.getElementById(`${report}Body`);
+        if(pageIndex === 1) tbody.innerHTML = html;
+        else tbody.innerHTML += html;
+    }
+    function renderNodataTable(report){
+        const cols = document.getElementById(`${report}Head`).querySelectorAll('th').length;
+        const html = `<tr><td colspan='${cols}' style='text-align:center;line-height:150px;min-height:150px;font-size:18px;font-weight:600;font-style:italic'>暂无数据</td></th>`;
+        document.getElementById(`${report}Body`).innerHTML = html;
+    }
+    function renderTablesHeader(){
+        const sortMenuData = menuData.sort((a,b)=>{return a.sort-b.sort});
+        let html = ''
+        for( var index = 0; index < sortMenuData.length; index++){
+            const item = sortMenuData[index];
+            html += `            <div id="${item.name}Tab" class="tab-pane tab-data-container${index === 0 ? ' active' : ''}">
+                <span class="last-date">${item.remark}</span>
+                <div class="table-container mt-10">
+                    <table class="report-table">
+                        <thead id="${item.name}Head">${getTableHeaderHtml(item.name)}</thead>
+                        <tbody id="${item.name}Body"></tbody>
+                    </table>
+                </div>
+            </div>`
+        }
+        document.getElementById('mainTabContent').innerHTML = html;
+        document.querySelectorAll('table.report-table > thead > tr > th[data-sort="true"]').forEach(th => {
+            th.addEventListener('click', (event) => {
+                const head = event.target.parentElement.parentElement;
+                const report = head.id.replaceAll('Head', '');
+                sortField = event.target.getAttribute('data-key');
+                const clsName = event.target.className;
+                let newClsName = 'sort-can'
+                if(clsName === 'sort-can') { sortType = '-1,1';  newClsName = 'sort-desc';}
+                else if(clsName === 'sort-desc') { sortType = '1,-1';  newClsName = 'sort-asc';}
+                else { sortType = '-1,1';  newClsName = 'sort-desc';}
+                pageIndex = 1;
+                renderTable(report);
+
+                head.querySelectorAll('th[data-sort="true"]').forEach(th => { th.className = 'sort-can' });
+                event.target.className = newClsName;
+            });
+        })
+    }
+    function getTableHeaderHtml(menu){
+        const report = RISK_HEADERS.find(x=>x.report === menu);
+        let html = '<tr>';
+        const headers = report.header.sort((a,b)=>{return a.order-b.order});
+        for(var col of headers){
+            html += `<th ${getTHClassName(col)}>${col.name}</th>`
+        }
+        html += '</tr>'
+        return html;
+    }
+    function getTHClassName(col){
+        if(col.sort === -1) return `class='sort-can' data-key='${col.sortCols}' data-sort='true'`;
+        else if(col.sort == '-1,1') return `class='sort-desc' data-key='${col.sortCols}' data-sort='true'`;
+        else if(col.sort === '1,-1') return `class='sort-asc' data-key='${col.sortCols}' data-sort='true'`;
+        return `data-sort='false'`;
+    }
+    function hasValue(value){
+        if(!value) return value === 0 ? true : false;
+        return true;
+    }
+    function convertAmount(amt){
+        if(!hasValue(amt)) return '--';
+        let result = ''
+        if (Math.abs(amt) >= 100000000) {
+            result += (amt / 100000000).toFixed(2) + '亿';
+        } else if (Math.abs(amt) >= 10000) {
+            result += (amt / 10000).toFixed(2) + '万';
+        } else {
+            result += amt.toLocaleString('zh-CN');
+        }
+        return result;
+    }
+    let scrollTimeout;
+    function handleScroll(container){
+        if (isLoading || !hasMore) return;
+        // 计算是否滚动到底部
+        const scrollTop = container.scrollTop;
+        const scrollHeight = container.scrollHeight;
+        const clientHeight = container.clientHeight;
+        if (scrollHeight - scrollTop - clientHeight < 50){
+            pageIndex++;
+            renderTable(reportName);
+        }
+    }
+   
+    document.addEventListener('DOMContentLoaded', function () {
+        renderTablesHeader();
+        loadMenu()
+
+        document.querySelectorAll('.table-container').forEach(tableContainer => {
+            tableContainer.addEventListener('scroll', (event) => {
+                if(pageIndex === 1) { lastScrollLeft = 0; lastScrollTop = 0; }
+                const deltaX = event.target.scrollLeft - lastScrollLeft;
+                const deltaY = event.target.scrollTop - lastScrollTop;
+                if (Math.abs(deltaX) > Math.abs(deltaY)) return; // 水平滚动，不更新数据
+                if(scrollTimeout) clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => { handleScroll(event.target); }, 100);
+            });
+        });
+    });
+</script>
+</html>

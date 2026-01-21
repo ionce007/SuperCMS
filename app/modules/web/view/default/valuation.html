@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"content="{{site.description}}">
+    <meta name="keywords" content="{{site.keywords}}"/>
+    <meta property="og:title" content="{{site.title}}" />
+    <meta property="og:description" content="{{site.description}}" />
+    <title>{{site.title}}-基于大数据的股票交易策略</title>
+    {{include './common/meta.html'}}
+    <link rel="stylesheet" href="{{static_url}}/css/flatpickr.min.css" />
+    <link rel="stylesheet" href="{{static_url}}/css/font-awesome.all.min.css" />
+    <link rel="stylesheet" href="{{static_url}}/css/stock.css" />
+    <script src="{{static_url}}/js/stock.js"></script>
+    <style>
+        thead > tr > th,tbody > tr > td {border:none;text-align: center;font-size:14px;}
+        table.report-table {border-collapse: collapse;width: 100%;table-layout: fixed;min-width: 800px;}
+        tr.th-border > th{font-size:14px;padding:10px;border:none;}
+        tr.th-border > th:not(:first-child){cursor:pointer;}
+        .report-table > th, .report-table > td {padding: 12px;text-align: center;border: 1px solid #e1e8ed;background: white;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+        .left-align {text-align: left !important;white-space:nowrap;}
+        .right-align {text-align: right !important;}
+        .flex-center{text-align: center!important;}
+        .flex-right{text-align:right!important;}
+        .ellipsis-cell {white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;  }
+        table.report-table > thead {position: sticky;top: 0;z-index: 10;background-color: #ccc;}
+        .stock-ggycmx{padding:10px 20px;margin-top: -20px;font-size: 16px;font-weight: 600;color: rgba(255, 20, 250, 0.5);}
+        .stock-ggycmx span{padding:0px 20px 0 0px}
+        .fixed-col{position: sticky;z-index:2;background: #f8f9fa;padding-left:10px;}
+        a.btn{padding:5px 10px;border:1px solid #ccc;border-radius: 6px;color:#fff;background-color: rgba(20 20 237 / 70%);cursor: pointer;}
+        a.btn.active{background-color: rgba(255,20,20,0.7);}
+        p.stock-code{font-size:12px;font-weight: normal;}
+        .nomore-data{text-align:center;padding:10px;font-weight:normal;font-style:italic;}
+        .sort-desc::after{ content: "↓";margin-left: 5px;}/*"↓"  "↑"*/
+        .sort-asc::after{ content: "↑";margin-left: 5px;}
+        .border-line::after{width:80px;}
+        .tooltip-content {font-size:12px;padding:5px 10px;}
+        .tooltip-date {font-weight: 600;margin-bottom:3px;color: #333;}
+        .tooltip-value {display: flex;justify-content: flex-end;margin-bottom:3px;}
+        .value-label {color: #666;margin-right:5px;}
+        .value-number {font-weight: 600;color: #2575fc;min-width:50px;}
+        .center-display {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align: center;pointer-events: none;z-index: 10;}
+        .center-value {font-size: 14px;font-weight: bold;color: #2c3e50;/*margin-bottom:5px;*/}
+        .center-label {font-size: 12px;color: #7f8c8d;}
+        .flex-grid{display:grid;grid-template-columns:2fr 1fr;}
+        .legend-table {width: 100%;border-collapse: collapse;background-color: white;}
+        .legend-table thead {position: sticky;top: 0;z-index: 10;}
+        .legend-table th {padding: 14px 12px;font-weight: 600;font-size:12px;border:none;}
+        .legend-table td {font-size:10px;padding:8px 3px;border:none;cursor: pointer;transition: all 0.2s ease;position:inherit;color: inherit;background: inherit;}
+        .legend-table tbody tr {transition: all 0.2s ease;}
+        .legend-table tbody tr:hover {background-color: #f8fafc;}
+        .legend-table tbody tr.active {background:linear-gradient(90deg,rgba(0, 255, 7, 0.15) 0%,rgba(255, 0, 7, 0.1) 100%) !important;/* linear-gradient(135deg, rgba(0,255,0,0.1) 0%, rgba(255,0,0,0.6) 100%);*/border-left: 4px solid #3498db;}
+        .legend-table tbody tr.disabled {opacity: 0.5;background-color: #f9f9f9;}
+        .legend-table tbody tr.disabled:hover {background-color: #f0f0f0;}
+        .legend-table th:first-child {border-top-left-radius: 7px;width: 40%;}
+        .legend-table th:nth-child(2) {width: 30%;}
+        .legend-table th:last-child {border-top-right-radius: 7px;width: 30%;}
+        .pie-container{width:100%;height:100%;}
+        .chart-wrapper {width: 100%;height:220px;background-color: white;border-radius: 12px;padding:10px;box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);position: relative;display: flex;}
+        .h-220{height:220px;}
+        .border-container{border:1px solid #ccc;border-radius: 8px;margin:10px auto;/*height:300px;*/}
+        .no-border{height:100%;min-height:300px;}
+        .pd-5{padding:5px;}
+        .chart-container{margin-bottom:5px;}
+        @media (max-width: 768px) {
+            /*.chart-container{height:600px;}*/
+            .flex-grid{grid-template-columns:2fr 1.6fr;}
+            .center-label {font-size: 10px;}
+            .center-value {font-size: 12px;}
+            .no-border{max-height:220px;}
+        }
+    </style>
+</head>
+<body class="bg-f8f8f8" id="app">
+    <!-- 头部 -->
+    {{include './common/header.html'}}
+    
+    <!-- banner -->
+    <!--<section class="banner flex justify-center">
+        <h3 class="chanyue text-c">缠说・股经</h3>
+        <p class="f-20 text-c mt-20">基于大数据的股票交易策略</p>
+    </section>-->
+
+    <!--<section class="main center flex justify-between flex-wrap pd-30" id="app">-->
+        <div class="limit-tab-container">
+            <h1 class="page-title timeline-title-w100">估值分析</h1>
+            <!-- 页签导航 -->
+            <div class="tabpane use-for-sticky">
+                <div class="tabs-header">
+                    <div class="tabs-scroll-wrapper">
+                        <!-- 左箭头 -->
+                        <div class="nav-arrow left hidden" id="arrow-left"><i class="fas fa-chevron-left"></i></div>
+                        <!-- 页签滚动容器 -->
+                        <div class="tabs-scroll-container">
+                            <div class="tabs" id="tabs">
+                                <div class="tab tab-tag ml-0 active" data-tab="tab1" data-src="stockttm">个股估值</div>
+                                <div class="tab tab-tag" data-tab="tab2" data-src="industryttm">行业估值</div>
+                                <div class="tab tab-tag" data-tab="tab3" data-src="marketttm">市场估值</div>
+                            </div>
+                        </div>
+                        <!-- 右箭头 -->
+                        <div class="nav-arrow right" id="arrow-right"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 页签内容 -->
+            <div class="tab-content" id="mainTabContent">
+                <!-- 第一个页签：  个股投资评级-->
+                <div id="tab1" class="tab-pane tab-data-container active">
+                    <div class="comparison">
+                        <div class="comparison-item flex-right">
+                            <a class="btn active" data-src="stockttm">市盈率TTM</a>
+                            <a class="btn" data-src="stockmrq">市净率MRQ</a>
+                        </div>
+                    </div>
+                    <div class="tab-content ml-1 mr-1 mt-10 pt-10">
+                        <div class="table-container" id="stockEvauleList">
+                            <table class="report-table">
+                                <colgroup id="stockCol">
+                                    <col style="width:16%;"><col style="width:17%;"><col style="width:16%;">
+                                    <col style="width:16%;"><col style="width:16%;"><col style="width:16%;">
+                                </colgroup>
+                                <thead id="headStock">
+                                    <!--<tr class="th-border"><th>名称(代码)</th><th>未来3月上涨概率<i class="fa fa-arrow-down-long"></i></th><th>市盈率</th><th>百分位</th><th>净利润同比</th><th>净资产收益率</th></tr>-->
+                                </thead>
+                                <tbody id="tblStock"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二个页签： 行业投资评级-->
+                <div id="tab2" class="tab-pane tab-data-container">
+                    <div class="comparison">
+                        <div class="comparison-item flex-right">
+                            <a class="btn active" data-src="industryttm">市盈率TTM</a>
+                            <a class="btn" data-src="industrymrq">市净率MRQ</a>
+                        </div>
+                    </div>
+                    <div class="tab-content ml-1 mr-1 mt-10 pt-10">
+                        <div class="table-container" id="industryEvauleList">
+                            <table class="report-table">
+                                <colgroup id="industryCol">
+                                    <col style="width:16%;"><col style="width:17%;"><col style="width:16%;">
+                                    <col style="width:16%;"><col style="width:16%;"><col style="width:16%;">
+                                </colgroup>
+                                <thead id="headindustry">
+                                    <tr class="th-border"><th>名称(代码)</th><th>未来3月上涨概率<i class="fa fa-arrow-down-long" data-key="desc"></i></th><th>市净率</th><th>百分位</th><th>净利润同比</th><th>净资产收益率</th></tr>
+                                </thead>
+                                <tbody id="tblindustry"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- 第三个页签： 跌破增发价 -->
+                <div id="tab3" class="tab-pane tab-data-container">
+                    <div class="comparison nodisplay">
+                        <div class="comparison-item flex-right">
+                            <a class="btn active" data-src="marketttm">市盈率TTM</a>
+                            <a class="btn" data-src="marketmrq">市净率MRQ</a>
+                        </div>
+                    </div>
+                    <div class="tab-content ml-1 mr-1 mt-10 pt-10">
+                        <div class="theme-pane">
+                            <div class="limit-market-emotion">
+                                <div class="limit-data-item mb-10">
+                                    <h3 class="timeline-title border-line ml-10 mt-10">TTM走势<span>{{ currDate }}</span></h3>
+                                    <div class="chart-container" id="marketTrendTTM"></div>
+                                </div>
+                                <div class="limit-data-item mb-10">
+                                    <h3 class="timeline-title border-line ml-10 mt-10">MRQ走势<span>{{ currDate }}</span></h3>
+                                    <div class="chart-container" id="marketTrendMRQ"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="theme-pane">
+                            <div class="limit-market-emotion border-container pd-5">
+                                <div class="limit-data-item no-border">
+                                    <h3 class="timeline-title border-line ml-10 mt-10">TTM分布</h3>
+                                    <div class="chart-container flex-grid">
+                                        <div class="chart-wrapper">
+                                            <div id="marketScattersituTTM" style="width:100%;height:200px;"></div>
+                                            <div class="center-display" id="centerDisplayTTM">
+                                                <div class="center-label" id="centerLabelTTM">点击饼图查看详情</div>
+                                                <div class="center-value" id="centerValueTTM">总计</div>
+                                            </div>
+                                        </div>
+                                        <div class="h-220" id="pieChartLegendTTM">
+                                            <table class="legend-table">
+                                                <thead><tr><th>市盈率</th><th>公司数</th></tr></thead>
+                                                <tbody id="legendTableBodyTTM"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="limit-data-item no-border">
+                                    <h4 class="ml-10 mb-10" id="scatterTitleTTM">走势</h4>
+                                    <div class="chart-container" id="marketScatterTTM"><img src='http://localhost:81/web/default/img/logo.svg'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="theme-pane">
+                            <div class="limit-market-emotion border-container pd-5">
+                                <div class="limit-data-item no-border">
+                                    <h3 class="timeline-title border-line ml-10 mt-10">MRQ分布</h3>
+                                    <div class="chart-container flex-grid">
+                                        <div class="chart-wrapper">
+                                            <div id="marketScattersituMRQ" style="width:100%;height:200px;""></div>
+                                            <div class="center-display" id="centerDisplayMRQ">
+                                                <div class="center-label" id="centerLabelMRQ">点击饼图查看详情</div>
+                                                <div class="center-value" id="centerValueMRQ">总计</div>
+                                            </div>
+                                        </div>
+                                        <div class="h-220" id="pieChartLegendMRQ">
+                                            <table class="legend-table">
+                                                <thead><tr><th>市净率</th><th>公司数</th></tr></thead>
+                                                <tbody id="legendTableBodyMRQ"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="limit-data-item no-border">
+                                    <h4 class="ml-10 mb-10" id="scatterTitleMRQ">走势</h4>
+                                    <div class="chart-container" id="marketScatterMRQ"><img src='http://localhost:81/web/default/img/logo.svg'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-overlay" id="modalOverlay"></div>
+        
+        <div class="modal-dialog" id="modalDialog">
+            <div class="modal-header">
+                <h3 class="modal-title">上榜原因</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content">
+                    <h4 id="modalItemTitle"></h4>
+                    <div id="modalItemDesc"></div>
+                </div>
+            </div>
+            <div class="modal-footer"><button class="modal-action-btn close">关闭</button></div>
+        </div>
+    <!--</section>-->
+
+    {{include './common/footer.html'}}
+    <!-- 移动端导航 -->
+    {{include './common/wap-nav.html'}}
+    <!--<div class="ignore mb-20 mt-20 pd-20 bg-f2f2f2">
+        <p class="mb-20">stockTTMData-> {{stockTTMData}} </p>
+    </div>-->
+    {{include './common/js.html'}}
+    <script src="{{static_url}}/js/echarts.min.js"></script>
+    <script src="{{static_url}}/js/dialog.js"></script>
+    <!--<script src="https://3.swiper.com.cn/dist/js/swiper.min.js"></script>-->
+    <script type="text/javascript">
+        const stockTTMData = JSON.parse(decodeHtmlEntities(`{{ stockTTMData }}`));
+        
+        let pageIndex = 1;
+        const pageSize = 50;
+        let isLoading = false;
+        let hasMore = false;
+        let totalPages = 1;
+        let lastScrollLeft = 0;
+        let lastScrollTop = 0;
+        const headers = {
+            stockttm: [
+                { field: "SECUNAME",  name: '名称/代码', order: 1, sortField: '', sort: -1, type: '', perChar: ''},
+                { field: "PESZGL", name: '未来3月上涨概率', order: 2, sortField: 'PESZGL', sort: 1, type: 'desc', perChar: '%'},
+                { field: "EPSTTM", name: '市盈率', order: 3, sortField: 'EPSTTM', sort: 0, type: '', perChar: ''},
+                { field: "PEBFW", name: '百分位', order: 4, sortField: 'PEBFW_NUM', sort: 0, type: '', perChar: '%'},
+                { field: "SJLTZ", name: '净利润同比', order: 5, sortField: 'SJLTZ', sort: 0, type: '', perChar: '%'},
+                { field: "ROEJQ", name: '净资产收益率', order: 6, sortField: 'ROEJQ', sort: 0, type: '', perChar: '%'}
+            ],
+            stockmrq: [
+                { field: "SECUNAME",name: '名称/代码', order: 1, sortField: '', sort: -1, type: '', perChar: ''},
+                { field: "PBSZGL",name: '未来3月上涨概率', order: 2, sortField: 'PBSZGL', sort: 1, type: 'desc', perChar: '%'},
+                { field: "PBNEWMRQ",name: '市净率', order: 3, sortField: 'PBNEWMRQ', sort: 0, type: '', perChar: ''},
+                { field: "PBBFW",name: '百分位', order: 4, sortField: 'PBBFW_NUM', sort: 0, type: '', perChar: '%'},
+                { field: "SJLTZ",name: '净利润同比', order: 5, sortField: 'SJLTZ', sort: 0, type: '', perChar: '%'},
+                { field: "ROEJQ",name: '净资产收益率', order: 6, sortField: 'ROEJQ', sort: 0, type: '', perChar: '%'}
+            ],
+            industryttm: [
+                { field: "INDUSTRY_NAME", name: '行业名称', order: 1, sortField: '', sort: -1, type: '', perChar: ''},
+                { field: "ORG_NUM", name: '公司家数', order: 2, sortField: 'ORG_NUM', sort: 0, type: '', perChar: ''},
+                { field: "AVERAGE_PE", name: '平均市盈率', order: 3, sortField: 'AVERAGE_PE', sort: 0, type: '', perChar: ''},
+                { field: "PE_PERCENTILE", name: '市盈率百分位', order: 4, sortField: 'PE_PERCENTILE', sort: 1, type: 'asc', perChar: '%'},
+                { field: "AVERAGE_PB", name: '平均市净率', order: 5, sortField: 'AVERAGE_PB', sort: 0, type: '', perChar: ''},
+                { field: "PB_PERCENTILE", name: '市净率百分位', order: 6, sortField: 'PB_PERCENTILE', sort: 0, type: '', perChar: '%'}
+            ],
+            industrymrq: [
+                { field: "INDUSTRY_NAME", name: '行业名称', order: 1, sortField: '', sort: -1, type: '', perChar: ''},
+                { field: "ORG_NUM", name: '公司家数', order: 2, sortField: 'ORG_NUM', sort: 0, type: ''},
+                { field: "AVERAGE_PB", name: '平均市净率', order: 3, sortField: 'AVERAGE_PB', sort: 0, type: '', perChar: ''},
+                { field: "PB_PERCENTILE", name: '市净率百分位', order: 4, sortField: 'PB_PERCENTILE', sort: 1, type: 'asc', perChar: '%' },
+                { field: "AVERAGE_PE", name: '平均市盈率', order: 5, sortField: 'AVERAGE_PE', sort: 0, type: '', perChar: ''},
+                { field: "PE_PERCENTILE", name: '市盈率百分位', order: 6, sortField: 'PE_PERCENTILE', sort: 0, type: '', perChar: '%'}
+            ]
+        }
+        function renderTableHeader(report, tblHeader){
+            if(!tblHeader){
+                const tabId = document.getElementById('tabs').querySelector('div.tab.active').getAttribute('data-tab');
+                tblHeader = document.getElementById(tabId).querySelector('thead');
+            }
+            const fields = headers[report].sort((a,b) => { return a.order - b.order});
+            let html = ''
+            for(var item of fields){
+                if(item.field === 'SECUNAME' || item.field === 'INDUSTRY_NAME') html += `<th>${item.name}</th>`;
+                else{
+                    if(item.sort === 1) html += `<th data-key='${item.sortField}' class='sort-${item.type}'>${item.name}</th>`;
+                    else html += `<th data-key='${item.sortField}'>${item.name}</th>`
+                }
+            }
+            tblHeader.innerHTML = `<tr class="th-border">${html}</tr>`;
+            tblHeader.querySelectorAll('th').forEach((item, index) => {
+                item.removeEventListener('click', function (event) { event.preventDefault(); }, false);
+                if(index > 0) item.addEventListener('click',function(event){ renderResort(event.target, report); })
+            })
+        }
+        function renderResort(thEl, report){
+            const sortField = thEl.getAttribute('data-key');
+            if(!sortField) return;
+            let sortType = ''
+            if(thEl.classList.contains('sort-desc')) sortType = 1;
+            else if(thEl.classList.contains('sort-asc')) sortType = -1;
+            else sortType = -1;
+            thEl.parentElement.querySelectorAll('th').forEach(item => { item.classList.remove('sort-desc'); item.classList.remove('sort-asc') });
+            if(sortType === 1 ) thEl.classList.add('sort-asc');
+            else thEl.classList.add('sort-desc');
+            pageIndex = 1;
+            renderTable(report, sortField, sortType);
+        }
+        function sortIcon(type){
+            if(type === 'desc') return 'fa-arrow-down-a-z';
+            else return 'fa-arrow-up-a-z';
+        }
+        function updateTableHeader(report){
+            const header = headers[report];
+            const tabId = document.getElementById('tabs').querySelector('div.tab.active').getAttribute('data-tab');
+            const tblHeader = document.getElementById(tabId).querySelector('thead');
+            tblHeader.querySelectorAll('th').forEach((item, index) => {
+                if(index > 0) {
+                    const fields = header.find(x => x.order === index + 1);
+                    if(fields) {
+                        item.setAttribute('data-key', fields.sortField);
+                        item.innerText = fields.name;
+                    }
+                }
+            });
+        }
+        function showData(report, data){
+            let html = '';
+            //updateTableHeader(report);
+            const nodata = !data || !data.result || !data.result.data || data.result.data.length <= 0;
+            const tabId = document.getElementById('tabs').querySelector('.tab.active').getAttribute('data-tab');
+            const tbody = document.getElementById(tabId).querySelector('tbody');
+            const cols = document.getElementById(tabId).querySelectorAll('col').length;
+            if(pageIndex === 1 && nodata){
+                html = `<tr><td colspan='${cols}' style='text-align:center;padding:30px'>暂无数据！</td></tr>`;
+                document.getElementById('tblStock').innerHTML = html;
+                hasMore = false;  totalPages = 0;
+                return;
+            }
+            totalPages = data.result.pages;
+            hasMore = totalPages > 1 && pageIndex < totalPages;
+            html = getTableBodyHtml(data, report);
+
+            if(pageIndex > 1) tbody.innerHTML += html;
+            else tbody.innerHTML = html;
+
+            if(!hasMore){
+                html = `<tr><td colspan='${cols}' class='nomore-data'>没有更多数据！</td></tr>`;
+                tbody.innerHTML += html;
+            }
+        }
+        function getTableBodyHtml(data, report){
+            let html = '';
+            const fields = headers[report];
+            for(var item of data.result.data){
+                html += '<tr>';
+                for(var field of fields){
+                    if(field.order === 1 ){
+                        if(report === 'stockttm' || report === 'stockmrq') html += `<td class='fixed-col left-align' style='left:0;'>${item[field.field]}<p class="stock-code">${item.SECURITY_CODE}</p></td>`;
+                        else html += `<td class='fixed-col left-align' style='left:0;'>${item[field.field]}</td>`;
+                    }
+                    else{
+                        if(field.perChar === '%') html += `<td class="right-align">${item[field.field].toFixed(2)}%</td>`;
+                        else html += `<td class="right-align">${item[field.field].toFixed(2)}</td>`;
+                    }
+                }
+                html += '</tr>';
+            }
+            return html;
+        }
+        async function renderTable(report, sortField, sortType){
+            let error = '';
+            const dialog = StatusDialog.showLoading('正在加载数据...');
+            try{
+                isLoading = true;
+                updateTableHeader(report);
+                if(pageIndex > totalPages) { hasMore = false; return;}
+                let url = `/api/d/valuation/${report}?pn=${pageIndex}`;
+                if(sortField && sortType) url = `/api/d/valuation/${report}?pn=${pageIndex}&st=${sortField}&sr=${sortType}`;
+                else{
+                    const sortRule = getSortRule();
+                    if(sortRule && sortRule.sortField && sortRule.sortType) url = `/api/d/valuation/${report}?pn=${pageIndex}&st=${sortRule.sortField}&sr=${sortRule.sortType}`;
+                }
+                const response = await fetch(url);
+                const data = await response.json();
+                showData(report, data);
+            }
+            catch(err){
+                console.log(err);
+                error = err.message;
+            }
+            finally{
+                setTimeout(() => {
+                    isLoading = false;
+                    //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                    dialog.hide();
+                }, error ? 1500 : 500)
+            }
+        }
+        function getSortRule(){
+            const tabId = document.getElementById('tabs').querySelector('div.tab.active').getAttribute('data-tab');
+            const tblHeader = document.getElementById(tabId).querySelector('thead');
+            const sortTh = tblHeader.querySelector('.sort-desc') || tblHeader.querySelector('.sort-asc');
+            const sortField = sortTh.getAttribute('data-key');
+            const sortType = sortTh.classList.contains('sort-desc') ? -1 : ( sortTh.classList.contains('sort-asc') ? 1 : -1 );
+            return { sortField, sortType };
+        }
+        async function showChart(report){
+            let error = '';
+            const dialog = StatusDialog.showLoading('正在加载数据...');
+            try{
+                isLoading = true;
+                const urls = [
+                    {type: 'marketttm', url: '/api/d/valuation/ttmtrend', report: 'ttmtrend'},
+                    {type: 'marketttm', url: '/api/d/valuation/ttmscattersitu', report: 'ttmscattersitu'},
+                    {type: 'marketttm', url: '/api/d/valuation/ttmscatter', report: 'ttmscatter'},
+                    {type: 'marketmrq', url: '/api/d/valuation/mrqtrend', report: 'mrqtrend'},
+                    {type: 'marketmrq', url: '/api/d/valuation/mrqscattersitu', report: 'mrqscattersitu'},
+                    {type: 'marketmrq', url: '/api/d/valuation/mrqscatter', report: 'mrqscatter'},
+                ];
+
+                const promises = urls.map(item => fetchAPI(item.url, item.report));
+                const results = await Promise.all(promises);
+                drawChart(results);
+            }
+            catch(err){
+                console.log('错误：', err);
+                error = err.message;
+            }
+            finally{
+                setTimeout(() => {
+                    isLoading = false;
+                    //dialog.update({type: 'success',title: !error ? '加载成功' : '加载失败',message: !error ? '数据加载已完成' : error,autoClose: 1});
+                    dialog.hide();
+                }, error ? 1500 : 500)
+            }
+        }
+        function drawChart(datus){
+            datus.forEach(item => {
+                if(item.report === 'ttmtrend' || item.report === 'mrqtrend') {
+                    const text = item.report === 'ttmtrend' ? 'TTM' : 'MRQ';
+                    if(!item.data || !item.data.result || !item.data.result.data || item.data.result.data.length === 0) drawText(`marketTrend${text}`, '暂无数据')
+                    else drawTrendChart(item.data.result.data, text);
+                }
+                else if(item.report === 'ttmscattersitu' || item.report === 'mrqscattersitu'){
+                    const text = item.report === 'ttmscattersitu' ? 'TTM' : 'MRQ';
+                    if(!item.data || !item.data.result || !item.data.result.data || item.data.result.data.length === 0) drawText(`marketScattersitu${text}`, '暂无数据')
+                    else {
+                        const json = item.data.result.data[0];
+                        const data = [
+                                { name: text === 'TTM' ? '0-20' : '0-1', value: json.COUNT_NUM1, percentage: json.COUNT_RATIO1, order: 1 },
+                                { name: text === 'TTM' ? '20-50' : '1-2.5', value: json.COUNT_NUM2, percentage: json.COUNT_RATIO2, order: 2 },
+                                { name: text === 'TTM' ? '50-100' : '2.5-10', value: json.COUNT_NUM3, percentage: json.COUNT_RATIO3, order: 3 },
+                                { name: text === 'TTM' ? '100以上' : '10以上', value: json.COUNT_NUM4, percentage: json.COUNT_RATIO4, order: 4 },
+                                { name: text === 'TTM' ? '小于0(亏损)' : '小于0', value: json.COUNT_NUM5, percentage: json.COUNT_RATIO5, order: 5 }
+                            ]
+                        drawScattersituChar(data, text);
+                    }
+                }
+            })
+        }
+        async function fetchAPI(url, reportName) {
+            try {
+                const header = {'Content-Type': 'application/json'};
+                const response = await fetch(url, { method: 'GET', headers: headers });
+
+                if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
+
+                const data = await response.json();
+                return { success: true, report: reportName, data: data, msg: 'OK' };
+            } catch (error) {
+                console.error(`请求 ${reportName} 出错:`, error);
+                return { success: false, report: reportName, msg: error.message };
+            }
+        }
+        
+        const showMarkersEnabled = false;
+        const dataZoomEnabled = true;
+        let activeIndexArr = [ { name: 'TTM', activeIndex: -1 }, { name: 'MRQ', activeIndex: -1 } ]
+        function drawScattersituChar(chartData, text){
+            // 定义颜色
+            const colors = ['rgb(250, 164, 42)', 'rgb(237, 59, 89)', 'rgb(88, 163, 255)', 'rgb(167, 108, 255)', 'rgb(90, 186, 67)'];
+            
+            // 计算总数
+            const total = chartData.reduce((sum, item) => sum + parseInt(item.value), 0);
+            
+            // 计算百分比并添加到数据中，同时添加颜色
+            chartData.forEach((item, index) => {
+                item.color = colors[item.order-1];
+                item.originalIndex = index; // 保存原始索引
+            });
+            
+            // 按数值升序排序
+            const sortedChartData = [...chartData].sort((a, b) => a.order - b.order);
+            
+            // 初始化ECharts实例
+            const chartDom = document.getElementById(`marketScattersitu${text}`);
+            const myChart = echarts.init(chartDom);
+
+            let indexItem = activeIndexArr.find(x => x.name === text);
+            indexItem.activeIndex = -1;
+            // 当前激活的数据索引（原始索引）
+            //let activeIndex = -1;
+            
+            // 存储图例状态（true表示显示，false表示隐藏）
+            const legendStatus = chartData.map(() => true);
+            
+            // 配置项 - 禁用默认图例，调整饼图位置
+            const option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    borderColor: '#ddd',
+                    borderWidth: 1,
+                    textStyle: {
+                        color: '#333'
+                    },
+                    show:false
+                },
+                legend: {
+                    show: false // 禁用默认图例
+                },
+                series: [
+                    {
+                        name: `${text}`,
+                        type: 'pie',
+                        radius: ['50%', '95%'], // 调整饼图大小以适应左侧布局
+                        center: ['50%', '50%'], // 将饼图向左移动 (默认是['50%', '50%'])
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 0,
+                            borderColor: '#fff',
+                            borderWidth: 1
+                        },
+                        label: {
+                            formatter: '{b}: {d}%',
+                            fontSize: 14,
+                            position: 'outside', // 标签显示在外部
+                            color: '#333',
+                            show:false
+                        },
+                        labelLine: {
+                            length: 15,
+                            length2: 10,
+                            smooth: true,
+                            show: false
+                        },
+                        emphasis: {
+                            label: {
+                                show: false,
+                                fontSize: 16,
+                                fontWeight: 'bold'
+                            },
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        },
+                        data: sortedChartData.map((item, index) => ({
+                            ...item,
+                            itemStyle: {
+                                color: item.color
+                            }
+                        }))
+                    }
+                ]
+            };
+            
+            // 应用配置
+            myChart.setOption(option);
+            
+            // 初始化中心显示
+            document.getElementById(`centerValue${text}`).textContent = total;
+            document.getElementById(`centerLabel${text}`).textContent = '统计家数';
+            
+            // 创建表格图例
+            const legendTableBody = document.getElementById(`legendTableBody${text}`);
+            
+            // 初始化表格数据
+            updateTableData();
+            
+            // 更新表格数据
+            function updateTableData() {
+                // 清空表格
+                legendTableBody.innerHTML = '';
+                
+                // 填充表格行
+                sortedChartData.forEach((item, rowIndex) => {
+                    const row = document.createElement('tr');
+                    const isVisible = legendStatus[item.originalIndex];
+                    //const isActive = item.originalIndex === activeIndex;
+                    const isActive = item.originalIndex === indexItem.activeIndex;
+                    
+                    // 设置行类名
+                    row.className = isActive ? 'active' : '';
+                    if (!isVisible) row.className += ' disabled';
+                    
+                    row.dataset.originalIndex = item.originalIndex;
+                    row.dataset.rowIndex = rowIndex;
+                    
+                    // 表格行内容
+                    row.innerHTML = `
+                        <td class="category-cell">
+                            <span class="color-indicator" style="background-color: ${item.color};"></span>
+                            ${item.name}
+                        </td>
+                        <td class="value-cell">${item.value}(${item.percentage}%)</td>
+                        
+                    `;//<td class="percentage-cell">${item.percentage}%</td>
+                    
+                    // 添加点击事件
+                    row.addEventListener('click', function(event) {
+                        const originalIndex = parseInt(this.dataset.originalIndex);
+                        
+                        // 切换图例状态
+                        //legendStatus[originalIndex] = !legendStatus[originalIndex];
+                        
+                        // 更新表格行样式
+                        if (legendStatus[originalIndex]) {
+                            this.classList.remove('disabled');
+                            // 如果当前没有激活项，则激活此项
+                           if (indexItem.activeIndex === -1) {
+                                this.classList.add('active');
+                                indexItem.activeIndex = originalIndex;
+                            }
+                        } else {
+                            this.classList.add('disabled');
+                            this.classList.remove('active');
+                            
+                            // 如果当前激活项被隐藏，则取消激活状态
+                           if (indexItem.activeIndex === originalIndex) {
+                                indexItem.activeIndex = -1;
+                                // 重置中心显示
+                                document.getElementById(`centerValue${text}`).textContent = total;
+                                document.getElementById(`centerLabel${text}`).textContent = '统计家数';
+                            }
+                        }
+                        
+                        // 更新饼图数据
+                        updateChartData();
+                        
+                        // 更新表格数据（重新计算百分比）
+                        //updateTableData();
+                        
+                        // 如果当前项是可见的且被点击，则激活它
+                       if (legendStatus[originalIndex] && !this.classList.contains('active')){// && indexItem.activeIndex === -1) {
+                            legendTableBody.querySelectorAll('tr').forEach(item => { item.classList.remove('active');})
+                            //this.className = 'active';
+                            this.classList.add('active');
+                            indexItem.activeIndex = originalIndex;
+                            
+                            // 更新中心显示
+                            const clickedItem = chartData[originalIndex];
+                            document.getElementById(`centerValue${text}`).textContent = `${clickedItem.percentage}%`;
+                            document.getElementById(`centerLabel${text}`).textContent = `${clickedItem.name}公司占比`;
+                            
+                            // 高亮饼图
+                            highlightPieChart(originalIndex);
+                        }
+                    });
+                    
+                    // 添加到表格
+                    legendTableBody.appendChild(row);
+                });
+                //legendTableBody.parentElement.classList.add('force-refresh');
+                //setTimeout(function(){ legendTableBody.parentElement.classList.remove('force-refresh') }, 10);
+            }
+            
+            // 更新饼图数据（根据图例状态显示/隐藏数据）
+            function updateChartData() {
+                // 过滤显示的数据（按排序后的顺序）
+                const filteredData = sortedChartData.filter(item => legendStatus[item.originalIndex]);
+                
+                // 更新饼图数据
+                myChart.setOption({
+                    series: [{
+                        data: filteredData.map(item => ({
+                            ...item,
+                            value: item.value,
+                            name: item.name,
+                            itemStyle: {
+                                color: item.color
+                            }
+                        }))
+                    }]
+                });
+                
+                // 如果当前有激活项且该激活项是可见的，则保持激活状态
+               if (indexItem.activeIndex !== -1 && legendStatus[indexItem.activeIndex]) {
+                    highlightPieChart(indexItem.activeIndex);
+                } else {
+                    // 否则取消所有高亮
+                    myChart.dispatchAction({ type: 'downplay', seriesIndex: 0});
+                }
+            }
+            
+            // 高亮饼图指定部分
+            function highlightPieChart(originalIndex) {
+                // 取消之前的高亮
+                myChart.dispatchAction({ type: 'downplay', seriesIndex: 0 });
+                
+                // 找到该数据在排序后数据中的位置
+                const sortedIndex = sortedChartData.findIndex(item => item.originalIndex === originalIndex);
+                if (sortedIndex === -1 || !legendStatus[originalIndex]) return;
+                
+                // 找到该数据在过滤后数据中的位置
+                let filteredIndex = 0;
+                for (let i = 0; i < sortedIndex; i++) {
+                    if (legendStatus[sortedChartData[i].originalIndex]) filteredIndex++;
+                }
+                
+                // 设置新的高亮
+                myChart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: filteredIndex });
+                showMarketScatterChart(filteredIndex, text);
+            }
+            
+            // 添加饼图点击事件
+            myChart.on('click', function(params) {
+                if (params.componentType === 'series' && params.seriesType === 'pie' && params.seriesName) {
+                    // 获取点击的数据项
+                    const clickedData = params.data;
+                    const originalIndex = clickedData.originalIndex;
+                    
+                    // 更新激活状态
+                    //activeIndex = originalIndex;
+                    const _text = params.seriesName;// this.painterRoot.id.substring(this.painterRoot.id.length - 3);
+                    indexItem = activeIndexArr.find(x => x.name === _text);
+                    indexItem.activeIndex = originalIndex;
+                    
+                    // 更新中心显示
+                    document.getElementById(`centerValue${text}`).textContent = `${clickedData.percentage}%`;
+                    document.getElementById(`centerLabel${text}`).textContent = `${clickedData.name}公司占比`;
+                    
+                    // 更新表格激活状态
+                    //const tableRows = document.querySelectorAll('.legend-table tbody tr');
+                    const tableRows = document.getElementById(`legendTableBody${_text}`).querySelectorAll('tr');
+                    tableRows.forEach(row => {
+                        row.classList.remove('active');
+                        const rowOriginalIndex = parseInt(row.dataset.originalIndex);
+                        if (rowOriginalIndex === originalIndex) {
+                            row.classList.add('active');
+                            
+                            // 滚动到该行
+                            row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    });
+                    
+                    // 高亮饼图中的对应部分
+                    highlightPieChart(originalIndex);
+                }
+            });
+            
+            // 添加饼图空白区域点击事件（取消选择）
+            myChart.getZr().on('click', function(params) {
+                // 如果点击的是空白区域（非图形元素）
+                if (!params.target || !params.target.__dataIndex ){// && params.seriesName) {
+                    // 取消饼图高亮
+                    myChart.dispatchAction({
+                        type: 'downplay',
+                        seriesIndex: 0
+                    });
+                    
+                    // 取消表格激活状态
+                    //activeIndex = -1;
+                    const _text = this.painterRoot.id.substring(this.painterRoot.id.length - 3);
+                    indexItem = activeIndexArr.find(x => x.name === _text);
+                    indexItem.activeIndex = -1;
+
+                    //const tableRows = document.querySelectorAll('.legend-table tbody tr');
+                    const tableRows = document.getElementById(`legendTableBody${_text}`).querySelectorAll('tr');
+                    tableRows.forEach(row => {
+                        row.classList.remove('active');
+                    });
+                    
+                    // 重置中心显示
+                    //const total = chartData.reduce((sum, item) => sum + parseInt(item.value), 0);
+                    document.getElementById(`centerValue${text}`).textContent = total;
+                    document.getElementById(`centerLabel${text}`).textContent = '统计家数';
+                }
+            });
+            
+            // 窗口大小变化时调整图表
+            window.addEventListener('resize', function() {
+                myChart.resize();
+            });
+            
+            // 初始激活第一项
+            setTimeout(() => {
+                if (sortedChartData.length > 0) {
+                    const firstItem = sortedChartData[0];
+                    //activeIndex = firstItem.originalIndex;
+                    indexItem.activeIndex = firstItem.originalIndex;
+                    
+                    // 更新中心显示
+                    document.getElementById(`centerValue${text}`).textContent = `${firstItem.percentage}%`;
+                    document.getElementById(`centerLabel${text}`).textContent = `${firstItem.name}公司占比`;
+                    
+                    // 高亮饼图
+                    //highlightPieChart(activeIndex);
+                    highlightPieChart(indexItem.activeIndex);
+                    
+                    // 高亮表格第一行
+                    //const firstRow = document.querySelector('.legend-table tbody tr');
+                    const firstRow = document.getElementById(`legendTableBody${text}`).querySelector('tr');
+                    if (firstRow) {
+                        firstRow.classList.add('active');
+                        
+                        // 滚动到顶部
+                        const tableWrapper = document.getElementById(`pieChartLegend${text}`);
+                        tableWrapper.scrollTop = 0;
+                    }
+                }
+            }, 500);
+        
+        }
+        function drawTrendChart(data, text) {
+            // 初始化 ECharts 实例
+            const chartDom = document.getElementById(`marketTrend${text}`);
+            chartInstance = echarts.init(chartDom);
+            
+            // 处理数据：按日期排序（从早到晚）
+            const sortedData = [...data].sort((a, b) => 
+                new Date(a.TRADE_DATE) - new Date(b.TRADE_DATE)
+            );
+            
+            // 提取数据
+            const dates = sortedData.map(item => {
+                const date = new Date(item.TRADE_DATE);
+                return date.toLocaleDateString('zh-CN');
+            });
+            const PERCENTILE_30 = data[0].PERCENTILE_30;
+            const PERCENTILE_50 = data[0].PERCENTILE_50;
+            const PERCENTILE_70 = data[0].PERCENTILE_70;
+            const avgValues = sortedData.map(item => item.AVG_VALUE);
+            
+            // 计算统计数据
+            const minValue = Math.min(...avgValues);
+            const maxValue = Math.max(...avgValues);
+            const avgValue = avgValues.reduce((a, b) => a + b, 0) / avgValues.length;
+            
+            // 设置Y轴起始值（最小值加3）
+            const yAxisMin = (text === 'TTM' ? minValue - 1 : minValue + 1);// - 3;
+            
+            // 准备X轴标签：只显示第一个和最后一个日期
+            const xAxisLabels = dates.map((date, index) => {
+                if (index === 0 || index === dates.length - 1 || index === parseInt(dates.length/2)) {
+                    return date;
+                }
+                return '';
+            });
+            
+            // 配置项
+            const option = {
+                title: {
+                    text: 'AVG_VALUE 趋势曲线',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 18,
+                        fontWeight: 'bold'
+                    },
+                    show: false
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    borderColor: '#ccc',
+                    borderWidth: 1,
+                    textStyle: { color: '#333'},
+                    formatter: function(params) {
+                        const dataIndex = params[0].dataIndex;
+                        const date = dates[dataIndex];
+                        const value = avgValues[dataIndex];
+                        const change = dataIndex > 0 ? (value - avgValues[dataIndex - 1]).toFixed(2) : 0;
+                        const changePercent = dataIndex > 0 ? ((value - avgValues[dataIndex - 1]) / avgValues[dataIndex - 1] * 100).toFixed(2) : 0;
+                        
+                        let html = `<div class="tooltip-content">`;
+                        html += `<div class="tooltip-date">📅 ${date}</div>`;
+                        html += `<div class="tooltip-value">`;
+                        html += `<span class="value-label">${text}均值:</span>`;
+                        html += `<span class="value-number">${value.toFixed(2)}</span>`;
+                        html += `</div>`;
+                        
+                        if (dataIndex > 0) {
+                            const changeColor = change >= 0 ? '#28a745' : '#dc3545';
+                            const changeSymbol = change >= 0 ? '↑' : '↓';
+                            html += `<div class="tooltip-value">`;
+                            html += `<span class="value-label">变化值:</span>`;
+                            html += `<span class="value-number" style="color:${changeColor}">${changeSymbol} ${Math.abs(change)}</span>`;
+                            html += `</div>`;
+                            
+                            html += `<div class="tooltip-value">`;
+                            html += `<span class="value-label">变化率:</span>`;
+                            html += `<span class="value-number" style="color:${changeColor}">${changeSymbol} ${Math.abs(changePercent)}%</span>`;
+                            html += `</div>`;
+                        }
+                        
+                        html += `</div>`;
+                        return html;
+                    }
+                },
+                legend: { show: false},
+                grid: {
+                    left: '5%',
+                    right: '5%',
+                    bottom: dataZoomEnabled ? '25%' : '1%',
+                    top: '2.5%',
+                    containLabel: false
+                },
+                xAxis: {
+                    type: 'category',
+                    data: dates,
+                    axisLabel: {
+                        formatter: function(value, index) {
+                            if(index % 2 === 0) return value;
+                            else return '';
+                        },
+                        color: '#666'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#999'
+                        }
+                    },
+                    axisTick: {
+                        show: true,
+                        alignWithLabel: false,
+                        length: 5
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: 'AVG_VALUE',
+                    nameLocation: 'middle',
+                    nameGap: 50,
+                    min: yAxisMin,
+                    max: text === 'TTM' ? maxValue + 1 : maxValue - 1,// + 3, // 最大值也加3，保持对称
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#999'
+                        }
+                    },
+                    axisLabel: {
+                        formatter: '{value}',
+                        color: '#666'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'dashed',
+                            color: '#eee'
+                        }
+                    },
+                    splitNumber: 8 // 控制分割线数量
+                },
+                dataZoom: dataZoomEnabled ? [
+                    {
+                        type: 'inside',
+                        start: 0,
+                        end: 100,
+                        zoomLock: true
+                    },
+                    {
+                        show: true,
+                        type: 'slider',
+                        top: '93%',
+                        start: 0,
+                        end: 100,
+                        height:10,
+                        backgroundColor: '#f5f5f5',
+                        dataBackground: {
+                            lineStyle: {
+                                color: '#2575fc',
+                                width: 1
+                            },
+                            areaStyle: {
+                                color: 'rgba(37, 117, 252, 0.1)'
+                            }
+                        },
+                        brushSelect: false
+                    }
+                ] : [],
+                series: [
+                    {
+                        name: 'AVG_VALUE',
+                        type: 'line',
+                        smooth: true,
+                        data: avgValues,
+                        lineStyle: {
+                            width: 1,
+                            color: '#2575fc'
+                        },
+                        itemStyle: {
+                            color: '#2575fc'
+                        },
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: 'rgba(37, 117, 252, 0.3)' },
+                                { offset: 1, color: 'rgba(37, 117, 252, 0.05)' }
+                            ])
+                        },
+                        symbol: showMarkersEnabled ? 'circle' : 'none',
+                        symbolSize: 8,
+                        emphasis: {
+                            itemStyle: {
+                                color: '#ff6b6b',
+                                borderColor: '#fff',
+                                borderWidth: 2,
+                                shadowBlur: 10,
+                                shadowColor: 'rgba(0, 0, 0, 0.3)'
+                            }
+                        },
+                        /*markPoint: showMarkersEnabled ? {
+                            data: [
+                                { 
+                                    type: 'max', 
+                                    name: '最大值',
+                                    symbolSize: 30,
+                                    label: {
+                                        formatter: '最高\n{c}',
+                                        color: '#fff',
+                                        backgroundColor: '#28a745',
+                                        padding: [5, 8],
+                                        borderRadius: 4
+                                    },
+                                    itemStyle: {
+                                        color: '#28a745'
+                                    }
+                                },
+                                { 
+                                    type: 'min', 
+                                    name: '最小值',
+                                    symbolSize: 30,
+                                    label: {
+                                        formatter: '最低\n{c}',
+                                        color: '#fff',
+                                        backgroundColor: '#dc3545',
+                                        padding: [5, 8],
+                                        borderRadius: 4
+                                    },
+                                    itemStyle: {
+                                        color: '#dc3545'
+                                    }
+                                }
+                            ],
+                            label: {
+                                color: '#fff',
+                                fontSize: 12
+                            }
+                        } : {}, */
+                        markLine: {
+                            silent: true,
+                            symbol: ['none', 'none'],
+                            lineStyle: {
+                                color: '#ff6b6b',
+                                type: 'dashed',
+                                width: 1
+                            },
+                            data: [
+                                /*{ 
+                                    type: 'average', 
+                                    name: '平均值',
+                                    label: {
+                                        formatter: '平均值: {c}',
+                                        position: 'insideEndTop',
+                                        color: '#666'
+                                    }
+                                },*/
+                                { 
+                                    yAxis: PERCENTILE_30, 
+                                    name: '30分位',
+                                    label: {
+                                        formatter: '30分位值: ' + PERCENTILE_30,
+                                        position: 'insideEndTop',
+                                        color: '#666'
+                                    }
+                                },
+                                { 
+                                    yAxis: PERCENTILE_50, 
+                                    name: '50分位',
+                                    label: {
+                                        formatter: '50分位值: ' + PERCENTILE_50,
+                                        position: 'insideEndTop',
+                                        color: '#666'
+                                    }
+                                },
+                                { 
+                                    yAxis: PERCENTILE_70, 
+                                    name: '70分位',
+                                    label: {
+                                        formatter: '70分位值: ' + PERCENTILE_70,
+                                        position: 'insideEndTop',
+                                        color: '#666'
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                /*graphic: [
+                    {
+                        type: 'text',
+                        left: 'center',
+                        top: 15,
+                        style: {
+                            text: `Y轴起始值: ${yAxisMin.toFixed(2)} | 数据范围: ${minValue.toFixed(2)} - ${maxValue.toFixed(2)}`,
+                            fill: '#666',
+                            fontSize: 12
+                        },
+                        show: false
+                    }
+                ]*/
+            };
+            
+            // 设置配置项
+            chartInstance.setOption(option);
+            
+            // 窗口大小改变时重绘图表
+            window.addEventListener('resize', function() {
+                chartInstance.resize();
+            });
+            
+            // 更新图表状态
+            //document.getElementById('chart-status').textContent = `Y轴范围: ${yAxisMin.toFixed(2)} - ${(maxValue + 3).toFixed(2)}`;
+        }
+        async function showMarketScatterChart(index, type){
+            const url = `/api/d/valuation/${type === 'TTM' ? 'ttmscatter' : 'mrqscatter'}`;
+            const res = await fetch(url);
+            const rawData = await res.json();
+            if(!rawData || !rawData.result || !rawData.result.data || rawData.result.data.length === 0) { drawText(`marketScatter${type}`, '暂无数据'); return; }
+            const data = rawData.result.data.map(item => {
+                const countField = `COUNT_NUM${index + 1}`;
+                const ratioField = `COUNT_RATIO${index + 1}`
+                return { TRADE_DATE: item.TRADE_DATE.slice(0,10), COUNT_NUM: item[countField], COUNT_RATIO: item[ratioField],CLOSE_PRICE: item.CLOSE_PRICE, SECU_NUM: item.SECU_NUM };
+            })
+            drawMarketScatterChart(data, type);
+            const title = document.getElementById(`legendTableBody${type}`).querySelector(`tr[data-row-index = '${index}']`).children[0].innerText;
+            document.getElementById(`scatterTitle${type}`).textContent = `${type === 'TTM' ? '市盈率(TTM)' : '市净率(MRQ)'}为${title}公司变化走势`
+        }
+        function drawMarketScatterChart(rawData, type){
+            // 数据处理：按时间倒序排列（最新日期在右侧）
+            const sortedData = [...rawData].sort((a, b) => new Date(a.TRADE_DATE) - new Date(b.TRADE_DATE));
+            
+            // 提取数据用于图表
+            const tradeDates = sortedData.map(item => {
+                const date = new Date(item.TRADE_DATE);
+                return date.toLocaleDateString('zh-CN');
+            });
+            
+            const countNum1 = sortedData.map(item => parseInt(item.COUNT_NUM));
+            const countRatio1 = sortedData.map(item => parseFloat(item.COUNT_RATIO));
+            const closePrice = sortedData.map(item => parseFloat(item.CLOSE_PRICE));
+            
+            // 计算数据摘要
+            const maxNum1 = Math.max(...countNum1);
+            const minNum1 = Math.min(...countNum1);
+            const maxRatio1 = Math.max(...countRatio1);
+            const minRatio1 = Math.min(...countRatio1);
+            const latestNum1 = countNum1[countNum1.length-1];
+            const latestRatio1 = countRatio1[countRatio1.length-1];
+            const numChange = ((latestNum1 - maxNum1) / maxNum1 * 100).toFixed(1);
+            const ratioChange = ((latestRatio1 - maxRatio1) / maxRatio1 * 100).toFixed(1);
+            
+            // 初始化ECharts实例
+            const chartContainer = `marketScatter${type}`;
+            const chartDom = document.getElementById(chartContainer);
+            const myChart = echarts.init(chartDom);
+            
+            // 配置项
+            let option = {
+                backgroundColor: '#fff',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        crossStyle: {
+                            color: '#999'
+                        }
+                    },
+                    formatter: function(params) {
+                        // 获取原始日期
+                        const index = params[0].dataIndex;
+                        const originalDate = new Date(sortedData[index].TRADE_DATE);
+                        const dateStr = `${originalDate.getFullYear()}-${(originalDate.getMonth()+1).toString().padStart(2, '0')}-${originalDate.getDate().toString().padStart(2, '0')}`;
+                        
+                        let html = `<div class="tooltip-content">`;
+                        html += `<div class="tooltip-date">📅 ${dateStr}</div>`;
+                        params.forEach(param => {
+                            const dataIndex = param.dataIndex;
+                            let change = 0;// dataIndex > 0 ? (value - avgValues[dataIndex - 1]).toFixed(2) : 0;
+                            let changePercent = 0; // dataIndex > 0 ? ((value - avgValues[dataIndex - 1]) / avgValues[dataIndex - 1] * 100).toFixed(2) : 0;
+
+                            const marker = param.marker;
+                            const seriesName = param.seriesName;
+                            let value = param.value;
+                            
+                            if (seriesName.includes('占比')) {
+                                change = dataIndex > 0 ? (value - countRatio1[dataIndex - 1]).toFixed(2) : 0;
+                                changePercent = dataIndex > 0 ? ((value - countRatio1[dataIndex - 1]) / countRatio1[dataIndex - 1] * 100).toFixed(2) : 0;
+                                value = value.toFixed(2) + '%';
+                            } else if (seriesName.includes('公司数量')) {
+                                change = dataIndex > 0 ? (value - countNum1[dataIndex - 1]).toFixed(2) : 0;
+                                changePercent = dataIndex > 0 ? ((value - countNum1[dataIndex - 1]) / countNum1[dataIndex - 1] * 100).toFixed(2) : 0;
+                                value = value;
+                            } 
+                            const changeColor = change >= 0 ? '#28a745' : '#dc3545';
+                            const changeSymbol = change >= 0 ? '↑' : '↓';
+
+                            html += `<div class="tooltip-value">`;
+                            html += `<span class="value-label" style="font-size:14px;font-weight:600;">${seriesName}:</span>`;
+                            html += `<span class="value-number" style="font-size:14px;font-weight:600;">${value}</span>`;
+                            html += `</div>`;
+
+                            html += `<div class="tooltip-value">`;
+                            html += `<span class="value-label">变化值:</span>`;
+                            html += `<span class="value-number" style="color:${changeColor}">${changeSymbol} ${Math.abs(change)}</span>`;
+                            html += `</div>`;
+
+                            html += `<div class="tooltip-value">`;
+                            html += `<span class="value-label">变化率:</span>`;
+                            html += `<span class="value-number" style="color:${changeColor}">${changeSymbol} ${Math.abs(changePercent)}%</span>`;
+                            html += `</div>`;
+
+                        });
+                        html += `</div>`;
+                        return html;
+                    }
+                },
+                legend: {
+                    data: ['公司数量', '占比'],
+                    top: 5,
+                    textStyle: {
+                        fontSize: 12
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '12%',
+                    top: '15%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        magicType: {
+                            type: ['line', 'bar'],
+                            title: {
+                                line: '切换为折线图',
+                                bar: '切换为柱状图'
+                            }
+                        },
+                        restore: {
+                            show: true,
+                            title: '还原'
+                        }
+                    },
+                    top: 10,
+                    right: 100
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: tradeDates,
+                        axisPointer: {
+                            type: 'shadow'
+                        },
+                        axisLabel: {
+                            //rotate: 45,
+                            fontSize: 12,
+                            margin: 10,
+                            formatter: function(value, index) {
+                                if(index % 4 === 0) return value;
+                                else return '';
+                            }
+                        },
+                        name: '交易日期',
+                        nameLocation: 'middle',
+                        nameGap: 30,
+                        nameTextStyle: {
+                            fontSize: 13,
+                            fontWeight: 'bold'
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#999'
+                            }
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '公司数量',
+                        min: Math.floor(minNum1 * 0.95),
+                        max: Math.ceil(maxNum1 * 1.05),
+                        position: 'left',
+                        axisLine: {
+                            show: true,
+                            lineStyle: {
+                                color: '#5470c6',
+                                width: 1
+                            }
+                        },
+                        axisLabel: {
+                            formatter: '{value}',
+                            fontSize: 12
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                type: 'dashed',
+                                color: '#e0e6ef'
+                            }
+                        },
+                        nameTextStyle: {
+                            fontSize: 13,
+                            fontWeight: 'bold',
+                            color: '#5470c6'
+                        }
+                    },
+                    {
+                        type: 'value',
+                        name: '占比 (%)',
+                        min: Math.floor(minRatio1 * 0.95),
+                        max: Math.ceil(maxRatio1 * 1.05),
+                        position: 'right',
+                        axisLine: {
+                            show: true,
+                            lineStyle: {
+                                color: '#ee6666',
+                                width: 1
+                            }
+                        },
+                        axisLabel: {
+                            formatter: '{value}%',
+                            fontSize: 12
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        nameTextStyle: {
+                            fontSize: 13,
+                            fontWeight: 'bold',
+                            color: '#ee6666'
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '公司数量',
+                        type: 'bar',
+                        yAxisIndex: 0,
+                        data: countNum1,
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: '#5470c6' },
+                                { offset: 0.7, color: '#73a0fa' },
+                                { offset: 1, color: '#91cc75' }
+                            ]),
+                            borderRadius: [4, 4, 0, 0],
+                            borderWidth: 0
+                        },
+                        emphasis: {
+                            itemStyle: {
+                                shadowColor: 'rgba(84, 112, 198, 0.8)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0
+                            }
+                        },
+                        barWidth: '50%',
+                        label: {
+                            show: false,
+                            position: 'top',
+                            fontSize: 11,
+                            color: '#5470c6',
+                            formatter: '{c}'
+                        }
+                    },
+                    {
+                        name: '占比',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        data: countRatio1,
+                        smooth: true,
+                        symbol: 'none',//'circle',
+                        symbolSize: 10,
+                        lineStyle: {
+                            width: 3,
+                            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                { offset: 0, color: '#ee6666' },
+                                { offset: 0.7, color: '#ff8c8c' },
+                                { offset: 1, color: '#fac858' }
+                            ])
+                        },
+                        itemStyle: {
+                            color: '#fff',
+                            borderColor: '#ee6666',
+                            borderWidth: 1
+                        },
+                        emphasis: {
+                            itemStyle: {
+                                color: '#ee6666',
+                                shadowColor: 'rgba(238, 102, 102, 0.8)',
+                                shadowBlur: 8
+                            }
+                        },
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: 'rgba(238, 102, 102, 0.4)' },
+                                { offset: 0.7, color: 'rgba(238, 102, 102, 0.2)' },
+                                { offset: 1, color: 'rgba(238, 102, 102, 0.05)' }
+                            ])
+                        },
+                        label: {
+                            show: false,
+                            position: 'top',
+                            fontSize: 11,
+                            color: '#ee6666',
+                            formatter: function(params) {
+                                return params.value.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                ],
+                dataZoom: [
+                    {
+                        type: 'inside',
+                        xAxisIndex: 0,
+                        start: 0,
+                        end: 100
+                    },
+                    {
+                        type: 'slider',
+                        xAxisIndex: 0,
+                        start: 0,
+                        end: 100,
+                        bottom: 10,
+                        height: 15,
+                        borderColor: '#e0e6ef',
+                        fillerColor: 'rgba(84, 112, 198, 0.2)',
+                        handleStyle: {
+                            color: '#5470c6'
+                        }
+                    }
+                ]
+            };
+            
+            // 应用配置
+            myChart.setOption(option);
+            
+            // 响应窗口大小变化
+            window.addEventListener('resize', function() {
+                myChart.resize();
+            });
+            
+        }
+        function drawText(container, text){
+            const chart = echarts.init(document.getElementById(container));
+    
+            const option = {
+                graphic: {
+                    type: 'text',
+                    left: 'center',
+                    top: 'middle',
+                    style: {
+                        text: text,
+                        fontSize: 20,
+                        fontWeight: 'bold',
+                        fontStyle: 'italic',
+                        fill: 'rgb(65 185 159 / 70%)',
+                        textAlign: 'center',
+                        lineHeight: 40
+                    }
+                },
+                xAxis: { show: false },
+                yAxis: { show: false },
+                series: []
+            };
+            
+            chart.setOption(option);
+        }
+
+        function handleScroll(container){
+            if (isLoading || !hasMore) return;
+            // 计算是否滚动到底部
+            const scrollTop = container.scrollTop;
+            const scrollHeight = container.scrollHeight;
+            const clientHeight = container.clientHeight;
+            if (scrollHeight - scrollTop - clientHeight < 50){
+                const reportName = document.getElementById('tabs').querySelector('.tab.active').getAttribute('data-src');
+                pageIndex++;
+                renderData(reportName);
+            }
+        }
+        function renderData(report){
+            const tblReport = ['stockttm', 'stockmrq', 'industryttm', 'industrymrq']
+            if(tblReport.indexOf(report) >= 0){ renderTableHeader(report); renderTable(report);}
+            else { showChart(report); }
+        }
+        
+        function scrollTabs(tabs, arrowLeft, arrowRight, tabPanes) {
+            // 每次滚动的距离
+            const scrollAmount = 200;
+            // 更新箭头状态
+            function updateArrowState() {
+                const scrollLeft = tabs.scrollLeft;
+                const maxScrollLeft = tabs.scrollWidth - tabs.clientWidth;
+                // 向左箭头状态
+                if (scrollLeft <= 10) arrowLeft.classList.add('hidden');
+                else arrowLeft.classList.remove('hidden');
+                // 向右箭头状态
+                if (scrollLeft >= maxScrollLeft - 10) arrowRight.classList.add('hidden');
+                else arrowRight.classList.remove('hidden');
+            }
+            // 初始更新箭头状态
+            updateArrowState();
+            // 向右滚动
+            arrowRight.addEventListener('click', function () {
+                if (!this.classList.contains('hidden')) {
+                    tabs.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    // 滚动完成后更新箭头状态
+                    setTimeout(updateArrowState, 300);
+                }
+            });
+            // 向左滚动
+            arrowLeft.addEventListener('click', function () {
+                if (!this.classList.contains('hidden')) {
+                    tabs.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    // 滚动完成后更新箭头状态
+                    setTimeout(updateArrowState, 300);
+                }
+            });
+            // 监听滚动事件更新箭头状态
+            tabs.addEventListener('scroll', updateArrowState);
+            // 添加调整窗口大小时更新状态
+            window.addEventListener('resize', updateArrowState);
+        }
+        document.querySelectorAll('thead > tr > th').forEach(item => {
+            item.addEventListener('click', async function (event) {
+                try{
+                    isLoading = true;
+                    pageIndex = 1;
+                    const tabId = document.getElementById('tabs').querySelector('.tab.active').getAttribute('data-tab');
+                    const report = document.getElementById(tabId).querySelector('a.btn.active').getAttribute('data-src');
+                    const st = event.target.getAttribute('data-key')
+                    const url = `/api/d/valuation/${report}?pn=${pageIndex}&st=${st}`;
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    renderGGTZPJTable(data);
+                }
+                catch(err){
+                    console.log(err);
+                }
+                finally{
+                    setTimeout(function(){ isLoading = false;  hideLoadingIndicator();},500);
+                }
+            });
+        })
+        document.querySelectorAll('a.btn').forEach(abtn => {
+            abtn.addEventListener('click', function(event){
+                if(event.target.classList.contains('active')) return;
+
+                const dataSrc = event.target.getAttribute('data-src');
+                pageIndex = 1;
+                //updateTableHeader(dataSrc)
+                if(dataSrc === 'marketttm' || dataSrc === 'marketmrq' ) renderData(dataSrc);
+                else renderTable(dataSrc);
+                event.target.parentElement.querySelectorAll('a.btn').forEach(item => { item.classList.remove('active')});
+                event.target.classList.add('active');
+            });
+        })
+        document.addEventListener('DOMContentLoaded', function () {
+            renderTableHeader('stockttm', document.getElementById('headStock'));
+            showData('stockttm', stockTTMData);
+            let tabs = document.getElementById('tabs');
+            let arrowLeft = document.getElementById('arrow-left');
+            let arrowRight = document.getElementById('arrow-right');
+            let tabPanes = document.querySelectorAll('.tab-pane');
+            scrollTabs(tabs, arrowLeft, arrowRight, tabPanes);
+            document.querySelectorAll('.tab-tag').forEach(tab => {
+                tab.addEventListener('click', async function(event){
+                    if (event.target.classList.contains('active')) return;
+                    lastScrollLeft = 0; lastScrollTop = 0;
+                    const tabEl = event.target;
+                    let queryEls = `#${tabEl.parentElement.id} > .tab-tag`;
+                    document.querySelectorAll(queryEls).forEach(tab => { tab.classList.remove('active') });
+                    tabEl.classList.add('active');
+                    const tabId = tabEl.getAttribute('data-tab');
+                    queryEls = `#${document.getElementById(tabId).parentElement.id} > .tab-data-container`;
+                    document.querySelectorAll(queryEls).forEach(pane => pane.classList.remove('active'));
+                    document.getElementById(tabId).classList.add('active');
+
+                    const report = document.getElementById(tabId).querySelector('a.btn.active').getAttribute('data-src');
+                    pageIndex = 1;
+                    renderData(report);
+                });
+            })
+            let scrollTimeout;
+            document.querySelectorAll('.table-container').forEach(tableContainer => {
+                tableContainer.addEventListener('scroll', (event) => {
+                    if(pageIndex === 1) { lastScrollLeft = 0; lastScrollTop = 0; }
+                    const threshold = 15;
+                    const deltaX = event.target.scrollLeft - lastScrollLeft;
+                    const deltaY = event.target.scrollTop - lastScrollTop;
+                    if (Math.abs(deltaX) > Math.abs(deltaY)) return; // 水平滚动，不更新数据
+                    if(scrollTimeout) clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => { handleScroll(event.target); }, 100);
+                });
+            })
+        });
+        document.querySelector('.ico-open').addEventListener('click', function () {
+            document.querySelector('.m-mask').classList.remove("none")
+        })
+        document.querySelector('.m-mask').addEventListener('click', function () {
+            this.classList.add("none")
+        })
+    </script>
+</body>
+</html>

@@ -17,10 +17,10 @@
     {{include './common/header.html'}}
     
     <!-- banner -->
-    <section class="banner flex justify-center">
+    <!--<section class="banner flex justify-center">
         <h3 class="chanyue text-c">缠说・股经</h3>
         <p class="f-20 text-c mt-20">基于大数据的股票交易策略</p>
-    </section>
+    </section>-->
 
     <!--<section class="main center flex justify-between flex-wrap pd-30 ">-->
         <div class="theme-container">
@@ -65,7 +65,7 @@
                                                 <span>最近30日涨幅</span>
                                                 <span>{{!$value.cumulateF3 ? '--' : ($value.cumulateF3.toFixed(2) + '%')}}</span>
                                             </div>
-                                            <div class="chart-container" id="chart{{$value.eid}}">
+                                            <div class="chart-container mh-75" id="chart{{$value.eid}}">
                                                 <canvas class="data-chart" width="150" height="70" id="canvas{{$value.eid}}"></canvas>
                                                 <script>
                                                     drawThemeKLine(document.getElementById(`canvas{{$value.eid}}`), eval(`{{ $value.kLineList }}`))
