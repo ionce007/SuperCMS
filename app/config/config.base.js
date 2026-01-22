@@ -5,7 +5,7 @@ const APP_PATH = path.join(ROOT_PATH, "app");
 const config = {};
 config.appRoot = APP_PATH;
 config.appName = "SuperCMS";
-config.port = "81";
+config.port = "9081";
 config.version = "v26.01.20";
 config.versionTime = "2026-01-20";
 config.authorEmail = "ionce@163.com";
@@ -24,7 +24,6 @@ config.static = [
     maxAge: 0,
   },
 ];
-console.log('config.static = ', config.static);
 config.modules = ["api", "common", "web"];
 config.plugins = ["plus-wechat"];
 

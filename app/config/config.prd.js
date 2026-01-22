@@ -18,7 +18,7 @@ config.db = [
 ];
 
 //web端口
-config.port = "81";
+config.port = "9081";
 
 //静态资源
 config.static = [...base.static];

@@ -18,7 +18,7 @@ config.db = [
 ];
 
 //web端口
-config.port = "81";
+config.port = "9081";
 
 //模板静态资源
 config.static = [
