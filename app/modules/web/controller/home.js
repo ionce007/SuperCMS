@@ -112,6 +112,11 @@ class HomeController {
         current,
         data,
       });
+      console.log('category = ', category)
+      console.log('cate = ', cate)
+      console.log('current = ', current)
+      console.log('data = ', data)
+      console.log('data.articleList.list = ', data.articleList.list)
       await res.render(`${template}/${view}`, {
         position,
         cate,

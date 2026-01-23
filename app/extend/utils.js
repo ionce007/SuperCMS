@@ -248,7 +248,31 @@ exports.formatDate = (date = new Date(), format = 'yyyy-MM-dd HH:mm:ss') => {
     'a': d.getHours() < 12 ? 'am' : 'pm',
     'A': d.getHours() < 12 ? 'AM' : 'PM'
   };
+}
+exports.dateFormat = (date = new Date(), format = 'yyyy-MM-dd HH:mm:ss') => {
+  // 处理输入日期
+  const d = date instanceof Date ? date : new Date(date);
+  if (isNaN(d.getTime())) throw new Error('Invalid date');
 
+  // 定义替换规则
+  const replacements = {
+    'yyyy': d.getFullYear(),
+    'yy': String(d.getFullYear()).slice(-2),
+    'MM': String(d.getMonth() + 1).padStart(2, '0'),
+    'M': d.getMonth() + 1,
+    'dd': String(d.getDate()).padStart(2, '0'),
+    'd': d.getDate(),
+    'HH': String(d.getHours()).padStart(2, '0'),
+    'H': d.getHours(),
+    'hh': String(d.getHours() % 12 || 12).padStart(2, '0'),
+    'h': d.getHours() % 12 || 12,
+    'mm': String(d.getMinutes()).padStart(2, '0'),
+    'm': d.getMinutes(),
+    'ss': String(d.getSeconds()).padStart(2, '0'),
+    's': d.getSeconds(),
+    'a': d.getHours() < 12 ? 'am' : 'pm',
+    'A': d.getHours() < 12 ? 'AM' : 'PM'
+  };
   // 执行替换
   return format.replace(/(yyyy|yy|MM|M|dd|d|HH|H|hh|h|mm|m|ss|s|a|A)/g,
     match => replacements[match]);

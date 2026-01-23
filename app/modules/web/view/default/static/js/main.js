@@ -180,7 +180,64 @@ document.querySelectorAll("pre").forEach(function (preElement) {
     }
    }()
 );
+Date.prototype.format = function(format = 'yyyy-MM-dd') {
+    let date = this;
+    if (!(date instanceof Date)) {
+        date = new Date(date);
+    }
+    const replacements = {
+        'yyyy': date.getFullYear(),
+        'yy': String(date.getFullYear()).slice(-2),
+        'MM': String(date.getMonth() + 1).padStart(2, '0'),
+        'M': date.getMonth() + 1,
+        'dd': String(date.getDate()).padStart(2, '0'),
+        'd': date.getDate(),
+        'HH': String(date.getHours()).padStart(2, '0'),
+        'H': date.getHours(),
+        'hh': String(date.getHours() % 12 || 12).padStart(2, '0'),
+        'h': date.getHours() % 12 || 12,
+        'mm': String(date.getMinutes()).padStart(2, '0'),
+        'm': date.getMinutes(),
+        'ss': String(date.getSeconds()).padStart(2, '0'),
+        's': date.getSeconds(),
+        'SSS': String(date.getMilliseconds()).padStart(3, '0'),
+        'a': date.getHours() < 12 ? '上午' : '下午',
+        'A': date.getHours() < 12 ? 'AM' : 'PM',
+        'E': ['日', '一', '二', '三', '四', '五', '六'][date.getDay()],
+        'EEEE': ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][date.getDay()]
+    };
+    
+    return format.replace(/(yyyy|yy|MM|M|dd|d|HH|H|hh|h|mm|m|ss|s|SSS|a|A|E|EEEE)/g, 
+        match => replacements[match] || match);
+};
+const dateFormat = (date = new Date(), format = 'yyyy-MM-dd HH:mm:ss') => {
+  // 处理输入日期
+  const d = date instanceof Date ? date : new Date(date);
+  if (isNaN(d.getTime())) throw new Error('Invalid date');
 
+  // 定义替换规则
+  const replacements = {
+    'yyyy': d.getFullYear(),
+    'yy': String(d.getFullYear()).slice(-2),
+    'MM': String(d.getMonth() + 1).padStart(2, '0'),
+    'M': d.getMonth() + 1,
+    'dd': String(d.getDate()).padStart(2, '0'),
+    'd': d.getDate(),
+    'HH': String(d.getHours()).padStart(2, '0'),
+    'H': d.getHours(),
+    'hh': String(d.getHours() % 12 || 12).padStart(2, '0'),
+    'h': d.getHours() % 12 || 12,
+    'mm': String(d.getMinutes()).padStart(2, '0'),
+    'm': d.getMinutes(),
+    'ss': String(d.getSeconds()).padStart(2, '0'),
+    's': d.getSeconds(),
+    'a': d.getHours() < 12 ? 'am' : 'pm',
+    'A': d.getHours() < 12 ? 'AM' : 'PM'
+  };
+  // 执行替换
+  return format.replace(/(yyyy|yy|MM|M|dd|d|HH|H|hh|h|mm|m|ss|s|a|A)/g,
+    match => replacements[match]);
+}
 // 导航加active 高亮
 /*;(function () {
     function buildUrlsFromArray(fileName = "index.html") {
