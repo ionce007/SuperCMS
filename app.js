@@ -1,7 +1,6 @@
 ﻿//const Chanjs = require("chanjs");
 import Chanjs from 'chanjs';
-console.log(typeof(Chanjs) === 'function' ? 'function' : ( typeof(Chanjs) === '' ? '' : '' ));
-const chan =  Chanjs();
+const chan = new Chanjs();
 //global.voiceData = getVoiceData();
 //console.log('Chan.config = ', Chan.config);
 Chan.config.static.forEach(item => {
@@ -17,6 +16,7 @@ chan.run((port) => {
   console.log(`SuperCMS 运行于 ${port} 端口，可访问： http://localhost:${port}`);
 });
 
+export default chan;
 /*function getVoiceData(){
   const path = require('path');
   const voicePath = path.join(process.cwd(), 'voice');
