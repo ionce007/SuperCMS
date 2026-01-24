@@ -12,7 +12,7 @@ config.authorEmail = "ionce@163.com";
 config.authorWechat = "-ionce";
 config.JSON_LIMIT = "10240kb";
 
-config.static = [
+const static = [
   {
     prefix: "/public/",
     dir: "app/public",
@@ -24,6 +24,7 @@ config.static = [
     maxAge: 0,
   },
 ];
+config.static = static;
 console.log('config.static = ', config.static);
 config.modules = ["api", "common", "web"];
 config.plugins = ["plus-wechat"];
