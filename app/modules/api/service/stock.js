@@ -1451,11 +1451,13 @@ class StockService extends BaseService {
             let isNewDate = utils.dateFormat(new Date(), 'yyyy-MM-dd');
             if (!limitDates.result) isNewDate = tradeDates.result.data[0].DATE
             else isNewDate = limitDates.result.data.filter(item => item.IS_NEW === '1')[0].TRADE_DATE;
+
+            console.log('isNewDate = ', isNewDate);
             const endDate = new Date(new Date(isNewDate).setFullYear(new Date(isNewDate).getFullYear() - 1));
             let data = [];
             let calendar = [];
-            
-            console.log('tradeDates = ', tradeDates);
+
+            //console.log('tradeDates = ', tradeDates);
 
             for (let i = 0; i < tradeDates.result.data.length; i++) {
                 if (new Date(tradeDates.result.data[i].DATE) >= endDate) {
