@@ -1102,7 +1102,7 @@ class StockService extends BaseService {
     /**获取交易日期 */
     async getWebTradeDate(pn) {
         try {
-            let dateStr = utils.formatDate(new Date(), 'yyyy-MM-dd');
+            let dateStr = utils.dateFormat(new Date(), 'yyyy-MM-dd');
             let startDateStr = `1990-01-01`
             const reportName = 'RPTA_WEB_TRADE_DATE';
             if (!pn) pn = 1;

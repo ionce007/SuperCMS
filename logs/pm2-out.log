@@ -1,0 +1,276 @@
+2026-01-24 18:17 +08:00: Chanjs init: 151.2491 ms
+2026-01-24 18:17 +08:00: Chanjs load modules: 305.75070000000005 ms
+2026-01-24 18:17 +08:00: SuperCMS 运行于 9081 端口，可访问： http://localhost:9081
+2026-01-24 18:18 +08:00: GET / 304 - - 1178.374 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/saduo@0.0.2.css 304 - - 4.968 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/saduo-wap@0.0.1.css 304 - - 2.952 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/swiper.min.css 304 - - 1.276 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/main.css 304 - - 1.852 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/prism.css 304 - - 2.649 ms
+2026-01-24 18:18 +08:00: GET /public/cover/04.jpg 304 - - 2.393 ms
+2026-01-24 18:18 +08:00: GET /public/cover/07.jpg 304 - - 1.416 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/swiper.min.js 304 - - 1.449 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/prism.js 304 - - 1.463 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/main.js 304 - - 1.610 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/imageProxy.js 304 - - 0.415 ms
+2026-01-24 18:18 +08:00: GET /public/cover/06.jpg 304 - - 2.590 ms
+2026-01-24 18:18 +08:00: GET /public/cover/10.jpg 304 - - 4.127 ms
+2026-01-24 18:18 +08:00: GET /web/default/img/wxico.png 304 - - 1.847 ms
+2026-01-24 18:18 +08:00: GET /web/default/img/logo.svg 304 - - 1.969 ms
+2026-01-24 18:18 +08:00: GET /web/default/img/favicon.png 304 - - 0.679 ms
+2026-01-24 18:18 +08:00: category =  [
+2026-01-24 18:18 +08:00:   {
+2026-01-24 18:18 +08:00:     id: 1,
+2026-01-24 18:18 +08:00:     pid: 0,
+2026-01-24 18:18 +08:00:     name: '首页',
+2026-01-24 18:18 +08:00:     pinyin: 'home',
+2026-01-24 18:18 +08:00:     path: '/home',
+2026-01-24 18:18 +08:00:     orderBy: 1,
+2026-01-24 18:18 +08:00:     target: '0',
+2026-01-24 18:18 +08:00:     status: '0',
+2026-01-24 18:18 +08:00:     listView: 'index.html',
+2026-01-24 18:18 +08:00:     articleView: 'article.html',
+2026-01-24 18:18 +08:00:     seoTitle: '',
+2026-01-24 18:18 +08:00:     seoKeywords: '',
+2026-01-24 18:18 +08:00:     seoDescription: '',
+2026-01-24 18:18 +08:00:     type: '1',
+2026-01-24 18:18 +08:00:     tag: 'home',
+2026-01-24 18:18 +08:00:     level: 1
+2026-01-24 18:18 +08:00:   },
+2026-01-24 18:18 +08:00:   {
+2026-01-24 18:18 +08:00:     id: 2,
+2026-01-24 18:18 +08:00:     pid: 0,
+2026-01-24 18:18 +08:00:     name: '谈股论经',
+2026-01-24 18:18 +08:00:     pinyin: 'articles',
+2026-01-24 18:18 +08:00:     path: '/articles',
+2026-01-24 18:18 +08:00:     orderBy: 2,
+2026-01-24 18:18 +08:00:     target: '0',
+2026-01-24 18:18 +08:00:     status: '0',
+2026-01-24 18:18 +08:00:     listView: 'list.html',
+2026-01-24 18:18 +08:00:     articleView: 'article.html',
+2026-01-24 18:18 +08:00:     seoTitle: '',
+2026-01-24 18:18 +08:00:     seoKeywords: '',
+2026-01-24 18:18 +08:00:     seoDescription: '',
+2026-01-24 18:18 +08:00:     type: '0',
+2026-01-24 18:18 +08:00:     tag: 'articles',
+2026-01-24 18:18 +08:00:     level: 1
+2026-01-24 18:18 +08:00:   },
+2026-01-24 18:18 +08:00:   {
+2026-01-24 18:18 +08:00:     id: 3,
+2026-01-24 18:18 +08:00:     pid: 0,
+2026-01-24 18:18 +08:00:     name: '指标公式',
+2026-01-24 18:18 +08:00:     pinyin: 'formula',
+2026-01-24 18:18 +08:00:     path: '/formula',
+2026-01-24 18:18 +08:00:     orderBy: 3,
+2026-01-24 18:18 +08:00:     target: '0',
+2026-01-24 18:18 +08:00:     status: '0',
+2026-01-24 18:18 +08:00:     listView: 'list.html',
+2026-01-24 18:18 +08:00:     articleView: 'article.html',
+2026-01-24 18:18 +08:00:     seoTitle: '',
+2026-01-24 18:18 +08:00:     seoKeywords: '',
+2026-01-24 18:18 +08:00:     seoDescription: '',
+2026-01-24 18:18 +08:00:     type: '0',
+2026-01-24 18:18 +08:00:     tag: 'formula',
+2026-01-24 18:18 +08:00:     level: 1
+2026-01-24 18:18 +08:00:   },
+2026-01-24 18:18 +08:00:   {
+2026-01-24 18:18 +08:00:     id: 11,
+2026-01-24 18:18 +08:00:     pid: 0,
+2026-01-24 18:18 +08:00:     name: '数据集锦',
+2026-01-24 18:18 +08:00:     pinyin: 'datus',
+2026-01-24 18:18 +08:00:     path: '/datus',
+2026-01-24 18:18 +08:00:     orderBy: 4,
+2026-01-24 18:18 +08:00:     target: '0',
+2026-01-24 18:18 +08:00:     status: '0',
+2026-01-24 18:18 +08:00:     listView: 'stockdata.html',
+2026-01-24 18:18 +08:00:     articleView: 'stockdata.html',
+2026-01-24 18:18 +08:00:     seoTitle: '',
+2026-01-24 18:18 +08:00:     seoKeywords: '',
+2026-01-24 18:18 +08:00:     seoDescription: '',
+2026-01-24 18:18 +08:00:     type: '0',
+2026-01-24 18:18 +08:00:     tag: 'datus',
+2026-01-24 18:18 +08:00:     level: 1,
+2026-01-24 18:18 +08:00:     createdAt: '01-24'
+2026-01-24 18:18 +08:00:   },
+2026-01-24 18:18 +08:00:   {
+2026-01-24 18:18 +08:00:     id: 7,
+2026-01-24 18:18 +08:00:     pid: 0,
+2026-01-24 18:18 +08:00:     name: '关于我们',
+2026-01-24 18:18 +08:00:     pinyin: 'about',
+2026-01-24 18:18 +08:00:     path: '/about',
+2026-01-24 18:18 +08:00:     orderBy: 6,
+2026-01-24 18:18 +08:00:     target: '0',
+2026-01-24 18:18 +08:00:     status: '0',
+2026-01-24 18:18 +08:00:     listView: 'article.html',
+2026-01-24 18:18 +08:00:     articleView: 'article.html',
+2026-01-24 18:18 +08:00:     seoTitle: '',
+2026-01-24 18:18 +08:00:     seoKeywords: '',
+2026-01-24 18:18 +08:00:     seoDescription: '',
+2026-01-24 18:18 +08:00:     type: '1',
+2026-01-24 18:18 +08:00:     tag: 'about',
+2026-01-24 18:18 +08:00:     level: 1
+2026-01-24 18:18 +08:00:   }
+2026-01-24 18:18 +08:00: ]
+2026-01-24 18:18 +08:00: cate =  {
+2026-01-24 18:18 +08:00:   id: 11,
+2026-01-24 18:18 +08:00:   pid: 0,
+2026-01-24 18:18 +08:00:   name: '数据集锦',
+2026-01-24 18:18 +08:00:   pinyin: 'datus',
+2026-01-24 18:18 +08:00:   path: '/datus',
+2026-01-24 18:18 +08:00:   orderBy: 4,
+2026-01-24 18:18 +08:00:   target: '0',
+2026-01-24 18:18 +08:00:   status: '0',
+2026-01-24 18:18 +08:00:   listView: 'stockdata.html',
+2026-01-24 18:18 +08:00:   articleView: 'stockdata.html',
+2026-01-24 18:18 +08:00:   seoTitle: '',
+2026-01-24 18:18 +08:00:   seoKeywords: '',
+2026-01-24 18:18 +08:00:   seoDescription: '',
+2026-01-24 18:18 +08:00:   type: '0',
+2026-01-24 18:18 +08:00:   tag: 'datus',
+2026-01-24 18:18 +08:00:   level: 1,
+2026-01-24 18:18 +08:00:   createdAt: '01-24'
+2026-01-24 18:18 +08:00: }
+2026-01-24 18:18 +08:00: current =  1
+2026-01-24 18:18 +08:00: data =  {
+2026-01-24 18:18 +08:00:   articleList: { count: 1, total: 1, current: 1, list: [ [Object] ] },
+2026-01-24 18:18 +08:00:   recommend: [],
+2026-01-24 18:18 +08:00:   hot: [ { id: 1, title: '数据集锦', path: '/datus' } ],
+2026-01-24 18:18 +08:00:   imgs: []
+2026-01-24 18:18 +08:00: }
+2026-01-24 18:18 +08:00: data.articleList.list =  [
+2026-01-24 18:18 +08:00:   {
+2026-01-24 18:18 +08:00:     id: 1,
+2026-01-24 18:18 +08:00:     title: '数据集锦',
+2026-01-24 18:18 +08:00:     shortTitle: '',
+2026-01-24 18:18 +08:00:     img: '',
+2026-01-24 18:18 +08:00:     description: '',
+2026-01-24 18:18 +08:00:     createdAt: 2024-09-13T14:49:28.000Z,
+2026-01-24 18:18 +08:00:     author: '',
+2026-01-24 18:18 +08:00:     pv: 437,
+2026-01-24 18:18 +08:00:     pinyin: 'datus',
+2026-01-24 18:18 +08:00:     name: '数据集锦',
+2026-01-24 18:18 +08:00:     path: '/datus'
+2026-01-24 18:18 +08:00:   }
+2026-01-24 18:18 +08:00: ]
+2026-01-24 18:18 +08:00: GET /datus/index.html 304 - - 237.608 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/saduo@0.0.2.css 304 - - 0.758 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/saduo-wap@0.0.1.css 304 - - 1.152 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/swiper.min.css 304 - - 1.473 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/main.css 304 - - 2.526 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/prism.css 304 - - 1.980 ms
+2026-01-24 18:18 +08:00: GET /web/default/img/wxico.png 304 - - 1.968 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/swiper.min.js 304 - - 1.328 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/prism.js 304 - - 1.280 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/main.js 304 - - 0.990 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/imageProxy.js 304 - - 1.951 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/stock.js 304 - - 1.278 ms
+2026-01-24 18:18 +08:00: reportCode =  002
+2026-01-24 18:18 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPTA_CUSTOM_APP_CONCEPTLIST&columns=&filter=&pageNumber=1&pageSize=20&em_timestamp=1769249914553&v=7641057908742277
+2026-01-24 18:18 +08:00: reportCode =  011
+2026-01-24 18:18 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPT_CUSTOM_INTSELECTION_MONITOR&columns=ALL&filter=(IS_QUALITY_GENE%3D%221%22)&pageNumber=1&pageSize=500&sortTypes=-1&sortColumns=ZTJY&em_timestamp=1769249914590&v=8584824605616117
+2026-01-24 18:18 +08:00: reportCode =  101
+2026-01-24 18:18 +08:00: url =  https://quotederivates.eastmoney.com/datacenter/zdtpool?datetype=3&stocktype=2,6,80,23,36&zdt=1&version=100&cver=100&v=5768585856801796
+2026-01-24 18:18 +08:00: reportCode =  001
+2026-01-24 18:18 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPT_CUSTOM_INTSELECTION_LIMIT&columns=LIMIT_NUMBERS,NATURAL_LIMIT,DAILY_LIMIT,TOUCH_LIMIT,SEALING_RATE,NATURAL_LIMIT_YES,LIMIT_PER_YES,,LIMIT_DOWN_NUM,CJDT_NUM,DT_FBL&filter=&pageNumber=1&pageSize=1&em_timestamp=1769249915004&v=3466998416296756
+2026-01-24 18:18 +08:00: reportCode =  201
+2026-01-24 18:18 +08:00: url =  https://push2dycalc.eastmoney.com/api/qt/ulist.np/get?secids=1.000002,0.399002,0.899050&fields=f12,f13,f14,f627,f628,f437,f438&fltt=2&invt=3&ut=ccfac0b9-b195-4c1b-bc48-894023a53080&v=5893085439181089
+2026-01-24 18:18 +08:00: GET /datus/uplimit.html 304 - - 979.901 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/saduo@0.0.2.css 304 - - 2.215 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/saduo-wap@0.0.1.css 304 - - 4.167 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/swiper.min.css 304 - - 2.460 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/main.css 304 - - 1.847 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/prism.css 304 - - 1.891 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/flatpickr.min.css 304 - - 2.519 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/font-awesome.all.min.css 304 - - 1.449 ms
+2026-01-24 18:18 +08:00: GET /web/default/css/stock.css 304 - - 1.532 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/chart.js 304 - - 3.374 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/stockChart.js 304 - - 2.819 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/stock.js 304 - - 2.506 ms
+2026-01-24 18:18 +08:00: GET /web/default/img/wxico.png 304 - - 1.860 ms
+2026-01-24 18:18 +08:00: GET /web/default/img/strong.png 304 - - 0.735 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/swiper.min.js 304 - - 0.577 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/prism.js 304 - - 0.614 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/main.js 304 - - 0.863 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/imageProxy.js 304 - - 0.686 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/flatpickr.js 304 - - 1.235 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/vue.global.prod.js 304 - - 1.012 ms
+2026-01-24 18:18 +08:00: GET /web/default/js/tailwindcss.so.js 304 - - 1.188 ms
+2026-01-24 18:18 +08:00: GET /web/default/webfonts/fa-solid-900.woff2 304 - - 0.702 ms
+2026-01-24 18:18 +08:00: date = 2026-01-23   blockCode = undefined   pn = 1   ps = undefined
+2026-01-24 18:18 +08:00: date = 2026-01-23   blockCode = undefined   pn = 1   ps = undefined
+2026-01-24 18:18 +08:00: date = 2026-01-23   blockCode = undefined   pn = 1   ps = undefined
+2026-01-24 18:18 +08:00: date = 2026-01-23   blockCode = undefined   pn = 1   ps = undefined
+2026-01-24 18:18 +08:00: GET /api/d/limitCalendar 304 - - 145.656 ms
+2026-01-24 18:18 +08:00: reportCode =  011
+2026-01-24 18:18 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPT_CUSTOM_INTSELECTION_MONITOR&columns=ALL&filter=(IS_QUALITY_GENE%3D%221%22)&pageNumber=1&pageSize=500&sortTypes=-1&sortColumns=ZTJY&em_timestamp=1769249915822&v=37571308741239484
+2026-01-24 18:18 +08:00: GET /api/d/report/quality/?date=2026-01-23 304 - - 216.093 ms
+2026-01-24 18:18 +08:00: reportCode =  002
+2026-01-24 18:18 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPTA_CUSTOM_APP_CONCEPTLIST&columns=&filter=&pageNumber=1&pageSize=500&em_timestamp=1769249915824&v=458060165982733
+2026-01-24 18:18 +08:00: GET /api/d/report/limitleader/?date=2026-01-23 304 - - 226.901 ms
+2026-01-24 18:18 +08:00: reportCode =  101
+2026-01-24 18:18 +08:00: url =  https://quotederivates.eastmoney.com/datacenter/zdtpool?datetype=3&stocktype=2,6,80,23,36&zdt=1&version=100&cver=100&v=07677094432102449
+2026-01-24 18:18 +08:00: GET /api/d/report/auction/?date=2026-01-23 304 - - 367.584 ms
+2026-01-24 18:18 +08:00: reportCode =  001
+2026-01-24 18:18 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPT_CUSTOM_INTSELECTION_LIMIT&columns=LIMIT_NUMBERS,NATURAL_LIMIT,DAILY_LIMIT,TOUCH_LIMIT,SEALING_RATE,NATURAL_LIMIT_YES,LIMIT_PER_YES,,LIMIT_DOWN_NUM,CJDT_NUM,DT_FBL&filter=&pageNumber=1&pageSize=1&em_timestamp=1769249916646&v=9340991036731037
+2026-01-24 18:18 +08:00: reportCode =  201
+2026-01-24 18:18 +08:00: url =  https://push2dycalc.eastmoney.com/api/qt/ulist.np/get?secids=1.000002,0.399002,0.899050&fields=f12,f13,f14,f627,f628,f437,f438&fltt=2&invt=3&ut=ccfac0b9-b195-4c1b-bc48-894023a53080&v=7666404720591655
+2026-01-24 18:18 +08:00: GET /api/d/report/effect/?date=2026-01-23 304 - - 1155.459 ms
+2026-01-24 18:19 +08:00: Chanjs init: 187.41960000000006 ms
+2026-01-24 18:19 +08:00: Chanjs load modules: 246.4094 ms
+2026-01-24 18:19 +08:00: SuperCMS 运行于 9081 端口，可访问： http://localhost:9081
+2026-01-24 18:20 +08:00: Chanjs init: 162.17579999999998 ms
+2026-01-24 18:20 +08:00: Chanjs load modules: 339.43539999999996 ms
+2026-01-24 18:20 +08:00: SuperCMS 运行于 9081 端口，可访问： http://localhost:9081
+2026-01-24 18:21 +08:00: reportCode =  002
+2026-01-24 18:21 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPTA_CUSTOM_APP_CONCEPTLIST&columns=&filter=&pageNumber=1&pageSize=20&em_timestamp=1769250065597&v=7894653644442413
+2026-01-24 18:21 +08:00: reportCode =  101
+2026-01-24 18:21 +08:00: url =  https://quotederivates.eastmoney.com/datacenter/zdtpool?datetype=3&stocktype=2,6,80,23,36&zdt=1&version=100&cver=100&v=25100627850200175
+2026-01-24 18:21 +08:00: reportCode =  011
+2026-01-24 18:21 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPT_CUSTOM_INTSELECTION_MONITOR&columns=ALL&filter=(IS_QUALITY_GENE%3D%221%22)&pageNumber=1&pageSize=500&sortTypes=-1&sortColumns=ZTJY&em_timestamp=1769250065806&v=9053047213708225
+2026-01-24 18:21 +08:00: reportCode =  001
+2026-01-24 18:21 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPT_CUSTOM_INTSELECTION_LIMIT&columns=LIMIT_NUMBERS,NATURAL_LIMIT,DAILY_LIMIT,TOUCH_LIMIT,SEALING_RATE,NATURAL_LIMIT_YES,LIMIT_PER_YES,,LIMIT_DOWN_NUM,CJDT_NUM,DT_FBL&filter=&pageNumber=1&pageSize=1&em_timestamp=1769250066008&v=37546202895085035
+2026-01-24 18:21 +08:00: reportCode =  201
+2026-01-24 18:21 +08:00: url =  https://push2dycalc.eastmoney.com/api/qt/ulist.np/get?secids=1.000002,0.399002,0.899050&fields=f12,f13,f14,f627,f628,f437,f438&fltt=2&invt=3&ut=c53f79d0-c4de-4459-a9b5-3f67179fc1b5&v=19878193235370945
+2026-01-24 18:21 +08:00: GET /datus/uplimit.html 304 - - 1307.277 ms
+2026-01-24 18:21 +08:00: GET /web/default/css/saduo@0.0.2.css 304 - - 5.655 ms
+2026-01-24 18:21 +08:00: GET /web/default/css/saduo-wap@0.0.1.css 304 - - 3.635 ms
+2026-01-24 18:21 +08:00: GET /web/default/css/swiper.min.css 304 - - 3.130 ms
+2026-01-24 18:21 +08:00: GET /web/default/css/main.css 304 - - 3.222 ms
+2026-01-24 18:21 +08:00: GET /web/default/css/prism.css 304 - - 3.097 ms
+2026-01-24 18:21 +08:00: GET /web/default/css/flatpickr.min.css 304 - - 3.589 ms
+2026-01-24 18:21 +08:00: GET /web/default/css/font-awesome.all.min.css 304 - - 3.880 ms
+2026-01-24 18:21 +08:00: GET /web/default/css/stock.css 304 - - 4.072 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/chart.js 304 - - 2.630 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/stockChart.js 304 - - 2.160 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/stock.js 304 - - 2.254 ms
+2026-01-24 18:21 +08:00: GET /web/default/img/strong.png 304 - - 1.198 ms
+2026-01-24 18:21 +08:00: GET /web/default/img/wxico.png 304 - - 1.052 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/swiper.min.js 304 - - 0.984 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/prism.js 304 - - 2.322 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/main.js 304 - - 4.060 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/imageProxy.js 304 - - 1.501 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/flatpickr.js 304 - - 1.556 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/vue.global.prod.js 304 - - 2.123 ms
+2026-01-24 18:21 +08:00: GET /web/default/js/tailwindcss.so.js 304 - - 1.029 ms
+2026-01-24 18:21 +08:00: GET /web/default/img/logo.svg 304 - - 2.146 ms
+2026-01-24 18:21 +08:00: GET /web/default/webfonts/fa-solid-900.woff2 304 - - 2.628 ms
+2026-01-24 18:21 +08:00: date = 2026-01-23   blockCode = undefined   pn = 1   ps = undefined
+2026-01-24 18:21 +08:00: date = 2026-01-23   blockCode = undefined   pn = 1   ps = undefined
+2026-01-24 18:21 +08:00: date = 2026-01-23   blockCode = undefined   pn = 1   ps = undefined
+2026-01-24 18:21 +08:00: date = 2026-01-23   blockCode = undefined   pn = 1   ps = undefined
+2026-01-24 18:21 +08:00: GET /web/default/img/favicon.png 304 - - 0.935 ms
+2026-01-24 18:21 +08:00: GET /api/d/limitCalendar 304 - - 146.964 ms
+2026-01-24 18:21 +08:00: reportCode =  101
+2026-01-24 18:21 +08:00: url =  https://quotederivates.eastmoney.com/datacenter/zdtpool?datetype=3&stocktype=2,6,80,23,36&zdt=1&version=100&cver=100&v=8827350524062363
+2026-01-24 18:21 +08:00: reportCode =  011
+2026-01-24 18:21 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPT_CUSTOM_INTSELECTION_MONITOR&columns=ALL&filter=(IS_QUALITY_GENE%3D%221%22)&pageNumber=1&pageSize=500&sortTypes=-1&sortColumns=ZTJY&em_timestamp=1769250066711&v=744944773718839
+2026-01-24 18:21 +08:00: GET /api/d/report/quality/?date=2026-01-23 304 - - 216.678 ms
+2026-01-24 18:21 +08:00: GET /api/d/report/auction/?date=2026-01-23 304 - - 228.923 ms
+2026-01-24 18:21 +08:00: reportCode =  002
+2026-01-24 18:21 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPTA_CUSTOM_APP_CONCEPTLIST&columns=&filter=&pageNumber=1&pageSize=500&em_timestamp=1769250066725&v=497628346163552
+2026-01-24 18:21 +08:00: GET /api/d/report/limitleader/?date=2026-01-23 304 - - 239.981 ms
+2026-01-24 18:21 +08:00: reportCode =  001
+2026-01-24 18:21 +08:00: url =  https://datacenter.eastmoney.com/securities/api/data/v1/get?source=SECURITIES&client=APP&reportName=RPT_CUSTOM_INTSELECTION_LIMIT&columns=LIMIT_NUMBERS,NATURAL_LIMIT,DAILY_LIMIT,TOUCH_LIMIT,SEALING_RATE,NATURAL_LIMIT_YES,LIMIT_PER_YES,,LIMIT_DOWN_NUM,CJDT_NUM,DT_FBL&filter=&pageNumber=1&pageSize=1&em_timestamp=1769250066843&v=37123058212741644
+2026-01-24 18:21 +08:00: reportCode =  201
+2026-01-24 18:21 +08:00: url =  https://push2dycalc.eastmoney.com/api/qt/ulist.np/get?secids=1.000002,0.399002,0.899050&fields=f12,f13,f14,f627,f628,f437,f438&fltt=2&invt=3&ut=c53f79d0-c4de-4459-a9b5-3f67179fc1b5&v=34765031153856785
+2026-01-24 18:21 +08:00: GET /api/d/report/effect/?date=2026-01-23 304 - - 522.805 ms
