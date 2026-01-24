@@ -78,7 +78,7 @@ class CommonService {
     type = 2,
   }) {
     try {
-console.log('start = ',start, '   len = ', len, '   attr = ', attr, '  type = ', type, '   excludeAttr = ', excludeAttr)
+//console.log('start = ',start, '   len = ', len, '   attr = ', attr, '  type = ', type, '   excludeAttr = ', excludeAttr)
       const query = knex
         .select([
           "a.id",
@@ -96,18 +96,18 @@ console.log('start = ',start, '   len = ', len, '   attr = ', attr, '  type = ',
         .leftJoin("cms_category AS c", "a.cid", "c.id")
         .where("a.status", 0)
         .orderBy("a.createdAt", "DESC")
-        .limit(len)
-        .offset(start);
+        //.limit(len)
+        //.offset(start);
 
-      if (attr && attr.length > 0) {
+      if (attr && Array.isArray(attr) && attr.length > 0) {
         //query.whereIn("a.attr", attr);
         //query.whereRaw(`POSITION(${attr} in a.attr)>0`); 该查询有错，改正如下：
         // 使用orWhere构建OR条件
         attr.forEach((item, index) => {
-          if (index === 0) {
-            query.whereRaw('FIND_IN_SET(?, attr) > 0', [item]);
-          } else {
-            query.orWhereRaw('FIND_IN_SET(?, attr) > 0', [item]);
+          if (item && item !== ''){
+            const qStr = `FIND_IN_SET("${item}", attr) > 0`;
+            if (index === 0) query.whereRaw(qStr);
+            else query.orWhereRaw(qStr);
           }
         });
       }
@@ -115,7 +115,7 @@ console.log('start = ',start, '   len = ', len, '   attr = ', attr, '  type = ',
       if (excludeAttr) {
         query.whereNotIn("a.attr", excludeAttr);
       }
-
+      query.offset(start).limit(len);
       const result = await query;
       return type == 2 ? result : result[0];
     } catch (err) {

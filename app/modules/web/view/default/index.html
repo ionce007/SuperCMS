@@ -40,12 +40,11 @@
                     {{/if}}
                         
                     <div class="w-520 h-290 bg-fff pd-20">
-                      
-                        {{if top}}
-                        <div class="flex justify-between">
-                            <h2 class="f-16 ellips-2 c-1a1a1a">{{top.title}}</h2>
-                            <p class="f-14  ellips-3  mb-10 mt-10">
-                                {{top.description}}<a class="c-003a8c" href="{{top.path}}/article-{{top.id}}.html" title="{{top.title}}">详情</a>
+                        {{if(top && top.length > 0)}}
+                        <div class="justify-between">
+                            <h2 class="f-16 ellips-2 c-1a1a1a">{{top[0].title}}</h2>
+                            <p class="f-12  ellips-3  mb-10 mt-10">
+                                <span>{{top[0].description}}</span><a class="c-003a8c" href="{{top[0].path}}/article-{{top[0].id}}.html" title="{{top.title}}">详情</a>
                             </p>
                         </div>
                         {{/if}}
@@ -193,7 +192,7 @@
     <!-- 移动端导航 -->
     {{include './common/wap-nav.html'}}
 
-    <div class=" ignore mb-20 mt-20 pd-20 bg-f2f2f2">
+    <div class="api ignore mb-20 mt-20 pd-20 bg-f2f2f2">
         <h1>SuperCMS 当前页面数据：</h1>
         <p class="mb-20">site-> {{site}} </p>
         <p class="mb-20">frag-> {{frag}} </p>

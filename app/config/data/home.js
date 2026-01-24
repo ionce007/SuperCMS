@@ -20,7 +20,7 @@ const config = {
         start: 0,
         len: 1,
         attr: ["1"],
-        type: 1, //1->一条数据，返回对象。2返回数组
+        type: 2, //1->一条数据，返回对象。2返回数组
       },
       field: ["id", "title", "path", "description", "img"],
       show: true,
@@ -30,7 +30,7 @@ const config = {
       method: "getArticleList",
       params: {
         start: 0,
-        len: 7,
+        len: 5,
         excludeAttr: ["1"], // 排除 attr 为 1 的记录
       },
       field: ["id", "title", "path", "createdAt"],
