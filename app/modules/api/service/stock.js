@@ -1453,7 +1453,7 @@ class StockService extends BaseService {
             const endDate = new Date(new Date(isNewDate).setFullYear(new Date(isNewDate).getFullYear() - 1));
             let data = [];
             let calendar = [];
-            
+            console.log('tradeDates = ', tradeDates)
             for (let i = 0; i < tradeDates.result.data.length; i++) {
                 if (new Date(tradeDates.result.data[i].DATE) >= endDate) {
                     let is_new = 0;
