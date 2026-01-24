@@ -2,11 +2,13 @@ const path = require("path");
 
 const ROOT_PATH = process.cwd();
 const APP_PATH = path.join(ROOT_PATH, "app");
+const APP_VERSION = "v26.01.20";
 const config = {};
 config.appRoot = APP_PATH;
 config.appName = "SuperCMS";
 config.port = "9081";
 config.version = "v26.01.20";
+config.APP_VERSION = "v26.01.20";
 config.versionTime = "2026-01-20";
 config.authorEmail = "ionce@163.com";
 config.authorWechat = "-ionce";

@@ -1,6 +1,7 @@
 {
   "name": "supercms",
-  "version": "3.0.14",
+  "version": "5.0.18",
+  "APP_VERSION": "5.0.18",
   "description": "SuperCMS是一款基于Node、Express、MySQL、Vue3研发的高质量实用型CMS系统。",
   "main": "app.js",
   "scripts": {
