@@ -2,7 +2,7 @@
 import Chanjs from 'chanjs';
 const chan = new Chanjs();
 //global.voiceData = getVoiceData();
-//console.log('Chan.config = ', Chan.config);
+console.log('Chan.config.static = ', chan.config.static);
 Chan.config.static.forEach(item => {
   console.log('Chan.config.static->item = ', item);
   if(typeof(item.dir) === 'object'){
