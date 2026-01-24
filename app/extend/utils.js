@@ -248,6 +248,8 @@ exports.formatDate = (date = new Date(), format = 'yyyy-MM-dd HH:mm:ss') => {
     'a': d.getHours() < 12 ? 'am' : 'pm',
     'A': d.getHours() < 12 ? 'AM' : 'PM'
   };
+  return format.replace(/(yyyy|yy|MM|M|dd|d|HH|H|hh|h|mm|m|ss|s|a|A)/g,
+    match => replacements[match]);
 }
 exports.dateFormat = (date = new Date(), format = 'yyyy-MM-dd HH:mm:ss') => {
   // 处理输入日期

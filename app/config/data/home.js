@@ -30,7 +30,7 @@ const config = {
       method: "getArticleList",
       params: {
         start: 0,
-        len: 3,
+        len: 7,
         excludeAttr: ["1"], // 排除 attr 为 1 的记录
       },
       field: ["id", "title", "path", "createdAt"],

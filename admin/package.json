@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy:lnx": "set NODE_OPTIONS=--openssl-legacy-provider && npm install && (npm run build; rm -rf ../app/public/admin);mv ./dist ../app/public && mv ../app/public/dist ../app/public/admin",
-    "deploy:win": "set NODE_OPTIONS=--openssl-legacy-provider && npm install && npm run build && rmdir /Q /S ..\\app\\public\\admin & mkdir ..\\app\\public\\admin && Xcopy /E /I /Q .\\dist ..\\app\\public\\admin"
+    "deploy:lnx": "npm install && (npm run build; rm -rf ../app/public/admin);mv ./dist ../app/public && mv ../app/public/dist ../app/public/admin",
+    "deploy:win": "npm install && npm run build && rmdir /Q /S ..\\app\\public\\admin & mkdir ..\\app\\public\\admin && Xcopy /E /I /Q .\\dist ..\\app\\public\\admin"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",

@@ -78,7 +78,7 @@ class CommonService {
     type = 2,
   }) {
     try {
-
+console.log('start = ',start, '   len = ', len, '   attr = ', attr, '  type = ', type, '   excludeAttr = ', excludeAttr)
       const query = knex
         .select([
           "a.id",
@@ -99,9 +99,17 @@ class CommonService {
         .limit(len)
         .offset(start);
 
-      if (attr) {
+      if (attr && attr.length > 0) {
         //query.whereIn("a.attr", attr);
-        query.whereRaw(`POSITION(${attr} in a.attr)>0`);
+        //query.whereRaw(`POSITION(${attr} in a.attr)>0`); 该查询有错，改正如下：
+        // 使用orWhere构建OR条件
+        attr.forEach((item, index) => {
+          if (index === 0) {
+            query.whereRaw('FIND_IN_SET(?, attr) > 0', [item]);
+          } else {
+            query.orWhereRaw('FIND_IN_SET(?, attr) > 0', [item]);
+          }
+        });
       }
 
       if (excludeAttr) {

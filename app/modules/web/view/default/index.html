@@ -45,9 +45,7 @@
                         <div class="flex justify-between">
                             <h2 class="f-16 ellips-2 c-1a1a1a">{{top.title}}</h2>
                             <p class="f-14  ellips-3  mb-10 mt-10">
-                                {{top.description}}<a class="c-003a8c"
-                                    href="{{top.path}}/article-{{top.id}}.html"
-                                    title="{{top.title}}">详情</a>
+                                {{top.description}}<a class="c-003a8c" href="{{top.path}}/article-{{top.id}}.html" title="{{top.title}}">详情</a>
                             </p>
                         </div>
                         {{/if}}
@@ -56,8 +54,7 @@
                         <ul class="w-460-list">
                             {{each news}}
                             <li class="f-14 pt-4 pb-4 flex justify-between">
-                                <a href="{{$value.path}}/article-{{$value.id}}.html"
-                                    title="{{$value.title}}">{{$value.title}}</a>
+                                <a href="{{$value.path}}/article-{{$value.id}}.html" title="{{$value.title}}">{{$value.title}}</a>
                                 <time class="c-999">{{$value.createdAt}}</time>
                             </li>
                             {{/each}}
@@ -71,8 +68,7 @@
                     {{each article.list}}
                     {{if $value.category.path !== '/datus' }}
                     <div class="w-460 bg-fff pd-20">
-                        <h3 class="m-title f-16 flex justify-between border-dashed mb-10">{{$value.category.name}}<span
-                                class="more"><a href="{{$value.category.path}}/index.html">更多</a></span></h3>
+                        <h3 class="m-title f-16 flex justify-between border-dashed mb-10">{{$value.category.name}}<span class="more"><a href="{{$value.category.path}}/index.html">更多</a></span></h3>
                         {{if $value.top.title}}
                         <figure class="flex justify-between">
                             <div class="thumb-120">
@@ -197,7 +193,7 @@
     <!-- 移动端导航 -->
     {{include './common/wap-nav.html'}}
 
-    <div class="api ignore mb-20 mt-20 pd-20 bg-f2f2f2">
+    <div class=" ignore mb-20 mt-20 pd-20 bg-f2f2f2">
         <h1>SuperCMS 当前页面数据：</h1>
         <p class="mb-20">site-> {{site}} </p>
         <p class="mb-20">frag-> {{frag}} </p>
@@ -208,6 +204,8 @@
         <p class="mb-20">category-> {{category}}</p>
         <p class="mb-20">friendlink-> {{friendlink}}</p>
         <p class="mb-20">baseUrl-> {{baseUrl}}</p>
+        <p class="mb-20">top--->{{top}}</p>
+        <p class="mb-20">news--->{{news}}</p>
         <p class="mb-20">tag--->{{tag}}</p>
         <p class="mb-20">slide--->{{slide}}</p>
         <p class="mb-20">topnews--->{{topnews}}</p>
