@@ -7,9 +7,6 @@ emrnweb.json
 /.idea
 /.vscode
 /admin/.vscode
-package-lock.json
-/package-lock.json
-/admin/package-lock.json
 /admin/dist
 /data
 /data/chanyue.sql
