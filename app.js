@@ -1,6 +1,7 @@
-﻿const Chanjs = require("chanjs");
-//import Chanjs from 'chanjs';
-const chan = new Chanjs();
+﻿//const Chanjs = require("chanjs");
+import Chanjs from 'chanjs';
+console.log(typeof(Chanjs) === 'function' ? 'function' : ( typeof(Chanjs) === '' ? '' : '' ));
+const chan =  Chanjs();
 //global.voiceData = getVoiceData();
 //console.log('Chan.config = ', Chan.config);
 Chan.config.static.forEach(item => {
