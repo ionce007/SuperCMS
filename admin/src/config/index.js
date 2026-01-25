@@ -1,13 +1,11 @@
 let api = {
   pre: {
-    BASE_API: import.meta.env.VITE_APP_BASE_API || "",
+    BASE_API: import.meta.env.VITE_APP_BASE_API || "http://localhost:9081",
   },
   prd: {
-    BASE_API: import.meta.env.VITE_APP_BASE_API || "",
+    BASE_API: import.meta.env.VITE_APP_BASE_API || "http://localhost:9081",
   },
 };
-
 const env = "pre";
 
-console.log("api[env]", api[env]);
 export default api[env];

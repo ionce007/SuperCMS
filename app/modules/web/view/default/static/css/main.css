@@ -1134,6 +1134,11 @@ iframe {
 .backtop.none {
     display: none;
 }
+.ellips-2{
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
 /*.search-btn{max-height:33px;}*/
 
 @media (max-width: 768px){

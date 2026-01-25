@@ -2,21 +2,12 @@
 import Chanjs from 'chanjs';
 const chan = new Chanjs();
 //global.voiceData = getVoiceData();
-console.log('Chan.config.static = ', Chan.config.static);
-/*Chan.config.static.forEach(item => {
-  console.log('Chan.config.static->item = ', item);
-  if(typeof(item.dir) === 'object'){
-    item.dir.forEach(x=>{
-      console.log('item.dir->x = ', x);
-    })
-  }
-});*/
 chan.start();
 chan.run((port) => {
   console.log(`SuperCMS 运行于 ${port} 端口，可访问： http://localhost:${port}`);
 });
 
-export default chan;
+
 /*function getVoiceData(){
   const path = require('path');
   const voicePath = path.join(process.cwd(), 'voice');
@@ -26,3 +17,4 @@ export default chan;
   const jsonData = JSON.parse(data);
   return jsonData;
 }*/
+export default chan;

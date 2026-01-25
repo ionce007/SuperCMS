@@ -552,6 +552,7 @@ const selectCover = (v) => {
 
 const handleClick = (tab) => {
   activeIndex.value = tab.index;
+  console.log('activeIndex = ', activeIndex);
 };
 
 const beforeUpload = (rawFile) => {

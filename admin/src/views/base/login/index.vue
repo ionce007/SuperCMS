@@ -108,6 +108,7 @@ const login = async () => {
 const toLogin = async () => {
   const { username, password } = form;
   const res = await Login.toLogin({ username, password });
+  debugger;
   if (res.code === 200) {
     user.setToken(res.data.token);
     await getUserInfo();

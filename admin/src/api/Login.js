@@ -14,7 +14,6 @@ export default class Login extends Base {
       method: "post",
       data: data,
     });
-
     // return new Promise((resovle, reject) => {
     //   setTimeout(() => {
     //     let res = {
