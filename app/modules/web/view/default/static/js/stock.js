@@ -48,8 +48,8 @@ async function showNodataOrError(msg, tabId) {
     const html = `<div class="nodata-error"><div>${msg}</div></div>`
     removeNodataNode(tabId);
     const tab = document.getElementById(tabId);
-    const dataList = tab.querySelector('.data-list');
-    dataList.innerHTML = html;
+    //const dataList = tab.querySelector('.data-list');
+    tab.innerHTML += html;
     //tab.insertAdjacentHTML('beforeend', html);
 }
 async function fillTHSData(timeType) {

@@ -358,7 +358,10 @@ a.logo-title{font-family: cursive;}
     width: 1200px;
     flex-wrap: nowrap;
 }
-
+.datus-main {
+    width: 100%;
+    flex-wrap: nowrap;
+}
 .flex-wrap {
     flex-wrap: wrap !important;
 }
@@ -888,13 +891,17 @@ iframe {
         grid-template-columns: 65% auto;
         gap: 15px;
     }
-
-    .w-460,
-    .w-520,
-    .article-index,
-    .main {
-        width: 100%;
+    .datus-main {
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-wrap: wrap;
+        display: grid;
+        flex-direction: column;
+        /*grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));*/
+        grid-template-columns: 32% 32% 32%;
+        gap: 15px;
     }
+    .w-460, .w-520, .article-index,.main { width: 100%;}
 
     .logo {
         margin-left: 10px;
@@ -1183,6 +1190,10 @@ iframe {
 @media (max-width: 768px){
     .main{
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+    .datus-main{
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+        width:100%;
     }
     :root {
             --n-1: 1px;

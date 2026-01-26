@@ -78,7 +78,6 @@ class CommonService {
     type = 2,
   }) {
     try {
-//console.log('start = ',start, '   len = ', len, '   attr = ', attr, '  type = ', type, '   excludeAttr = ', excludeAttr)
       const query = knex
         .select([
           "a.id",
