@@ -112,8 +112,12 @@ class CommonService {
         });
       }
 
-      if (excludeAttr) {
-        query.whereNotIn("a.attr", excludeAttr);
+      if (excludeAttr && Array.isArray(excludeAttr) && excludeAttr.length > 0) {
+        excludeAttr.forEach((item, index) => {
+          const qStr = `FIND_IN_SET("${item}", attr) <= 0`;
+          query.whereRaw(qStr);
+        });
+        //query.whereNotIn("a.attr", excludeAttr);
       }
       query.offset(start).limit(len);
       const result = await query;

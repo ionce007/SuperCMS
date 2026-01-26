@@ -41,20 +41,20 @@
                         
                     <div class="w-520 h-290 bg-fff pd-20">
                         {{if(top && top.length > 0)}}
-                        <div class="justify-between">
-                            <h2 class="f-16 ellips-2 c-1a1a1a">{{top[0].title}}</h2>
-                            <p class="f-12  ellips-3  mb-10 mt-10">
-                                <span>{{top[0].description}}</span><a class="c-003a8c" href="{{top[0].path}}/article-{{top[0].id}}.html" title="{{top.title}}">详情</a>
+                        <div class="justify-between top">
+                            <h2 class="f-16 ellips-1 c-1a1a1a">{{top[0].title}}</h2>
+                            <p class="f-12 ft-italic ellips-3 mb-10 mt-10">
+                                {{top[0].description}}<a class="c-003a8c ft-zt ft-14 ml-15" href="{{top[0].path}}/article-{{top[0].id}}.html" title="{{top.title}}">详情</a>
                             </p>
                         </div>
                         {{/if}}
 
                         {{if news}}
-                        <ul class="w-460-list">
+                        <ul class="w-460-list news">
                             {{each news}}
                             <li class="f-14 pt-4 pb-4 flex justify-between">
-                                <a href="{{$value.path}}/article-{{$value.id}}.html" title="{{$value.title}}">{{$value.title}}</a>
-                                <time class="c-999">{{$value.createdAt}}</time>
+                                <a class="ellips-1" href="{{$value.path}}/article-{{$value.id}}.html" title="{{$value.title}}">{{$value.title}}</a>
+                                <time class="c-999 minw-40 ml-15">{{$value.createdAt}}</time>
                             </li>
                             {{/each}}
                         </ul>
@@ -66,7 +66,7 @@
                 <section class="flex flex-wrap justify-between gap-10">
                     {{each article.list}}
                     {{if $value.category.path !== '/datus' }}
-                    <div class="w-460 bg-fff pd-20">
+                    <div class="w-460 bg-fff pd-20 ">
                         <h3 class="m-title f-16 flex justify-between border-dashed mb-10">{{$value.category.name}}<span class="more"><a href="{{$value.category.path}}/index.html">更多</a></span></h3>
                         {{if $value.top.title}}
                         <figure class="flex justify-between">
@@ -77,8 +77,7 @@
                                 <figcaption class="f-14 ellips-2 bold mb-4">{{$value.top.title}}</figcaption>
                                 <p class="f-13 ellips-3">
                                     {{$value.top.description}}
-                                    <a href="{{$value.top.path}}/{{$value.top.id}}.html"
-                                        title="{{$value.top.title}}">详情</a>
+                                    <a href="{{$value.top.path}}/{{$value.top.id}}.html" title="{{$value.top.title}}">详情</a>
                                 </p>
                             </div>
                         </figure>
@@ -87,9 +86,9 @@
                         {{if $value.list&&$value.list.length>0}}
                         <ul class="w-460-list mt-16">
                             {{each $value.list}}
-                            <li class="f-14 pt-4 pb-4 flex justify-between"><a
-                                    href="{{$value.path}}/article-{{$value.id}}.html" {{$value.title}}>{{$value.title}}</a><time
-                                    class="c-999">{{$value.createdAt}}</time></li>
+                            <li class="f-14 pt-4 pb-4 flex justify-between">
+                                <a class="ellips-1" href="{{$value.path}}/article-{{$value.id}}.html" {{$value.title}}>{{$value.title}}</a>
+                                <time class="c-999 minw-80 ml-15">{{$value.createdAt}}</time></li>
                             {{/each}}
                         </ul>
                         {{/if}}

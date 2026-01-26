@@ -353,7 +353,7 @@ a.logo-title{font-family: cursive;}
 
 /* main */
 .main {
-    width: 1280px;
+    width: 1200px;
     flex-wrap: nowrap;
 }
 
@@ -1134,11 +1134,42 @@ iframe {
 .backtop.none {
     display: none;
 }
-.ellips-2{
+.ellips-1{
     overflow: hidden;
     text-wrap: nowrap;
     text-overflow: ellipsis;
+    -webkit-line-clamp:1;
+    line-clamp:1;
 }
+.ellips-2{
+    overflow: hidden;
+    /*text-wrap: nowrap;*/
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    line-clamp:1;
+}
+/*.ellips-3{
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    line-clamp:1;
+}*/
+.ellips-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    text-overflow: ellipsis;
+    /* 可选：添加最大高度，确保布局稳定 */
+    line-height: 20px;
+}
+.ft-italic{font-style: italic;}
+.ft-zt{font-style: normal;}
+.minw-40{min-width: 40px;}
+.minw-80{min-width: 80px;}
+.w-p100{width:100px;}
 /*.search-btn{max-height:33px;}*/
 
 @media (max-width: 768px){
