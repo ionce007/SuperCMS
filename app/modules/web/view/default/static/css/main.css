@@ -1172,6 +1172,9 @@ iframe {
 .minw-80{min-width: 80px;}
 .minw-100{min-width: 100px;}
 .w-p100{width:100px;}
+.thumb{width:50px;height:auto;}
+.wp-p100{width: 100%;}
+.lh-20{line-height:20px;}
 /*.search-btn{max-height:33px;}*/
 
 @media (max-width: 768px){

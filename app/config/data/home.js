@@ -59,7 +59,7 @@ const config = {
       method: "getArticleList",
       params: {
         start: 0,
-        len: 10,
+        len: 5,
         attr: ["2"],
       },
       show: true,

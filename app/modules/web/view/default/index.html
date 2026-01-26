@@ -169,13 +169,9 @@
                     <h3 class="m-title border-dashed f-16 flex justify-between">推荐图文</h3>
                     {{each recommendImgs}}
                     <figure class="flex justify-between mt-10 border-dashed">
-                        <div class="thumb mb-10"><img class="w-p100" src="{{$value.img}}" alt="{{$value.title}}" title="{{$value.title}}"></div>
+                        <div class="thumb mb-10"><img class="wp-p100" src="{{$value.img}}" alt="{{$value.title}}" title="{{$value.title}}"></div>
                         <div class="flex-1  mb-20">
-                            <figcaption class="f-14 ellips-2 bold mt-4 mb-4">{{$value.title}}</figcaption>
-                            <p class="f-13 ellips-3">
-                                {{$value.description}}
-                                <a href="{{$value.path}}/article-{{$value.id}}.html" title="{{$value.title}}">详情</a>
-                            </p>
+                            <figcaption class="f-14 ellips-2 bold lh-20 mb-4"><a href="{{$value.path}}/article-{{$value.id}}.html" title="{{$value.title}}">{{$value.title}}</a></figcaption>
                         </div>
                     </figure>
                     {{/each}}
