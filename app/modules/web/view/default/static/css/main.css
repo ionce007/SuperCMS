@@ -1168,7 +1168,9 @@ iframe {
 .ft-italic{font-style: italic;}
 .ft-zt{font-style: normal;}
 .minw-40{min-width: 40px;}
+.minw-60{min-width: 60px;}
 .minw-80{min-width: 80px;}
+.minw-100{min-width: 100px;}
 .w-p100{width:100px;}
 /*.search-btn{max-height:33px;}*/
 

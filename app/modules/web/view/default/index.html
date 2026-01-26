@@ -54,7 +54,7 @@
                             {{each news}}
                             <li class="f-14 pt-4 pb-4 flex justify-between">
                                 <a class="ellips-1" href="{{$value.path}}/article-{{$value.id}}.html" title="{{$value.title}}">{{$value.title}}</a>
-                                <time class="c-999 minw-40 ml-15">{{$value.createdAt}}</time>
+                                <time class="c-999 minw-60 ml-5">{{$value.createdAt}}</time>
                             </li>
                             {{/each}}
                         </ul>
@@ -88,7 +88,7 @@
                             {{each $value.list}}
                             <li class="f-14 pt-4 pb-4 flex justify-between">
                                 <a class="ellips-1" href="{{$value.path}}/article-{{$value.id}}.html" {{$value.title}}>{{$value.title}}</a>
-                                <time class="c-999 minw-80 ml-15">{{$value.createdAt}}</time></li>
+                                <time class="c-999 minw-100 ml-5">{{$value.createdAt}}</time></li>
                             {{/each}}
                         </ul>
                         {{/if}}
