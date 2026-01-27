@@ -12321,7 +12321,7 @@ document.webL10n = function (window, document, undefined) {
       var dict = getL10nDictionary();
 
       if (dict && dict.locales && dict.default_locale) {
-        console.log('using the embedded JSON directory, early way out');
+        //console.log('using the embedded JSON directory, early way out');
         gL10nData = dict.locales[lang];
 
         if (!gL10nData) {
@@ -12798,7 +12798,7 @@ document.webL10n = function (window, document, undefined) {
         return gL10nData[arg];
       }
 
-      console.log('argument {{' + arg + '}} for #' + key + ' is undefined.');
+      //console.log('argument {{' + arg + '}} for #' + key + ' is undefined.');
       return matched_text;
     });
   }

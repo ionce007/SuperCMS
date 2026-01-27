@@ -24,7 +24,7 @@ class ChancmsService {
           "type",
         ])
         .orderBy("orderBy", "ASC");
-      console.log('res = ',res);
+      //console.log('res = ',res);
       return res;
     } catch (err) {
       console.error(err);

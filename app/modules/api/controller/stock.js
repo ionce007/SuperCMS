@@ -16,7 +16,7 @@ const {
 class StockController {
     async getCIP(req, res, next){
         const data = await utils.getClientIP();
-        console.log('StockController -> data = ', data);
+        //console.log('StockController -> data = ', data);
         res.json(data);
     }
     //新增加概念

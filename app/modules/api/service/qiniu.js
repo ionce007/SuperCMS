@@ -38,7 +38,7 @@ class QiniuService {
     //let key = `uploads/${year}/${month}/${day}/${new Date().getTime()}_${file.originalname}`;
     const st = new Date().getTime()-new Date(2025,1,1).getTime();
     let key = `uploads/${year}/${month}${day}_${st}_${file.originalname}`
-    console.log('qiniu->upload->key: ', key);
+    //console.log('qiniu->upload->key: ', key);
     //上传token
     let uploadToken = await this.getUploadToken(config);
     

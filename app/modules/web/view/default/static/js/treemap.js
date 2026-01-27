@@ -402,7 +402,7 @@ function render() {
                 },
                 color: (params) => {
                     const bgColor = params.data?.itemStyle?.color || params.color;
-                    console.log('params.data.itemStyle = ', params.data.itemStyle,'     params.color = ', params.color);
+                    //console.log('params.data.itemStyle = ', params.data.itemStyle,'     params.color = ', params.color);
                     return getTextColor(bgColor);
                 },
                 rich: {

@@ -1119,7 +1119,7 @@ class StockService extends BaseService {
                     "Referer": "https://emdata.eastmoney.com/",
                 },
             });
-            console.log('data = ',data);
+            //console.log('data = ',data);
             return data;
         }
         catch (err) {
@@ -1452,7 +1452,7 @@ class StockService extends BaseService {
             if (!limitDates.result) isNewDate = tradeDates.result.data[0].DATE
             else isNewDate = limitDates.result.data.filter(item => item.IS_NEW === '1')[0].TRADE_DATE;
 
-            console.log('isNewDate = ', isNewDate);
+            //console.log('isNewDate = ', isNewDate);
             const endDate = new Date(new Date(isNewDate).setFullYear(new Date(isNewDate).getFullYear() - 1));
             let data = [];
             let calendar = [];
@@ -1717,8 +1717,8 @@ class StockService extends BaseService {
             }
             url = url.replaceAll('【UT】', randomUUID()) + '&v='+(Math.random()+'').replaceAll('0.','');
             let { data } = (reportCode === '104' || reportCode === '107') ? (await (await fetch(url, { method: "GET", headers: headers})).json()) : (await axios.get(url, { headers: headers }));
-            console.log('reportCode = ', reportCode);
-            console.log('url = ', url);
+            //console.log('reportCode = ', reportCode);
+            //console.log('url = ', url);
             if(reportCode === '021' || reportCode === '027'){
                 if(data && data.result && data.result.data && data.result.data.length > 0) {
                     const codes = data.result.data.map(x => `${(x.SECURITY_CODE.substring(0,1) === '6' ? '1.' : '0.') + x.SECURITY_CODE}`).join(",");
