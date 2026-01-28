@@ -9,11 +9,12 @@ export default class Login extends Base {
   }
 
   static toLogin(data) {
-    return http({
+    const res = http({
       url: `${API.BASE_API}/api/sysUser/login`,
       method: "post",
       data: data,
     });
+    return res;
     // return new Promise((resovle, reject) => {
     //   setTimeout(() => {
     //     let res = {

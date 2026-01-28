@@ -55,41 +55,18 @@
         tooltip-effect="dark"
         row-key="id"
         @selection-change="handleSelectionChange"
-        v-loading="loading"
-      >
+        v-loading="loading">
         <el-table-column type="selection"></el-table-column>
-        <el-table-column
-          prop="id"
-          label="编号"
-          width="120"
-          fixed
-        ></el-table-column>
+        <el-table-column prop="id" label="编号" width="80" fixed></el-table-column>
         <el-table-column prop="title" label="标题">
           <template #default="scope">
-            <a
-              class="block"
-              v-if="scope.row.status === 0"
-              :href="
-                scope.row.type == '0'
-                  ? `${domain}/article-${scope.row.id}.html`
-                  : `${domain}${scope.row.path}/page-${scope.row.id}.html`
-              "
-              target="_blank"
-            >
-              {{ scope.row.title }}
-            </a>
+            <a class="block" v-if="scope.row.status === 0" :href="scope.row.type == '0'? `${domain}/article-${scope.row.id}.html`: `${domain}${scope.row.path}/page-${scope.row.id}.html`" target="_blank">{{ scope.row.title }}</a>
           </template>
         </el-table-column>
         <el-table-column prop="name" label="栏目" width="80"></el-table-column>
-        <el-table-column
-          prop="createdAt"
-          label="更新时间"
-          width="170"
-        ></el-table-column>
+        <el-table-column rop="createdAt" label="更新时间" width="170"></el-table-column>
         <el-table-column prop="status" label="状态" width="60">
-          <template #default="scope">{{
-            scope.row.status == 0 ? '显示' : '隐藏'
-          }}</template>
+          <template #default="scope">{{scope.row.status == 0 ? '显示' : '隐藏'}}</template>
         </el-table-column>
         <el-table-column fixed="right" label="操作" width="150">
           <template #default="scope">

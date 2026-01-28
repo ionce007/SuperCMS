@@ -77,12 +77,12 @@ export default defineConfig({
     strictPort: true,
     proxy: {
       "/api": {
-        target: "http://localhost:81/api", // api接口代理,
+        target: "http://localhost:9081/api", // api接口代理,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
       "/public": {
-        target: "http://localhost:81/public", // 上传图片代理,
+        target: "http://localhost:9081/public", // 上传图片代理,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/public/, ""),
       },
