@@ -1,5 +1,5 @@
-﻿//const Chanjs = require("chanjs");
-import Chanjs from 'chanjs';
+﻿const Chanjs = require("chanjs");
+//import Chanjs from 'chanjs';
 const chan = new Chanjs();
 //global.voiceData = getVoiceData();
 chan.start();
@@ -17,4 +17,4 @@ chan.run((port) => {
   const jsonData = JSON.parse(data);
   return jsonData;
 }*/
-export default chan;
+//export default chan;

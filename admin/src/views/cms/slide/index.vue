@@ -12,10 +12,10 @@
       row-key="id"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection"></el-table-column>
-      <el-table-column prop="id" label="编号"></el-table-column>
-      <el-table-column prop="title" label="标题"></el-table-column>
-      <el-table-column prop="imgUrl" label="图片链接">
+      <el-table-column type="selection" width="40"></el-table-column>
+      <el-table-column prop="id" label="编号" width="60"></el-table-column>
+      <el-table-column prop="title" label="标题" width="400"></el-table-column>
+      <el-table-column prop="imgUrl" label="图片链接" width="100">
         <template #default="scope">
           <el-popover
             v-if="scope.row.imgUrl"
